@@ -28,6 +28,13 @@ func (s AllRequestBodiesOK) Read(p []byte) (n int, err error) {
 	return s.Data.Read(p)
 }
 
+func (s AllRequestBodiesOK) Close() error {
+	if closer, ok := s.Data.(io.Closer); ok {
+		return closer.Close()
+	}
+	return nil
+}
+
 type AllRequestBodiesOptionalApplicationJSON SimpleObject
 
 func (*AllRequestBodiesOptionalApplicationJSON) allRequestBodiesOptionalReq() {}
@@ -50,6 +57,13 @@ func (s AllRequestBodiesOptionalOK) Read(p []byte) (n int, err error) {
 	return s.Data.Read(p)
 }
 
+func (s AllRequestBodiesOptionalOK) Close() error {
+	if closer, ok := s.Data.(io.Closer); ok {
+		return closer.Close()
+	}
+	return nil
+}
+
 type AllRequestBodiesOptionalReqApplicationOctetStream struct {
 	Data io.Reader
 }
@@ -62,6 +76,13 @@ func (s AllRequestBodiesOptionalReqApplicationOctetStream) Read(p []byte) (n int
 		return 0, io.EOF
 	}
 	return s.Data.Read(p)
+}
+
+func (s AllRequestBodiesOptionalReqApplicationOctetStream) Close() error {
+	if closer, ok := s.Data.(io.Closer); ok {
+		return closer.Close()
+	}
+	return nil
 }
 
 func (*AllRequestBodiesOptionalReqApplicationOctetStream) allRequestBodiesOptionalReq() {}
@@ -84,6 +105,13 @@ func (s AllRequestBodiesOptionalReqTextPlain) Read(p []byte) (n int, err error) 
 	return s.Data.Read(p)
 }
 
+func (s AllRequestBodiesOptionalReqTextPlain) Close() error {
+	if closer, ok := s.Data.(io.Closer); ok {
+		return closer.Close()
+	}
+	return nil
+}
+
 func (*AllRequestBodiesOptionalReqTextPlain) allRequestBodiesOptionalReq() {}
 
 type AllRequestBodiesReqApplicationOctetStream struct {
@@ -98,6 +126,13 @@ func (s AllRequestBodiesReqApplicationOctetStream) Read(p []byte) (n int, err er
 		return 0, io.EOF
 	}
 	return s.Data.Read(p)
+}
+
+func (s AllRequestBodiesReqApplicationOctetStream) Close() error {
+	if closer, ok := s.Data.(io.Closer); ok {
+		return closer.Close()
+	}
+	return nil
 }
 
 func (*AllRequestBodiesReqApplicationOctetStream) allRequestBodiesReq() {}
@@ -116,6 +151,13 @@ func (s AllRequestBodiesReqTextPlain) Read(p []byte) (n int, err error) {
 	return s.Data.Read(p)
 }
 
+func (s AllRequestBodiesReqTextPlain) Close() error {
+	if closer, ok := s.Data.(io.Closer); ok {
+		return closer.Close()
+	}
+	return nil
+}
+
 func (*AllRequestBodiesReqTextPlain) allRequestBodiesReq() {}
 
 type Base64RequestOK struct {
@@ -132,6 +174,13 @@ func (s Base64RequestOK) Read(p []byte) (n int, err error) {
 	return s.Data.Read(p)
 }
 
+func (s Base64RequestOK) Close() error {
+	if closer, ok := s.Data.(io.Closer); ok {
+		return closer.Close()
+	}
+	return nil
+}
+
 type Base64RequestReq struct {
 	Data io.Reader
 }
@@ -146,6 +195,13 @@ func (s Base64RequestReq) Read(p []byte) (n int, err error) {
 	return s.Data.Read(p)
 }
 
+func (s Base64RequestReq) Close() error {
+	if closer, ok := s.Data.(io.Closer); ok {
+		return closer.Close()
+	}
+	return nil
+}
+
 type MaskContentTypeOptionalReq struct {
 	Data io.Reader
 }
@@ -158,6 +214,13 @@ func (s MaskContentTypeOptionalReq) Read(p []byte) (n int, err error) {
 		return 0, io.EOF
 	}
 	return s.Data.Read(p)
+}
+
+func (s MaskContentTypeOptionalReq) Close() error {
+	if closer, ok := s.Data.(io.Closer); ok {
+		return closer.Close()
+	}
+	return nil
 }
 
 // MaskContentTypeOptionalReqWithContentType wraps MaskContentTypeOptionalReq with Content-Type.
@@ -198,6 +261,13 @@ func (s MaskContentTypeReq) Read(p []byte) (n int, err error) {
 		return 0, io.EOF
 	}
 	return s.Data.Read(p)
+}
+
+func (s MaskContentTypeReq) Close() error {
+	if closer, ok := s.Data.(io.Closer); ok {
+		return closer.Close()
+	}
+	return nil
 }
 
 // MaskContentTypeReqWithContentType wraps MaskContentTypeReq with Content-Type.

@@ -20,6 +20,7 @@ func encodeAnyContentTypeBinaryStringSchemaResponse(response AnyContentTypeBinar
 	w.WriteHeader(200)
 	span.SetStatus(codes.Ok, http.StatusText(200))
 
+	defer response.Close()
 	writer := w
 	if _, err := io.Copy(writer, response); err != nil {
 		return errors.Wrap(err, "write")
@@ -42,6 +43,7 @@ func encodeAnyContentTypeBinaryStringSchemaDefaultResponse(response *AnyContentT
 		span.SetStatus(codes.Ok, st)
 	}
 
+	defer response.Response.Close()
 	writer := w
 	if _, err := io.Copy(writer, response.Response); err != nil {
 		return errors.Wrap(err, "write")
@@ -480,6 +482,7 @@ func encodeOctetStreamBinaryStringSchemaResponse(response OctetStreamBinaryStrin
 	w.WriteHeader(200)
 	span.SetStatus(codes.Ok, http.StatusText(200))
 
+	defer response.Close()
 	writer := w
 	if _, err := io.Copy(writer, response); err != nil {
 		return errors.Wrap(err, "write")
@@ -493,6 +496,7 @@ func encodeOctetStreamEmptySchemaResponse(response OctetStreamEmptySchemaOK, w h
 	w.WriteHeader(200)
 	span.SetStatus(codes.Ok, http.StatusText(200))
 
+	defer response.Close()
 	writer := w
 	if _, err := io.Copy(writer, response); err != nil {
 		return errors.Wrap(err, "write")
@@ -577,6 +581,7 @@ func encodeTextPlainBinaryStringSchemaResponse(response TextPlainBinaryStringSch
 	w.WriteHeader(200)
 	span.SetStatus(codes.Ok, http.StatusText(200))
 
+	defer response.Close()
 	writer := w
 	if _, err := io.Copy(writer, response); err != nil {
 		return errors.Wrap(err, "write")

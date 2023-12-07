@@ -5141,6 +5141,13 @@ func (s PetGetAvatarByIDOK) Read(p []byte) (n int, err error) {
 	return s.Data.Read(p)
 }
 
+func (s PetGetAvatarByIDOK) Close() error {
+	if closer, ok := s.Data.(io.Closer); ok {
+		return closer.Close()
+	}
+	return nil
+}
+
 func (*PetGetAvatarByIDOK) petGetAvatarByIDRes() {}
 
 type PetGetAvatarByNameOK struct {
@@ -5155,6 +5162,13 @@ func (s PetGetAvatarByNameOK) Read(p []byte) (n int, err error) {
 		return 0, io.EOF
 	}
 	return s.Data.Read(p)
+}
+
+func (s PetGetAvatarByNameOK) Close() error {
+	if closer, ok := s.Data.(io.Closer); ok {
+		return closer.Close()
+	}
+	return nil
 }
 
 func (*PetGetAvatarByNameOK) petGetAvatarByNameRes() {}
@@ -5332,6 +5346,13 @@ func (s PetUploadAvatarByIDReq) Read(p []byte) (n int, err error) {
 		return 0, io.EOF
 	}
 	return s.Data.Read(p)
+}
+
+func (s PetUploadAvatarByIDReq) Close() error {
+	if closer, ok := s.Data.(io.Closer); ok {
+		return closer.Close()
+	}
+	return nil
 }
 
 type RecursiveArray []RecursiveArray
