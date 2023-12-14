@@ -97,13 +97,13 @@ func encode{{ $op.Name }}Request(
 			}()
 
 			_, err := io.Copy(writer, req)
+            req.Close()
 			return err
 		})
-		ht.SetCloserBody(r, body, contentType)
 	{{- else }}
 		body := req
-		ht.SetBody(r, body, contentType)
 	{{- end }}
+    ht.SetCloserBody(r, body, contentType)
 	return nil
 {{- else if $encoding.JSON }}
 	{{- if $.JSONStreaming }}

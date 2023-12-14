@@ -201,7 +201,11 @@ func (c *Client) sendCaching(ctx context.Context, params CachingParams) (res Wor
 	if err != nil {
 		return res, errors.Wrap(err, "do request")
 	}
-	defer resp.Body.Close()
+	defer func() {
+		if err != nil {
+			resp.Body.Close()
+		}
+	}()
 
 	stage = "DecodeResponse"
 	result, err := decodeCachingResponse(resp)
@@ -274,7 +278,11 @@ func (c *Client) sendDB(ctx context.Context) (res *WorldObject, err error) {
 	if err != nil {
 		return res, errors.Wrap(err, "do request")
 	}
-	defer resp.Body.Close()
+	defer func() {
+		if err != nil {
+			resp.Body.Close()
+		}
+	}()
 
 	stage = "DecodeResponse"
 	result, err := decodeDBResponse(resp)
@@ -348,7 +356,11 @@ func (c *Client) sendJSON(ctx context.Context) (res *HelloWorld, err error) {
 	if err != nil {
 		return res, errors.Wrap(err, "do request")
 	}
-	defer resp.Body.Close()
+	defer func() {
+		if err != nil {
+			resp.Body.Close()
+		}
+	}()
 
 	stage = "DecodeResponse"
 	result, err := decodeJSONResponse(resp)
@@ -441,7 +453,11 @@ func (c *Client) sendQueries(ctx context.Context, params QueriesParams) (res Wor
 	if err != nil {
 		return res, errors.Wrap(err, "do request")
 	}
-	defer resp.Body.Close()
+	defer func() {
+		if err != nil {
+			resp.Body.Close()
+		}
+	}()
 
 	stage = "DecodeResponse"
 	result, err := decodeQueriesResponse(resp)
@@ -533,7 +549,11 @@ func (c *Client) sendUpdates(ctx context.Context, params UpdatesParams) (res Wor
 	if err != nil {
 		return res, errors.Wrap(err, "do request")
 	}
-	defer resp.Body.Close()
+	defer func() {
+		if err != nil {
+			resp.Body.Close()
+		}
+	}()
 
 	stage = "DecodeResponse"
 	result, err := decodeUpdatesResponse(resp)

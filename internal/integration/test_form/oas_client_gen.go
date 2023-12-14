@@ -171,7 +171,11 @@ func (c *Client) sendOnlyForm(ctx context.Context, request *OnlyFormReq) (res *O
 	if err != nil {
 		return res, errors.Wrap(err, "do request")
 	}
-	defer resp.Body.Close()
+	defer func() {
+		if err != nil {
+			resp.Body.Close()
+		}
+	}()
 
 	stage = "DecodeResponse"
 	result, err := decodeOnlyFormResponse(resp)
@@ -244,7 +248,11 @@ func (c *Client) sendOnlyMultipartFile(ctx context.Context, request *OnlyMultipa
 	if err != nil {
 		return res, errors.Wrap(err, "do request")
 	}
-	defer resp.Body.Close()
+	defer func() {
+		if err != nil {
+			resp.Body.Close()
+		}
+	}()
 
 	stage = "DecodeResponse"
 	result, err := decodeOnlyMultipartFileResponse(resp)
@@ -317,7 +325,11 @@ func (c *Client) sendOnlyMultipartForm(ctx context.Context, request *OnlyMultipa
 	if err != nil {
 		return res, errors.Wrap(err, "do request")
 	}
-	defer resp.Body.Close()
+	defer func() {
+		if err != nil {
+			resp.Body.Close()
+		}
+	}()
 
 	stage = "DecodeResponse"
 	result, err := decodeOnlyMultipartFormResponse(resp)
@@ -390,7 +402,11 @@ func (c *Client) sendTestFormURLEncoded(ctx context.Context, request *TestForm) 
 	if err != nil {
 		return res, errors.Wrap(err, "do request")
 	}
-	defer resp.Body.Close()
+	defer func() {
+		if err != nil {
+			resp.Body.Close()
+		}
+	}()
 
 	stage = "DecodeResponse"
 	result, err := decodeTestFormURLEncodedResponse(resp)
@@ -463,7 +479,11 @@ func (c *Client) sendTestMultipart(ctx context.Context, request *TestFormMultipa
 	if err != nil {
 		return res, errors.Wrap(err, "do request")
 	}
-	defer resp.Body.Close()
+	defer func() {
+		if err != nil {
+			resp.Body.Close()
+		}
+	}()
 
 	stage = "DecodeResponse"
 	result, err := decodeTestMultipartResponse(resp)
@@ -536,7 +556,11 @@ func (c *Client) sendTestMultipartUpload(ctx context.Context, request *TestMulti
 	if err != nil {
 		return res, errors.Wrap(err, "do request")
 	}
-	defer resp.Body.Close()
+	defer func() {
+		if err != nil {
+			resp.Body.Close()
+		}
+	}()
 
 	stage = "DecodeResponse"
 	result, err := decodeTestMultipartUploadResponse(resp)
@@ -609,7 +633,11 @@ func (c *Client) sendTestReuseFormOptionalSchema(ctx context.Context, request Op
 	if err != nil {
 		return res, errors.Wrap(err, "do request")
 	}
-	defer resp.Body.Close()
+	defer func() {
+		if err != nil {
+			resp.Body.Close()
+		}
+	}()
 
 	stage = "DecodeResponse"
 	result, err := decodeTestReuseFormOptionalSchemaResponse(resp)
@@ -682,7 +710,11 @@ func (c *Client) sendTestReuseFormSchema(ctx context.Context, request *SharedReq
 	if err != nil {
 		return res, errors.Wrap(err, "do request")
 	}
-	defer resp.Body.Close()
+	defer func() {
+		if err != nil {
+			resp.Body.Close()
+		}
+	}()
 
 	stage = "DecodeResponse"
 	result, err := decodeTestReuseFormSchemaResponse(resp)
@@ -755,7 +787,11 @@ func (c *Client) sendTestShareFormSchema(ctx context.Context, request TestShareF
 	if err != nil {
 		return res, errors.Wrap(err, "do request")
 	}
-	defer resp.Body.Close()
+	defer func() {
+		if err != nil {
+			resp.Body.Close()
+		}
+	}()
 
 	stage = "DecodeResponse"
 	result, err := decodeTestShareFormSchemaResponse(resp)

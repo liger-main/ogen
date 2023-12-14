@@ -17,6 +17,7 @@ import (
 )
 
 func encodeAnyContentTypeBinaryStringSchemaResponse(response *AnyContentTypeBinaryStringSchemaOKHeaders, w http.ResponseWriter, span trace.Span) error {
+	defer response.Response.Close()
 	// Encoding response headers.
 	{
 		h := uri.NewHeaderEncoder(w.Header())
@@ -46,6 +47,7 @@ func encodeAnyContentTypeBinaryStringSchemaResponse(response *AnyContentTypeBina
 }
 
 func encodeAnyContentTypeBinaryStringSchemaDefaultResponse(response *AnyContentTypeBinaryStringSchemaDefaultDefStatusCodeWithHeaders, w http.ResponseWriter, span trace.Span) error {
+	defer response.Response.Close()
 	// Encoding response headers.
 	{
 		h := uri.NewHeaderEncoder(w.Header())
@@ -89,7 +91,7 @@ func encodeAnyContentTypeBinaryStringSchemaDefaultResponse(response *AnyContentT
 func encodeCombinedResponse(response CombinedRes, w http.ResponseWriter, span trace.Span) error {
 	switch response := response.(type) {
 	case *CombinedOK:
-		w.Header().Set("Content-Type", "application/json; charset=utf-8")
+		w.Header().Set("Content-Type", "application/json")
 		w.WriteHeader(200)
 		span.SetStatus(codes.Ok, http.StatusText(200))
 
@@ -102,7 +104,7 @@ func encodeCombinedResponse(response CombinedRes, w http.ResponseWriter, span tr
 		return nil
 
 	case *Combined2XXStatusCode:
-		w.Header().Set("Content-Type", "application/json; charset=utf-8")
+		w.Header().Set("Content-Type", "application/json")
 		code := response.StatusCode
 		if code == 0 {
 			// Set default status code.
@@ -127,7 +129,7 @@ func encodeCombinedResponse(response CombinedRes, w http.ResponseWriter, span tr
 		return nil
 
 	case *Combined5XXStatusCode:
-		w.Header().Set("Content-Type", "application/json; charset=utf-8")
+		w.Header().Set("Content-Type", "application/json")
 		code := response.StatusCode
 		if code == 0 {
 			// Set default status code.
@@ -152,7 +154,7 @@ func encodeCombinedResponse(response CombinedRes, w http.ResponseWriter, span tr
 		return nil
 
 	case *CombinedDefStatusCode:
-		w.Header().Set("Content-Type", "application/json; charset=utf-8")
+		w.Header().Set("Content-Type", "application/json")
 		code := response.StatusCode
 		if code == 0 {
 			// Set default status code.
@@ -425,7 +427,7 @@ func encodeHeadersPatternResponse(response *HeadersPattern4XX, w http.ResponseWr
 func encodeIntersectPatternCodeResponse(response IntersectPatternCodeRes, w http.ResponseWriter, span trace.Span) error {
 	switch response := response.(type) {
 	case *IntersectPatternCodeOKApplicationJSON:
-		w.Header().Set("Content-Type", "application/json; charset=utf-8")
+		w.Header().Set("Content-Type", "application/json")
 		w.WriteHeader(200)
 		span.SetStatus(codes.Ok, http.StatusText(200))
 
@@ -438,7 +440,7 @@ func encodeIntersectPatternCodeResponse(response IntersectPatternCodeRes, w http
 		return nil
 
 	case *IntersectPatternCode2XXStatusCode:
-		w.Header().Set("Content-Type", "application/json; charset=utf-8")
+		w.Header().Set("Content-Type", "application/json")
 		code := response.StatusCode
 		if code == 0 {
 			// Set default status code.
@@ -470,7 +472,7 @@ func encodeIntersectPatternCodeResponse(response IntersectPatternCodeRes, w http
 func encodeMultipleGenericResponsesResponse(response MultipleGenericResponsesRes, w http.ResponseWriter, span trace.Span) error {
 	switch response := response.(type) {
 	case *NilInt:
-		w.Header().Set("Content-Type", "application/json; charset=utf-8")
+		w.Header().Set("Content-Type", "application/json")
 		w.WriteHeader(200)
 		span.SetStatus(codes.Ok, http.StatusText(200))
 
@@ -483,7 +485,7 @@ func encodeMultipleGenericResponsesResponse(response MultipleGenericResponsesRes
 		return nil
 
 	case *NilString:
-		w.Header().Set("Content-Type", "application/json; charset=utf-8")
+		w.Header().Set("Content-Type", "application/json")
 		w.WriteHeader(201)
 		span.SetStatus(codes.Ok, http.StatusText(201))
 
@@ -501,6 +503,7 @@ func encodeMultipleGenericResponsesResponse(response MultipleGenericResponsesRes
 }
 
 func encodeOctetStreamBinaryStringSchemaResponse(response OctetStreamBinaryStringSchemaOK, w http.ResponseWriter, span trace.Span) error {
+	defer response.Close()
 	w.Header().Set("Content-Type", "application/octet-stream")
 	w.WriteHeader(200)
 	span.SetStatus(codes.Ok, http.StatusText(200))
@@ -515,6 +518,7 @@ func encodeOctetStreamBinaryStringSchemaResponse(response OctetStreamBinaryStrin
 }
 
 func encodeOctetStreamEmptySchemaResponse(response OctetStreamEmptySchemaOK, w http.ResponseWriter, span trace.Span) error {
+	defer response.Close()
 	w.Header().Set("Content-Type", "application/octet-stream")
 	w.WriteHeader(200)
 	span.SetStatus(codes.Ok, http.StatusText(200))
@@ -569,7 +573,7 @@ func encodeOptionalHeadersResponse(response *OptionalHeadersOK, w http.ResponseW
 func encodeStreamJSONResponse(response StreamJSONRes, w http.ResponseWriter, span trace.Span) error {
 	switch response := response.(type) {
 	case *QueryData:
-		w.Header().Set("Content-Type", "application/json; charset=utf-8")
+		w.Header().Set("Content-Type", "application/json")
 		w.WriteHeader(200)
 		span.SetStatus(codes.Ok, http.StatusText(200))
 
@@ -582,7 +586,7 @@ func encodeStreamJSONResponse(response StreamJSONRes, w http.ResponseWriter, spa
 		return nil
 
 	case *Error:
-		w.Header().Set("Content-Type", "application/json; charset=utf-8")
+		w.Header().Set("Content-Type", "application/json")
 		w.WriteHeader(400)
 		span.SetStatus(codes.Error, http.StatusText(400))
 
@@ -600,7 +604,8 @@ func encodeStreamJSONResponse(response StreamJSONRes, w http.ResponseWriter, spa
 }
 
 func encodeTextPlainBinaryStringSchemaResponse(response TextPlainBinaryStringSchemaOK, w http.ResponseWriter, span trace.Span) error {
-	w.Header().Set("Content-Type", "text/plain; charset=utf-8")
+	defer response.Close()
+	w.Header().Set("Content-Type", "text/plain")
 	w.WriteHeader(200)
 	span.SetStatus(codes.Ok, http.StatusText(200))
 

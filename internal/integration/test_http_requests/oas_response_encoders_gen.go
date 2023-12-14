@@ -14,6 +14,7 @@ import (
 )
 
 func encodeAllRequestBodiesResponse(response AllRequestBodiesOK, w http.ResponseWriter, span trace.Span) error {
+	defer response.Close()
 	w.Header().Set("Content-Type", "application/octet-stream")
 	w.WriteHeader(200)
 	span.SetStatus(codes.Ok, http.StatusText(200))
@@ -28,6 +29,7 @@ func encodeAllRequestBodiesResponse(response AllRequestBodiesOK, w http.Response
 }
 
 func encodeAllRequestBodiesOptionalResponse(response AllRequestBodiesOptionalOK, w http.ResponseWriter, span trace.Span) error {
+	defer response.Close()
 	w.Header().Set("Content-Type", "application/octet-stream")
 	w.WriteHeader(200)
 	span.SetStatus(codes.Ok, http.StatusText(200))
@@ -42,7 +44,8 @@ func encodeAllRequestBodiesOptionalResponse(response AllRequestBodiesOptionalOK,
 }
 
 func encodeBase64RequestResponse(response Base64RequestOK, w http.ResponseWriter, span trace.Span) error {
-	w.Header().Set("Content-Type", "text/plain; charset=utf-8")
+	defer response.Close()
+	w.Header().Set("Content-Type", "text/plain")
 	w.WriteHeader(200)
 	span.SetStatus(codes.Ok, http.StatusText(200))
 
@@ -57,7 +60,7 @@ func encodeBase64RequestResponse(response Base64RequestOK, w http.ResponseWriter
 }
 
 func encodeMaskContentTypeResponse(response *MaskResponse, w http.ResponseWriter, span trace.Span) error {
-	w.Header().Set("Content-Type", "application/json; charset=utf-8")
+	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(200)
 	span.SetStatus(codes.Ok, http.StatusText(200))
 
@@ -71,7 +74,7 @@ func encodeMaskContentTypeResponse(response *MaskResponse, w http.ResponseWriter
 }
 
 func encodeMaskContentTypeOptionalResponse(response *MaskResponse, w http.ResponseWriter, span trace.Span) error {
-	w.Header().Set("Content-Type", "application/json; charset=utf-8")
+	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(200)
 	span.SetStatus(codes.Ok, http.StatusText(200))
 
@@ -85,7 +88,7 @@ func encodeMaskContentTypeOptionalResponse(response *MaskResponse, w http.Respon
 }
 
 func encodeStreamJSONResponse(response float64, w http.ResponseWriter, span trace.Span) error {
-	w.Header().Set("Content-Type", "application/json; charset=utf-8")
+	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(200)
 	span.SetStatus(codes.Ok, http.StatusText(200))
 

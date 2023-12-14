@@ -184,7 +184,11 @@ func (c *Client) sendCustomSecurity(ctx context.Context) (res *CustomSecurityOK,
 	if err != nil {
 		return res, errors.Wrap(err, "do request")
 	}
-	defer resp.Body.Close()
+	defer func() {
+		if err != nil {
+			resp.Body.Close()
+		}
+	}()
 
 	stage = "DecodeResponse"
 	result, err := decodeCustomSecurityResponse(resp)
@@ -321,7 +325,11 @@ func (c *Client) sendDisjointSecurity(ctx context.Context) (res *DisjointSecurit
 	if err != nil {
 		return res, errors.Wrap(err, "do request")
 	}
-	defer resp.Body.Close()
+	defer func() {
+		if err != nil {
+			resp.Body.Close()
+		}
+	}()
 
 	stage = "DecodeResponse"
 	result, err := decodeDisjointSecurityResponse(resp)
@@ -447,7 +455,11 @@ func (c *Client) sendIntersectSecurity(ctx context.Context) (res *IntersectSecur
 	if err != nil {
 		return res, errors.Wrap(err, "do request")
 	}
-	defer resp.Body.Close()
+	defer func() {
+		if err != nil {
+			resp.Body.Close()
+		}
+	}()
 
 	stage = "DecodeResponse"
 	result, err := decodeIntersectSecurityResponse(resp)
@@ -551,7 +563,11 @@ func (c *Client) sendOptionalSecurity(ctx context.Context) (res *OptionalSecurit
 	if err != nil {
 		return res, errors.Wrap(err, "do request")
 	}
-	defer resp.Body.Close()
+	defer func() {
+		if err != nil {
+			resp.Body.Close()
+		}
+	}()
 
 	stage = "DecodeResponse"
 	result, err := decodeOptionalSecurityResponse(resp)

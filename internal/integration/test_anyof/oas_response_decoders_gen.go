@@ -20,10 +20,12 @@ func decodeIntegerNumberResponse(resp *http.Response) (res *IntegerNumber, _ err
 		// Code 200.
 		ct, _, err := mime.ParseMediaType(resp.Header.Get("Content-Type"))
 		if err != nil {
+			resp.Body.Close()
 			return res, errors.Wrap(err, "parse media type")
 		}
 		switch {
 		case ct == "application/json":
+			defer resp.Body.Close()
 			buf, err := io.ReadAll(resp.Body)
 			if err != nil {
 				return res, err
@@ -58,6 +60,7 @@ func decodeIntegerNumberResponse(resp *http.Response) (res *IntegerNumber, _ err
 			}
 			return &response, nil
 		default:
+			resp.Body.Close()
 			return res, validate.InvalidContentType(ct)
 		}
 	}
@@ -70,10 +73,12 @@ func decodeJaegerAnyOfResponse(resp *http.Response) (res *JaegerAnyOf, _ error) 
 		// Code 200.
 		ct, _, err := mime.ParseMediaType(resp.Header.Get("Content-Type"))
 		if err != nil {
+			resp.Body.Close()
 			return res, errors.Wrap(err, "parse media type")
 		}
 		switch {
 		case ct == "application/json":
+			defer resp.Body.Close()
 			buf, err := io.ReadAll(resp.Body)
 			if err != nil {
 				return res, err
@@ -108,6 +113,7 @@ func decodeJaegerAnyOfResponse(resp *http.Response) (res *JaegerAnyOf, _ error) 
 			}
 			return &response, nil
 		default:
+			resp.Body.Close()
 			return res, validate.InvalidContentType(ct)
 		}
 	}
@@ -120,10 +126,12 @@ func decodeOneUUIDResponse(resp *http.Response) (res *OneUUID, _ error) {
 		// Code 200.
 		ct, _, err := mime.ParseMediaType(resp.Header.Get("Content-Type"))
 		if err != nil {
+			resp.Body.Close()
 			return res, errors.Wrap(err, "parse media type")
 		}
 		switch {
 		case ct == "application/json":
+			defer resp.Body.Close()
 			buf, err := io.ReadAll(resp.Body)
 			if err != nil {
 				return res, err
@@ -158,6 +166,7 @@ func decodeOneUUIDResponse(resp *http.Response) (res *OneUUID, _ error) {
 			}
 			return &response, nil
 		default:
+			resp.Body.Close()
 			return res, validate.InvalidContentType(ct)
 		}
 	}

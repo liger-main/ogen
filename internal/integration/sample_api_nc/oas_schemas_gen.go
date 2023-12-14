@@ -5128,7 +5128,7 @@ func (*Pet) foobarPostRes() {}
 func (*Pet) petGetRes()     {}
 
 type PetGetAvatarByIDOK struct {
-	Data io.Reader
+	Data io.ReadCloser
 }
 
 // Read reads data from the Data reader.
@@ -5141,17 +5141,20 @@ func (s PetGetAvatarByIDOK) Read(p []byte) (n int, err error) {
 	return s.Data.Read(p)
 }
 
+// Close closes the Data reader.
+//
+// Kept to satisfy the io.ReadCloser interface.
 func (s PetGetAvatarByIDOK) Close() error {
-	if closer, ok := s.Data.(io.Closer); ok {
-		return closer.Close()
+	if s.Data == nil {
+		return nil
 	}
-	return nil
+	return s.Data.Close()
 }
 
 func (*PetGetAvatarByIDOK) petGetAvatarByIDRes() {}
 
 type PetGetAvatarByNameOK struct {
-	Data io.Reader
+	Data io.ReadCloser
 }
 
 // Read reads data from the Data reader.
@@ -5164,11 +5167,14 @@ func (s PetGetAvatarByNameOK) Read(p []byte) (n int, err error) {
 	return s.Data.Read(p)
 }
 
+// Close closes the Data reader.
+//
+// Kept to satisfy the io.ReadCloser interface.
 func (s PetGetAvatarByNameOK) Close() error {
-	if closer, ok := s.Data.(io.Closer); ok {
-		return closer.Close()
+	if s.Data == nil {
+		return nil
 	}
-	return nil
+	return s.Data.Close()
 }
 
 func (*PetGetAvatarByNameOK) petGetAvatarByNameRes() {}
@@ -5335,7 +5341,7 @@ type PetUploadAvatarByIDOK struct{}
 func (*PetUploadAvatarByIDOK) petUploadAvatarByIDRes() {}
 
 type PetUploadAvatarByIDReq struct {
-	Data io.Reader
+	Data io.ReadCloser
 }
 
 // Read reads data from the Data reader.
@@ -5348,11 +5354,14 @@ func (s PetUploadAvatarByIDReq) Read(p []byte) (n int, err error) {
 	return s.Data.Read(p)
 }
 
+// Close closes the Data reader.
+//
+// Kept to satisfy the io.ReadCloser interface.
 func (s PetUploadAvatarByIDReq) Close() error {
-	if closer, ok := s.Data.(io.Closer); ok {
-		return closer.Close()
+	if s.Data == nil {
+		return nil
 	}
-	return nil
+	return s.Data.Close()
 }
 
 type RecursiveArray []RecursiveArray

@@ -15,7 +15,7 @@ import (
 )
 
 func encodeDataGetFormatResponse(response string, w http.ResponseWriter, span trace.Span) error {
-	w.Header().Set("Content-Type", "application/json; charset=utf-8")
+	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(200)
 	span.SetStatus(codes.Ok, http.StatusText(200))
 
@@ -29,7 +29,7 @@ func encodeDataGetFormatResponse(response string, w http.ResponseWriter, span tr
 }
 
 func encodeDefaultTestResponse(response int32, w http.ResponseWriter, span trace.Span) error {
-	w.Header().Set("Content-Type", "application/json; charset=utf-8")
+	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(200)
 	span.SetStatus(codes.Ok, http.StatusText(200))
 
@@ -43,7 +43,7 @@ func encodeDefaultTestResponse(response int32, w http.ResponseWriter, span trace
 }
 
 func encodeErrorGetResponse(response *ErrorStatusCode, w http.ResponseWriter, span trace.Span) error {
-	w.Header().Set("Content-Type", "application/json; charset=utf-8")
+	w.Header().Set("Content-Type", "application/json")
 	code := response.StatusCode
 	if code == 0 {
 		// Set default status code.
@@ -79,7 +79,7 @@ func encodeFoobarGetResponse(response FoobarGetRes, w http.ResponseWriter, span 
 		}(); err != nil {
 			return errors.Wrap(err, "validate")
 		}
-		w.Header().Set("Content-Type", "application/json; charset=utf-8")
+		w.Header().Set("Content-Type", "application/json")
 		w.WriteHeader(200)
 		span.SetStatus(codes.Ok, http.StatusText(200))
 
@@ -113,7 +113,7 @@ func encodeFoobarPostResponse(response FoobarPostRes, w http.ResponseWriter, spa
 		}(); err != nil {
 			return errors.Wrap(err, "validate")
 		}
-		w.Header().Set("Content-Type", "application/json; charset=utf-8")
+		w.Header().Set("Content-Type", "application/json")
 		w.WriteHeader(200)
 		span.SetStatus(codes.Ok, http.StatusText(200))
 
@@ -132,7 +132,7 @@ func encodeFoobarPostResponse(response FoobarPostRes, w http.ResponseWriter, spa
 		return nil
 
 	case *ErrorStatusCode:
-		w.Header().Set("Content-Type", "application/json; charset=utf-8")
+		w.Header().Set("Content-Type", "application/json")
 		code := response.StatusCode
 		if code == 0 {
 			// Set default status code.
@@ -181,7 +181,7 @@ func encodeFoobarPutResponse(response *FoobarPutDef, w http.ResponseWriter, span
 }
 
 func encodeNoAdditionalPropertiesTestResponse(response *NoAdditionalPropertiesTest, w http.ResponseWriter, span trace.Span) error {
-	w.Header().Set("Content-Type", "application/json; charset=utf-8")
+	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(200)
 	span.SetStatus(codes.Ok, http.StatusText(200))
 
@@ -195,7 +195,7 @@ func encodeNoAdditionalPropertiesTestResponse(response *NoAdditionalPropertiesTe
 }
 
 func encodeNullableDefaultResponseResponse(response *NilIntStatusCode, w http.ResponseWriter, span trace.Span) error {
-	w.Header().Set("Content-Type", "application/json; charset=utf-8")
+	w.Header().Set("Content-Type", "application/json")
 	code := response.StatusCode
 	if code == 0 {
 		// Set default status code.
@@ -228,7 +228,7 @@ func encodeOneofBugResponse(response *OneofBugOK, w http.ResponseWriter, span tr
 }
 
 func encodePatternRecursiveMapGetResponse(response PatternRecursiveMap, w http.ResponseWriter, span trace.Span) error {
-	w.Header().Set("Content-Type", "application/json; charset=utf-8")
+	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(200)
 	span.SetStatus(codes.Ok, http.StatusText(200))
 
@@ -250,7 +250,7 @@ func encodePetCreateResponse(response *Pet, w http.ResponseWriter, span trace.Sp
 	}(); err != nil {
 		return errors.Wrap(err, "validate")
 	}
-	w.Header().Set("Content-Type", "application/json; charset=utf-8")
+	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(200)
 	span.SetStatus(codes.Ok, http.StatusText(200))
 
@@ -272,7 +272,7 @@ func encodePetFriendsNamesByIDResponse(response []string, w http.ResponseWriter,
 	}(); err != nil {
 		return errors.Wrap(err, "validate")
 	}
-	w.Header().Set("Content-Type", "application/json; charset=utf-8")
+	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(200)
 	span.SetStatus(codes.Ok, http.StatusText(200))
 
@@ -300,7 +300,7 @@ func encodePetGetResponse(response PetGetRes, w http.ResponseWriter, span trace.
 		}(); err != nil {
 			return errors.Wrap(err, "validate")
 		}
-		w.Header().Set("Content-Type", "application/json; charset=utf-8")
+		w.Header().Set("Content-Type", "application/json")
 		w.WriteHeader(200)
 		span.SetStatus(codes.Ok, http.StatusText(200))
 
@@ -313,7 +313,7 @@ func encodePetGetResponse(response PetGetRes, w http.ResponseWriter, span trace.
 		return nil
 
 	case *PetGetDefStatusCode:
-		w.Header().Set("Content-Type", "application/json; charset=utf-8")
+		w.Header().Set("Content-Type", "application/json")
 		code := response.StatusCode
 		if code == 0 {
 			// Set default status code.
@@ -345,6 +345,7 @@ func encodePetGetResponse(response PetGetRes, w http.ResponseWriter, span trace.
 func encodePetGetAvatarByIDResponse(response PetGetAvatarByIDRes, w http.ResponseWriter, span trace.Span) error {
 	switch response := response.(type) {
 	case *PetGetAvatarByIDOK:
+		defer response.Close()
 		w.Header().Set("Content-Type", "application/octet-stream")
 		w.WriteHeader(200)
 		span.SetStatus(codes.Ok, http.StatusText(200))
@@ -364,7 +365,7 @@ func encodePetGetAvatarByIDResponse(response PetGetAvatarByIDRes, w http.Respons
 		return nil
 
 	case *ErrorStatusCode:
-		w.Header().Set("Content-Type", "application/json; charset=utf-8")
+		w.Header().Set("Content-Type", "application/json")
 		code := response.StatusCode
 		if code == 0 {
 			// Set default status code.
@@ -396,6 +397,7 @@ func encodePetGetAvatarByIDResponse(response PetGetAvatarByIDRes, w http.Respons
 func encodePetGetAvatarByNameResponse(response PetGetAvatarByNameRes, w http.ResponseWriter, span trace.Span) error {
 	switch response := response.(type) {
 	case *PetGetAvatarByNameOK:
+		defer response.Close()
 		w.Header().Set("Content-Type", "application/octet-stream")
 		w.WriteHeader(200)
 		span.SetStatus(codes.Ok, http.StatusText(200))
@@ -415,7 +417,7 @@ func encodePetGetAvatarByNameResponse(response PetGetAvatarByNameRes, w http.Res
 		return nil
 
 	case *ErrorStatusCode:
-		w.Header().Set("Content-Type", "application/json; charset=utf-8")
+		w.Header().Set("Content-Type", "application/json")
 		code := response.StatusCode
 		if code == 0 {
 			// Set default status code.
@@ -453,7 +455,7 @@ func encodePetGetByNameResponse(response *Pet, w http.ResponseWriter, span trace
 	}(); err != nil {
 		return errors.Wrap(err, "validate")
 	}
-	w.Header().Set("Content-Type", "application/json; charset=utf-8")
+	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(200)
 	span.SetStatus(codes.Ok, http.StatusText(200))
 
@@ -467,7 +469,7 @@ func encodePetGetByNameResponse(response *Pet, w http.ResponseWriter, span trace
 }
 
 func encodePetNameByIDResponse(response string, w http.ResponseWriter, span trace.Span) error {
-	w.Header().Set("Content-Type", "application/json; charset=utf-8")
+	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(200)
 	span.SetStatus(codes.Ok, http.StatusText(200))
 
@@ -533,7 +535,7 @@ func encodePetUploadAvatarByIDResponse(response PetUploadAvatarByIDRes, w http.R
 		return nil
 
 	case *ErrorStatusCode:
-		w.Header().Set("Content-Type", "application/json; charset=utf-8")
+		w.Header().Set("Content-Type", "application/json")
 		code := response.StatusCode
 		if code == 0 {
 			// Set default status code.
@@ -571,7 +573,7 @@ func encodeRecursiveArrayGetResponse(response RecursiveArray, w http.ResponseWri
 	}(); err != nil {
 		return errors.Wrap(err, "validate")
 	}
-	w.Header().Set("Content-Type", "application/json; charset=utf-8")
+	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(200)
 	span.SetStatus(codes.Ok, http.StatusText(200))
 
@@ -585,7 +587,7 @@ func encodeRecursiveArrayGetResponse(response RecursiveArray, w http.ResponseWri
 }
 
 func encodeRecursiveMapGetResponse(response *RecursiveMap, w http.ResponseWriter, span trace.Span) error {
-	w.Header().Set("Content-Type", "application/json; charset=utf-8")
+	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(200)
 	span.SetStatus(codes.Ok, http.StatusText(200))
 
@@ -599,7 +601,7 @@ func encodeRecursiveMapGetResponse(response *RecursiveMap, w http.ResponseWriter
 }
 
 func encodeSecurityTestResponse(response string, w http.ResponseWriter, span trace.Span) error {
-	w.Header().Set("Content-Type", "application/json; charset=utf-8")
+	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(200)
 	span.SetStatus(codes.Ok, http.StatusText(200))
 
@@ -613,7 +615,7 @@ func encodeSecurityTestResponse(response string, w http.ResponseWriter, span tra
 }
 
 func encodeStringIntMapGetResponse(response *StringIntMap, w http.ResponseWriter, span trace.Span) error {
-	w.Header().Set("Content-Type", "application/json; charset=utf-8")
+	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(200)
 	span.SetStatus(codes.Ok, http.StatusText(200))
 
@@ -634,7 +636,7 @@ func encodeTestFloatValidationResponse(response *TestFloatValidationOK, w http.R
 }
 
 func encodeTestInlineOneofResponse(response *TestInlineOneOf, w http.ResponseWriter, span trace.Span) error {
-	w.Header().Set("Content-Type", "application/json; charset=utf-8")
+	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(200)
 	span.SetStatus(codes.Ok, http.StatusText(200))
 
@@ -658,7 +660,7 @@ func encodeTestNullableOneofsResponse(response TestNullableOneofsRes, w http.Res
 		}(); err != nil {
 			return errors.Wrap(err, "validate")
 		}
-		w.Header().Set("Content-Type", "application/json; charset=utf-8")
+		w.Header().Set("Content-Type", "application/json")
 		w.WriteHeader(200)
 		span.SetStatus(codes.Ok, http.StatusText(200))
 
@@ -679,7 +681,7 @@ func encodeTestNullableOneofsResponse(response TestNullableOneofsRes, w http.Res
 		}(); err != nil {
 			return errors.Wrap(err, "validate")
 		}
-		w.Header().Set("Content-Type", "application/json; charset=utf-8")
+		w.Header().Set("Content-Type", "application/json")
 		w.WriteHeader(201)
 		span.SetStatus(codes.Ok, http.StatusText(201))
 
@@ -700,7 +702,7 @@ func encodeTestNullableOneofsResponse(response TestNullableOneofsRes, w http.Res
 		}(); err != nil {
 			return errors.Wrap(err, "validate")
 		}
-		w.Header().Set("Content-Type", "application/json; charset=utf-8")
+		w.Header().Set("Content-Type", "application/json")
 		w.WriteHeader(202)
 		span.SetStatus(codes.Ok, http.StatusText(202))
 
@@ -726,7 +728,7 @@ func encodeTestTupleResponse(response *TupleTest, w http.ResponseWriter, span tr
 	}(); err != nil {
 		return errors.Wrap(err, "validate")
 	}
-	w.Header().Set("Content-Type", "application/json; charset=utf-8")
+	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(200)
 	span.SetStatus(codes.Ok, http.StatusText(200))
 
@@ -748,7 +750,7 @@ func encodeTestTupleNamedResponse(response *TupleNamedTest, w http.ResponseWrite
 	}(); err != nil {
 		return errors.Wrap(err, "validate")
 	}
-	w.Header().Set("Content-Type", "application/json; charset=utf-8")
+	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(200)
 	span.SetStatus(codes.Ok, http.StatusText(200))
 
@@ -770,7 +772,7 @@ func encodeTestUniqueItemsResponse(response *UniqueItemsTest, w http.ResponseWri
 	}(); err != nil {
 		return errors.Wrap(err, "validate")
 	}
-	w.Header().Set("Content-Type", "application/json; charset=utf-8")
+	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(200)
 	span.SetStatus(codes.Ok, http.StatusText(200))
 

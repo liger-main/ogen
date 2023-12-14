@@ -155,7 +155,11 @@ func (c *Client) sendDataCreate(ctx context.Context, request OptData) (res *Data
 	if err != nil {
 		return res, errors.Wrap(err, "do request")
 	}
-	defer resp.Body.Close()
+	defer func() {
+		if err != nil {
+			resp.Body.Close()
+		}
+	}()
 
 	stage = "DecodeResponse"
 	result, err := decodeDataCreateResponse(resp)
@@ -227,7 +231,11 @@ func (c *Client) sendDataGet(ctx context.Context) (res *Data, err error) {
 	if err != nil {
 		return res, errors.Wrap(err, "do request")
 	}
-	defer resp.Body.Close()
+	defer func() {
+		if err != nil {
+			resp.Body.Close()
+		}
+	}()
 
 	stage = "DecodeResponse"
 	result, err := decodeDataGetResponse(resp)
