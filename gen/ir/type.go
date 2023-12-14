@@ -67,7 +67,6 @@ type Type struct {
 	Kind                Kind                // kind
 	Name                string              // only for struct, alias, interface, enum, stream, generic, map, sum
 	Primitive           PrimitiveType       // only for primitive, enum
-	CustomFormat        *CustomFormat       // only for primitive
 	AliasTo             *Type               // only for alias
 	PointerTo           *Type               // only for pointer
 	SumOf               []*Type             // only for sum
@@ -170,9 +169,6 @@ func (t *Type) Is(vs ...Kind) bool {
 func (t *Type) Go() string {
 	switch t.Kind {
 	case KindPrimitive:
-		if cf := t.CustomFormat; cf != nil {
-			return cf.Type.Go()
-		}
 		return t.Primitive.String()
 	case KindAny:
 		return "jx.Raw"
@@ -191,9 +187,6 @@ func (t *Type) Go() string {
 func (t *Type) NamePostfix() string {
 	switch t.Kind {
 	case KindPrimitive:
-		if cf := t.CustomFormat; cf != nil {
-			return cf.GoName
-		}
 		if t.Primitive == Null {
 			return "Null"
 		}
@@ -225,7 +218,9 @@ func (t *Type) NamePostfix() string {
 			return "IPv6"
 		case "uri":
 			return "URI"
-		case "int32", "int64":
+		case "int", "int8", "int16", "int32", "int64",
+			"uint", "uint8", "uint16", "uint32", "uint64",
+			"float32", "float64":
 			if s.Type != jsonschema.String {
 				return t.Primitive.String()
 			}
@@ -242,7 +237,7 @@ func (t *Type) NamePostfix() string {
 			return t.Primitive.String()
 		}
 	case KindArray:
-		return t.Item.NamePostfix() + "Array"
+		return t.Item.NamePostfix() + arraySuffix
 	case KindAny:
 		return "Any"
 	case KindPointer:

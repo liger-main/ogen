@@ -1610,15 +1610,6 @@ func (c *Client) sendOrdersLimitOrderPost(ctx context.Context, request *LimitOrd
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/orders/limit-order"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -1760,15 +1751,6 @@ func (c *Client) sendOrdersMarketOrderPost(ctx context.Context, request *MarketO
 	otelAttrs := []attribute.KeyValue{
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/orders/market-order"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -2287,15 +2269,6 @@ func (c *Client) sendSandboxCurrenciesBalancePost(ctx context.Context, request *
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/sandbox/currencies/balance"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -2424,15 +2397,6 @@ func (c *Client) sendSandboxPositionsBalancePost(ctx context.Context, request *S
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/sandbox/positions/balance"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -2560,22 +2524,6 @@ func (c *Client) sendSandboxRegisterPost(ctx context.Context, request OptSandbox
 	otelAttrs := []attribute.KeyValue{
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/sandbox/register"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if value, ok := request.Get(); ok {
-			if err := func() error {
-				if err := value.Validate(); err != nil {
-					return err
-				}
-				return nil
-			}(); err != nil {
-				return err
-			}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.

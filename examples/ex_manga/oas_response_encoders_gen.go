@@ -10,12 +10,15 @@ import (
 	"github.com/go-faster/jx"
 	"go.opentelemetry.io/otel/codes"
 	"go.opentelemetry.io/otel/trace"
+
+	"github.com/ogen-go/ogen/conv"
+	"github.com/ogen-go/ogen/uri"
 )
 
 func encodeGetBookResponse(response GetBookRes, w http.ResponseWriter, span trace.Span) error {
 	switch response := response.(type) {
 	case *Book:
-		w.Header().Set("Content-Type", "application/json")
+		w.Header().Set("Content-Type", "application/json; charset=utf-8")
 		w.WriteHeader(200)
 		span.SetStatus(codes.Ok, http.StatusText(200))
 
@@ -40,12 +43,28 @@ func encodeGetBookResponse(response GetBookRes, w http.ResponseWriter, span trac
 
 func encodeGetPageCoverImageResponse(response GetPageCoverImageRes, w http.ResponseWriter, span trace.Span) error {
 	switch response := response.(type) {
-	case *GetPageCoverImageOK:
+	case *GetPageCoverImageOKHeaders:
+		// Encoding response headers.
+		{
+			h := uri.NewHeaderEncoder(w.Header())
+			// Encode "Content-Type" header.
+			{
+				cfg := uri.HeaderParameterEncodingConfig{
+					Name:    "Content-Type",
+					Explode: false,
+				}
+				if err := h.EncodeParam(cfg, func(e uri.Encoder) error {
+					return e.EncodeValue(conv.StringToString(response.ContentType))
+				}); err != nil {
+					return errors.Wrap(err, "encode Content-Type header")
+				}
+			}
+		}
 		w.WriteHeader(200)
 		span.SetStatus(codes.Ok, http.StatusText(200))
 
 		writer := w
-		if _, err := io.Copy(writer, response); err != nil {
+		if _, err := io.Copy(writer, response.Response); err != nil {
 			return errors.Wrap(err, "write")
 		}
 
@@ -64,12 +83,28 @@ func encodeGetPageCoverImageResponse(response GetPageCoverImageRes, w http.Respo
 
 func encodeGetPageImageResponse(response GetPageImageRes, w http.ResponseWriter, span trace.Span) error {
 	switch response := response.(type) {
-	case *GetPageImageOK:
+	case *GetPageImageOKHeaders:
+		// Encoding response headers.
+		{
+			h := uri.NewHeaderEncoder(w.Header())
+			// Encode "Content-Type" header.
+			{
+				cfg := uri.HeaderParameterEncodingConfig{
+					Name:    "Content-Type",
+					Explode: false,
+				}
+				if err := h.EncodeParam(cfg, func(e uri.Encoder) error {
+					return e.EncodeValue(conv.StringToString(response.ContentType))
+				}); err != nil {
+					return errors.Wrap(err, "encode Content-Type header")
+				}
+			}
+		}
 		w.WriteHeader(200)
 		span.SetStatus(codes.Ok, http.StatusText(200))
 
 		writer := w
-		if _, err := io.Copy(writer, response); err != nil {
+		if _, err := io.Copy(writer, response.Response); err != nil {
 			return errors.Wrap(err, "write")
 		}
 
@@ -88,12 +123,28 @@ func encodeGetPageImageResponse(response GetPageImageRes, w http.ResponseWriter,
 
 func encodeGetPageThumbnailImageResponse(response GetPageThumbnailImageRes, w http.ResponseWriter, span trace.Span) error {
 	switch response := response.(type) {
-	case *GetPageThumbnailImageOK:
+	case *GetPageThumbnailImageOKHeaders:
+		// Encoding response headers.
+		{
+			h := uri.NewHeaderEncoder(w.Header())
+			// Encode "Content-Type" header.
+			{
+				cfg := uri.HeaderParameterEncodingConfig{
+					Name:    "Content-Type",
+					Explode: false,
+				}
+				if err := h.EncodeParam(cfg, func(e uri.Encoder) error {
+					return e.EncodeValue(conv.StringToString(response.ContentType))
+				}); err != nil {
+					return errors.Wrap(err, "encode Content-Type header")
+				}
+			}
+		}
 		w.WriteHeader(200)
 		span.SetStatus(codes.Ok, http.StatusText(200))
 
 		writer := w
-		if _, err := io.Copy(writer, response); err != nil {
+		if _, err := io.Copy(writer, response.Response); err != nil {
 			return errors.Wrap(err, "write")
 		}
 
@@ -113,7 +164,7 @@ func encodeGetPageThumbnailImageResponse(response GetPageThumbnailImageRes, w ht
 func encodeSearchResponse(response SearchRes, w http.ResponseWriter, span trace.Span) error {
 	switch response := response.(type) {
 	case *SearchOKApplicationJSON:
-		w.Header().Set("Content-Type", "application/json")
+		w.Header().Set("Content-Type", "application/json; charset=utf-8")
 		w.WriteHeader(200)
 		span.SetStatus(codes.Ok, http.StatusText(200))
 
@@ -139,7 +190,7 @@ func encodeSearchResponse(response SearchRes, w http.ResponseWriter, span trace.
 func encodeSearchByTagIDResponse(response SearchByTagIDRes, w http.ResponseWriter, span trace.Span) error {
 	switch response := response.(type) {
 	case *SearchByTagIDOKApplicationJSON:
-		w.Header().Set("Content-Type", "application/json")
+		w.Header().Set("Content-Type", "application/json; charset=utf-8")
 		w.WriteHeader(200)
 		span.SetStatus(codes.Ok, http.StatusText(200))
 

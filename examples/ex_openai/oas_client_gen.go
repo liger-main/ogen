@@ -389,15 +389,6 @@ func (c *Client) sendCreateAnswer(ctx context.Context, request *CreateAnswerRequ
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/answers"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -472,15 +463,6 @@ func (c *Client) sendCreateChatCompletion(ctx context.Context, request *CreateCh
 		otelogen.OperationID("createChatCompletion"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/chat/completions"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -565,15 +547,6 @@ func (c *Client) sendCreateClassification(ctx context.Context, request *CreateCl
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/classifications"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -648,15 +621,6 @@ func (c *Client) sendCreateCompletion(ctx context.Context, request *CreateComple
 		otelogen.OperationID("createCompletion"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/completions"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -733,15 +697,6 @@ func (c *Client) sendCreateEdit(ctx context.Context, request *CreateEditRequest)
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/edits"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -816,15 +771,6 @@ func (c *Client) sendCreateEmbedding(ctx context.Context, request *CreateEmbeddi
 		otelogen.OperationID("createEmbedding"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/embeddings"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -981,15 +927,6 @@ func (c *Client) sendCreateFineTune(ctx context.Context, request *CreateFineTune
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/fine-tunes"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -1064,15 +1001,6 @@ func (c *Client) sendCreateImage(ctx context.Context, request *CreateImageReques
 		otelogen.OperationID("createImage"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/images/generations"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -1149,15 +1077,6 @@ func (c *Client) sendCreateImageEdit(ctx context.Context, request *CreateImageEd
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/images/edits"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -1233,15 +1152,6 @@ func (c *Client) sendCreateImageVariation(ctx context.Context, request *CreateIm
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/images/variations"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -1316,15 +1226,6 @@ func (c *Client) sendCreateModeration(ctx context.Context, request *CreateModera
 		otelogen.OperationID("createModeration"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/moderations"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -1409,15 +1310,6 @@ func (c *Client) sendCreateSearch(ctx context.Context, request *CreateSearchRequ
 		otelogen.OperationID("createSearch"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/engines/{engine_id}/search"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -1513,15 +1405,6 @@ func (c *Client) sendCreateTranscription(ctx context.Context, request *CreateTra
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/audio/transcriptions"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -1596,15 +1479,6 @@ func (c *Client) sendCreateTranslation(ctx context.Context, request *CreateTrans
 		otelogen.OperationID("createTranslation"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/audio/translations"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.

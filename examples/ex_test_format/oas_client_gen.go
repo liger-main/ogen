@@ -4,7 +4,6 @@ package api
 
 import (
 	"context"
-	"fmt"
 	"net/netip"
 	"net/url"
 	"strings"
@@ -23,7 +22,6 @@ import (
 	ht "github.com/ogen-go/ogen/http"
 	"github.com/ogen-go/ogen/otelogen"
 	"github.com/ogen-go/ogen/uri"
-	"github.com/ogen-go/ogen/validate"
 )
 
 // Invoker invokes operations described by OpenAPI v3 specification.
@@ -1307,15 +1305,15 @@ type Invoker interface {
 	// TestRequestRequiredStringFloat32Nullable invokes test_request_required_string_float32_nullable operation.
 	//
 	// POST /test_request_required_string_float32_nullable
-	TestRequestRequiredStringFloat32Nullable(ctx context.Context, request NilFloat32) (*Error, error)
+	TestRequestRequiredStringFloat32Nullable(ctx context.Context, request NilStringFloat32) (*Error, error)
 	// TestRequestRequiredStringFloat32NullableArray invokes test_request_required_string_float32_nullable_array operation.
 	//
 	// POST /test_request_required_string_float32_nullable_array
-	TestRequestRequiredStringFloat32NullableArray(ctx context.Context, request []NilFloat32) (*Error, error)
+	TestRequestRequiredStringFloat32NullableArray(ctx context.Context, request []NilStringFloat32) (*Error, error)
 	// TestRequestRequiredStringFloat32NullableArrayArray invokes test_request_required_string_float32_nullable_array_array operation.
 	//
 	// POST /test_request_required_string_float32_nullable_array_array
-	TestRequestRequiredStringFloat32NullableArrayArray(ctx context.Context, request [][]NilFloat32) (*Error, error)
+	TestRequestRequiredStringFloat32NullableArrayArray(ctx context.Context, request [][]NilStringFloat32) (*Error, error)
 	// TestRequestRequiredStringFloat64 invokes test_request_required_string_float64 operation.
 	//
 	// POST /test_request_required_string_float64
@@ -1331,15 +1329,15 @@ type Invoker interface {
 	// TestRequestRequiredStringFloat64Nullable invokes test_request_required_string_float64_nullable operation.
 	//
 	// POST /test_request_required_string_float64_nullable
-	TestRequestRequiredStringFloat64Nullable(ctx context.Context, request NilFloat64) (*Error, error)
+	TestRequestRequiredStringFloat64Nullable(ctx context.Context, request NilStringFloat64) (*Error, error)
 	// TestRequestRequiredStringFloat64NullableArray invokes test_request_required_string_float64_nullable_array operation.
 	//
 	// POST /test_request_required_string_float64_nullable_array
-	TestRequestRequiredStringFloat64NullableArray(ctx context.Context, request []NilFloat64) (*Error, error)
+	TestRequestRequiredStringFloat64NullableArray(ctx context.Context, request []NilStringFloat64) (*Error, error)
 	// TestRequestRequiredStringFloat64NullableArrayArray invokes test_request_required_string_float64_nullable_array_array operation.
 	//
 	// POST /test_request_required_string_float64_nullable_array_array
-	TestRequestRequiredStringFloat64NullableArrayArray(ctx context.Context, request [][]NilFloat64) (*Error, error)
+	TestRequestRequiredStringFloat64NullableArrayArray(ctx context.Context, request [][]NilStringFloat64) (*Error, error)
 	// TestRequestRequiredStringHostname invokes test_request_required_string_hostname operation.
 	//
 	// POST /test_request_required_string_hostname
@@ -1407,15 +1405,15 @@ type Invoker interface {
 	// TestRequestRequiredStringInt16Nullable invokes test_request_required_string_int16_nullable operation.
 	//
 	// POST /test_request_required_string_int16_nullable
-	TestRequestRequiredStringInt16Nullable(ctx context.Context, request NilInt16) (*Error, error)
+	TestRequestRequiredStringInt16Nullable(ctx context.Context, request NilStringInt16) (*Error, error)
 	// TestRequestRequiredStringInt16NullableArray invokes test_request_required_string_int16_nullable_array operation.
 	//
 	// POST /test_request_required_string_int16_nullable_array
-	TestRequestRequiredStringInt16NullableArray(ctx context.Context, request []NilInt16) (*Error, error)
+	TestRequestRequiredStringInt16NullableArray(ctx context.Context, request []NilStringInt16) (*Error, error)
 	// TestRequestRequiredStringInt16NullableArrayArray invokes test_request_required_string_int16_nullable_array_array operation.
 	//
 	// POST /test_request_required_string_int16_nullable_array_array
-	TestRequestRequiredStringInt16NullableArrayArray(ctx context.Context, request [][]NilInt16) (*Error, error)
+	TestRequestRequiredStringInt16NullableArrayArray(ctx context.Context, request [][]NilStringInt16) (*Error, error)
 	// TestRequestRequiredStringInt32 invokes test_request_required_string_int32 operation.
 	//
 	// POST /test_request_required_string_int32
@@ -1479,15 +1477,15 @@ type Invoker interface {
 	// TestRequestRequiredStringInt8Nullable invokes test_request_required_string_int8_nullable operation.
 	//
 	// POST /test_request_required_string_int8_nullable
-	TestRequestRequiredStringInt8Nullable(ctx context.Context, request NilInt8) (*Error, error)
+	TestRequestRequiredStringInt8Nullable(ctx context.Context, request NilStringInt8) (*Error, error)
 	// TestRequestRequiredStringInt8NullableArray invokes test_request_required_string_int8_nullable_array operation.
 	//
 	// POST /test_request_required_string_int8_nullable_array
-	TestRequestRequiredStringInt8NullableArray(ctx context.Context, request []NilInt8) (*Error, error)
+	TestRequestRequiredStringInt8NullableArray(ctx context.Context, request []NilStringInt8) (*Error, error)
 	// TestRequestRequiredStringInt8NullableArrayArray invokes test_request_required_string_int8_nullable_array_array operation.
 	//
 	// POST /test_request_required_string_int8_nullable_array_array
-	TestRequestRequiredStringInt8NullableArrayArray(ctx context.Context, request [][]NilInt8) (*Error, error)
+	TestRequestRequiredStringInt8NullableArrayArray(ctx context.Context, request [][]NilStringInt8) (*Error, error)
 	// TestRequestRequiredStringIntArray invokes test_request_required_string_int_array operation.
 	//
 	// POST /test_request_required_string_int_array
@@ -1499,15 +1497,15 @@ type Invoker interface {
 	// TestRequestRequiredStringIntNullable invokes test_request_required_string_int_nullable operation.
 	//
 	// POST /test_request_required_string_int_nullable
-	TestRequestRequiredStringIntNullable(ctx context.Context, request NilInt) (*Error, error)
+	TestRequestRequiredStringIntNullable(ctx context.Context, request NilStringInt) (*Error, error)
 	// TestRequestRequiredStringIntNullableArray invokes test_request_required_string_int_nullable_array operation.
 	//
 	// POST /test_request_required_string_int_nullable_array
-	TestRequestRequiredStringIntNullableArray(ctx context.Context, request []NilInt) (*Error, error)
+	TestRequestRequiredStringIntNullableArray(ctx context.Context, request []NilStringInt) (*Error, error)
 	// TestRequestRequiredStringIntNullableArrayArray invokes test_request_required_string_int_nullable_array_array operation.
 	//
 	// POST /test_request_required_string_int_nullable_array_array
-	TestRequestRequiredStringIntNullableArrayArray(ctx context.Context, request [][]NilInt) (*Error, error)
+	TestRequestRequiredStringIntNullableArrayArray(ctx context.Context, request [][]NilStringInt) (*Error, error)
 	// TestRequestRequiredStringIpv4 invokes test_request_required_string_ipv4 operation.
 	//
 	// POST /test_request_required_string_ipv4
@@ -1683,15 +1681,15 @@ type Invoker interface {
 	// TestRequestRequiredStringUint16Nullable invokes test_request_required_string_uint16_nullable operation.
 	//
 	// POST /test_request_required_string_uint16_nullable
-	TestRequestRequiredStringUint16Nullable(ctx context.Context, request NilUint16) (*Error, error)
+	TestRequestRequiredStringUint16Nullable(ctx context.Context, request NilStringUint16) (*Error, error)
 	// TestRequestRequiredStringUint16NullableArray invokes test_request_required_string_uint16_nullable_array operation.
 	//
 	// POST /test_request_required_string_uint16_nullable_array
-	TestRequestRequiredStringUint16NullableArray(ctx context.Context, request []NilUint16) (*Error, error)
+	TestRequestRequiredStringUint16NullableArray(ctx context.Context, request []NilStringUint16) (*Error, error)
 	// TestRequestRequiredStringUint16NullableArrayArray invokes test_request_required_string_uint16_nullable_array_array operation.
 	//
 	// POST /test_request_required_string_uint16_nullable_array_array
-	TestRequestRequiredStringUint16NullableArrayArray(ctx context.Context, request [][]NilUint16) (*Error, error)
+	TestRequestRequiredStringUint16NullableArrayArray(ctx context.Context, request [][]NilStringUint16) (*Error, error)
 	// TestRequestRequiredStringUint32 invokes test_request_required_string_uint32 operation.
 	//
 	// POST /test_request_required_string_uint32
@@ -1707,15 +1705,15 @@ type Invoker interface {
 	// TestRequestRequiredStringUint32Nullable invokes test_request_required_string_uint32_nullable operation.
 	//
 	// POST /test_request_required_string_uint32_nullable
-	TestRequestRequiredStringUint32Nullable(ctx context.Context, request NilUint32) (*Error, error)
+	TestRequestRequiredStringUint32Nullable(ctx context.Context, request NilStringUint32) (*Error, error)
 	// TestRequestRequiredStringUint32NullableArray invokes test_request_required_string_uint32_nullable_array operation.
 	//
 	// POST /test_request_required_string_uint32_nullable_array
-	TestRequestRequiredStringUint32NullableArray(ctx context.Context, request []NilUint32) (*Error, error)
+	TestRequestRequiredStringUint32NullableArray(ctx context.Context, request []NilStringUint32) (*Error, error)
 	// TestRequestRequiredStringUint32NullableArrayArray invokes test_request_required_string_uint32_nullable_array_array operation.
 	//
 	// POST /test_request_required_string_uint32_nullable_array_array
-	TestRequestRequiredStringUint32NullableArrayArray(ctx context.Context, request [][]NilUint32) (*Error, error)
+	TestRequestRequiredStringUint32NullableArrayArray(ctx context.Context, request [][]NilStringUint32) (*Error, error)
 	// TestRequestRequiredStringUint64 invokes test_request_required_string_uint64 operation.
 	//
 	// POST /test_request_required_string_uint64
@@ -1731,15 +1729,15 @@ type Invoker interface {
 	// TestRequestRequiredStringUint64Nullable invokes test_request_required_string_uint64_nullable operation.
 	//
 	// POST /test_request_required_string_uint64_nullable
-	TestRequestRequiredStringUint64Nullable(ctx context.Context, request NilUint64) (*Error, error)
+	TestRequestRequiredStringUint64Nullable(ctx context.Context, request NilStringUint64) (*Error, error)
 	// TestRequestRequiredStringUint64NullableArray invokes test_request_required_string_uint64_nullable_array operation.
 	//
 	// POST /test_request_required_string_uint64_nullable_array
-	TestRequestRequiredStringUint64NullableArray(ctx context.Context, request []NilUint64) (*Error, error)
+	TestRequestRequiredStringUint64NullableArray(ctx context.Context, request []NilStringUint64) (*Error, error)
 	// TestRequestRequiredStringUint64NullableArrayArray invokes test_request_required_string_uint64_nullable_array_array operation.
 	//
 	// POST /test_request_required_string_uint64_nullable_array_array
-	TestRequestRequiredStringUint64NullableArrayArray(ctx context.Context, request [][]NilUint64) (*Error, error)
+	TestRequestRequiredStringUint64NullableArrayArray(ctx context.Context, request [][]NilStringUint64) (*Error, error)
 	// TestRequestRequiredStringUint8 invokes test_request_required_string_uint8 operation.
 	//
 	// POST /test_request_required_string_uint8
@@ -1755,15 +1753,15 @@ type Invoker interface {
 	// TestRequestRequiredStringUint8Nullable invokes test_request_required_string_uint8_nullable operation.
 	//
 	// POST /test_request_required_string_uint8_nullable
-	TestRequestRequiredStringUint8Nullable(ctx context.Context, request NilUint8) (*Error, error)
+	TestRequestRequiredStringUint8Nullable(ctx context.Context, request NilStringUint8) (*Error, error)
 	// TestRequestRequiredStringUint8NullableArray invokes test_request_required_string_uint8_nullable_array operation.
 	//
 	// POST /test_request_required_string_uint8_nullable_array
-	TestRequestRequiredStringUint8NullableArray(ctx context.Context, request []NilUint8) (*Error, error)
+	TestRequestRequiredStringUint8NullableArray(ctx context.Context, request []NilStringUint8) (*Error, error)
 	// TestRequestRequiredStringUint8NullableArrayArray invokes test_request_required_string_uint8_nullable_array_array operation.
 	//
 	// POST /test_request_required_string_uint8_nullable_array_array
-	TestRequestRequiredStringUint8NullableArrayArray(ctx context.Context, request [][]NilUint8) (*Error, error)
+	TestRequestRequiredStringUint8NullableArrayArray(ctx context.Context, request [][]NilStringUint8) (*Error, error)
 	// TestRequestRequiredStringUintArray invokes test_request_required_string_uint_array operation.
 	//
 	// POST /test_request_required_string_uint_array
@@ -1775,15 +1773,15 @@ type Invoker interface {
 	// TestRequestRequiredStringUintNullable invokes test_request_required_string_uint_nullable operation.
 	//
 	// POST /test_request_required_string_uint_nullable
-	TestRequestRequiredStringUintNullable(ctx context.Context, request NilUint) (*Error, error)
+	TestRequestRequiredStringUintNullable(ctx context.Context, request NilStringUint) (*Error, error)
 	// TestRequestRequiredStringUintNullableArray invokes test_request_required_string_uint_nullable_array operation.
 	//
 	// POST /test_request_required_string_uint_nullable_array
-	TestRequestRequiredStringUintNullableArray(ctx context.Context, request []NilUint) (*Error, error)
+	TestRequestRequiredStringUintNullableArray(ctx context.Context, request []NilStringUint) (*Error, error)
 	// TestRequestRequiredStringUintNullableArrayArray invokes test_request_required_string_uint_nullable_array_array operation.
 	//
 	// POST /test_request_required_string_uint_nullable_array_array
-	TestRequestRequiredStringUintNullableArrayArray(ctx context.Context, request [][]NilUint) (*Error, error)
+	TestRequestRequiredStringUintNullableArrayArray(ctx context.Context, request [][]NilStringUint) (*Error, error)
 	// TestRequestRequiredStringUnix invokes test_request_required_string_unix operation.
 	//
 	// POST /test_request_required_string_unix
@@ -2087,7 +2085,7 @@ type Invoker interface {
 	// TestRequestStringFloat32 invokes test_request_string_float32 operation.
 	//
 	// POST /test_request_string_float32
-	TestRequestStringFloat32(ctx context.Context, request OptFloat32) (*Error, error)
+	TestRequestStringFloat32(ctx context.Context, request OptStringFloat32) (*Error, error)
 	// TestRequestStringFloat32Array invokes test_request_string_float32_array operation.
 	//
 	// POST /test_request_string_float32_array
@@ -2099,19 +2097,19 @@ type Invoker interface {
 	// TestRequestStringFloat32Nullable invokes test_request_string_float32_nullable operation.
 	//
 	// POST /test_request_string_float32_nullable
-	TestRequestStringFloat32Nullable(ctx context.Context, request OptNilFloat32) (*Error, error)
+	TestRequestStringFloat32Nullable(ctx context.Context, request OptNilStringFloat32) (*Error, error)
 	// TestRequestStringFloat32NullableArray invokes test_request_string_float32_nullable_array operation.
 	//
 	// POST /test_request_string_float32_nullable_array
-	TestRequestStringFloat32NullableArray(ctx context.Context, request []NilFloat32) (*Error, error)
+	TestRequestStringFloat32NullableArray(ctx context.Context, request []NilStringFloat32) (*Error, error)
 	// TestRequestStringFloat32NullableArrayArray invokes test_request_string_float32_nullable_array_array operation.
 	//
 	// POST /test_request_string_float32_nullable_array_array
-	TestRequestStringFloat32NullableArrayArray(ctx context.Context, request [][]NilFloat32) (*Error, error)
+	TestRequestStringFloat32NullableArrayArray(ctx context.Context, request [][]NilStringFloat32) (*Error, error)
 	// TestRequestStringFloat64 invokes test_request_string_float64 operation.
 	//
 	// POST /test_request_string_float64
-	TestRequestStringFloat64(ctx context.Context, request OptFloat64) (*Error, error)
+	TestRequestStringFloat64(ctx context.Context, request OptStringFloat64) (*Error, error)
 	// TestRequestStringFloat64Array invokes test_request_string_float64_array operation.
 	//
 	// POST /test_request_string_float64_array
@@ -2123,15 +2121,15 @@ type Invoker interface {
 	// TestRequestStringFloat64Nullable invokes test_request_string_float64_nullable operation.
 	//
 	// POST /test_request_string_float64_nullable
-	TestRequestStringFloat64Nullable(ctx context.Context, request OptNilFloat64) (*Error, error)
+	TestRequestStringFloat64Nullable(ctx context.Context, request OptNilStringFloat64) (*Error, error)
 	// TestRequestStringFloat64NullableArray invokes test_request_string_float64_nullable_array operation.
 	//
 	// POST /test_request_string_float64_nullable_array
-	TestRequestStringFloat64NullableArray(ctx context.Context, request []NilFloat64) (*Error, error)
+	TestRequestStringFloat64NullableArray(ctx context.Context, request []NilStringFloat64) (*Error, error)
 	// TestRequestStringFloat64NullableArrayArray invokes test_request_string_float64_nullable_array_array operation.
 	//
 	// POST /test_request_string_float64_nullable_array_array
-	TestRequestStringFloat64NullableArrayArray(ctx context.Context, request [][]NilFloat64) (*Error, error)
+	TestRequestStringFloat64NullableArrayArray(ctx context.Context, request [][]NilStringFloat64) (*Error, error)
 	// TestRequestStringHostname invokes test_request_string_hostname operation.
 	//
 	// POST /test_request_string_hostname
@@ -2183,11 +2181,11 @@ type Invoker interface {
 	// TestRequestStringInt invokes test_request_string_int operation.
 	//
 	// POST /test_request_string_int
-	TestRequestStringInt(ctx context.Context, request OptInt) (*Error, error)
+	TestRequestStringInt(ctx context.Context, request OptStringInt) (*Error, error)
 	// TestRequestStringInt16 invokes test_request_string_int16 operation.
 	//
 	// POST /test_request_string_int16
-	TestRequestStringInt16(ctx context.Context, request OptInt16) (*Error, error)
+	TestRequestStringInt16(ctx context.Context, request OptStringInt16) (*Error, error)
 	// TestRequestStringInt16Array invokes test_request_string_int16_array operation.
 	//
 	// POST /test_request_string_int16_array
@@ -2199,15 +2197,15 @@ type Invoker interface {
 	// TestRequestStringInt16Nullable invokes test_request_string_int16_nullable operation.
 	//
 	// POST /test_request_string_int16_nullable
-	TestRequestStringInt16Nullable(ctx context.Context, request OptNilInt16) (*Error, error)
+	TestRequestStringInt16Nullable(ctx context.Context, request OptNilStringInt16) (*Error, error)
 	// TestRequestStringInt16NullableArray invokes test_request_string_int16_nullable_array operation.
 	//
 	// POST /test_request_string_int16_nullable_array
-	TestRequestStringInt16NullableArray(ctx context.Context, request []NilInt16) (*Error, error)
+	TestRequestStringInt16NullableArray(ctx context.Context, request []NilStringInt16) (*Error, error)
 	// TestRequestStringInt16NullableArrayArray invokes test_request_string_int16_nullable_array_array operation.
 	//
 	// POST /test_request_string_int16_nullable_array_array
-	TestRequestStringInt16NullableArrayArray(ctx context.Context, request [][]NilInt16) (*Error, error)
+	TestRequestStringInt16NullableArrayArray(ctx context.Context, request [][]NilStringInt16) (*Error, error)
 	// TestRequestStringInt32 invokes test_request_string_int32 operation.
 	//
 	// POST /test_request_string_int32
@@ -2259,7 +2257,7 @@ type Invoker interface {
 	// TestRequestStringInt8 invokes test_request_string_int8 operation.
 	//
 	// POST /test_request_string_int8
-	TestRequestStringInt8(ctx context.Context, request OptInt8) (*Error, error)
+	TestRequestStringInt8(ctx context.Context, request OptStringInt8) (*Error, error)
 	// TestRequestStringInt8Array invokes test_request_string_int8_array operation.
 	//
 	// POST /test_request_string_int8_array
@@ -2271,15 +2269,15 @@ type Invoker interface {
 	// TestRequestStringInt8Nullable invokes test_request_string_int8_nullable operation.
 	//
 	// POST /test_request_string_int8_nullable
-	TestRequestStringInt8Nullable(ctx context.Context, request OptNilInt8) (*Error, error)
+	TestRequestStringInt8Nullable(ctx context.Context, request OptNilStringInt8) (*Error, error)
 	// TestRequestStringInt8NullableArray invokes test_request_string_int8_nullable_array operation.
 	//
 	// POST /test_request_string_int8_nullable_array
-	TestRequestStringInt8NullableArray(ctx context.Context, request []NilInt8) (*Error, error)
+	TestRequestStringInt8NullableArray(ctx context.Context, request []NilStringInt8) (*Error, error)
 	// TestRequestStringInt8NullableArrayArray invokes test_request_string_int8_nullable_array_array operation.
 	//
 	// POST /test_request_string_int8_nullable_array_array
-	TestRequestStringInt8NullableArrayArray(ctx context.Context, request [][]NilInt8) (*Error, error)
+	TestRequestStringInt8NullableArrayArray(ctx context.Context, request [][]NilStringInt8) (*Error, error)
 	// TestRequestStringIntArray invokes test_request_string_int_array operation.
 	//
 	// POST /test_request_string_int_array
@@ -2291,15 +2289,15 @@ type Invoker interface {
 	// TestRequestStringIntNullable invokes test_request_string_int_nullable operation.
 	//
 	// POST /test_request_string_int_nullable
-	TestRequestStringIntNullable(ctx context.Context, request OptNilInt) (*Error, error)
+	TestRequestStringIntNullable(ctx context.Context, request OptNilStringInt) (*Error, error)
 	// TestRequestStringIntNullableArray invokes test_request_string_int_nullable_array operation.
 	//
 	// POST /test_request_string_int_nullable_array
-	TestRequestStringIntNullableArray(ctx context.Context, request []NilInt) (*Error, error)
+	TestRequestStringIntNullableArray(ctx context.Context, request []NilStringInt) (*Error, error)
 	// TestRequestStringIntNullableArrayArray invokes test_request_string_int_nullable_array_array operation.
 	//
 	// POST /test_request_string_int_nullable_array_array
-	TestRequestStringIntNullableArrayArray(ctx context.Context, request [][]NilInt) (*Error, error)
+	TestRequestStringIntNullableArrayArray(ctx context.Context, request [][]NilStringInt) (*Error, error)
 	// TestRequestStringIpv4 invokes test_request_string_ipv4 operation.
 	//
 	// POST /test_request_string_ipv4
@@ -2459,11 +2457,11 @@ type Invoker interface {
 	// TestRequestStringUint invokes test_request_string_uint operation.
 	//
 	// POST /test_request_string_uint
-	TestRequestStringUint(ctx context.Context, request OptUint) (*Error, error)
+	TestRequestStringUint(ctx context.Context, request OptStringUint) (*Error, error)
 	// TestRequestStringUint16 invokes test_request_string_uint16 operation.
 	//
 	// POST /test_request_string_uint16
-	TestRequestStringUint16(ctx context.Context, request OptUint16) (*Error, error)
+	TestRequestStringUint16(ctx context.Context, request OptStringUint16) (*Error, error)
 	// TestRequestStringUint16Array invokes test_request_string_uint16_array operation.
 	//
 	// POST /test_request_string_uint16_array
@@ -2475,19 +2473,19 @@ type Invoker interface {
 	// TestRequestStringUint16Nullable invokes test_request_string_uint16_nullable operation.
 	//
 	// POST /test_request_string_uint16_nullable
-	TestRequestStringUint16Nullable(ctx context.Context, request OptNilUint16) (*Error, error)
+	TestRequestStringUint16Nullable(ctx context.Context, request OptNilStringUint16) (*Error, error)
 	// TestRequestStringUint16NullableArray invokes test_request_string_uint16_nullable_array operation.
 	//
 	// POST /test_request_string_uint16_nullable_array
-	TestRequestStringUint16NullableArray(ctx context.Context, request []NilUint16) (*Error, error)
+	TestRequestStringUint16NullableArray(ctx context.Context, request []NilStringUint16) (*Error, error)
 	// TestRequestStringUint16NullableArrayArray invokes test_request_string_uint16_nullable_array_array operation.
 	//
 	// POST /test_request_string_uint16_nullable_array_array
-	TestRequestStringUint16NullableArrayArray(ctx context.Context, request [][]NilUint16) (*Error, error)
+	TestRequestStringUint16NullableArrayArray(ctx context.Context, request [][]NilStringUint16) (*Error, error)
 	// TestRequestStringUint32 invokes test_request_string_uint32 operation.
 	//
 	// POST /test_request_string_uint32
-	TestRequestStringUint32(ctx context.Context, request OptUint32) (*Error, error)
+	TestRequestStringUint32(ctx context.Context, request OptStringUint32) (*Error, error)
 	// TestRequestStringUint32Array invokes test_request_string_uint32_array operation.
 	//
 	// POST /test_request_string_uint32_array
@@ -2499,19 +2497,19 @@ type Invoker interface {
 	// TestRequestStringUint32Nullable invokes test_request_string_uint32_nullable operation.
 	//
 	// POST /test_request_string_uint32_nullable
-	TestRequestStringUint32Nullable(ctx context.Context, request OptNilUint32) (*Error, error)
+	TestRequestStringUint32Nullable(ctx context.Context, request OptNilStringUint32) (*Error, error)
 	// TestRequestStringUint32NullableArray invokes test_request_string_uint32_nullable_array operation.
 	//
 	// POST /test_request_string_uint32_nullable_array
-	TestRequestStringUint32NullableArray(ctx context.Context, request []NilUint32) (*Error, error)
+	TestRequestStringUint32NullableArray(ctx context.Context, request []NilStringUint32) (*Error, error)
 	// TestRequestStringUint32NullableArrayArray invokes test_request_string_uint32_nullable_array_array operation.
 	//
 	// POST /test_request_string_uint32_nullable_array_array
-	TestRequestStringUint32NullableArrayArray(ctx context.Context, request [][]NilUint32) (*Error, error)
+	TestRequestStringUint32NullableArrayArray(ctx context.Context, request [][]NilStringUint32) (*Error, error)
 	// TestRequestStringUint64 invokes test_request_string_uint64 operation.
 	//
 	// POST /test_request_string_uint64
-	TestRequestStringUint64(ctx context.Context, request OptUint64) (*Error, error)
+	TestRequestStringUint64(ctx context.Context, request OptStringUint64) (*Error, error)
 	// TestRequestStringUint64Array invokes test_request_string_uint64_array operation.
 	//
 	// POST /test_request_string_uint64_array
@@ -2523,19 +2521,19 @@ type Invoker interface {
 	// TestRequestStringUint64Nullable invokes test_request_string_uint64_nullable operation.
 	//
 	// POST /test_request_string_uint64_nullable
-	TestRequestStringUint64Nullable(ctx context.Context, request OptNilUint64) (*Error, error)
+	TestRequestStringUint64Nullable(ctx context.Context, request OptNilStringUint64) (*Error, error)
 	// TestRequestStringUint64NullableArray invokes test_request_string_uint64_nullable_array operation.
 	//
 	// POST /test_request_string_uint64_nullable_array
-	TestRequestStringUint64NullableArray(ctx context.Context, request []NilUint64) (*Error, error)
+	TestRequestStringUint64NullableArray(ctx context.Context, request []NilStringUint64) (*Error, error)
 	// TestRequestStringUint64NullableArrayArray invokes test_request_string_uint64_nullable_array_array operation.
 	//
 	// POST /test_request_string_uint64_nullable_array_array
-	TestRequestStringUint64NullableArrayArray(ctx context.Context, request [][]NilUint64) (*Error, error)
+	TestRequestStringUint64NullableArrayArray(ctx context.Context, request [][]NilStringUint64) (*Error, error)
 	// TestRequestStringUint8 invokes test_request_string_uint8 operation.
 	//
 	// POST /test_request_string_uint8
-	TestRequestStringUint8(ctx context.Context, request OptUint8) (*Error, error)
+	TestRequestStringUint8(ctx context.Context, request OptStringUint8) (*Error, error)
 	// TestRequestStringUint8Array invokes test_request_string_uint8_array operation.
 	//
 	// POST /test_request_string_uint8_array
@@ -2547,15 +2545,15 @@ type Invoker interface {
 	// TestRequestStringUint8Nullable invokes test_request_string_uint8_nullable operation.
 	//
 	// POST /test_request_string_uint8_nullable
-	TestRequestStringUint8Nullable(ctx context.Context, request OptNilUint8) (*Error, error)
+	TestRequestStringUint8Nullable(ctx context.Context, request OptNilStringUint8) (*Error, error)
 	// TestRequestStringUint8NullableArray invokes test_request_string_uint8_nullable_array operation.
 	//
 	// POST /test_request_string_uint8_nullable_array
-	TestRequestStringUint8NullableArray(ctx context.Context, request []NilUint8) (*Error, error)
+	TestRequestStringUint8NullableArray(ctx context.Context, request []NilStringUint8) (*Error, error)
 	// TestRequestStringUint8NullableArrayArray invokes test_request_string_uint8_nullable_array_array operation.
 	//
 	// POST /test_request_string_uint8_nullable_array_array
-	TestRequestStringUint8NullableArrayArray(ctx context.Context, request [][]NilUint8) (*Error, error)
+	TestRequestStringUint8NullableArrayArray(ctx context.Context, request [][]NilStringUint8) (*Error, error)
 	// TestRequestStringUintArray invokes test_request_string_uint_array operation.
 	//
 	// POST /test_request_string_uint_array
@@ -2567,15 +2565,15 @@ type Invoker interface {
 	// TestRequestStringUintNullable invokes test_request_string_uint_nullable operation.
 	//
 	// POST /test_request_string_uint_nullable
-	TestRequestStringUintNullable(ctx context.Context, request OptNilUint) (*Error, error)
+	TestRequestStringUintNullable(ctx context.Context, request OptNilStringUint) (*Error, error)
 	// TestRequestStringUintNullableArray invokes test_request_string_uint_nullable_array operation.
 	//
 	// POST /test_request_string_uint_nullable_array
-	TestRequestStringUintNullableArray(ctx context.Context, request []NilUint) (*Error, error)
+	TestRequestStringUintNullableArray(ctx context.Context, request []NilStringUint) (*Error, error)
 	// TestRequestStringUintNullableArrayArray invokes test_request_string_uint_nullable_array_array operation.
 	//
 	// POST /test_request_string_uint_nullable_array_array
-	TestRequestStringUintNullableArrayArray(ctx context.Context, request [][]NilUint) (*Error, error)
+	TestRequestStringUintNullableArrayArray(ctx context.Context, request [][]NilStringUint) (*Error, error)
 	// TestRequestStringUnix invokes test_request_string_unix operation.
 	//
 	// POST /test_request_string_unix
@@ -3431,15 +3429,15 @@ type Invoker interface {
 	// TestResponseStringFloat32Nullable invokes test_response_string_float32_nullable operation.
 	//
 	// POST /test_response_string_float32_nullable
-	TestResponseStringFloat32Nullable(ctx context.Context, request string) (NilFloat32, error)
+	TestResponseStringFloat32Nullable(ctx context.Context, request string) (NilStringFloat32, error)
 	// TestResponseStringFloat32NullableArray invokes test_response_string_float32_nullable_array operation.
 	//
 	// POST /test_response_string_float32_nullable_array
-	TestResponseStringFloat32NullableArray(ctx context.Context, request string) ([]NilFloat32, error)
+	TestResponseStringFloat32NullableArray(ctx context.Context, request string) ([]NilStringFloat32, error)
 	// TestResponseStringFloat32NullableArrayArray invokes test_response_string_float32_nullable_array_array operation.
 	//
 	// POST /test_response_string_float32_nullable_array_array
-	TestResponseStringFloat32NullableArrayArray(ctx context.Context, request string) ([][]NilFloat32, error)
+	TestResponseStringFloat32NullableArrayArray(ctx context.Context, request string) ([][]NilStringFloat32, error)
 	// TestResponseStringFloat64 invokes test_response_string_float64 operation.
 	//
 	// POST /test_response_string_float64
@@ -3455,15 +3453,15 @@ type Invoker interface {
 	// TestResponseStringFloat64Nullable invokes test_response_string_float64_nullable operation.
 	//
 	// POST /test_response_string_float64_nullable
-	TestResponseStringFloat64Nullable(ctx context.Context, request string) (NilFloat64, error)
+	TestResponseStringFloat64Nullable(ctx context.Context, request string) (NilStringFloat64, error)
 	// TestResponseStringFloat64NullableArray invokes test_response_string_float64_nullable_array operation.
 	//
 	// POST /test_response_string_float64_nullable_array
-	TestResponseStringFloat64NullableArray(ctx context.Context, request string) ([]NilFloat64, error)
+	TestResponseStringFloat64NullableArray(ctx context.Context, request string) ([]NilStringFloat64, error)
 	// TestResponseStringFloat64NullableArrayArray invokes test_response_string_float64_nullable_array_array operation.
 	//
 	// POST /test_response_string_float64_nullable_array_array
-	TestResponseStringFloat64NullableArrayArray(ctx context.Context, request string) ([][]NilFloat64, error)
+	TestResponseStringFloat64NullableArrayArray(ctx context.Context, request string) ([][]NilStringFloat64, error)
 	// TestResponseStringHostname invokes test_response_string_hostname operation.
 	//
 	// POST /test_response_string_hostname
@@ -3531,15 +3529,15 @@ type Invoker interface {
 	// TestResponseStringInt16Nullable invokes test_response_string_int16_nullable operation.
 	//
 	// POST /test_response_string_int16_nullable
-	TestResponseStringInt16Nullable(ctx context.Context, request string) (NilInt16, error)
+	TestResponseStringInt16Nullable(ctx context.Context, request string) (NilStringInt16, error)
 	// TestResponseStringInt16NullableArray invokes test_response_string_int16_nullable_array operation.
 	//
 	// POST /test_response_string_int16_nullable_array
-	TestResponseStringInt16NullableArray(ctx context.Context, request string) ([]NilInt16, error)
+	TestResponseStringInt16NullableArray(ctx context.Context, request string) ([]NilStringInt16, error)
 	// TestResponseStringInt16NullableArrayArray invokes test_response_string_int16_nullable_array_array operation.
 	//
 	// POST /test_response_string_int16_nullable_array_array
-	TestResponseStringInt16NullableArrayArray(ctx context.Context, request string) ([][]NilInt16, error)
+	TestResponseStringInt16NullableArrayArray(ctx context.Context, request string) ([][]NilStringInt16, error)
 	// TestResponseStringInt32 invokes test_response_string_int32 operation.
 	//
 	// POST /test_response_string_int32
@@ -3603,15 +3601,15 @@ type Invoker interface {
 	// TestResponseStringInt8Nullable invokes test_response_string_int8_nullable operation.
 	//
 	// POST /test_response_string_int8_nullable
-	TestResponseStringInt8Nullable(ctx context.Context, request string) (NilInt8, error)
+	TestResponseStringInt8Nullable(ctx context.Context, request string) (NilStringInt8, error)
 	// TestResponseStringInt8NullableArray invokes test_response_string_int8_nullable_array operation.
 	//
 	// POST /test_response_string_int8_nullable_array
-	TestResponseStringInt8NullableArray(ctx context.Context, request string) ([]NilInt8, error)
+	TestResponseStringInt8NullableArray(ctx context.Context, request string) ([]NilStringInt8, error)
 	// TestResponseStringInt8NullableArrayArray invokes test_response_string_int8_nullable_array_array operation.
 	//
 	// POST /test_response_string_int8_nullable_array_array
-	TestResponseStringInt8NullableArrayArray(ctx context.Context, request string) ([][]NilInt8, error)
+	TestResponseStringInt8NullableArrayArray(ctx context.Context, request string) ([][]NilStringInt8, error)
 	// TestResponseStringIntArray invokes test_response_string_int_array operation.
 	//
 	// POST /test_response_string_int_array
@@ -3623,15 +3621,15 @@ type Invoker interface {
 	// TestResponseStringIntNullable invokes test_response_string_int_nullable operation.
 	//
 	// POST /test_response_string_int_nullable
-	TestResponseStringIntNullable(ctx context.Context, request string) (NilInt, error)
+	TestResponseStringIntNullable(ctx context.Context, request string) (NilStringInt, error)
 	// TestResponseStringIntNullableArray invokes test_response_string_int_nullable_array operation.
 	//
 	// POST /test_response_string_int_nullable_array
-	TestResponseStringIntNullableArray(ctx context.Context, request string) ([]NilInt, error)
+	TestResponseStringIntNullableArray(ctx context.Context, request string) ([]NilStringInt, error)
 	// TestResponseStringIntNullableArrayArray invokes test_response_string_int_nullable_array_array operation.
 	//
 	// POST /test_response_string_int_nullable_array_array
-	TestResponseStringIntNullableArrayArray(ctx context.Context, request string) ([][]NilInt, error)
+	TestResponseStringIntNullableArrayArray(ctx context.Context, request string) ([][]NilStringInt, error)
 	// TestResponseStringIpv4 invokes test_response_string_ipv4 operation.
 	//
 	// POST /test_response_string_ipv4
@@ -3807,15 +3805,15 @@ type Invoker interface {
 	// TestResponseStringUint16Nullable invokes test_response_string_uint16_nullable operation.
 	//
 	// POST /test_response_string_uint16_nullable
-	TestResponseStringUint16Nullable(ctx context.Context, request string) (NilUint16, error)
+	TestResponseStringUint16Nullable(ctx context.Context, request string) (NilStringUint16, error)
 	// TestResponseStringUint16NullableArray invokes test_response_string_uint16_nullable_array operation.
 	//
 	// POST /test_response_string_uint16_nullable_array
-	TestResponseStringUint16NullableArray(ctx context.Context, request string) ([]NilUint16, error)
+	TestResponseStringUint16NullableArray(ctx context.Context, request string) ([]NilStringUint16, error)
 	// TestResponseStringUint16NullableArrayArray invokes test_response_string_uint16_nullable_array_array operation.
 	//
 	// POST /test_response_string_uint16_nullable_array_array
-	TestResponseStringUint16NullableArrayArray(ctx context.Context, request string) ([][]NilUint16, error)
+	TestResponseStringUint16NullableArrayArray(ctx context.Context, request string) ([][]NilStringUint16, error)
 	// TestResponseStringUint32 invokes test_response_string_uint32 operation.
 	//
 	// POST /test_response_string_uint32
@@ -3831,15 +3829,15 @@ type Invoker interface {
 	// TestResponseStringUint32Nullable invokes test_response_string_uint32_nullable operation.
 	//
 	// POST /test_response_string_uint32_nullable
-	TestResponseStringUint32Nullable(ctx context.Context, request string) (NilUint32, error)
+	TestResponseStringUint32Nullable(ctx context.Context, request string) (NilStringUint32, error)
 	// TestResponseStringUint32NullableArray invokes test_response_string_uint32_nullable_array operation.
 	//
 	// POST /test_response_string_uint32_nullable_array
-	TestResponseStringUint32NullableArray(ctx context.Context, request string) ([]NilUint32, error)
+	TestResponseStringUint32NullableArray(ctx context.Context, request string) ([]NilStringUint32, error)
 	// TestResponseStringUint32NullableArrayArray invokes test_response_string_uint32_nullable_array_array operation.
 	//
 	// POST /test_response_string_uint32_nullable_array_array
-	TestResponseStringUint32NullableArrayArray(ctx context.Context, request string) ([][]NilUint32, error)
+	TestResponseStringUint32NullableArrayArray(ctx context.Context, request string) ([][]NilStringUint32, error)
 	// TestResponseStringUint64 invokes test_response_string_uint64 operation.
 	//
 	// POST /test_response_string_uint64
@@ -3855,15 +3853,15 @@ type Invoker interface {
 	// TestResponseStringUint64Nullable invokes test_response_string_uint64_nullable operation.
 	//
 	// POST /test_response_string_uint64_nullable
-	TestResponseStringUint64Nullable(ctx context.Context, request string) (NilUint64, error)
+	TestResponseStringUint64Nullable(ctx context.Context, request string) (NilStringUint64, error)
 	// TestResponseStringUint64NullableArray invokes test_response_string_uint64_nullable_array operation.
 	//
 	// POST /test_response_string_uint64_nullable_array
-	TestResponseStringUint64NullableArray(ctx context.Context, request string) ([]NilUint64, error)
+	TestResponseStringUint64NullableArray(ctx context.Context, request string) ([]NilStringUint64, error)
 	// TestResponseStringUint64NullableArrayArray invokes test_response_string_uint64_nullable_array_array operation.
 	//
 	// POST /test_response_string_uint64_nullable_array_array
-	TestResponseStringUint64NullableArrayArray(ctx context.Context, request string) ([][]NilUint64, error)
+	TestResponseStringUint64NullableArrayArray(ctx context.Context, request string) ([][]NilStringUint64, error)
 	// TestResponseStringUint8 invokes test_response_string_uint8 operation.
 	//
 	// POST /test_response_string_uint8
@@ -3879,15 +3877,15 @@ type Invoker interface {
 	// TestResponseStringUint8Nullable invokes test_response_string_uint8_nullable operation.
 	//
 	// POST /test_response_string_uint8_nullable
-	TestResponseStringUint8Nullable(ctx context.Context, request string) (NilUint8, error)
+	TestResponseStringUint8Nullable(ctx context.Context, request string) (NilStringUint8, error)
 	// TestResponseStringUint8NullableArray invokes test_response_string_uint8_nullable_array operation.
 	//
 	// POST /test_response_string_uint8_nullable_array
-	TestResponseStringUint8NullableArray(ctx context.Context, request string) ([]NilUint8, error)
+	TestResponseStringUint8NullableArray(ctx context.Context, request string) ([]NilStringUint8, error)
 	// TestResponseStringUint8NullableArrayArray invokes test_response_string_uint8_nullable_array_array operation.
 	//
 	// POST /test_response_string_uint8_nullable_array_array
-	TestResponseStringUint8NullableArrayArray(ctx context.Context, request string) ([][]NilUint8, error)
+	TestResponseStringUint8NullableArrayArray(ctx context.Context, request string) ([][]NilStringUint8, error)
 	// TestResponseStringUintArray invokes test_response_string_uint_array operation.
 	//
 	// POST /test_response_string_uint_array
@@ -3899,15 +3897,15 @@ type Invoker interface {
 	// TestResponseStringUintNullable invokes test_response_string_uint_nullable operation.
 	//
 	// POST /test_response_string_uint_nullable
-	TestResponseStringUintNullable(ctx context.Context, request string) (NilUint, error)
+	TestResponseStringUintNullable(ctx context.Context, request string) (NilStringUint, error)
 	// TestResponseStringUintNullableArray invokes test_response_string_uint_nullable_array operation.
 	//
 	// POST /test_response_string_uint_nullable_array
-	TestResponseStringUintNullableArray(ctx context.Context, request string) ([]NilUint, error)
+	TestResponseStringUintNullableArray(ctx context.Context, request string) ([]NilStringUint, error)
 	// TestResponseStringUintNullableArrayArray invokes test_response_string_uint_nullable_array_array operation.
 	//
 	// POST /test_response_string_uint_nullable_array_array
-	TestResponseStringUintNullableArrayArray(ctx context.Context, request string) ([][]NilUint, error)
+	TestResponseStringUintNullableArrayArray(ctx context.Context, request string) ([][]NilStringUint, error)
 	// TestResponseStringUnix invokes test_response_string_unix operation.
 	//
 	// POST /test_response_string_unix
@@ -6386,29 +6384,6 @@ func (c *Client) sendTestRequestBooleanArrayArray(ctx context.Context, request [
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_boolean_array_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -6628,29 +6603,6 @@ func (c *Client) sendTestRequestBooleanNullableArrayArray(ctx context.Context, r
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_boolean_nullable_array_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -6796,22 +6748,6 @@ func (c *Client) sendTestRequestFormatTest(ctx context.Context, request OptTestR
 		otelogen.OperationID("test_request_FormatTest"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_FormatTest"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if value, ok := request.Get(); ok {
-			if err := func() error {
-				if err := value.Validate(); err != nil {
-					return err
-				}
-				return nil
-			}(); err != nil {
-				return err
-			}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -7032,29 +6968,6 @@ func (c *Client) sendTestRequestIntegerArrayArray(ctx context.Context, request [
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_integer_array_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -7273,29 +7186,6 @@ func (c *Client) sendTestRequestIntegerInt16ArrayArray(ctx context.Context, requ
 		otelogen.OperationID("test_request_integer_int16_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_integer_int16_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -7516,29 +7406,6 @@ func (c *Client) sendTestRequestIntegerInt16NullableArrayArray(ctx context.Conte
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_integer_int16_nullable_array_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -7757,29 +7624,6 @@ func (c *Client) sendTestRequestIntegerInt32ArrayArray(ctx context.Context, requ
 		otelogen.OperationID("test_request_integer_int32_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_integer_int32_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -8000,29 +7844,6 @@ func (c *Client) sendTestRequestIntegerInt32NullableArrayArray(ctx context.Conte
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_integer_int32_nullable_array_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -8241,29 +8062,6 @@ func (c *Client) sendTestRequestIntegerInt64ArrayArray(ctx context.Context, requ
 		otelogen.OperationID("test_request_integer_int64_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_integer_int64_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -8484,29 +8282,6 @@ func (c *Client) sendTestRequestIntegerInt64NullableArrayArray(ctx context.Conte
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_integer_int64_nullable_array_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -8725,29 +8500,6 @@ func (c *Client) sendTestRequestIntegerInt8ArrayArray(ctx context.Context, reque
 		otelogen.OperationID("test_request_integer_int8_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_integer_int8_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -8968,29 +8720,6 @@ func (c *Client) sendTestRequestIntegerInt8NullableArrayArray(ctx context.Contex
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_integer_int8_nullable_array_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -9209,29 +8938,6 @@ func (c *Client) sendTestRequestIntegerNullableArrayArray(ctx context.Context, r
 		otelogen.OperationID("test_request_integer_nullable_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_integer_nullable_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -9525,29 +9231,6 @@ func (c *Client) sendTestRequestIntegerUint16ArrayArray(ctx context.Context, req
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_integer_uint16_array_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -9766,29 +9449,6 @@ func (c *Client) sendTestRequestIntegerUint16NullableArrayArray(ctx context.Cont
 		otelogen.OperationID("test_request_integer_uint16_nullable_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_integer_uint16_nullable_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -10009,29 +9669,6 @@ func (c *Client) sendTestRequestIntegerUint32ArrayArray(ctx context.Context, req
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_integer_uint32_array_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -10250,29 +9887,6 @@ func (c *Client) sendTestRequestIntegerUint32NullableArrayArray(ctx context.Cont
 		otelogen.OperationID("test_request_integer_uint32_nullable_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_integer_uint32_nullable_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -10493,29 +10107,6 @@ func (c *Client) sendTestRequestIntegerUint64ArrayArray(ctx context.Context, req
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_integer_uint64_array_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -10734,29 +10325,6 @@ func (c *Client) sendTestRequestIntegerUint64NullableArrayArray(ctx context.Cont
 		otelogen.OperationID("test_request_integer_uint64_nullable_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_integer_uint64_nullable_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -10977,29 +10545,6 @@ func (c *Client) sendTestRequestIntegerUint8ArrayArray(ctx context.Context, requ
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_integer_uint8_array_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -11219,29 +10764,6 @@ func (c *Client) sendTestRequestIntegerUint8NullableArrayArray(ctx context.Conte
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_integer_uint8_nullable_array_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -11387,29 +10909,6 @@ func (c *Client) sendTestRequestIntegerUintArrayArray(ctx context.Context, reque
 		otelogen.OperationID("test_request_integer_uint_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_integer_uint_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -11630,29 +11129,6 @@ func (c *Client) sendTestRequestIntegerUintNullableArrayArray(ctx context.Contex
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_integer_uint_nullable_array_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -11871,29 +11347,6 @@ func (c *Client) sendTestRequestIntegerUnixArrayArray(ctx context.Context, reque
 		otelogen.OperationID("test_request_integer_unix_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_integer_unix_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -12114,29 +11567,6 @@ func (c *Client) sendTestRequestIntegerUnixMicroArrayArray(ctx context.Context, 
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_integer_unix-micro_array_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -12355,29 +11785,6 @@ func (c *Client) sendTestRequestIntegerUnixMicroNullableArrayArray(ctx context.C
 		otelogen.OperationID("test_request_integer_unix-micro_nullable_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_integer_unix-micro_nullable_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -12598,29 +12005,6 @@ func (c *Client) sendTestRequestIntegerUnixMilliArrayArray(ctx context.Context, 
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_integer_unix-milli_array_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -12839,29 +12223,6 @@ func (c *Client) sendTestRequestIntegerUnixMilliNullableArrayArray(ctx context.C
 		otelogen.OperationID("test_request_integer_unix-milli_nullable_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_integer_unix-milli_nullable_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -13082,29 +12443,6 @@ func (c *Client) sendTestRequestIntegerUnixNanoArrayArray(ctx context.Context, r
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_integer_unix-nano_array_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -13323,29 +12661,6 @@ func (c *Client) sendTestRequestIntegerUnixNanoNullableArrayArray(ctx context.Co
 		otelogen.OperationID("test_request_integer_unix-nano_nullable_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_integer_unix-nano_nullable_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -13566,29 +12881,6 @@ func (c *Client) sendTestRequestIntegerUnixNullableArrayArray(ctx context.Contex
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_integer_unix_nullable_array_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -13807,29 +13099,6 @@ func (c *Client) sendTestRequestIntegerUnixSecondsArrayArray(ctx context.Context
 		otelogen.OperationID("test_request_integer_unix-seconds_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_integer_unix-seconds_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -14050,29 +13319,6 @@ func (c *Client) sendTestRequestIntegerUnixSecondsNullableArrayArray(ctx context
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_integer_unix-seconds_nullable_array_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -14291,29 +13537,6 @@ func (c *Client) sendTestRequestNullArrayArray(ctx context.Context, request [][]
 		otelogen.OperationID("test_request_null_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_null_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -14534,29 +13757,6 @@ func (c *Client) sendTestRequestNullNullableArrayArray(ctx context.Context, requ
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_null_nullable_array_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -14629,22 +13829,6 @@ func (c *Client) sendTestRequestNumber(ctx context.Context, request OptFloat64) 
 		otelogen.OperationID("test_request_number"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_number"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if value, ok := request.Get(); ok {
-			if err := func() error {
-				if err := (validate.Float{}).Validate(float64(value)); err != nil {
-					return errors.Wrap(err, "float")
-				}
-				return nil
-			}(); err != nil {
-				return err
-			}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -14719,29 +13903,6 @@ func (c *Client) sendTestRequestNumberArray(ctx context.Context, request []float
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_number_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if err := (validate.Float{}).Validate(float64(elem)); err != nil {
-					return errors.Wrap(err, "float")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -14814,46 +13975,6 @@ func (c *Client) sendTestRequestNumberArrayArray(ctx context.Context, request []
 		otelogen.OperationID("test_request_number_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_number_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				var failures []validate.FieldError
-				for i, elem := range elem {
-					if err := func() error {
-						if err := (validate.Float{}).Validate(float64(elem)); err != nil {
-							return errors.Wrap(err, "float")
-						}
-						return nil
-					}(); err != nil {
-						failures = append(failures, validate.FieldError{
-							Name:  fmt.Sprintf("[%d]", i),
-							Error: err,
-						})
-					}
-				}
-				if len(failures) > 0 {
-					return &validate.Error{Fields: failures}
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -14928,22 +14049,6 @@ func (c *Client) sendTestRequestNumberDouble(ctx context.Context, request OptFlo
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_number_double"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if value, ok := request.Get(); ok {
-			if err := func() error {
-				if err := (validate.Float{}).Validate(float64(value)); err != nil {
-					return errors.Wrap(err, "float")
-				}
-				return nil
-			}(); err != nil {
-				return err
-			}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -15016,29 +14121,6 @@ func (c *Client) sendTestRequestNumberDoubleArray(ctx context.Context, request [
 		otelogen.OperationID("test_request_number_double_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_number_double_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if err := (validate.Float{}).Validate(float64(elem)); err != nil {
-					return errors.Wrap(err, "float")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -15113,46 +14195,6 @@ func (c *Client) sendTestRequestNumberDoubleArrayArray(ctx context.Context, requ
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_number_double_array_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				var failures []validate.FieldError
-				for i, elem := range elem {
-					if err := func() error {
-						if err := (validate.Float{}).Validate(float64(elem)); err != nil {
-							return errors.Wrap(err, "float")
-						}
-						return nil
-					}(); err != nil {
-						failures = append(failures, validate.FieldError{
-							Name:  fmt.Sprintf("[%d]", i),
-							Error: err,
-						})
-					}
-				}
-				if len(failures) > 0 {
-					return &validate.Error{Fields: failures}
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -15225,22 +14267,6 @@ func (c *Client) sendTestRequestNumberDoubleNullable(ctx context.Context, reques
 		otelogen.OperationID("test_request_number_double_nullable"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_number_double_nullable"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if value, ok := request.Get(); ok {
-			if err := func() error {
-				if err := (validate.Float{}).Validate(float64(value)); err != nil {
-					return errors.Wrap(err, "float")
-				}
-				return nil
-			}(); err != nil {
-				return err
-			}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -15315,36 +14341,6 @@ func (c *Client) sendTestRequestNumberDoubleNullableArray(ctx context.Context, r
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_number_double_nullable_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if value, ok := elem.Get(); ok {
-					if err := func() error {
-						if err := (validate.Float{}).Validate(float64(value)); err != nil {
-							return errors.Wrap(err, "float")
-						}
-						return nil
-					}(); err != nil {
-						return err
-					}
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -15417,53 +14413,6 @@ func (c *Client) sendTestRequestNumberDoubleNullableArrayArray(ctx context.Conte
 		otelogen.OperationID("test_request_number_double_nullable_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_number_double_nullable_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				var failures []validate.FieldError
-				for i, elem := range elem {
-					if err := func() error {
-						if value, ok := elem.Get(); ok {
-							if err := func() error {
-								if err := (validate.Float{}).Validate(float64(value)); err != nil {
-									return errors.Wrap(err, "float")
-								}
-								return nil
-							}(); err != nil {
-								return err
-							}
-						}
-						return nil
-					}(); err != nil {
-						failures = append(failures, validate.FieldError{
-							Name:  fmt.Sprintf("[%d]", i),
-							Error: err,
-						})
-					}
-				}
-				if len(failures) > 0 {
-					return &validate.Error{Fields: failures}
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -15538,22 +14487,6 @@ func (c *Client) sendTestRequestNumberFloat(ctx context.Context, request OptFloa
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_number_float"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if value, ok := request.Get(); ok {
-			if err := func() error {
-				if err := (validate.Float{}).Validate(float64(value)); err != nil {
-					return errors.Wrap(err, "float")
-				}
-				return nil
-			}(); err != nil {
-				return err
-			}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -15626,29 +14559,6 @@ func (c *Client) sendTestRequestNumberFloatArray(ctx context.Context, request []
 		otelogen.OperationID("test_request_number_float_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_number_float_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if err := (validate.Float{}).Validate(float64(elem)); err != nil {
-					return errors.Wrap(err, "float")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -15723,46 +14633,6 @@ func (c *Client) sendTestRequestNumberFloatArrayArray(ctx context.Context, reque
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_number_float_array_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				var failures []validate.FieldError
-				for i, elem := range elem {
-					if err := func() error {
-						if err := (validate.Float{}).Validate(float64(elem)); err != nil {
-							return errors.Wrap(err, "float")
-						}
-						return nil
-					}(); err != nil {
-						failures = append(failures, validate.FieldError{
-							Name:  fmt.Sprintf("[%d]", i),
-							Error: err,
-						})
-					}
-				}
-				if len(failures) > 0 {
-					return &validate.Error{Fields: failures}
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -15835,22 +14705,6 @@ func (c *Client) sendTestRequestNumberFloatNullable(ctx context.Context, request
 		otelogen.OperationID("test_request_number_float_nullable"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_number_float_nullable"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if value, ok := request.Get(); ok {
-			if err := func() error {
-				if err := (validate.Float{}).Validate(float64(value)); err != nil {
-					return errors.Wrap(err, "float")
-				}
-				return nil
-			}(); err != nil {
-				return err
-			}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -15925,36 +14779,6 @@ func (c *Client) sendTestRequestNumberFloatNullableArray(ctx context.Context, re
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_number_float_nullable_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if value, ok := elem.Get(); ok {
-					if err := func() error {
-						if err := (validate.Float{}).Validate(float64(value)); err != nil {
-							return errors.Wrap(err, "float")
-						}
-						return nil
-					}(); err != nil {
-						return err
-					}
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -16027,53 +14851,6 @@ func (c *Client) sendTestRequestNumberFloatNullableArrayArray(ctx context.Contex
 		otelogen.OperationID("test_request_number_float_nullable_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_number_float_nullable_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				var failures []validate.FieldError
-				for i, elem := range elem {
-					if err := func() error {
-						if value, ok := elem.Get(); ok {
-							if err := func() error {
-								if err := (validate.Float{}).Validate(float64(value)); err != nil {
-									return errors.Wrap(err, "float")
-								}
-								return nil
-							}(); err != nil {
-								return err
-							}
-						}
-						return nil
-					}(); err != nil {
-						failures = append(failures, validate.FieldError{
-							Name:  fmt.Sprintf("[%d]", i),
-							Error: err,
-						})
-					}
-				}
-				if len(failures) > 0 {
-					return &validate.Error{Fields: failures}
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -16294,29 +15071,6 @@ func (c *Client) sendTestRequestNumberInt32ArrayArray(ctx context.Context, reque
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_number_int32_array_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -16535,29 +15289,6 @@ func (c *Client) sendTestRequestNumberInt32NullableArrayArray(ctx context.Contex
 		otelogen.OperationID("test_request_number_int32_nullable_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_number_int32_nullable_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -16778,29 +15509,6 @@ func (c *Client) sendTestRequestNumberInt64ArrayArray(ctx context.Context, reque
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_number_int64_array_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -17020,29 +15728,6 @@ func (c *Client) sendTestRequestNumberInt64NullableArrayArray(ctx context.Contex
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_number_int64_nullable_array_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -17115,22 +15800,6 @@ func (c *Client) sendTestRequestNumberNullable(ctx context.Context, request OptN
 		otelogen.OperationID("test_request_number_nullable"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_number_nullable"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if value, ok := request.Get(); ok {
-			if err := func() error {
-				if err := (validate.Float{}).Validate(float64(value)); err != nil {
-					return errors.Wrap(err, "float")
-				}
-				return nil
-			}(); err != nil {
-				return err
-			}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -17205,36 +15874,6 @@ func (c *Client) sendTestRequestNumberNullableArray(ctx context.Context, request
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_number_nullable_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if value, ok := elem.Get(); ok {
-					if err := func() error {
-						if err := (validate.Float{}).Validate(float64(value)); err != nil {
-							return errors.Wrap(err, "float")
-						}
-						return nil
-					}(); err != nil {
-						return err
-					}
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -17307,53 +15946,6 @@ func (c *Client) sendTestRequestNumberNullableArrayArray(ctx context.Context, re
 		otelogen.OperationID("test_request_number_nullable_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_number_nullable_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				var failures []validate.FieldError
-				for i, elem := range elem {
-					if err := func() error {
-						if value, ok := elem.Get(); ok {
-							if err := func() error {
-								if err := (validate.Float{}).Validate(float64(value)); err != nil {
-									return errors.Wrap(err, "float")
-								}
-								return nil
-							}(); err != nil {
-								return err
-							}
-						}
-						return nil
-					}(); err != nil {
-						failures = append(failures, validate.FieldError{
-							Name:  fmt.Sprintf("[%d]", i),
-							Error: err,
-						})
-					}
-				}
-				if len(failures) > 0 {
-					return &validate.Error{Fields: failures}
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -17574,15 +16166,6 @@ func (c *Client) sendTestRequestRequiredBooleanArray(ctx context.Context, reques
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_boolean_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -17655,32 +16238,6 @@ func (c *Client) sendTestRequestRequiredBooleanArrayArray(ctx context.Context, r
 		otelogen.OperationID("test_request_required_boolean_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_boolean_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -17828,15 +16385,6 @@ func (c *Client) sendTestRequestRequiredBooleanNullableArray(ctx context.Context
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_boolean_nullable_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -17909,32 +16457,6 @@ func (c *Client) sendTestRequestRequiredBooleanNullableArrayArray(ctx context.Co
 		otelogen.OperationID("test_request_required_boolean_nullable_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_boolean_nullable_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -18082,15 +16604,6 @@ func (c *Client) sendTestRequestRequiredFormatTest(ctx context.Context, request 
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_FormatTest"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -18237,15 +16750,6 @@ func (c *Client) sendTestRequestRequiredIntegerArray(ctx context.Context, reques
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_integer_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -18318,32 +16822,6 @@ func (c *Client) sendTestRequestRequiredIntegerArrayArray(ctx context.Context, r
 		otelogen.OperationID("test_request_required_integer_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_integer_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -18491,15 +16969,6 @@ func (c *Client) sendTestRequestRequiredIntegerInt16Array(ctx context.Context, r
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_integer_int16_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -18572,32 +17041,6 @@ func (c *Client) sendTestRequestRequiredIntegerInt16ArrayArray(ctx context.Conte
 		otelogen.OperationID("test_request_required_integer_int16_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_integer_int16_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -18745,15 +17188,6 @@ func (c *Client) sendTestRequestRequiredIntegerInt16NullableArray(ctx context.Co
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_integer_int16_nullable_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -18826,32 +17260,6 @@ func (c *Client) sendTestRequestRequiredIntegerInt16NullableArrayArray(ctx conte
 		otelogen.OperationID("test_request_required_integer_int16_nullable_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_integer_int16_nullable_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -18999,15 +17407,6 @@ func (c *Client) sendTestRequestRequiredIntegerInt32Array(ctx context.Context, r
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_integer_int32_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -19080,32 +17479,6 @@ func (c *Client) sendTestRequestRequiredIntegerInt32ArrayArray(ctx context.Conte
 		otelogen.OperationID("test_request_required_integer_int32_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_integer_int32_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -19253,15 +17626,6 @@ func (c *Client) sendTestRequestRequiredIntegerInt32NullableArray(ctx context.Co
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_integer_int32_nullable_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -19334,32 +17698,6 @@ func (c *Client) sendTestRequestRequiredIntegerInt32NullableArrayArray(ctx conte
 		otelogen.OperationID("test_request_required_integer_int32_nullable_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_integer_int32_nullable_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -19507,15 +17845,6 @@ func (c *Client) sendTestRequestRequiredIntegerInt64Array(ctx context.Context, r
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_integer_int64_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -19588,32 +17917,6 @@ func (c *Client) sendTestRequestRequiredIntegerInt64ArrayArray(ctx context.Conte
 		otelogen.OperationID("test_request_required_integer_int64_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_integer_int64_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -19761,15 +18064,6 @@ func (c *Client) sendTestRequestRequiredIntegerInt64NullableArray(ctx context.Co
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_integer_int64_nullable_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -19842,32 +18136,6 @@ func (c *Client) sendTestRequestRequiredIntegerInt64NullableArrayArray(ctx conte
 		otelogen.OperationID("test_request_required_integer_int64_nullable_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_integer_int64_nullable_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -20015,15 +18283,6 @@ func (c *Client) sendTestRequestRequiredIntegerInt8Array(ctx context.Context, re
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_integer_int8_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -20096,32 +18355,6 @@ func (c *Client) sendTestRequestRequiredIntegerInt8ArrayArray(ctx context.Contex
 		otelogen.OperationID("test_request_required_integer_int8_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_integer_int8_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -20269,15 +18502,6 @@ func (c *Client) sendTestRequestRequiredIntegerInt8NullableArray(ctx context.Con
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_integer_int8_nullable_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -20350,32 +18574,6 @@ func (c *Client) sendTestRequestRequiredIntegerInt8NullableArrayArray(ctx contex
 		otelogen.OperationID("test_request_required_integer_int8_nullable_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_integer_int8_nullable_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -20523,15 +18721,6 @@ func (c *Client) sendTestRequestRequiredIntegerNullableArray(ctx context.Context
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_integer_nullable_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -20604,32 +18793,6 @@ func (c *Client) sendTestRequestRequiredIntegerNullableArrayArray(ctx context.Co
 		otelogen.OperationID("test_request_required_integer_nullable_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_integer_nullable_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -20850,15 +19013,6 @@ func (c *Client) sendTestRequestRequiredIntegerUint16Array(ctx context.Context, 
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_integer_uint16_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -20931,32 +19085,6 @@ func (c *Client) sendTestRequestRequiredIntegerUint16ArrayArray(ctx context.Cont
 		otelogen.OperationID("test_request_required_integer_uint16_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_integer_uint16_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -21104,15 +19232,6 @@ func (c *Client) sendTestRequestRequiredIntegerUint16NullableArray(ctx context.C
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_integer_uint16_nullable_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -21185,32 +19304,6 @@ func (c *Client) sendTestRequestRequiredIntegerUint16NullableArrayArray(ctx cont
 		otelogen.OperationID("test_request_required_integer_uint16_nullable_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_integer_uint16_nullable_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -21358,15 +19451,6 @@ func (c *Client) sendTestRequestRequiredIntegerUint32Array(ctx context.Context, 
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_integer_uint32_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -21439,32 +19523,6 @@ func (c *Client) sendTestRequestRequiredIntegerUint32ArrayArray(ctx context.Cont
 		otelogen.OperationID("test_request_required_integer_uint32_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_integer_uint32_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -21612,15 +19670,6 @@ func (c *Client) sendTestRequestRequiredIntegerUint32NullableArray(ctx context.C
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_integer_uint32_nullable_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -21693,32 +19742,6 @@ func (c *Client) sendTestRequestRequiredIntegerUint32NullableArrayArray(ctx cont
 		otelogen.OperationID("test_request_required_integer_uint32_nullable_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_integer_uint32_nullable_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -21866,15 +19889,6 @@ func (c *Client) sendTestRequestRequiredIntegerUint64Array(ctx context.Context, 
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_integer_uint64_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -21947,32 +19961,6 @@ func (c *Client) sendTestRequestRequiredIntegerUint64ArrayArray(ctx context.Cont
 		otelogen.OperationID("test_request_required_integer_uint64_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_integer_uint64_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -22120,15 +20108,6 @@ func (c *Client) sendTestRequestRequiredIntegerUint64NullableArray(ctx context.C
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_integer_uint64_nullable_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -22201,32 +20180,6 @@ func (c *Client) sendTestRequestRequiredIntegerUint64NullableArrayArray(ctx cont
 		otelogen.OperationID("test_request_required_integer_uint64_nullable_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_integer_uint64_nullable_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -22374,15 +20327,6 @@ func (c *Client) sendTestRequestRequiredIntegerUint8Array(ctx context.Context, r
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_integer_uint8_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -22455,32 +20399,6 @@ func (c *Client) sendTestRequestRequiredIntegerUint8ArrayArray(ctx context.Conte
 		otelogen.OperationID("test_request_required_integer_uint8_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_integer_uint8_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -22628,15 +20546,6 @@ func (c *Client) sendTestRequestRequiredIntegerUint8NullableArray(ctx context.Co
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_integer_uint8_nullable_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -22709,32 +20618,6 @@ func (c *Client) sendTestRequestRequiredIntegerUint8NullableArrayArray(ctx conte
 		otelogen.OperationID("test_request_required_integer_uint8_nullable_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_integer_uint8_nullable_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -22809,15 +20692,6 @@ func (c *Client) sendTestRequestRequiredIntegerUintArray(ctx context.Context, re
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_integer_uint_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -22890,32 +20764,6 @@ func (c *Client) sendTestRequestRequiredIntegerUintArrayArray(ctx context.Contex
 		otelogen.OperationID("test_request_required_integer_uint_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_integer_uint_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -23063,15 +20911,6 @@ func (c *Client) sendTestRequestRequiredIntegerUintNullableArray(ctx context.Con
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_integer_uint_nullable_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -23144,32 +20983,6 @@ func (c *Client) sendTestRequestRequiredIntegerUintNullableArrayArray(ctx contex
 		otelogen.OperationID("test_request_required_integer_uint_nullable_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_integer_uint_nullable_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -23317,15 +21130,6 @@ func (c *Client) sendTestRequestRequiredIntegerUnixArray(ctx context.Context, re
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_integer_unix_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -23398,32 +21202,6 @@ func (c *Client) sendTestRequestRequiredIntegerUnixArrayArray(ctx context.Contex
 		otelogen.OperationID("test_request_required_integer_unix_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_integer_unix_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -23571,15 +21349,6 @@ func (c *Client) sendTestRequestRequiredIntegerUnixMicroArray(ctx context.Contex
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_integer_unix-micro_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -23652,32 +21421,6 @@ func (c *Client) sendTestRequestRequiredIntegerUnixMicroArrayArray(ctx context.C
 		otelogen.OperationID("test_request_required_integer_unix-micro_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_integer_unix-micro_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -23825,15 +21568,6 @@ func (c *Client) sendTestRequestRequiredIntegerUnixMicroNullableArray(ctx contex
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_integer_unix-micro_nullable_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -23906,32 +21640,6 @@ func (c *Client) sendTestRequestRequiredIntegerUnixMicroNullableArrayArray(ctx c
 		otelogen.OperationID("test_request_required_integer_unix-micro_nullable_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_integer_unix-micro_nullable_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -24079,15 +21787,6 @@ func (c *Client) sendTestRequestRequiredIntegerUnixMilliArray(ctx context.Contex
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_integer_unix-milli_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -24160,32 +21859,6 @@ func (c *Client) sendTestRequestRequiredIntegerUnixMilliArrayArray(ctx context.C
 		otelogen.OperationID("test_request_required_integer_unix-milli_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_integer_unix-milli_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -24333,15 +22006,6 @@ func (c *Client) sendTestRequestRequiredIntegerUnixMilliNullableArray(ctx contex
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_integer_unix-milli_nullable_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -24414,32 +22078,6 @@ func (c *Client) sendTestRequestRequiredIntegerUnixMilliNullableArrayArray(ctx c
 		otelogen.OperationID("test_request_required_integer_unix-milli_nullable_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_integer_unix-milli_nullable_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -24587,15 +22225,6 @@ func (c *Client) sendTestRequestRequiredIntegerUnixNanoArray(ctx context.Context
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_integer_unix-nano_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -24668,32 +22297,6 @@ func (c *Client) sendTestRequestRequiredIntegerUnixNanoArrayArray(ctx context.Co
 		otelogen.OperationID("test_request_required_integer_unix-nano_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_integer_unix-nano_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -24841,15 +22444,6 @@ func (c *Client) sendTestRequestRequiredIntegerUnixNanoNullableArray(ctx context
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_integer_unix-nano_nullable_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -24922,32 +22516,6 @@ func (c *Client) sendTestRequestRequiredIntegerUnixNanoNullableArrayArray(ctx co
 		otelogen.OperationID("test_request_required_integer_unix-nano_nullable_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_integer_unix-nano_nullable_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -25095,15 +22663,6 @@ func (c *Client) sendTestRequestRequiredIntegerUnixNullableArray(ctx context.Con
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_integer_unix_nullable_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -25176,32 +22735,6 @@ func (c *Client) sendTestRequestRequiredIntegerUnixNullableArrayArray(ctx contex
 		otelogen.OperationID("test_request_required_integer_unix_nullable_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_integer_unix_nullable_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -25349,15 +22882,6 @@ func (c *Client) sendTestRequestRequiredIntegerUnixSecondsArray(ctx context.Cont
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_integer_unix-seconds_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -25430,32 +22954,6 @@ func (c *Client) sendTestRequestRequiredIntegerUnixSecondsArrayArray(ctx context
 		otelogen.OperationID("test_request_required_integer_unix-seconds_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_integer_unix-seconds_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -25603,15 +23101,6 @@ func (c *Client) sendTestRequestRequiredIntegerUnixSecondsNullableArray(ctx cont
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_integer_unix-seconds_nullable_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -25684,32 +23173,6 @@ func (c *Client) sendTestRequestRequiredIntegerUnixSecondsNullableArrayArray(ctx
 		otelogen.OperationID("test_request_required_integer_unix-seconds_nullable_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_integer_unix-seconds_nullable_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -25857,15 +23320,6 @@ func (c *Client) sendTestRequestRequiredNullArray(ctx context.Context, request [
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_null_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -25938,32 +23392,6 @@ func (c *Client) sendTestRequestRequiredNullArrayArray(ctx context.Context, requ
 		otelogen.OperationID("test_request_required_null_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_null_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -26111,15 +23539,6 @@ func (c *Client) sendTestRequestRequiredNullNullableArray(ctx context.Context, r
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_null_nullable_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -26192,32 +23611,6 @@ func (c *Client) sendTestRequestRequiredNullNullableArrayArray(ctx context.Conte
 		otelogen.OperationID("test_request_required_null_nullable_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_null_nullable_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -26292,15 +23685,6 @@ func (c *Client) sendTestRequestRequiredNumber(ctx context.Context, request floa
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_number"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := (validate.Float{}).Validate(float64(request)); err != nil {
-			return errors.Wrap(err, "float")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -26373,32 +23757,6 @@ func (c *Client) sendTestRequestRequiredNumberArray(ctx context.Context, request
 		otelogen.OperationID("test_request_required_number_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_number_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if err := (validate.Float{}).Validate(float64(elem)); err != nil {
-					return errors.Wrap(err, "float")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -26473,49 +23831,6 @@ func (c *Client) sendTestRequestRequiredNumberArrayArray(ctx context.Context, re
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_number_array_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				var failures []validate.FieldError
-				for i, elem := range elem {
-					if err := func() error {
-						if err := (validate.Float{}).Validate(float64(elem)); err != nil {
-							return errors.Wrap(err, "float")
-						}
-						return nil
-					}(); err != nil {
-						failures = append(failures, validate.FieldError{
-							Name:  fmt.Sprintf("[%d]", i),
-							Error: err,
-						})
-					}
-				}
-				if len(failures) > 0 {
-					return &validate.Error{Fields: failures}
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -26588,15 +23903,6 @@ func (c *Client) sendTestRequestRequiredNumberDouble(ctx context.Context, reques
 		otelogen.OperationID("test_request_required_number_double"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_number_double"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := (validate.Float{}).Validate(float64(request)); err != nil {
-			return errors.Wrap(err, "float")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -26671,32 +23977,6 @@ func (c *Client) sendTestRequestRequiredNumberDoubleArray(ctx context.Context, r
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_number_double_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if err := (validate.Float{}).Validate(float64(elem)); err != nil {
-					return errors.Wrap(err, "float")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -26769,49 +24049,6 @@ func (c *Client) sendTestRequestRequiredNumberDoubleArrayArray(ctx context.Conte
 		otelogen.OperationID("test_request_required_number_double_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_number_double_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				var failures []validate.FieldError
-				for i, elem := range elem {
-					if err := func() error {
-						if err := (validate.Float{}).Validate(float64(elem)); err != nil {
-							return errors.Wrap(err, "float")
-						}
-						return nil
-					}(); err != nil {
-						failures = append(failures, validate.FieldError{
-							Name:  fmt.Sprintf("[%d]", i),
-							Error: err,
-						})
-					}
-				}
-				if len(failures) > 0 {
-					return &validate.Error{Fields: failures}
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -26886,22 +24123,6 @@ func (c *Client) sendTestRequestRequiredNumberDoubleNullable(ctx context.Context
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_number_double_nullable"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if value, ok := request.Get(); ok {
-			if err := func() error {
-				if err := (validate.Float{}).Validate(float64(value)); err != nil {
-					return errors.Wrap(err, "float")
-				}
-				return nil
-			}(); err != nil {
-				return err
-			}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -26974,39 +24195,6 @@ func (c *Client) sendTestRequestRequiredNumberDoubleNullableArray(ctx context.Co
 		otelogen.OperationID("test_request_required_number_double_nullable_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_number_double_nullable_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if value, ok := elem.Get(); ok {
-					if err := func() error {
-						if err := (validate.Float{}).Validate(float64(value)); err != nil {
-							return errors.Wrap(err, "float")
-						}
-						return nil
-					}(); err != nil {
-						return err
-					}
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -27081,56 +24269,6 @@ func (c *Client) sendTestRequestRequiredNumberDoubleNullableArrayArray(ctx conte
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_number_double_nullable_array_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				var failures []validate.FieldError
-				for i, elem := range elem {
-					if err := func() error {
-						if value, ok := elem.Get(); ok {
-							if err := func() error {
-								if err := (validate.Float{}).Validate(float64(value)); err != nil {
-									return errors.Wrap(err, "float")
-								}
-								return nil
-							}(); err != nil {
-								return err
-							}
-						}
-						return nil
-					}(); err != nil {
-						failures = append(failures, validate.FieldError{
-							Name:  fmt.Sprintf("[%d]", i),
-							Error: err,
-						})
-					}
-				}
-				if len(failures) > 0 {
-					return &validate.Error{Fields: failures}
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -27203,15 +24341,6 @@ func (c *Client) sendTestRequestRequiredNumberFloat(ctx context.Context, request
 		otelogen.OperationID("test_request_required_number_float"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_number_float"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := (validate.Float{}).Validate(float64(request)); err != nil {
-			return errors.Wrap(err, "float")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -27286,32 +24415,6 @@ func (c *Client) sendTestRequestRequiredNumberFloatArray(ctx context.Context, re
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_number_float_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if err := (validate.Float{}).Validate(float64(elem)); err != nil {
-					return errors.Wrap(err, "float")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -27384,49 +24487,6 @@ func (c *Client) sendTestRequestRequiredNumberFloatArrayArray(ctx context.Contex
 		otelogen.OperationID("test_request_required_number_float_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_number_float_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				var failures []validate.FieldError
-				for i, elem := range elem {
-					if err := func() error {
-						if err := (validate.Float{}).Validate(float64(elem)); err != nil {
-							return errors.Wrap(err, "float")
-						}
-						return nil
-					}(); err != nil {
-						failures = append(failures, validate.FieldError{
-							Name:  fmt.Sprintf("[%d]", i),
-							Error: err,
-						})
-					}
-				}
-				if len(failures) > 0 {
-					return &validate.Error{Fields: failures}
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -27501,22 +24561,6 @@ func (c *Client) sendTestRequestRequiredNumberFloatNullable(ctx context.Context,
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_number_float_nullable"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if value, ok := request.Get(); ok {
-			if err := func() error {
-				if err := (validate.Float{}).Validate(float64(value)); err != nil {
-					return errors.Wrap(err, "float")
-				}
-				return nil
-			}(); err != nil {
-				return err
-			}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -27590,39 +24634,6 @@ func (c *Client) sendTestRequestRequiredNumberFloatNullableArray(ctx context.Con
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_number_float_nullable_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if value, ok := elem.Get(); ok {
-					if err := func() error {
-						if err := (validate.Float{}).Validate(float64(value)); err != nil {
-							return errors.Wrap(err, "float")
-						}
-						return nil
-					}(); err != nil {
-						return err
-					}
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -27695,56 +24706,6 @@ func (c *Client) sendTestRequestRequiredNumberFloatNullableArrayArray(ctx contex
 		otelogen.OperationID("test_request_required_number_float_nullable_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_number_float_nullable_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				var failures []validate.FieldError
-				for i, elem := range elem {
-					if err := func() error {
-						if value, ok := elem.Get(); ok {
-							if err := func() error {
-								if err := (validate.Float{}).Validate(float64(value)); err != nil {
-									return errors.Wrap(err, "float")
-								}
-								return nil
-							}(); err != nil {
-								return err
-							}
-						}
-						return nil
-					}(); err != nil {
-						failures = append(failures, validate.FieldError{
-							Name:  fmt.Sprintf("[%d]", i),
-							Error: err,
-						})
-					}
-				}
-				if len(failures) > 0 {
-					return &validate.Error{Fields: failures}
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -27892,15 +24853,6 @@ func (c *Client) sendTestRequestRequiredNumberInt32Array(ctx context.Context, re
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_number_int32_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -27973,32 +24925,6 @@ func (c *Client) sendTestRequestRequiredNumberInt32ArrayArray(ctx context.Contex
 		otelogen.OperationID("test_request_required_number_int32_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_number_int32_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -28146,15 +25072,6 @@ func (c *Client) sendTestRequestRequiredNumberInt32NullableArray(ctx context.Con
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_number_int32_nullable_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -28227,32 +25144,6 @@ func (c *Client) sendTestRequestRequiredNumberInt32NullableArrayArray(ctx contex
 		otelogen.OperationID("test_request_required_number_int32_nullable_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_number_int32_nullable_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -28400,15 +25291,6 @@ func (c *Client) sendTestRequestRequiredNumberInt64Array(ctx context.Context, re
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_number_int64_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -28481,32 +25363,6 @@ func (c *Client) sendTestRequestRequiredNumberInt64ArrayArray(ctx context.Contex
 		otelogen.OperationID("test_request_required_number_int64_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_number_int64_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -28654,15 +25510,6 @@ func (c *Client) sendTestRequestRequiredNumberInt64NullableArray(ctx context.Con
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_number_int64_nullable_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -28735,32 +25582,6 @@ func (c *Client) sendTestRequestRequiredNumberInt64NullableArrayArray(ctx contex
 		otelogen.OperationID("test_request_required_number_int64_nullable_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_number_int64_nullable_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -28835,22 +25656,6 @@ func (c *Client) sendTestRequestRequiredNumberNullable(ctx context.Context, requ
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_number_nullable"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if value, ok := request.Get(); ok {
-			if err := func() error {
-				if err := (validate.Float{}).Validate(float64(value)); err != nil {
-					return errors.Wrap(err, "float")
-				}
-				return nil
-			}(); err != nil {
-				return err
-			}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -28924,39 +25729,6 @@ func (c *Client) sendTestRequestRequiredNumberNullableArray(ctx context.Context,
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_number_nullable_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if value, ok := elem.Get(); ok {
-					if err := func() error {
-						if err := (validate.Float{}).Validate(float64(value)); err != nil {
-							return errors.Wrap(err, "float")
-						}
-						return nil
-					}(); err != nil {
-						return err
-					}
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -29029,56 +25801,6 @@ func (c *Client) sendTestRequestRequiredNumberNullableArrayArray(ctx context.Con
 		otelogen.OperationID("test_request_required_number_nullable_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_number_nullable_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				var failures []validate.FieldError
-				for i, elem := range elem {
-					if err := func() error {
-						if value, ok := elem.Get(); ok {
-							if err := func() error {
-								if err := (validate.Float{}).Validate(float64(value)); err != nil {
-									return errors.Wrap(err, "float")
-								}
-								return nil
-							}(); err != nil {
-								return err
-							}
-						}
-						return nil
-					}(); err != nil {
-						failures = append(failures, validate.FieldError{
-							Name:  fmt.Sprintf("[%d]", i),
-							Error: err,
-						})
-					}
-				}
-				if len(failures) > 0 {
-					return &validate.Error{Fields: failures}
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -29226,15 +25948,6 @@ func (c *Client) sendTestRequestRequiredStringArray(ctx context.Context, request
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -29307,32 +26020,6 @@ func (c *Client) sendTestRequestRequiredStringArrayArray(ctx context.Context, re
 		otelogen.OperationID("test_request_required_string_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -29480,15 +26167,6 @@ func (c *Client) sendTestRequestRequiredStringBase64Array(ctx context.Context, r
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_base64_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -29561,32 +26239,6 @@ func (c *Client) sendTestRequestRequiredStringBase64ArrayArray(ctx context.Conte
 		otelogen.OperationID("test_request_required_string_base64_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_base64_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -29734,15 +26386,6 @@ func (c *Client) sendTestRequestRequiredStringBase64NullableArray(ctx context.Co
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_base64_nullable_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -29815,32 +26458,6 @@ func (c *Client) sendTestRequestRequiredStringBase64NullableArrayArray(ctx conte
 		otelogen.OperationID("test_request_required_string_base64_nullable_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_base64_nullable_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -29988,15 +26605,6 @@ func (c *Client) sendTestRequestRequiredStringBinaryArray(ctx context.Context, r
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_binary_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -30069,32 +26677,6 @@ func (c *Client) sendTestRequestRequiredStringBinaryArrayArray(ctx context.Conte
 		otelogen.OperationID("test_request_required_string_binary_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_binary_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -30242,15 +26824,6 @@ func (c *Client) sendTestRequestRequiredStringBinaryNullableArray(ctx context.Co
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_binary_nullable_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -30323,32 +26896,6 @@ func (c *Client) sendTestRequestRequiredStringBinaryNullableArrayArray(ctx conte
 		otelogen.OperationID("test_request_required_string_binary_nullable_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_binary_nullable_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -30496,15 +27043,6 @@ func (c *Client) sendTestRequestRequiredStringByteArray(ctx context.Context, req
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_byte_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -30577,32 +27115,6 @@ func (c *Client) sendTestRequestRequiredStringByteArrayArray(ctx context.Context
 		otelogen.OperationID("test_request_required_string_byte_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_byte_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -30750,15 +27262,6 @@ func (c *Client) sendTestRequestRequiredStringByteNullableArray(ctx context.Cont
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_byte_nullable_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -30831,32 +27334,6 @@ func (c *Client) sendTestRequestRequiredStringByteNullableArrayArray(ctx context
 		otelogen.OperationID("test_request_required_string_byte_nullable_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_byte_nullable_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -31004,15 +27481,6 @@ func (c *Client) sendTestRequestRequiredStringDateArray(ctx context.Context, req
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_date_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -31085,32 +27553,6 @@ func (c *Client) sendTestRequestRequiredStringDateArrayArray(ctx context.Context
 		otelogen.OperationID("test_request_required_string_date_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_date_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -31258,15 +27700,6 @@ func (c *Client) sendTestRequestRequiredStringDateNullableArray(ctx context.Cont
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_date_nullable_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -31339,32 +27772,6 @@ func (c *Client) sendTestRequestRequiredStringDateNullableArrayArray(ctx context
 		otelogen.OperationID("test_request_required_string_date_nullable_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_date_nullable_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -31512,15 +27919,6 @@ func (c *Client) sendTestRequestRequiredStringDateTimeArray(ctx context.Context,
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_date-time_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -31593,32 +27991,6 @@ func (c *Client) sendTestRequestRequiredStringDateTimeArrayArray(ctx context.Con
 		otelogen.OperationID("test_request_required_string_date-time_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_date-time_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -31766,15 +28138,6 @@ func (c *Client) sendTestRequestRequiredStringDateTimeNullableArray(ctx context.
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_date-time_nullable_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -31847,32 +28210,6 @@ func (c *Client) sendTestRequestRequiredStringDateTimeNullableArrayArray(ctx con
 		otelogen.OperationID("test_request_required_string_date-time_nullable_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_date-time_nullable_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -32020,15 +28357,6 @@ func (c *Client) sendTestRequestRequiredStringDurationArray(ctx context.Context,
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_duration_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -32101,32 +28429,6 @@ func (c *Client) sendTestRequestRequiredStringDurationArrayArray(ctx context.Con
 		otelogen.OperationID("test_request_required_string_duration_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_duration_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -32274,15 +28576,6 @@ func (c *Client) sendTestRequestRequiredStringDurationNullableArray(ctx context.
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_duration_nullable_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -32355,32 +28648,6 @@ func (c *Client) sendTestRequestRequiredStringDurationNullableArrayArray(ctx con
 		otelogen.OperationID("test_request_required_string_duration_nullable_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_duration_nullable_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -32455,23 +28722,6 @@ func (c *Client) sendTestRequestRequiredStringEmail(ctx context.Context, request
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_email"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := (validate.String{
-			MinLength:    0,
-			MinLengthSet: false,
-			MaxLength:    0,
-			MaxLengthSet: false,
-			Email:        true,
-			Hostname:     false,
-			Regex:        nil,
-		}).Validate(string(request)); err != nil {
-			return errors.Wrap(err, "string")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -32544,40 +28794,6 @@ func (c *Client) sendTestRequestRequiredStringEmailArray(ctx context.Context, re
 		otelogen.OperationID("test_request_required_string_email_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_email_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if err := (validate.String{
-					MinLength:    0,
-					MinLengthSet: false,
-					MaxLength:    0,
-					MaxLengthSet: false,
-					Email:        true,
-					Hostname:     false,
-					Regex:        nil,
-				}).Validate(string(elem)); err != nil {
-					return errors.Wrap(err, "string")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -32652,57 +28868,6 @@ func (c *Client) sendTestRequestRequiredStringEmailArrayArray(ctx context.Contex
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_email_array_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				var failures []validate.FieldError
-				for i, elem := range elem {
-					if err := func() error {
-						if err := (validate.String{
-							MinLength:    0,
-							MinLengthSet: false,
-							MaxLength:    0,
-							MaxLengthSet: false,
-							Email:        true,
-							Hostname:     false,
-							Regex:        nil,
-						}).Validate(string(elem)); err != nil {
-							return errors.Wrap(err, "string")
-						}
-						return nil
-					}(); err != nil {
-						failures = append(failures, validate.FieldError{
-							Name:  fmt.Sprintf("[%d]", i),
-							Error: err,
-						})
-					}
-				}
-				if len(failures) > 0 {
-					return &validate.Error{Fields: failures}
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -32775,30 +28940,6 @@ func (c *Client) sendTestRequestRequiredStringEmailNullable(ctx context.Context,
 		otelogen.OperationID("test_request_required_string_email_nullable"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_email_nullable"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if value, ok := request.Get(); ok {
-			if err := func() error {
-				if err := (validate.String{
-					MinLength:    0,
-					MinLengthSet: false,
-					MaxLength:    0,
-					MaxLengthSet: false,
-					Email:        true,
-					Hostname:     false,
-					Regex:        nil,
-				}).Validate(string(value)); err != nil {
-					return errors.Wrap(err, "string")
-				}
-				return nil
-			}(); err != nil {
-				return err
-			}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -32873,47 +29014,6 @@ func (c *Client) sendTestRequestRequiredStringEmailNullableArray(ctx context.Con
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_email_nullable_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if value, ok := elem.Get(); ok {
-					if err := func() error {
-						if err := (validate.String{
-							MinLength:    0,
-							MinLengthSet: false,
-							MaxLength:    0,
-							MaxLengthSet: false,
-							Email:        true,
-							Hostname:     false,
-							Regex:        nil,
-						}).Validate(string(value)); err != nil {
-							return errors.Wrap(err, "string")
-						}
-						return nil
-					}(); err != nil {
-						return err
-					}
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -32986,64 +29086,6 @@ func (c *Client) sendTestRequestRequiredStringEmailNullableArrayArray(ctx contex
 		otelogen.OperationID("test_request_required_string_email_nullable_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_email_nullable_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				var failures []validate.FieldError
-				for i, elem := range elem {
-					if err := func() error {
-						if value, ok := elem.Get(); ok {
-							if err := func() error {
-								if err := (validate.String{
-									MinLength:    0,
-									MinLengthSet: false,
-									MaxLength:    0,
-									MaxLengthSet: false,
-									Email:        true,
-									Hostname:     false,
-									Regex:        nil,
-								}).Validate(string(value)); err != nil {
-									return errors.Wrap(err, "string")
-								}
-								return nil
-							}(); err != nil {
-								return err
-							}
-						}
-						return nil
-					}(); err != nil {
-						failures = append(failures, validate.FieldError{
-							Name:  fmt.Sprintf("[%d]", i),
-							Error: err,
-						})
-					}
-				}
-				if len(failures) > 0 {
-					return &validate.Error{Fields: failures}
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -33118,15 +29160,6 @@ func (c *Client) sendTestRequestRequiredStringFloat32(ctx context.Context, reque
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_float32"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := (validate.Float{}).ValidateStringified(float64(request)); err != nil {
-			return errors.Wrap(err, "float")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -33199,32 +29232,6 @@ func (c *Client) sendTestRequestRequiredStringFloat32Array(ctx context.Context, 
 		otelogen.OperationID("test_request_required_string_float32_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_float32_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if err := (validate.Float{}).ValidateStringified(float64(elem)); err != nil {
-					return errors.Wrap(err, "float")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -33299,49 +29306,6 @@ func (c *Client) sendTestRequestRequiredStringFloat32ArrayArray(ctx context.Cont
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_float32_array_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				var failures []validate.FieldError
-				for i, elem := range elem {
-					if err := func() error {
-						if err := (validate.Float{}).ValidateStringified(float64(elem)); err != nil {
-							return errors.Wrap(err, "float")
-						}
-						return nil
-					}(); err != nil {
-						failures = append(failures, validate.FieldError{
-							Name:  fmt.Sprintf("[%d]", i),
-							Error: err,
-						})
-					}
-				}
-				if len(failures) > 0 {
-					return &validate.Error{Fields: failures}
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -33404,32 +29368,16 @@ func (c *Client) sendTestRequestRequiredStringFloat32ArrayArray(ctx context.Cont
 // TestRequestRequiredStringFloat32Nullable invokes test_request_required_string_float32_nullable operation.
 //
 // POST /test_request_required_string_float32_nullable
-func (c *Client) TestRequestRequiredStringFloat32Nullable(ctx context.Context, request NilFloat32) (*Error, error) {
+func (c *Client) TestRequestRequiredStringFloat32Nullable(ctx context.Context, request NilStringFloat32) (*Error, error) {
 	res, err := c.sendTestRequestRequiredStringFloat32Nullable(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestRequestRequiredStringFloat32Nullable(ctx context.Context, request NilFloat32) (res *Error, err error) {
+func (c *Client) sendTestRequestRequiredStringFloat32Nullable(ctx context.Context, request NilStringFloat32) (res *Error, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_request_required_string_float32_nullable"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_float32_nullable"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if value, ok := request.Get(); ok {
-			if err := func() error {
-				if err := (validate.Float{}).ValidateStringified(float64(value)); err != nil {
-					return errors.Wrap(err, "float")
-				}
-				return nil
-			}(); err != nil {
-				return err
-			}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -33493,49 +29441,16 @@ func (c *Client) sendTestRequestRequiredStringFloat32Nullable(ctx context.Contex
 // TestRequestRequiredStringFloat32NullableArray invokes test_request_required_string_float32_nullable_array operation.
 //
 // POST /test_request_required_string_float32_nullable_array
-func (c *Client) TestRequestRequiredStringFloat32NullableArray(ctx context.Context, request []NilFloat32) (*Error, error) {
+func (c *Client) TestRequestRequiredStringFloat32NullableArray(ctx context.Context, request []NilStringFloat32) (*Error, error) {
 	res, err := c.sendTestRequestRequiredStringFloat32NullableArray(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestRequestRequiredStringFloat32NullableArray(ctx context.Context, request []NilFloat32) (res *Error, err error) {
+func (c *Client) sendTestRequestRequiredStringFloat32NullableArray(ctx context.Context, request []NilStringFloat32) (res *Error, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_request_required_string_float32_nullable_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_float32_nullable_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if value, ok := elem.Get(); ok {
-					if err := func() error {
-						if err := (validate.Float{}).ValidateStringified(float64(value)); err != nil {
-							return errors.Wrap(err, "float")
-						}
-						return nil
-					}(); err != nil {
-						return err
-					}
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -33599,66 +29514,16 @@ func (c *Client) sendTestRequestRequiredStringFloat32NullableArray(ctx context.C
 // TestRequestRequiredStringFloat32NullableArrayArray invokes test_request_required_string_float32_nullable_array_array operation.
 //
 // POST /test_request_required_string_float32_nullable_array_array
-func (c *Client) TestRequestRequiredStringFloat32NullableArrayArray(ctx context.Context, request [][]NilFloat32) (*Error, error) {
+func (c *Client) TestRequestRequiredStringFloat32NullableArrayArray(ctx context.Context, request [][]NilStringFloat32) (*Error, error) {
 	res, err := c.sendTestRequestRequiredStringFloat32NullableArrayArray(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestRequestRequiredStringFloat32NullableArrayArray(ctx context.Context, request [][]NilFloat32) (res *Error, err error) {
+func (c *Client) sendTestRequestRequiredStringFloat32NullableArrayArray(ctx context.Context, request [][]NilStringFloat32) (res *Error, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_request_required_string_float32_nullable_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_float32_nullable_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				var failures []validate.FieldError
-				for i, elem := range elem {
-					if err := func() error {
-						if value, ok := elem.Get(); ok {
-							if err := func() error {
-								if err := (validate.Float{}).ValidateStringified(float64(value)); err != nil {
-									return errors.Wrap(err, "float")
-								}
-								return nil
-							}(); err != nil {
-								return err
-							}
-						}
-						return nil
-					}(); err != nil {
-						failures = append(failures, validate.FieldError{
-							Name:  fmt.Sprintf("[%d]", i),
-							Error: err,
-						})
-					}
-				}
-				if len(failures) > 0 {
-					return &validate.Error{Fields: failures}
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -33733,15 +29598,6 @@ func (c *Client) sendTestRequestRequiredStringFloat64(ctx context.Context, reque
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_float64"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := (validate.Float{}).ValidateStringified(float64(request)); err != nil {
-			return errors.Wrap(err, "float")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -33814,32 +29670,6 @@ func (c *Client) sendTestRequestRequiredStringFloat64Array(ctx context.Context, 
 		otelogen.OperationID("test_request_required_string_float64_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_float64_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if err := (validate.Float{}).ValidateStringified(float64(elem)); err != nil {
-					return errors.Wrap(err, "float")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -33914,49 +29744,6 @@ func (c *Client) sendTestRequestRequiredStringFloat64ArrayArray(ctx context.Cont
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_float64_array_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				var failures []validate.FieldError
-				for i, elem := range elem {
-					if err := func() error {
-						if err := (validate.Float{}).ValidateStringified(float64(elem)); err != nil {
-							return errors.Wrap(err, "float")
-						}
-						return nil
-					}(); err != nil {
-						failures = append(failures, validate.FieldError{
-							Name:  fmt.Sprintf("[%d]", i),
-							Error: err,
-						})
-					}
-				}
-				if len(failures) > 0 {
-					return &validate.Error{Fields: failures}
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -34019,32 +29806,16 @@ func (c *Client) sendTestRequestRequiredStringFloat64ArrayArray(ctx context.Cont
 // TestRequestRequiredStringFloat64Nullable invokes test_request_required_string_float64_nullable operation.
 //
 // POST /test_request_required_string_float64_nullable
-func (c *Client) TestRequestRequiredStringFloat64Nullable(ctx context.Context, request NilFloat64) (*Error, error) {
+func (c *Client) TestRequestRequiredStringFloat64Nullable(ctx context.Context, request NilStringFloat64) (*Error, error) {
 	res, err := c.sendTestRequestRequiredStringFloat64Nullable(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestRequestRequiredStringFloat64Nullable(ctx context.Context, request NilFloat64) (res *Error, err error) {
+func (c *Client) sendTestRequestRequiredStringFloat64Nullable(ctx context.Context, request NilStringFloat64) (res *Error, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_request_required_string_float64_nullable"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_float64_nullable"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if value, ok := request.Get(); ok {
-			if err := func() error {
-				if err := (validate.Float{}).ValidateStringified(float64(value)); err != nil {
-					return errors.Wrap(err, "float")
-				}
-				return nil
-			}(); err != nil {
-				return err
-			}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -34108,49 +29879,16 @@ func (c *Client) sendTestRequestRequiredStringFloat64Nullable(ctx context.Contex
 // TestRequestRequiredStringFloat64NullableArray invokes test_request_required_string_float64_nullable_array operation.
 //
 // POST /test_request_required_string_float64_nullable_array
-func (c *Client) TestRequestRequiredStringFloat64NullableArray(ctx context.Context, request []NilFloat64) (*Error, error) {
+func (c *Client) TestRequestRequiredStringFloat64NullableArray(ctx context.Context, request []NilStringFloat64) (*Error, error) {
 	res, err := c.sendTestRequestRequiredStringFloat64NullableArray(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestRequestRequiredStringFloat64NullableArray(ctx context.Context, request []NilFloat64) (res *Error, err error) {
+func (c *Client) sendTestRequestRequiredStringFloat64NullableArray(ctx context.Context, request []NilStringFloat64) (res *Error, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_request_required_string_float64_nullable_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_float64_nullable_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if value, ok := elem.Get(); ok {
-					if err := func() error {
-						if err := (validate.Float{}).ValidateStringified(float64(value)); err != nil {
-							return errors.Wrap(err, "float")
-						}
-						return nil
-					}(); err != nil {
-						return err
-					}
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -34214,66 +29952,16 @@ func (c *Client) sendTestRequestRequiredStringFloat64NullableArray(ctx context.C
 // TestRequestRequiredStringFloat64NullableArrayArray invokes test_request_required_string_float64_nullable_array_array operation.
 //
 // POST /test_request_required_string_float64_nullable_array_array
-func (c *Client) TestRequestRequiredStringFloat64NullableArrayArray(ctx context.Context, request [][]NilFloat64) (*Error, error) {
+func (c *Client) TestRequestRequiredStringFloat64NullableArrayArray(ctx context.Context, request [][]NilStringFloat64) (*Error, error) {
 	res, err := c.sendTestRequestRequiredStringFloat64NullableArrayArray(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestRequestRequiredStringFloat64NullableArrayArray(ctx context.Context, request [][]NilFloat64) (res *Error, err error) {
+func (c *Client) sendTestRequestRequiredStringFloat64NullableArrayArray(ctx context.Context, request [][]NilStringFloat64) (res *Error, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_request_required_string_float64_nullable_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_float64_nullable_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				var failures []validate.FieldError
-				for i, elem := range elem {
-					if err := func() error {
-						if value, ok := elem.Get(); ok {
-							if err := func() error {
-								if err := (validate.Float{}).ValidateStringified(float64(value)); err != nil {
-									return errors.Wrap(err, "float")
-								}
-								return nil
-							}(); err != nil {
-								return err
-							}
-						}
-						return nil
-					}(); err != nil {
-						failures = append(failures, validate.FieldError{
-							Name:  fmt.Sprintf("[%d]", i),
-							Error: err,
-						})
-					}
-				}
-				if len(failures) > 0 {
-					return &validate.Error{Fields: failures}
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -34348,23 +30036,6 @@ func (c *Client) sendTestRequestRequiredStringHostname(ctx context.Context, requ
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_hostname"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := (validate.String{
-			MinLength:    0,
-			MinLengthSet: false,
-			MaxLength:    0,
-			MaxLengthSet: false,
-			Email:        false,
-			Hostname:     true,
-			Regex:        nil,
-		}).Validate(string(request)); err != nil {
-			return errors.Wrap(err, "string")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -34437,40 +30108,6 @@ func (c *Client) sendTestRequestRequiredStringHostnameArray(ctx context.Context,
 		otelogen.OperationID("test_request_required_string_hostname_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_hostname_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if err := (validate.String{
-					MinLength:    0,
-					MinLengthSet: false,
-					MaxLength:    0,
-					MaxLengthSet: false,
-					Email:        false,
-					Hostname:     true,
-					Regex:        nil,
-				}).Validate(string(elem)); err != nil {
-					return errors.Wrap(err, "string")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -34545,57 +30182,6 @@ func (c *Client) sendTestRequestRequiredStringHostnameArrayArray(ctx context.Con
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_hostname_array_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				var failures []validate.FieldError
-				for i, elem := range elem {
-					if err := func() error {
-						if err := (validate.String{
-							MinLength:    0,
-							MinLengthSet: false,
-							MaxLength:    0,
-							MaxLengthSet: false,
-							Email:        false,
-							Hostname:     true,
-							Regex:        nil,
-						}).Validate(string(elem)); err != nil {
-							return errors.Wrap(err, "string")
-						}
-						return nil
-					}(); err != nil {
-						failures = append(failures, validate.FieldError{
-							Name:  fmt.Sprintf("[%d]", i),
-							Error: err,
-						})
-					}
-				}
-				if len(failures) > 0 {
-					return &validate.Error{Fields: failures}
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -34668,30 +30254,6 @@ func (c *Client) sendTestRequestRequiredStringHostnameNullable(ctx context.Conte
 		otelogen.OperationID("test_request_required_string_hostname_nullable"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_hostname_nullable"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if value, ok := request.Get(); ok {
-			if err := func() error {
-				if err := (validate.String{
-					MinLength:    0,
-					MinLengthSet: false,
-					MaxLength:    0,
-					MaxLengthSet: false,
-					Email:        false,
-					Hostname:     true,
-					Regex:        nil,
-				}).Validate(string(value)); err != nil {
-					return errors.Wrap(err, "string")
-				}
-				return nil
-			}(); err != nil {
-				return err
-			}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -34766,47 +30328,6 @@ func (c *Client) sendTestRequestRequiredStringHostnameNullableArray(ctx context.
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_hostname_nullable_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if value, ok := elem.Get(); ok {
-					if err := func() error {
-						if err := (validate.String{
-							MinLength:    0,
-							MinLengthSet: false,
-							MaxLength:    0,
-							MaxLengthSet: false,
-							Email:        false,
-							Hostname:     true,
-							Regex:        nil,
-						}).Validate(string(value)); err != nil {
-							return errors.Wrap(err, "string")
-						}
-						return nil
-					}(); err != nil {
-						return err
-					}
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -34879,64 +30400,6 @@ func (c *Client) sendTestRequestRequiredStringHostnameNullableArrayArray(ctx con
 		otelogen.OperationID("test_request_required_string_hostname_nullable_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_hostname_nullable_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				var failures []validate.FieldError
-				for i, elem := range elem {
-					if err := func() error {
-						if value, ok := elem.Get(); ok {
-							if err := func() error {
-								if err := (validate.String{
-									MinLength:    0,
-									MinLengthSet: false,
-									MaxLength:    0,
-									MaxLengthSet: false,
-									Email:        false,
-									Hostname:     true,
-									Regex:        nil,
-								}).Validate(string(value)); err != nil {
-									return errors.Wrap(err, "string")
-								}
-								return nil
-							}(); err != nil {
-								return err
-							}
-						}
-						return nil
-					}(); err != nil {
-						failures = append(failures, validate.FieldError{
-							Name:  fmt.Sprintf("[%d]", i),
-							Error: err,
-						})
-					}
-				}
-				if len(failures) > 0 {
-					return &validate.Error{Fields: failures}
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -35084,15 +30547,6 @@ func (c *Client) sendTestRequestRequiredStringIPArray(ctx context.Context, reque
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_ip_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -35165,32 +30619,6 @@ func (c *Client) sendTestRequestRequiredStringIPArrayArray(ctx context.Context, 
 		otelogen.OperationID("test_request_required_string_ip_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_ip_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -35338,15 +30766,6 @@ func (c *Client) sendTestRequestRequiredStringIPNullableArray(ctx context.Contex
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_ip_nullable_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -35419,32 +30838,6 @@ func (c *Client) sendTestRequestRequiredStringIPNullableArrayArray(ctx context.C
 		otelogen.OperationID("test_request_required_string_ip_nullable_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_ip_nullable_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -35665,15 +31058,6 @@ func (c *Client) sendTestRequestRequiredStringInt16Array(ctx context.Context, re
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_int16_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -35747,32 +31131,6 @@ func (c *Client) sendTestRequestRequiredStringInt16ArrayArray(ctx context.Contex
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_int16_array_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -35835,12 +31193,12 @@ func (c *Client) sendTestRequestRequiredStringInt16ArrayArray(ctx context.Contex
 // TestRequestRequiredStringInt16Nullable invokes test_request_required_string_int16_nullable operation.
 //
 // POST /test_request_required_string_int16_nullable
-func (c *Client) TestRequestRequiredStringInt16Nullable(ctx context.Context, request NilInt16) (*Error, error) {
+func (c *Client) TestRequestRequiredStringInt16Nullable(ctx context.Context, request NilStringInt16) (*Error, error) {
 	res, err := c.sendTestRequestRequiredStringInt16Nullable(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestRequestRequiredStringInt16Nullable(ctx context.Context, request NilInt16) (res *Error, err error) {
+func (c *Client) sendTestRequestRequiredStringInt16Nullable(ctx context.Context, request NilStringInt16) (res *Error, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_request_required_string_int16_nullable"),
 		semconv.HTTPMethodKey.String("POST"),
@@ -35908,25 +31266,16 @@ func (c *Client) sendTestRequestRequiredStringInt16Nullable(ctx context.Context,
 // TestRequestRequiredStringInt16NullableArray invokes test_request_required_string_int16_nullable_array operation.
 //
 // POST /test_request_required_string_int16_nullable_array
-func (c *Client) TestRequestRequiredStringInt16NullableArray(ctx context.Context, request []NilInt16) (*Error, error) {
+func (c *Client) TestRequestRequiredStringInt16NullableArray(ctx context.Context, request []NilStringInt16) (*Error, error) {
 	res, err := c.sendTestRequestRequiredStringInt16NullableArray(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestRequestRequiredStringInt16NullableArray(ctx context.Context, request []NilInt16) (res *Error, err error) {
+func (c *Client) sendTestRequestRequiredStringInt16NullableArray(ctx context.Context, request []NilStringInt16) (res *Error, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_request_required_string_int16_nullable_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_int16_nullable_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -35990,42 +31339,16 @@ func (c *Client) sendTestRequestRequiredStringInt16NullableArray(ctx context.Con
 // TestRequestRequiredStringInt16NullableArrayArray invokes test_request_required_string_int16_nullable_array_array operation.
 //
 // POST /test_request_required_string_int16_nullable_array_array
-func (c *Client) TestRequestRequiredStringInt16NullableArrayArray(ctx context.Context, request [][]NilInt16) (*Error, error) {
+func (c *Client) TestRequestRequiredStringInt16NullableArrayArray(ctx context.Context, request [][]NilStringInt16) (*Error, error) {
 	res, err := c.sendTestRequestRequiredStringInt16NullableArrayArray(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestRequestRequiredStringInt16NullableArrayArray(ctx context.Context, request [][]NilInt16) (res *Error, err error) {
+func (c *Client) sendTestRequestRequiredStringInt16NullableArrayArray(ctx context.Context, request [][]NilStringInt16) (res *Error, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_request_required_string_int16_nullable_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_int16_nullable_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -36173,15 +31496,6 @@ func (c *Client) sendTestRequestRequiredStringInt32Array(ctx context.Context, re
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_int32_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -36254,32 +31568,6 @@ func (c *Client) sendTestRequestRequiredStringInt32ArrayArray(ctx context.Contex
 		otelogen.OperationID("test_request_required_string_int32_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_int32_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -36427,15 +31715,6 @@ func (c *Client) sendTestRequestRequiredStringInt32NullableArray(ctx context.Con
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_int32_nullable_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -36508,32 +31787,6 @@ func (c *Client) sendTestRequestRequiredStringInt32NullableArrayArray(ctx contex
 		otelogen.OperationID("test_request_required_string_int32_nullable_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_int32_nullable_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -36681,15 +31934,6 @@ func (c *Client) sendTestRequestRequiredStringInt64Array(ctx context.Context, re
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_int64_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -36762,32 +32006,6 @@ func (c *Client) sendTestRequestRequiredStringInt64ArrayArray(ctx context.Contex
 		otelogen.OperationID("test_request_required_string_int64_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_int64_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -36935,15 +32153,6 @@ func (c *Client) sendTestRequestRequiredStringInt64NullableArray(ctx context.Con
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_int64_nullable_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -37016,32 +32225,6 @@ func (c *Client) sendTestRequestRequiredStringInt64NullableArrayArray(ctx contex
 		otelogen.OperationID("test_request_required_string_int64_nullable_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_int64_nullable_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -37189,15 +32372,6 @@ func (c *Client) sendTestRequestRequiredStringInt8Array(ctx context.Context, req
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_int8_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -37271,32 +32445,6 @@ func (c *Client) sendTestRequestRequiredStringInt8ArrayArray(ctx context.Context
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_int8_array_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -37359,12 +32507,12 @@ func (c *Client) sendTestRequestRequiredStringInt8ArrayArray(ctx context.Context
 // TestRequestRequiredStringInt8Nullable invokes test_request_required_string_int8_nullable operation.
 //
 // POST /test_request_required_string_int8_nullable
-func (c *Client) TestRequestRequiredStringInt8Nullable(ctx context.Context, request NilInt8) (*Error, error) {
+func (c *Client) TestRequestRequiredStringInt8Nullable(ctx context.Context, request NilStringInt8) (*Error, error) {
 	res, err := c.sendTestRequestRequiredStringInt8Nullable(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestRequestRequiredStringInt8Nullable(ctx context.Context, request NilInt8) (res *Error, err error) {
+func (c *Client) sendTestRequestRequiredStringInt8Nullable(ctx context.Context, request NilStringInt8) (res *Error, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_request_required_string_int8_nullable"),
 		semconv.HTTPMethodKey.String("POST"),
@@ -37432,25 +32580,16 @@ func (c *Client) sendTestRequestRequiredStringInt8Nullable(ctx context.Context, 
 // TestRequestRequiredStringInt8NullableArray invokes test_request_required_string_int8_nullable_array operation.
 //
 // POST /test_request_required_string_int8_nullable_array
-func (c *Client) TestRequestRequiredStringInt8NullableArray(ctx context.Context, request []NilInt8) (*Error, error) {
+func (c *Client) TestRequestRequiredStringInt8NullableArray(ctx context.Context, request []NilStringInt8) (*Error, error) {
 	res, err := c.sendTestRequestRequiredStringInt8NullableArray(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestRequestRequiredStringInt8NullableArray(ctx context.Context, request []NilInt8) (res *Error, err error) {
+func (c *Client) sendTestRequestRequiredStringInt8NullableArray(ctx context.Context, request []NilStringInt8) (res *Error, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_request_required_string_int8_nullable_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_int8_nullable_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -37514,42 +32653,16 @@ func (c *Client) sendTestRequestRequiredStringInt8NullableArray(ctx context.Cont
 // TestRequestRequiredStringInt8NullableArrayArray invokes test_request_required_string_int8_nullable_array_array operation.
 //
 // POST /test_request_required_string_int8_nullable_array_array
-func (c *Client) TestRequestRequiredStringInt8NullableArrayArray(ctx context.Context, request [][]NilInt8) (*Error, error) {
+func (c *Client) TestRequestRequiredStringInt8NullableArrayArray(ctx context.Context, request [][]NilStringInt8) (*Error, error) {
 	res, err := c.sendTestRequestRequiredStringInt8NullableArrayArray(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestRequestRequiredStringInt8NullableArrayArray(ctx context.Context, request [][]NilInt8) (res *Error, err error) {
+func (c *Client) sendTestRequestRequiredStringInt8NullableArrayArray(ctx context.Context, request [][]NilStringInt8) (res *Error, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_request_required_string_int8_nullable_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_int8_nullable_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -37624,15 +32737,6 @@ func (c *Client) sendTestRequestRequiredStringIntArray(ctx context.Context, requ
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_int_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -37706,32 +32810,6 @@ func (c *Client) sendTestRequestRequiredStringIntArrayArray(ctx context.Context,
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_int_array_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -37794,12 +32872,12 @@ func (c *Client) sendTestRequestRequiredStringIntArrayArray(ctx context.Context,
 // TestRequestRequiredStringIntNullable invokes test_request_required_string_int_nullable operation.
 //
 // POST /test_request_required_string_int_nullable
-func (c *Client) TestRequestRequiredStringIntNullable(ctx context.Context, request NilInt) (*Error, error) {
+func (c *Client) TestRequestRequiredStringIntNullable(ctx context.Context, request NilStringInt) (*Error, error) {
 	res, err := c.sendTestRequestRequiredStringIntNullable(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestRequestRequiredStringIntNullable(ctx context.Context, request NilInt) (res *Error, err error) {
+func (c *Client) sendTestRequestRequiredStringIntNullable(ctx context.Context, request NilStringInt) (res *Error, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_request_required_string_int_nullable"),
 		semconv.HTTPMethodKey.String("POST"),
@@ -37867,25 +32945,16 @@ func (c *Client) sendTestRequestRequiredStringIntNullable(ctx context.Context, r
 // TestRequestRequiredStringIntNullableArray invokes test_request_required_string_int_nullable_array operation.
 //
 // POST /test_request_required_string_int_nullable_array
-func (c *Client) TestRequestRequiredStringIntNullableArray(ctx context.Context, request []NilInt) (*Error, error) {
+func (c *Client) TestRequestRequiredStringIntNullableArray(ctx context.Context, request []NilStringInt) (*Error, error) {
 	res, err := c.sendTestRequestRequiredStringIntNullableArray(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestRequestRequiredStringIntNullableArray(ctx context.Context, request []NilInt) (res *Error, err error) {
+func (c *Client) sendTestRequestRequiredStringIntNullableArray(ctx context.Context, request []NilStringInt) (res *Error, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_request_required_string_int_nullable_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_int_nullable_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -37949,42 +33018,16 @@ func (c *Client) sendTestRequestRequiredStringIntNullableArray(ctx context.Conte
 // TestRequestRequiredStringIntNullableArrayArray invokes test_request_required_string_int_nullable_array_array operation.
 //
 // POST /test_request_required_string_int_nullable_array_array
-func (c *Client) TestRequestRequiredStringIntNullableArrayArray(ctx context.Context, request [][]NilInt) (*Error, error) {
+func (c *Client) TestRequestRequiredStringIntNullableArrayArray(ctx context.Context, request [][]NilStringInt) (*Error, error) {
 	res, err := c.sendTestRequestRequiredStringIntNullableArrayArray(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestRequestRequiredStringIntNullableArrayArray(ctx context.Context, request [][]NilInt) (res *Error, err error) {
+func (c *Client) sendTestRequestRequiredStringIntNullableArrayArray(ctx context.Context, request [][]NilStringInt) (res *Error, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_request_required_string_int_nullable_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_int_nullable_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -38132,15 +33175,6 @@ func (c *Client) sendTestRequestRequiredStringIpv4Array(ctx context.Context, req
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_ipv4_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -38213,32 +33247,6 @@ func (c *Client) sendTestRequestRequiredStringIpv4ArrayArray(ctx context.Context
 		otelogen.OperationID("test_request_required_string_ipv4_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_ipv4_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -38386,15 +33394,6 @@ func (c *Client) sendTestRequestRequiredStringIpv4NullableArray(ctx context.Cont
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_ipv4_nullable_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -38467,32 +33466,6 @@ func (c *Client) sendTestRequestRequiredStringIpv4NullableArrayArray(ctx context
 		otelogen.OperationID("test_request_required_string_ipv4_nullable_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_ipv4_nullable_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -38640,15 +33613,6 @@ func (c *Client) sendTestRequestRequiredStringIpv6Array(ctx context.Context, req
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_ipv6_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -38721,32 +33685,6 @@ func (c *Client) sendTestRequestRequiredStringIpv6ArrayArray(ctx context.Context
 		otelogen.OperationID("test_request_required_string_ipv6_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_ipv6_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -38894,15 +33832,6 @@ func (c *Client) sendTestRequestRequiredStringIpv6NullableArray(ctx context.Cont
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_ipv6_nullable_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -38975,32 +33904,6 @@ func (c *Client) sendTestRequestRequiredStringIpv6NullableArrayArray(ctx context
 		otelogen.OperationID("test_request_required_string_ipv6_nullable_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_ipv6_nullable_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -39148,15 +34051,6 @@ func (c *Client) sendTestRequestRequiredStringNullableArray(ctx context.Context,
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_nullable_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -39229,32 +34123,6 @@ func (c *Client) sendTestRequestRequiredStringNullableArrayArray(ctx context.Con
 		otelogen.OperationID("test_request_required_string_nullable_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_nullable_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -39402,15 +34270,6 @@ func (c *Client) sendTestRequestRequiredStringPasswordArray(ctx context.Context,
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_password_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -39483,32 +34342,6 @@ func (c *Client) sendTestRequestRequiredStringPasswordArrayArray(ctx context.Con
 		otelogen.OperationID("test_request_required_string_password_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_password_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -39656,15 +34489,6 @@ func (c *Client) sendTestRequestRequiredStringPasswordNullableArray(ctx context.
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_password_nullable_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -39737,32 +34561,6 @@ func (c *Client) sendTestRequestRequiredStringPasswordNullableArrayArray(ctx con
 		otelogen.OperationID("test_request_required_string_password_nullable_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_password_nullable_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -39910,15 +34708,6 @@ func (c *Client) sendTestRequestRequiredStringTimeArray(ctx context.Context, req
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_time_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -39991,32 +34780,6 @@ func (c *Client) sendTestRequestRequiredStringTimeArrayArray(ctx context.Context
 		otelogen.OperationID("test_request_required_string_time_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_time_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -40164,15 +34927,6 @@ func (c *Client) sendTestRequestRequiredStringTimeNullableArray(ctx context.Cont
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_time_nullable_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -40245,32 +34999,6 @@ func (c *Client) sendTestRequestRequiredStringTimeNullableArrayArray(ctx context
 		otelogen.OperationID("test_request_required_string_time_nullable_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_time_nullable_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -40418,15 +35146,6 @@ func (c *Client) sendTestRequestRequiredStringURIArray(ctx context.Context, requ
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_uri_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -40499,32 +35218,6 @@ func (c *Client) sendTestRequestRequiredStringURIArrayArray(ctx context.Context,
 		otelogen.OperationID("test_request_required_string_uri_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_uri_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -40672,15 +35365,6 @@ func (c *Client) sendTestRequestRequiredStringURINullableArray(ctx context.Conte
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_uri_nullable_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -40753,32 +35437,6 @@ func (c *Client) sendTestRequestRequiredStringURINullableArrayArray(ctx context.
 		otelogen.OperationID("test_request_required_string_uri_nullable_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_uri_nullable_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -40926,15 +35584,6 @@ func (c *Client) sendTestRequestRequiredStringUUIDArray(ctx context.Context, req
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_uuid_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -41007,32 +35656,6 @@ func (c *Client) sendTestRequestRequiredStringUUIDArrayArray(ctx context.Context
 		otelogen.OperationID("test_request_required_string_uuid_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_uuid_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -41180,15 +35803,6 @@ func (c *Client) sendTestRequestRequiredStringUUIDNullableArray(ctx context.Cont
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_uuid_nullable_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -41261,32 +35875,6 @@ func (c *Client) sendTestRequestRequiredStringUUIDNullableArrayArray(ctx context
 		otelogen.OperationID("test_request_required_string_uuid_nullable_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_uuid_nullable_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -41507,15 +36095,6 @@ func (c *Client) sendTestRequestRequiredStringUint16Array(ctx context.Context, r
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_uint16_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -41589,32 +36168,6 @@ func (c *Client) sendTestRequestRequiredStringUint16ArrayArray(ctx context.Conte
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_uint16_array_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -41677,12 +36230,12 @@ func (c *Client) sendTestRequestRequiredStringUint16ArrayArray(ctx context.Conte
 // TestRequestRequiredStringUint16Nullable invokes test_request_required_string_uint16_nullable operation.
 //
 // POST /test_request_required_string_uint16_nullable
-func (c *Client) TestRequestRequiredStringUint16Nullable(ctx context.Context, request NilUint16) (*Error, error) {
+func (c *Client) TestRequestRequiredStringUint16Nullable(ctx context.Context, request NilStringUint16) (*Error, error) {
 	res, err := c.sendTestRequestRequiredStringUint16Nullable(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestRequestRequiredStringUint16Nullable(ctx context.Context, request NilUint16) (res *Error, err error) {
+func (c *Client) sendTestRequestRequiredStringUint16Nullable(ctx context.Context, request NilStringUint16) (res *Error, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_request_required_string_uint16_nullable"),
 		semconv.HTTPMethodKey.String("POST"),
@@ -41750,25 +36303,16 @@ func (c *Client) sendTestRequestRequiredStringUint16Nullable(ctx context.Context
 // TestRequestRequiredStringUint16NullableArray invokes test_request_required_string_uint16_nullable_array operation.
 //
 // POST /test_request_required_string_uint16_nullable_array
-func (c *Client) TestRequestRequiredStringUint16NullableArray(ctx context.Context, request []NilUint16) (*Error, error) {
+func (c *Client) TestRequestRequiredStringUint16NullableArray(ctx context.Context, request []NilStringUint16) (*Error, error) {
 	res, err := c.sendTestRequestRequiredStringUint16NullableArray(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestRequestRequiredStringUint16NullableArray(ctx context.Context, request []NilUint16) (res *Error, err error) {
+func (c *Client) sendTestRequestRequiredStringUint16NullableArray(ctx context.Context, request []NilStringUint16) (res *Error, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_request_required_string_uint16_nullable_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_uint16_nullable_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -41832,42 +36376,16 @@ func (c *Client) sendTestRequestRequiredStringUint16NullableArray(ctx context.Co
 // TestRequestRequiredStringUint16NullableArrayArray invokes test_request_required_string_uint16_nullable_array_array operation.
 //
 // POST /test_request_required_string_uint16_nullable_array_array
-func (c *Client) TestRequestRequiredStringUint16NullableArrayArray(ctx context.Context, request [][]NilUint16) (*Error, error) {
+func (c *Client) TestRequestRequiredStringUint16NullableArrayArray(ctx context.Context, request [][]NilStringUint16) (*Error, error) {
 	res, err := c.sendTestRequestRequiredStringUint16NullableArrayArray(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestRequestRequiredStringUint16NullableArrayArray(ctx context.Context, request [][]NilUint16) (res *Error, err error) {
+func (c *Client) sendTestRequestRequiredStringUint16NullableArrayArray(ctx context.Context, request [][]NilStringUint16) (res *Error, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_request_required_string_uint16_nullable_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_uint16_nullable_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -42015,15 +36533,6 @@ func (c *Client) sendTestRequestRequiredStringUint32Array(ctx context.Context, r
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_uint32_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -42097,32 +36606,6 @@ func (c *Client) sendTestRequestRequiredStringUint32ArrayArray(ctx context.Conte
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_uint32_array_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -42185,12 +36668,12 @@ func (c *Client) sendTestRequestRequiredStringUint32ArrayArray(ctx context.Conte
 // TestRequestRequiredStringUint32Nullable invokes test_request_required_string_uint32_nullable operation.
 //
 // POST /test_request_required_string_uint32_nullable
-func (c *Client) TestRequestRequiredStringUint32Nullable(ctx context.Context, request NilUint32) (*Error, error) {
+func (c *Client) TestRequestRequiredStringUint32Nullable(ctx context.Context, request NilStringUint32) (*Error, error) {
 	res, err := c.sendTestRequestRequiredStringUint32Nullable(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestRequestRequiredStringUint32Nullable(ctx context.Context, request NilUint32) (res *Error, err error) {
+func (c *Client) sendTestRequestRequiredStringUint32Nullable(ctx context.Context, request NilStringUint32) (res *Error, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_request_required_string_uint32_nullable"),
 		semconv.HTTPMethodKey.String("POST"),
@@ -42258,25 +36741,16 @@ func (c *Client) sendTestRequestRequiredStringUint32Nullable(ctx context.Context
 // TestRequestRequiredStringUint32NullableArray invokes test_request_required_string_uint32_nullable_array operation.
 //
 // POST /test_request_required_string_uint32_nullable_array
-func (c *Client) TestRequestRequiredStringUint32NullableArray(ctx context.Context, request []NilUint32) (*Error, error) {
+func (c *Client) TestRequestRequiredStringUint32NullableArray(ctx context.Context, request []NilStringUint32) (*Error, error) {
 	res, err := c.sendTestRequestRequiredStringUint32NullableArray(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestRequestRequiredStringUint32NullableArray(ctx context.Context, request []NilUint32) (res *Error, err error) {
+func (c *Client) sendTestRequestRequiredStringUint32NullableArray(ctx context.Context, request []NilStringUint32) (res *Error, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_request_required_string_uint32_nullable_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_uint32_nullable_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -42340,42 +36814,16 @@ func (c *Client) sendTestRequestRequiredStringUint32NullableArray(ctx context.Co
 // TestRequestRequiredStringUint32NullableArrayArray invokes test_request_required_string_uint32_nullable_array_array operation.
 //
 // POST /test_request_required_string_uint32_nullable_array_array
-func (c *Client) TestRequestRequiredStringUint32NullableArrayArray(ctx context.Context, request [][]NilUint32) (*Error, error) {
+func (c *Client) TestRequestRequiredStringUint32NullableArrayArray(ctx context.Context, request [][]NilStringUint32) (*Error, error) {
 	res, err := c.sendTestRequestRequiredStringUint32NullableArrayArray(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestRequestRequiredStringUint32NullableArrayArray(ctx context.Context, request [][]NilUint32) (res *Error, err error) {
+func (c *Client) sendTestRequestRequiredStringUint32NullableArrayArray(ctx context.Context, request [][]NilStringUint32) (res *Error, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_request_required_string_uint32_nullable_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_uint32_nullable_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -42523,15 +36971,6 @@ func (c *Client) sendTestRequestRequiredStringUint64Array(ctx context.Context, r
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_uint64_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -42605,32 +37044,6 @@ func (c *Client) sendTestRequestRequiredStringUint64ArrayArray(ctx context.Conte
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_uint64_array_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -42693,12 +37106,12 @@ func (c *Client) sendTestRequestRequiredStringUint64ArrayArray(ctx context.Conte
 // TestRequestRequiredStringUint64Nullable invokes test_request_required_string_uint64_nullable operation.
 //
 // POST /test_request_required_string_uint64_nullable
-func (c *Client) TestRequestRequiredStringUint64Nullable(ctx context.Context, request NilUint64) (*Error, error) {
+func (c *Client) TestRequestRequiredStringUint64Nullable(ctx context.Context, request NilStringUint64) (*Error, error) {
 	res, err := c.sendTestRequestRequiredStringUint64Nullable(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestRequestRequiredStringUint64Nullable(ctx context.Context, request NilUint64) (res *Error, err error) {
+func (c *Client) sendTestRequestRequiredStringUint64Nullable(ctx context.Context, request NilStringUint64) (res *Error, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_request_required_string_uint64_nullable"),
 		semconv.HTTPMethodKey.String("POST"),
@@ -42766,25 +37179,16 @@ func (c *Client) sendTestRequestRequiredStringUint64Nullable(ctx context.Context
 // TestRequestRequiredStringUint64NullableArray invokes test_request_required_string_uint64_nullable_array operation.
 //
 // POST /test_request_required_string_uint64_nullable_array
-func (c *Client) TestRequestRequiredStringUint64NullableArray(ctx context.Context, request []NilUint64) (*Error, error) {
+func (c *Client) TestRequestRequiredStringUint64NullableArray(ctx context.Context, request []NilStringUint64) (*Error, error) {
 	res, err := c.sendTestRequestRequiredStringUint64NullableArray(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestRequestRequiredStringUint64NullableArray(ctx context.Context, request []NilUint64) (res *Error, err error) {
+func (c *Client) sendTestRequestRequiredStringUint64NullableArray(ctx context.Context, request []NilStringUint64) (res *Error, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_request_required_string_uint64_nullable_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_uint64_nullable_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -42848,42 +37252,16 @@ func (c *Client) sendTestRequestRequiredStringUint64NullableArray(ctx context.Co
 // TestRequestRequiredStringUint64NullableArrayArray invokes test_request_required_string_uint64_nullable_array_array operation.
 //
 // POST /test_request_required_string_uint64_nullable_array_array
-func (c *Client) TestRequestRequiredStringUint64NullableArrayArray(ctx context.Context, request [][]NilUint64) (*Error, error) {
+func (c *Client) TestRequestRequiredStringUint64NullableArrayArray(ctx context.Context, request [][]NilStringUint64) (*Error, error) {
 	res, err := c.sendTestRequestRequiredStringUint64NullableArrayArray(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestRequestRequiredStringUint64NullableArrayArray(ctx context.Context, request [][]NilUint64) (res *Error, err error) {
+func (c *Client) sendTestRequestRequiredStringUint64NullableArrayArray(ctx context.Context, request [][]NilStringUint64) (res *Error, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_request_required_string_uint64_nullable_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_uint64_nullable_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -43031,15 +37409,6 @@ func (c *Client) sendTestRequestRequiredStringUint8Array(ctx context.Context, re
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_uint8_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -43113,32 +37482,6 @@ func (c *Client) sendTestRequestRequiredStringUint8ArrayArray(ctx context.Contex
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_uint8_array_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -43201,12 +37544,12 @@ func (c *Client) sendTestRequestRequiredStringUint8ArrayArray(ctx context.Contex
 // TestRequestRequiredStringUint8Nullable invokes test_request_required_string_uint8_nullable operation.
 //
 // POST /test_request_required_string_uint8_nullable
-func (c *Client) TestRequestRequiredStringUint8Nullable(ctx context.Context, request NilUint8) (*Error, error) {
+func (c *Client) TestRequestRequiredStringUint8Nullable(ctx context.Context, request NilStringUint8) (*Error, error) {
 	res, err := c.sendTestRequestRequiredStringUint8Nullable(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestRequestRequiredStringUint8Nullable(ctx context.Context, request NilUint8) (res *Error, err error) {
+func (c *Client) sendTestRequestRequiredStringUint8Nullable(ctx context.Context, request NilStringUint8) (res *Error, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_request_required_string_uint8_nullable"),
 		semconv.HTTPMethodKey.String("POST"),
@@ -43274,25 +37617,16 @@ func (c *Client) sendTestRequestRequiredStringUint8Nullable(ctx context.Context,
 // TestRequestRequiredStringUint8NullableArray invokes test_request_required_string_uint8_nullable_array operation.
 //
 // POST /test_request_required_string_uint8_nullable_array
-func (c *Client) TestRequestRequiredStringUint8NullableArray(ctx context.Context, request []NilUint8) (*Error, error) {
+func (c *Client) TestRequestRequiredStringUint8NullableArray(ctx context.Context, request []NilStringUint8) (*Error, error) {
 	res, err := c.sendTestRequestRequiredStringUint8NullableArray(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestRequestRequiredStringUint8NullableArray(ctx context.Context, request []NilUint8) (res *Error, err error) {
+func (c *Client) sendTestRequestRequiredStringUint8NullableArray(ctx context.Context, request []NilStringUint8) (res *Error, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_request_required_string_uint8_nullable_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_uint8_nullable_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -43356,42 +37690,16 @@ func (c *Client) sendTestRequestRequiredStringUint8NullableArray(ctx context.Con
 // TestRequestRequiredStringUint8NullableArrayArray invokes test_request_required_string_uint8_nullable_array_array operation.
 //
 // POST /test_request_required_string_uint8_nullable_array_array
-func (c *Client) TestRequestRequiredStringUint8NullableArrayArray(ctx context.Context, request [][]NilUint8) (*Error, error) {
+func (c *Client) TestRequestRequiredStringUint8NullableArrayArray(ctx context.Context, request [][]NilStringUint8) (*Error, error) {
 	res, err := c.sendTestRequestRequiredStringUint8NullableArrayArray(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestRequestRequiredStringUint8NullableArrayArray(ctx context.Context, request [][]NilUint8) (res *Error, err error) {
+func (c *Client) sendTestRequestRequiredStringUint8NullableArrayArray(ctx context.Context, request [][]NilStringUint8) (res *Error, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_request_required_string_uint8_nullable_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_uint8_nullable_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -43466,15 +37774,6 @@ func (c *Client) sendTestRequestRequiredStringUintArray(ctx context.Context, req
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_uint_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -43548,32 +37847,6 @@ func (c *Client) sendTestRequestRequiredStringUintArrayArray(ctx context.Context
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_uint_array_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -43636,12 +37909,12 @@ func (c *Client) sendTestRequestRequiredStringUintArrayArray(ctx context.Context
 // TestRequestRequiredStringUintNullable invokes test_request_required_string_uint_nullable operation.
 //
 // POST /test_request_required_string_uint_nullable
-func (c *Client) TestRequestRequiredStringUintNullable(ctx context.Context, request NilUint) (*Error, error) {
+func (c *Client) TestRequestRequiredStringUintNullable(ctx context.Context, request NilStringUint) (*Error, error) {
 	res, err := c.sendTestRequestRequiredStringUintNullable(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestRequestRequiredStringUintNullable(ctx context.Context, request NilUint) (res *Error, err error) {
+func (c *Client) sendTestRequestRequiredStringUintNullable(ctx context.Context, request NilStringUint) (res *Error, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_request_required_string_uint_nullable"),
 		semconv.HTTPMethodKey.String("POST"),
@@ -43709,25 +37982,16 @@ func (c *Client) sendTestRequestRequiredStringUintNullable(ctx context.Context, 
 // TestRequestRequiredStringUintNullableArray invokes test_request_required_string_uint_nullable_array operation.
 //
 // POST /test_request_required_string_uint_nullable_array
-func (c *Client) TestRequestRequiredStringUintNullableArray(ctx context.Context, request []NilUint) (*Error, error) {
+func (c *Client) TestRequestRequiredStringUintNullableArray(ctx context.Context, request []NilStringUint) (*Error, error) {
 	res, err := c.sendTestRequestRequiredStringUintNullableArray(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestRequestRequiredStringUintNullableArray(ctx context.Context, request []NilUint) (res *Error, err error) {
+func (c *Client) sendTestRequestRequiredStringUintNullableArray(ctx context.Context, request []NilStringUint) (res *Error, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_request_required_string_uint_nullable_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_uint_nullable_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -43791,42 +38055,16 @@ func (c *Client) sendTestRequestRequiredStringUintNullableArray(ctx context.Cont
 // TestRequestRequiredStringUintNullableArrayArray invokes test_request_required_string_uint_nullable_array_array operation.
 //
 // POST /test_request_required_string_uint_nullable_array_array
-func (c *Client) TestRequestRequiredStringUintNullableArrayArray(ctx context.Context, request [][]NilUint) (*Error, error) {
+func (c *Client) TestRequestRequiredStringUintNullableArrayArray(ctx context.Context, request [][]NilStringUint) (*Error, error) {
 	res, err := c.sendTestRequestRequiredStringUintNullableArrayArray(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestRequestRequiredStringUintNullableArrayArray(ctx context.Context, request [][]NilUint) (res *Error, err error) {
+func (c *Client) sendTestRequestRequiredStringUintNullableArrayArray(ctx context.Context, request [][]NilStringUint) (res *Error, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_request_required_string_uint_nullable_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_uint_nullable_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -43974,15 +38212,6 @@ func (c *Client) sendTestRequestRequiredStringUnixArray(ctx context.Context, req
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_unix_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -44055,32 +38284,6 @@ func (c *Client) sendTestRequestRequiredStringUnixArrayArray(ctx context.Context
 		otelogen.OperationID("test_request_required_string_unix_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_unix_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -44228,15 +38431,6 @@ func (c *Client) sendTestRequestRequiredStringUnixMicroArray(ctx context.Context
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_unix-micro_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -44309,32 +38503,6 @@ func (c *Client) sendTestRequestRequiredStringUnixMicroArrayArray(ctx context.Co
 		otelogen.OperationID("test_request_required_string_unix-micro_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_unix-micro_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -44482,15 +38650,6 @@ func (c *Client) sendTestRequestRequiredStringUnixMicroNullableArray(ctx context
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_unix-micro_nullable_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -44563,32 +38722,6 @@ func (c *Client) sendTestRequestRequiredStringUnixMicroNullableArrayArray(ctx co
 		otelogen.OperationID("test_request_required_string_unix-micro_nullable_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_unix-micro_nullable_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -44736,15 +38869,6 @@ func (c *Client) sendTestRequestRequiredStringUnixMilliArray(ctx context.Context
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_unix-milli_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -44817,32 +38941,6 @@ func (c *Client) sendTestRequestRequiredStringUnixMilliArrayArray(ctx context.Co
 		otelogen.OperationID("test_request_required_string_unix-milli_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_unix-milli_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -44990,15 +39088,6 @@ func (c *Client) sendTestRequestRequiredStringUnixMilliNullableArray(ctx context
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_unix-milli_nullable_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -45071,32 +39160,6 @@ func (c *Client) sendTestRequestRequiredStringUnixMilliNullableArrayArray(ctx co
 		otelogen.OperationID("test_request_required_string_unix-milli_nullable_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_unix-milli_nullable_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -45244,15 +39307,6 @@ func (c *Client) sendTestRequestRequiredStringUnixNanoArray(ctx context.Context,
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_unix-nano_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -45325,32 +39379,6 @@ func (c *Client) sendTestRequestRequiredStringUnixNanoArrayArray(ctx context.Con
 		otelogen.OperationID("test_request_required_string_unix-nano_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_unix-nano_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -45498,15 +39526,6 @@ func (c *Client) sendTestRequestRequiredStringUnixNanoNullableArray(ctx context.
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_unix-nano_nullable_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -45579,32 +39598,6 @@ func (c *Client) sendTestRequestRequiredStringUnixNanoNullableArrayArray(ctx con
 		otelogen.OperationID("test_request_required_string_unix-nano_nullable_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_unix-nano_nullable_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -45752,15 +39745,6 @@ func (c *Client) sendTestRequestRequiredStringUnixNullableArray(ctx context.Cont
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_unix_nullable_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -45833,32 +39817,6 @@ func (c *Client) sendTestRequestRequiredStringUnixNullableArrayArray(ctx context
 		otelogen.OperationID("test_request_required_string_unix_nullable_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_unix_nullable_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -46006,15 +39964,6 @@ func (c *Client) sendTestRequestRequiredStringUnixSecondsArray(ctx context.Conte
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_unix-seconds_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -46087,32 +40036,6 @@ func (c *Client) sendTestRequestRequiredStringUnixSecondsArrayArray(ctx context.
 		otelogen.OperationID("test_request_required_string_unix-seconds_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_unix-seconds_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -46260,15 +40183,6 @@ func (c *Client) sendTestRequestRequiredStringUnixSecondsNullableArray(ctx conte
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_unix-seconds_nullable_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -46341,32 +40255,6 @@ func (c *Client) sendTestRequestRequiredStringUnixSecondsNullableArrayArray(ctx 
 		otelogen.OperationID("test_request_required_string_unix-seconds_nullable_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_required_string_unix-seconds_nullable_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -46587,29 +40475,6 @@ func (c *Client) sendTestRequestStringArrayArray(ctx context.Context, request []
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_string_array_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -46828,29 +40693,6 @@ func (c *Client) sendTestRequestStringBase64ArrayArray(ctx context.Context, requ
 		otelogen.OperationID("test_request_string_base64_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_string_base64_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -47071,29 +40913,6 @@ func (c *Client) sendTestRequestStringBase64NullableArrayArray(ctx context.Conte
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_string_base64_nullable_array_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -47312,29 +41131,6 @@ func (c *Client) sendTestRequestStringBinaryArrayArray(ctx context.Context, requ
 		otelogen.OperationID("test_request_string_binary_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_string_binary_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -47555,29 +41351,6 @@ func (c *Client) sendTestRequestStringBinaryNullableArrayArray(ctx context.Conte
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_string_binary_nullable_array_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -47796,29 +41569,6 @@ func (c *Client) sendTestRequestStringByteArrayArray(ctx context.Context, reques
 		otelogen.OperationID("test_request_string_byte_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_string_byte_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -48039,29 +41789,6 @@ func (c *Client) sendTestRequestStringByteNullableArrayArray(ctx context.Context
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_string_byte_nullable_array_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -48280,29 +42007,6 @@ func (c *Client) sendTestRequestStringDateArrayArray(ctx context.Context, reques
 		otelogen.OperationID("test_request_string_date_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_string_date_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -48523,29 +42227,6 @@ func (c *Client) sendTestRequestStringDateNullableArrayArray(ctx context.Context
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_string_date_nullable_array_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -48764,29 +42445,6 @@ func (c *Client) sendTestRequestStringDateTimeArrayArray(ctx context.Context, re
 		otelogen.OperationID("test_request_string_date-time_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_string_date-time_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -49007,29 +42665,6 @@ func (c *Client) sendTestRequestStringDateTimeNullableArrayArray(ctx context.Con
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_string_date-time_nullable_array_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -49248,29 +42883,6 @@ func (c *Client) sendTestRequestStringDurationArrayArray(ctx context.Context, re
 		otelogen.OperationID("test_request_string_duration_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_string_duration_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -49491,29 +43103,6 @@ func (c *Client) sendTestRequestStringDurationNullableArrayArray(ctx context.Con
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_string_duration_nullable_array_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -49586,30 +43175,6 @@ func (c *Client) sendTestRequestStringEmail(ctx context.Context, request OptStri
 		otelogen.OperationID("test_request_string_email"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_string_email"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if value, ok := request.Get(); ok {
-			if err := func() error {
-				if err := (validate.String{
-					MinLength:    0,
-					MinLengthSet: false,
-					MaxLength:    0,
-					MaxLengthSet: false,
-					Email:        true,
-					Hostname:     false,
-					Regex:        nil,
-				}).Validate(string(value)); err != nil {
-					return errors.Wrap(err, "string")
-				}
-				return nil
-			}(); err != nil {
-				return err
-			}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -49684,37 +43249,6 @@ func (c *Client) sendTestRequestStringEmailArray(ctx context.Context, request []
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_string_email_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if err := (validate.String{
-					MinLength:    0,
-					MinLengthSet: false,
-					MaxLength:    0,
-					MaxLengthSet: false,
-					Email:        true,
-					Hostname:     false,
-					Regex:        nil,
-				}).Validate(string(elem)); err != nil {
-					return errors.Wrap(err, "string")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -49787,54 +43321,6 @@ func (c *Client) sendTestRequestStringEmailArrayArray(ctx context.Context, reque
 		otelogen.OperationID("test_request_string_email_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_string_email_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				var failures []validate.FieldError
-				for i, elem := range elem {
-					if err := func() error {
-						if err := (validate.String{
-							MinLength:    0,
-							MinLengthSet: false,
-							MaxLength:    0,
-							MaxLengthSet: false,
-							Email:        true,
-							Hostname:     false,
-							Regex:        nil,
-						}).Validate(string(elem)); err != nil {
-							return errors.Wrap(err, "string")
-						}
-						return nil
-					}(); err != nil {
-						failures = append(failures, validate.FieldError{
-							Name:  fmt.Sprintf("[%d]", i),
-							Error: err,
-						})
-					}
-				}
-				if len(failures) > 0 {
-					return &validate.Error{Fields: failures}
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -49909,30 +43395,6 @@ func (c *Client) sendTestRequestStringEmailNullable(ctx context.Context, request
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_string_email_nullable"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if value, ok := request.Get(); ok {
-			if err := func() error {
-				if err := (validate.String{
-					MinLength:    0,
-					MinLengthSet: false,
-					MaxLength:    0,
-					MaxLengthSet: false,
-					Email:        true,
-					Hostname:     false,
-					Regex:        nil,
-				}).Validate(string(value)); err != nil {
-					return errors.Wrap(err, "string")
-				}
-				return nil
-			}(); err != nil {
-				return err
-			}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -50005,44 +43467,6 @@ func (c *Client) sendTestRequestStringEmailNullableArray(ctx context.Context, re
 		otelogen.OperationID("test_request_string_email_nullable_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_string_email_nullable_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if value, ok := elem.Get(); ok {
-					if err := func() error {
-						if err := (validate.String{
-							MinLength:    0,
-							MinLengthSet: false,
-							MaxLength:    0,
-							MaxLengthSet: false,
-							Email:        true,
-							Hostname:     false,
-							Regex:        nil,
-						}).Validate(string(value)); err != nil {
-							return errors.Wrap(err, "string")
-						}
-						return nil
-					}(); err != nil {
-						return err
-					}
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -50117,61 +43541,6 @@ func (c *Client) sendTestRequestStringEmailNullableArrayArray(ctx context.Contex
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_string_email_nullable_array_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				var failures []validate.FieldError
-				for i, elem := range elem {
-					if err := func() error {
-						if value, ok := elem.Get(); ok {
-							if err := func() error {
-								if err := (validate.String{
-									MinLength:    0,
-									MinLengthSet: false,
-									MaxLength:    0,
-									MaxLengthSet: false,
-									Email:        true,
-									Hostname:     false,
-									Regex:        nil,
-								}).Validate(string(value)); err != nil {
-									return errors.Wrap(err, "string")
-								}
-								return nil
-							}(); err != nil {
-								return err
-							}
-						}
-						return nil
-					}(); err != nil {
-						failures = append(failures, validate.FieldError{
-							Name:  fmt.Sprintf("[%d]", i),
-							Error: err,
-						})
-					}
-				}
-				if len(failures) > 0 {
-					return &validate.Error{Fields: failures}
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -50234,32 +43603,16 @@ func (c *Client) sendTestRequestStringEmailNullableArrayArray(ctx context.Contex
 // TestRequestStringFloat32 invokes test_request_string_float32 operation.
 //
 // POST /test_request_string_float32
-func (c *Client) TestRequestStringFloat32(ctx context.Context, request OptFloat32) (*Error, error) {
+func (c *Client) TestRequestStringFloat32(ctx context.Context, request OptStringFloat32) (*Error, error) {
 	res, err := c.sendTestRequestStringFloat32(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestRequestStringFloat32(ctx context.Context, request OptFloat32) (res *Error, err error) {
+func (c *Client) sendTestRequestStringFloat32(ctx context.Context, request OptStringFloat32) (res *Error, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_request_string_float32"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_string_float32"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if value, ok := request.Get(); ok {
-			if err := func() error {
-				if err := (validate.Float{}).ValidateStringified(float64(value)); err != nil {
-					return errors.Wrap(err, "float")
-				}
-				return nil
-			}(); err != nil {
-				return err
-			}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -50334,29 +43687,6 @@ func (c *Client) sendTestRequestStringFloat32Array(ctx context.Context, request 
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_string_float32_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if err := (validate.Float{}).ValidateStringified(float64(elem)); err != nil {
-					return errors.Wrap(err, "float")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -50430,46 +43760,6 @@ func (c *Client) sendTestRequestStringFloat32ArrayArray(ctx context.Context, req
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_string_float32_array_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				var failures []validate.FieldError
-				for i, elem := range elem {
-					if err := func() error {
-						if err := (validate.Float{}).ValidateStringified(float64(elem)); err != nil {
-							return errors.Wrap(err, "float")
-						}
-						return nil
-					}(); err != nil {
-						failures = append(failures, validate.FieldError{
-							Name:  fmt.Sprintf("[%d]", i),
-							Error: err,
-						})
-					}
-				}
-				if len(failures) > 0 {
-					return &validate.Error{Fields: failures}
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -50532,32 +43822,16 @@ func (c *Client) sendTestRequestStringFloat32ArrayArray(ctx context.Context, req
 // TestRequestStringFloat32Nullable invokes test_request_string_float32_nullable operation.
 //
 // POST /test_request_string_float32_nullable
-func (c *Client) TestRequestStringFloat32Nullable(ctx context.Context, request OptNilFloat32) (*Error, error) {
+func (c *Client) TestRequestStringFloat32Nullable(ctx context.Context, request OptNilStringFloat32) (*Error, error) {
 	res, err := c.sendTestRequestStringFloat32Nullable(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestRequestStringFloat32Nullable(ctx context.Context, request OptNilFloat32) (res *Error, err error) {
+func (c *Client) sendTestRequestStringFloat32Nullable(ctx context.Context, request OptNilStringFloat32) (res *Error, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_request_string_float32_nullable"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_string_float32_nullable"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if value, ok := request.Get(); ok {
-			if err := func() error {
-				if err := (validate.Float{}).ValidateStringified(float64(value)); err != nil {
-					return errors.Wrap(err, "float")
-				}
-				return nil
-			}(); err != nil {
-				return err
-			}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -50621,46 +43895,16 @@ func (c *Client) sendTestRequestStringFloat32Nullable(ctx context.Context, reque
 // TestRequestStringFloat32NullableArray invokes test_request_string_float32_nullable_array operation.
 //
 // POST /test_request_string_float32_nullable_array
-func (c *Client) TestRequestStringFloat32NullableArray(ctx context.Context, request []NilFloat32) (*Error, error) {
+func (c *Client) TestRequestStringFloat32NullableArray(ctx context.Context, request []NilStringFloat32) (*Error, error) {
 	res, err := c.sendTestRequestStringFloat32NullableArray(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestRequestStringFloat32NullableArray(ctx context.Context, request []NilFloat32) (res *Error, err error) {
+func (c *Client) sendTestRequestStringFloat32NullableArray(ctx context.Context, request []NilStringFloat32) (res *Error, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_request_string_float32_nullable_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_string_float32_nullable_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if value, ok := elem.Get(); ok {
-					if err := func() error {
-						if err := (validate.Float{}).ValidateStringified(float64(value)); err != nil {
-							return errors.Wrap(err, "float")
-						}
-						return nil
-					}(); err != nil {
-						return err
-					}
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -50724,63 +43968,16 @@ func (c *Client) sendTestRequestStringFloat32NullableArray(ctx context.Context, 
 // TestRequestStringFloat32NullableArrayArray invokes test_request_string_float32_nullable_array_array operation.
 //
 // POST /test_request_string_float32_nullable_array_array
-func (c *Client) TestRequestStringFloat32NullableArrayArray(ctx context.Context, request [][]NilFloat32) (*Error, error) {
+func (c *Client) TestRequestStringFloat32NullableArrayArray(ctx context.Context, request [][]NilStringFloat32) (*Error, error) {
 	res, err := c.sendTestRequestStringFloat32NullableArrayArray(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestRequestStringFloat32NullableArrayArray(ctx context.Context, request [][]NilFloat32) (res *Error, err error) {
+func (c *Client) sendTestRequestStringFloat32NullableArrayArray(ctx context.Context, request [][]NilStringFloat32) (res *Error, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_request_string_float32_nullable_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_string_float32_nullable_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				var failures []validate.FieldError
-				for i, elem := range elem {
-					if err := func() error {
-						if value, ok := elem.Get(); ok {
-							if err := func() error {
-								if err := (validate.Float{}).ValidateStringified(float64(value)); err != nil {
-									return errors.Wrap(err, "float")
-								}
-								return nil
-							}(); err != nil {
-								return err
-							}
-						}
-						return nil
-					}(); err != nil {
-						failures = append(failures, validate.FieldError{
-							Name:  fmt.Sprintf("[%d]", i),
-							Error: err,
-						})
-					}
-				}
-				if len(failures) > 0 {
-					return &validate.Error{Fields: failures}
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -50844,32 +44041,16 @@ func (c *Client) sendTestRequestStringFloat32NullableArrayArray(ctx context.Cont
 // TestRequestStringFloat64 invokes test_request_string_float64 operation.
 //
 // POST /test_request_string_float64
-func (c *Client) TestRequestStringFloat64(ctx context.Context, request OptFloat64) (*Error, error) {
+func (c *Client) TestRequestStringFloat64(ctx context.Context, request OptStringFloat64) (*Error, error) {
 	res, err := c.sendTestRequestStringFloat64(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestRequestStringFloat64(ctx context.Context, request OptFloat64) (res *Error, err error) {
+func (c *Client) sendTestRequestStringFloat64(ctx context.Context, request OptStringFloat64) (res *Error, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_request_string_float64"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_string_float64"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if value, ok := request.Get(); ok {
-			if err := func() error {
-				if err := (validate.Float{}).ValidateStringified(float64(value)); err != nil {
-					return errors.Wrap(err, "float")
-				}
-				return nil
-			}(); err != nil {
-				return err
-			}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -50944,29 +44125,6 @@ func (c *Client) sendTestRequestStringFloat64Array(ctx context.Context, request 
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_string_float64_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if err := (validate.Float{}).ValidateStringified(float64(elem)); err != nil {
-					return errors.Wrap(err, "float")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -51040,46 +44198,6 @@ func (c *Client) sendTestRequestStringFloat64ArrayArray(ctx context.Context, req
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_string_float64_array_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				var failures []validate.FieldError
-				for i, elem := range elem {
-					if err := func() error {
-						if err := (validate.Float{}).ValidateStringified(float64(elem)); err != nil {
-							return errors.Wrap(err, "float")
-						}
-						return nil
-					}(); err != nil {
-						failures = append(failures, validate.FieldError{
-							Name:  fmt.Sprintf("[%d]", i),
-							Error: err,
-						})
-					}
-				}
-				if len(failures) > 0 {
-					return &validate.Error{Fields: failures}
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -51142,32 +44260,16 @@ func (c *Client) sendTestRequestStringFloat64ArrayArray(ctx context.Context, req
 // TestRequestStringFloat64Nullable invokes test_request_string_float64_nullable operation.
 //
 // POST /test_request_string_float64_nullable
-func (c *Client) TestRequestStringFloat64Nullable(ctx context.Context, request OptNilFloat64) (*Error, error) {
+func (c *Client) TestRequestStringFloat64Nullable(ctx context.Context, request OptNilStringFloat64) (*Error, error) {
 	res, err := c.sendTestRequestStringFloat64Nullable(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestRequestStringFloat64Nullable(ctx context.Context, request OptNilFloat64) (res *Error, err error) {
+func (c *Client) sendTestRequestStringFloat64Nullable(ctx context.Context, request OptNilStringFloat64) (res *Error, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_request_string_float64_nullable"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_string_float64_nullable"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if value, ok := request.Get(); ok {
-			if err := func() error {
-				if err := (validate.Float{}).ValidateStringified(float64(value)); err != nil {
-					return errors.Wrap(err, "float")
-				}
-				return nil
-			}(); err != nil {
-				return err
-			}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -51231,46 +44333,16 @@ func (c *Client) sendTestRequestStringFloat64Nullable(ctx context.Context, reque
 // TestRequestStringFloat64NullableArray invokes test_request_string_float64_nullable_array operation.
 //
 // POST /test_request_string_float64_nullable_array
-func (c *Client) TestRequestStringFloat64NullableArray(ctx context.Context, request []NilFloat64) (*Error, error) {
+func (c *Client) TestRequestStringFloat64NullableArray(ctx context.Context, request []NilStringFloat64) (*Error, error) {
 	res, err := c.sendTestRequestStringFloat64NullableArray(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestRequestStringFloat64NullableArray(ctx context.Context, request []NilFloat64) (res *Error, err error) {
+func (c *Client) sendTestRequestStringFloat64NullableArray(ctx context.Context, request []NilStringFloat64) (res *Error, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_request_string_float64_nullable_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_string_float64_nullable_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if value, ok := elem.Get(); ok {
-					if err := func() error {
-						if err := (validate.Float{}).ValidateStringified(float64(value)); err != nil {
-							return errors.Wrap(err, "float")
-						}
-						return nil
-					}(); err != nil {
-						return err
-					}
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -51334,63 +44406,16 @@ func (c *Client) sendTestRequestStringFloat64NullableArray(ctx context.Context, 
 // TestRequestStringFloat64NullableArrayArray invokes test_request_string_float64_nullable_array_array operation.
 //
 // POST /test_request_string_float64_nullable_array_array
-func (c *Client) TestRequestStringFloat64NullableArrayArray(ctx context.Context, request [][]NilFloat64) (*Error, error) {
+func (c *Client) TestRequestStringFloat64NullableArrayArray(ctx context.Context, request [][]NilStringFloat64) (*Error, error) {
 	res, err := c.sendTestRequestStringFloat64NullableArrayArray(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestRequestStringFloat64NullableArrayArray(ctx context.Context, request [][]NilFloat64) (res *Error, err error) {
+func (c *Client) sendTestRequestStringFloat64NullableArrayArray(ctx context.Context, request [][]NilStringFloat64) (res *Error, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_request_string_float64_nullable_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_string_float64_nullable_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				var failures []validate.FieldError
-				for i, elem := range elem {
-					if err := func() error {
-						if value, ok := elem.Get(); ok {
-							if err := func() error {
-								if err := (validate.Float{}).ValidateStringified(float64(value)); err != nil {
-									return errors.Wrap(err, "float")
-								}
-								return nil
-							}(); err != nil {
-								return err
-							}
-						}
-						return nil
-					}(); err != nil {
-						failures = append(failures, validate.FieldError{
-							Name:  fmt.Sprintf("[%d]", i),
-							Error: err,
-						})
-					}
-				}
-				if len(failures) > 0 {
-					return &validate.Error{Fields: failures}
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -51465,30 +44490,6 @@ func (c *Client) sendTestRequestStringHostname(ctx context.Context, request OptS
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_string_hostname"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if value, ok := request.Get(); ok {
-			if err := func() error {
-				if err := (validate.String{
-					MinLength:    0,
-					MinLengthSet: false,
-					MaxLength:    0,
-					MaxLengthSet: false,
-					Email:        false,
-					Hostname:     true,
-					Regex:        nil,
-				}).Validate(string(value)); err != nil {
-					return errors.Wrap(err, "string")
-				}
-				return nil
-			}(); err != nil {
-				return err
-			}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -51561,37 +44562,6 @@ func (c *Client) sendTestRequestStringHostnameArray(ctx context.Context, request
 		otelogen.OperationID("test_request_string_hostname_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_string_hostname_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if err := (validate.String{
-					MinLength:    0,
-					MinLengthSet: false,
-					MaxLength:    0,
-					MaxLengthSet: false,
-					Email:        false,
-					Hostname:     true,
-					Regex:        nil,
-				}).Validate(string(elem)); err != nil {
-					return errors.Wrap(err, "string")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -51666,54 +44636,6 @@ func (c *Client) sendTestRequestStringHostnameArrayArray(ctx context.Context, re
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_string_hostname_array_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				var failures []validate.FieldError
-				for i, elem := range elem {
-					if err := func() error {
-						if err := (validate.String{
-							MinLength:    0,
-							MinLengthSet: false,
-							MaxLength:    0,
-							MaxLengthSet: false,
-							Email:        false,
-							Hostname:     true,
-							Regex:        nil,
-						}).Validate(string(elem)); err != nil {
-							return errors.Wrap(err, "string")
-						}
-						return nil
-					}(); err != nil {
-						failures = append(failures, validate.FieldError{
-							Name:  fmt.Sprintf("[%d]", i),
-							Error: err,
-						})
-					}
-				}
-				if len(failures) > 0 {
-					return &validate.Error{Fields: failures}
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -51786,30 +44708,6 @@ func (c *Client) sendTestRequestStringHostnameNullable(ctx context.Context, requ
 		otelogen.OperationID("test_request_string_hostname_nullable"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_string_hostname_nullable"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if value, ok := request.Get(); ok {
-			if err := func() error {
-				if err := (validate.String{
-					MinLength:    0,
-					MinLengthSet: false,
-					MaxLength:    0,
-					MaxLengthSet: false,
-					Email:        false,
-					Hostname:     true,
-					Regex:        nil,
-				}).Validate(string(value)); err != nil {
-					return errors.Wrap(err, "string")
-				}
-				return nil
-			}(); err != nil {
-				return err
-			}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -51884,44 +44782,6 @@ func (c *Client) sendTestRequestStringHostnameNullableArray(ctx context.Context,
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_string_hostname_nullable_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if value, ok := elem.Get(); ok {
-					if err := func() error {
-						if err := (validate.String{
-							MinLength:    0,
-							MinLengthSet: false,
-							MaxLength:    0,
-							MaxLengthSet: false,
-							Email:        false,
-							Hostname:     true,
-							Regex:        nil,
-						}).Validate(string(value)); err != nil {
-							return errors.Wrap(err, "string")
-						}
-						return nil
-					}(); err != nil {
-						return err
-					}
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -51994,61 +44854,6 @@ func (c *Client) sendTestRequestStringHostnameNullableArrayArray(ctx context.Con
 		otelogen.OperationID("test_request_string_hostname_nullable_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_string_hostname_nullable_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				var failures []validate.FieldError
-				for i, elem := range elem {
-					if err := func() error {
-						if value, ok := elem.Get(); ok {
-							if err := func() error {
-								if err := (validate.String{
-									MinLength:    0,
-									MinLengthSet: false,
-									MaxLength:    0,
-									MaxLengthSet: false,
-									Email:        false,
-									Hostname:     true,
-									Regex:        nil,
-								}).Validate(string(value)); err != nil {
-									return errors.Wrap(err, "string")
-								}
-								return nil
-							}(); err != nil {
-								return err
-							}
-						}
-						return nil
-					}(); err != nil {
-						failures = append(failures, validate.FieldError{
-							Name:  fmt.Sprintf("[%d]", i),
-							Error: err,
-						})
-					}
-				}
-				if len(failures) > 0 {
-					return &validate.Error{Fields: failures}
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -52269,29 +45074,6 @@ func (c *Client) sendTestRequestStringIPArrayArray(ctx context.Context, request 
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_string_ip_array_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -52511,29 +45293,6 @@ func (c *Client) sendTestRequestStringIPNullableArrayArray(ctx context.Context, 
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_string_ip_nullable_array_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -52596,12 +45355,12 @@ func (c *Client) sendTestRequestStringIPNullableArrayArray(ctx context.Context, 
 // TestRequestStringInt invokes test_request_string_int operation.
 //
 // POST /test_request_string_int
-func (c *Client) TestRequestStringInt(ctx context.Context, request OptInt) (*Error, error) {
+func (c *Client) TestRequestStringInt(ctx context.Context, request OptStringInt) (*Error, error) {
 	res, err := c.sendTestRequestStringInt(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestRequestStringInt(ctx context.Context, request OptInt) (res *Error, err error) {
+func (c *Client) sendTestRequestStringInt(ctx context.Context, request OptStringInt) (res *Error, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_request_string_int"),
 		semconv.HTTPMethodKey.String("POST"),
@@ -52669,12 +45428,12 @@ func (c *Client) sendTestRequestStringInt(ctx context.Context, request OptInt) (
 // TestRequestStringInt16 invokes test_request_string_int16 operation.
 //
 // POST /test_request_string_int16
-func (c *Client) TestRequestStringInt16(ctx context.Context, request OptInt16) (*Error, error) {
+func (c *Client) TestRequestStringInt16(ctx context.Context, request OptStringInt16) (*Error, error) {
 	res, err := c.sendTestRequestStringInt16(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestRequestStringInt16(ctx context.Context, request OptInt16) (res *Error, err error) {
+func (c *Client) sendTestRequestStringInt16(ctx context.Context, request OptStringInt16) (res *Error, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_request_string_int16"),
 		semconv.HTTPMethodKey.String("POST"),
@@ -52826,29 +45585,6 @@ func (c *Client) sendTestRequestStringInt16ArrayArray(ctx context.Context, reque
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_string_int16_array_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -52911,12 +45647,12 @@ func (c *Client) sendTestRequestStringInt16ArrayArray(ctx context.Context, reque
 // TestRequestStringInt16Nullable invokes test_request_string_int16_nullable operation.
 //
 // POST /test_request_string_int16_nullable
-func (c *Client) TestRequestStringInt16Nullable(ctx context.Context, request OptNilInt16) (*Error, error) {
+func (c *Client) TestRequestStringInt16Nullable(ctx context.Context, request OptNilStringInt16) (*Error, error) {
 	res, err := c.sendTestRequestStringInt16Nullable(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestRequestStringInt16Nullable(ctx context.Context, request OptNilInt16) (res *Error, err error) {
+func (c *Client) sendTestRequestStringInt16Nullable(ctx context.Context, request OptNilStringInt16) (res *Error, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_request_string_int16_nullable"),
 		semconv.HTTPMethodKey.String("POST"),
@@ -52984,12 +45720,12 @@ func (c *Client) sendTestRequestStringInt16Nullable(ctx context.Context, request
 // TestRequestStringInt16NullableArray invokes test_request_string_int16_nullable_array operation.
 //
 // POST /test_request_string_int16_nullable_array
-func (c *Client) TestRequestStringInt16NullableArray(ctx context.Context, request []NilInt16) (*Error, error) {
+func (c *Client) TestRequestStringInt16NullableArray(ctx context.Context, request []NilStringInt16) (*Error, error) {
 	res, err := c.sendTestRequestStringInt16NullableArray(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestRequestStringInt16NullableArray(ctx context.Context, request []NilInt16) (res *Error, err error) {
+func (c *Client) sendTestRequestStringInt16NullableArray(ctx context.Context, request []NilStringInt16) (res *Error, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_request_string_int16_nullable_array"),
 		semconv.HTTPMethodKey.String("POST"),
@@ -53057,39 +45793,16 @@ func (c *Client) sendTestRequestStringInt16NullableArray(ctx context.Context, re
 // TestRequestStringInt16NullableArrayArray invokes test_request_string_int16_nullable_array_array operation.
 //
 // POST /test_request_string_int16_nullable_array_array
-func (c *Client) TestRequestStringInt16NullableArrayArray(ctx context.Context, request [][]NilInt16) (*Error, error) {
+func (c *Client) TestRequestStringInt16NullableArrayArray(ctx context.Context, request [][]NilStringInt16) (*Error, error) {
 	res, err := c.sendTestRequestStringInt16NullableArrayArray(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestRequestStringInt16NullableArrayArray(ctx context.Context, request [][]NilInt16) (res *Error, err error) {
+func (c *Client) sendTestRequestStringInt16NullableArrayArray(ctx context.Context, request [][]NilStringInt16) (res *Error, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_request_string_int16_nullable_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_string_int16_nullable_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -53310,29 +46023,6 @@ func (c *Client) sendTestRequestStringInt32ArrayArray(ctx context.Context, reque
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_string_int32_array_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -53551,29 +46241,6 @@ func (c *Client) sendTestRequestStringInt32NullableArrayArray(ctx context.Contex
 		otelogen.OperationID("test_request_string_int32_nullable_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_string_int32_nullable_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -53794,29 +46461,6 @@ func (c *Client) sendTestRequestStringInt64ArrayArray(ctx context.Context, reque
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_string_int64_array_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -54036,29 +46680,6 @@ func (c *Client) sendTestRequestStringInt64NullableArrayArray(ctx context.Contex
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_string_int64_nullable_array_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -54121,12 +46742,12 @@ func (c *Client) sendTestRequestStringInt64NullableArrayArray(ctx context.Contex
 // TestRequestStringInt8 invokes test_request_string_int8 operation.
 //
 // POST /test_request_string_int8
-func (c *Client) TestRequestStringInt8(ctx context.Context, request OptInt8) (*Error, error) {
+func (c *Client) TestRequestStringInt8(ctx context.Context, request OptStringInt8) (*Error, error) {
 	res, err := c.sendTestRequestStringInt8(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestRequestStringInt8(ctx context.Context, request OptInt8) (res *Error, err error) {
+func (c *Client) sendTestRequestStringInt8(ctx context.Context, request OptStringInt8) (res *Error, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_request_string_int8"),
 		semconv.HTTPMethodKey.String("POST"),
@@ -54278,29 +46899,6 @@ func (c *Client) sendTestRequestStringInt8ArrayArray(ctx context.Context, reques
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_string_int8_array_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -54363,12 +46961,12 @@ func (c *Client) sendTestRequestStringInt8ArrayArray(ctx context.Context, reques
 // TestRequestStringInt8Nullable invokes test_request_string_int8_nullable operation.
 //
 // POST /test_request_string_int8_nullable
-func (c *Client) TestRequestStringInt8Nullable(ctx context.Context, request OptNilInt8) (*Error, error) {
+func (c *Client) TestRequestStringInt8Nullable(ctx context.Context, request OptNilStringInt8) (*Error, error) {
 	res, err := c.sendTestRequestStringInt8Nullable(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestRequestStringInt8Nullable(ctx context.Context, request OptNilInt8) (res *Error, err error) {
+func (c *Client) sendTestRequestStringInt8Nullable(ctx context.Context, request OptNilStringInt8) (res *Error, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_request_string_int8_nullable"),
 		semconv.HTTPMethodKey.String("POST"),
@@ -54436,12 +47034,12 @@ func (c *Client) sendTestRequestStringInt8Nullable(ctx context.Context, request 
 // TestRequestStringInt8NullableArray invokes test_request_string_int8_nullable_array operation.
 //
 // POST /test_request_string_int8_nullable_array
-func (c *Client) TestRequestStringInt8NullableArray(ctx context.Context, request []NilInt8) (*Error, error) {
+func (c *Client) TestRequestStringInt8NullableArray(ctx context.Context, request []NilStringInt8) (*Error, error) {
 	res, err := c.sendTestRequestStringInt8NullableArray(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestRequestStringInt8NullableArray(ctx context.Context, request []NilInt8) (res *Error, err error) {
+func (c *Client) sendTestRequestStringInt8NullableArray(ctx context.Context, request []NilStringInt8) (res *Error, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_request_string_int8_nullable_array"),
 		semconv.HTTPMethodKey.String("POST"),
@@ -54509,39 +47107,16 @@ func (c *Client) sendTestRequestStringInt8NullableArray(ctx context.Context, req
 // TestRequestStringInt8NullableArrayArray invokes test_request_string_int8_nullable_array_array operation.
 //
 // POST /test_request_string_int8_nullable_array_array
-func (c *Client) TestRequestStringInt8NullableArrayArray(ctx context.Context, request [][]NilInt8) (*Error, error) {
+func (c *Client) TestRequestStringInt8NullableArrayArray(ctx context.Context, request [][]NilStringInt8) (*Error, error) {
 	res, err := c.sendTestRequestStringInt8NullableArrayArray(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestRequestStringInt8NullableArrayArray(ctx context.Context, request [][]NilInt8) (res *Error, err error) {
+func (c *Client) sendTestRequestStringInt8NullableArrayArray(ctx context.Context, request [][]NilStringInt8) (res *Error, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_request_string_int8_nullable_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_string_int8_nullable_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -54689,29 +47264,6 @@ func (c *Client) sendTestRequestStringIntArrayArray(ctx context.Context, request
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_string_int_array_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -54774,12 +47326,12 @@ func (c *Client) sendTestRequestStringIntArrayArray(ctx context.Context, request
 // TestRequestStringIntNullable invokes test_request_string_int_nullable operation.
 //
 // POST /test_request_string_int_nullable
-func (c *Client) TestRequestStringIntNullable(ctx context.Context, request OptNilInt) (*Error, error) {
+func (c *Client) TestRequestStringIntNullable(ctx context.Context, request OptNilStringInt) (*Error, error) {
 	res, err := c.sendTestRequestStringIntNullable(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestRequestStringIntNullable(ctx context.Context, request OptNilInt) (res *Error, err error) {
+func (c *Client) sendTestRequestStringIntNullable(ctx context.Context, request OptNilStringInt) (res *Error, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_request_string_int_nullable"),
 		semconv.HTTPMethodKey.String("POST"),
@@ -54847,12 +47399,12 @@ func (c *Client) sendTestRequestStringIntNullable(ctx context.Context, request O
 // TestRequestStringIntNullableArray invokes test_request_string_int_nullable_array operation.
 //
 // POST /test_request_string_int_nullable_array
-func (c *Client) TestRequestStringIntNullableArray(ctx context.Context, request []NilInt) (*Error, error) {
+func (c *Client) TestRequestStringIntNullableArray(ctx context.Context, request []NilStringInt) (*Error, error) {
 	res, err := c.sendTestRequestStringIntNullableArray(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestRequestStringIntNullableArray(ctx context.Context, request []NilInt) (res *Error, err error) {
+func (c *Client) sendTestRequestStringIntNullableArray(ctx context.Context, request []NilStringInt) (res *Error, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_request_string_int_nullable_array"),
 		semconv.HTTPMethodKey.String("POST"),
@@ -54920,39 +47472,16 @@ func (c *Client) sendTestRequestStringIntNullableArray(ctx context.Context, requ
 // TestRequestStringIntNullableArrayArray invokes test_request_string_int_nullable_array_array operation.
 //
 // POST /test_request_string_int_nullable_array_array
-func (c *Client) TestRequestStringIntNullableArrayArray(ctx context.Context, request [][]NilInt) (*Error, error) {
+func (c *Client) TestRequestStringIntNullableArrayArray(ctx context.Context, request [][]NilStringInt) (*Error, error) {
 	res, err := c.sendTestRequestStringIntNullableArrayArray(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestRequestStringIntNullableArrayArray(ctx context.Context, request [][]NilInt) (res *Error, err error) {
+func (c *Client) sendTestRequestStringIntNullableArrayArray(ctx context.Context, request [][]NilStringInt) (res *Error, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_request_string_int_nullable_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_string_int_nullable_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -55173,29 +47702,6 @@ func (c *Client) sendTestRequestStringIpv4ArrayArray(ctx context.Context, reques
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_string_ipv4_array_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -55414,29 +47920,6 @@ func (c *Client) sendTestRequestStringIpv4NullableArrayArray(ctx context.Context
 		otelogen.OperationID("test_request_string_ipv4_nullable_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_string_ipv4_nullable_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -55657,29 +48140,6 @@ func (c *Client) sendTestRequestStringIpv6ArrayArray(ctx context.Context, reques
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_string_ipv6_array_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -55898,29 +48358,6 @@ func (c *Client) sendTestRequestStringIpv6NullableArrayArray(ctx context.Context
 		otelogen.OperationID("test_request_string_ipv6_nullable_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_string_ipv6_nullable_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -56141,29 +48578,6 @@ func (c *Client) sendTestRequestStringNullableArrayArray(ctx context.Context, re
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_string_nullable_array_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -56382,29 +48796,6 @@ func (c *Client) sendTestRequestStringPasswordArrayArray(ctx context.Context, re
 		otelogen.OperationID("test_request_string_password_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_string_password_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -56625,29 +49016,6 @@ func (c *Client) sendTestRequestStringPasswordNullableArrayArray(ctx context.Con
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_string_password_nullable_array_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -56866,29 +49234,6 @@ func (c *Client) sendTestRequestStringTimeArrayArray(ctx context.Context, reques
 		otelogen.OperationID("test_request_string_time_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_string_time_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -57109,29 +49454,6 @@ func (c *Client) sendTestRequestStringTimeNullableArrayArray(ctx context.Context
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_string_time_nullable_array_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -57350,29 +49672,6 @@ func (c *Client) sendTestRequestStringURIArrayArray(ctx context.Context, request
 		otelogen.OperationID("test_request_string_uri_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_string_uri_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -57593,29 +49892,6 @@ func (c *Client) sendTestRequestStringURINullableArrayArray(ctx context.Context,
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_string_uri_nullable_array_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -57834,29 +50110,6 @@ func (c *Client) sendTestRequestStringUUIDArrayArray(ctx context.Context, reques
 		otelogen.OperationID("test_request_string_uuid_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_string_uuid_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -58077,29 +50330,6 @@ func (c *Client) sendTestRequestStringUUIDNullableArrayArray(ctx context.Context
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_string_uuid_nullable_array_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -58162,12 +50392,12 @@ func (c *Client) sendTestRequestStringUUIDNullableArrayArray(ctx context.Context
 // TestRequestStringUint invokes test_request_string_uint operation.
 //
 // POST /test_request_string_uint
-func (c *Client) TestRequestStringUint(ctx context.Context, request OptUint) (*Error, error) {
+func (c *Client) TestRequestStringUint(ctx context.Context, request OptStringUint) (*Error, error) {
 	res, err := c.sendTestRequestStringUint(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestRequestStringUint(ctx context.Context, request OptUint) (res *Error, err error) {
+func (c *Client) sendTestRequestStringUint(ctx context.Context, request OptStringUint) (res *Error, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_request_string_uint"),
 		semconv.HTTPMethodKey.String("POST"),
@@ -58235,12 +50465,12 @@ func (c *Client) sendTestRequestStringUint(ctx context.Context, request OptUint)
 // TestRequestStringUint16 invokes test_request_string_uint16 operation.
 //
 // POST /test_request_string_uint16
-func (c *Client) TestRequestStringUint16(ctx context.Context, request OptUint16) (*Error, error) {
+func (c *Client) TestRequestStringUint16(ctx context.Context, request OptStringUint16) (*Error, error) {
 	res, err := c.sendTestRequestStringUint16(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestRequestStringUint16(ctx context.Context, request OptUint16) (res *Error, err error) {
+func (c *Client) sendTestRequestStringUint16(ctx context.Context, request OptStringUint16) (res *Error, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_request_string_uint16"),
 		semconv.HTTPMethodKey.String("POST"),
@@ -58392,29 +50622,6 @@ func (c *Client) sendTestRequestStringUint16ArrayArray(ctx context.Context, requ
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_string_uint16_array_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -58477,12 +50684,12 @@ func (c *Client) sendTestRequestStringUint16ArrayArray(ctx context.Context, requ
 // TestRequestStringUint16Nullable invokes test_request_string_uint16_nullable operation.
 //
 // POST /test_request_string_uint16_nullable
-func (c *Client) TestRequestStringUint16Nullable(ctx context.Context, request OptNilUint16) (*Error, error) {
+func (c *Client) TestRequestStringUint16Nullable(ctx context.Context, request OptNilStringUint16) (*Error, error) {
 	res, err := c.sendTestRequestStringUint16Nullable(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestRequestStringUint16Nullable(ctx context.Context, request OptNilUint16) (res *Error, err error) {
+func (c *Client) sendTestRequestStringUint16Nullable(ctx context.Context, request OptNilStringUint16) (res *Error, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_request_string_uint16_nullable"),
 		semconv.HTTPMethodKey.String("POST"),
@@ -58550,12 +50757,12 @@ func (c *Client) sendTestRequestStringUint16Nullable(ctx context.Context, reques
 // TestRequestStringUint16NullableArray invokes test_request_string_uint16_nullable_array operation.
 //
 // POST /test_request_string_uint16_nullable_array
-func (c *Client) TestRequestStringUint16NullableArray(ctx context.Context, request []NilUint16) (*Error, error) {
+func (c *Client) TestRequestStringUint16NullableArray(ctx context.Context, request []NilStringUint16) (*Error, error) {
 	res, err := c.sendTestRequestStringUint16NullableArray(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestRequestStringUint16NullableArray(ctx context.Context, request []NilUint16) (res *Error, err error) {
+func (c *Client) sendTestRequestStringUint16NullableArray(ctx context.Context, request []NilStringUint16) (res *Error, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_request_string_uint16_nullable_array"),
 		semconv.HTTPMethodKey.String("POST"),
@@ -58623,39 +50830,16 @@ func (c *Client) sendTestRequestStringUint16NullableArray(ctx context.Context, r
 // TestRequestStringUint16NullableArrayArray invokes test_request_string_uint16_nullable_array_array operation.
 //
 // POST /test_request_string_uint16_nullable_array_array
-func (c *Client) TestRequestStringUint16NullableArrayArray(ctx context.Context, request [][]NilUint16) (*Error, error) {
+func (c *Client) TestRequestStringUint16NullableArrayArray(ctx context.Context, request [][]NilStringUint16) (*Error, error) {
 	res, err := c.sendTestRequestStringUint16NullableArrayArray(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestRequestStringUint16NullableArrayArray(ctx context.Context, request [][]NilUint16) (res *Error, err error) {
+func (c *Client) sendTestRequestStringUint16NullableArrayArray(ctx context.Context, request [][]NilStringUint16) (res *Error, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_request_string_uint16_nullable_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_string_uint16_nullable_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -58719,12 +50903,12 @@ func (c *Client) sendTestRequestStringUint16NullableArrayArray(ctx context.Conte
 // TestRequestStringUint32 invokes test_request_string_uint32 operation.
 //
 // POST /test_request_string_uint32
-func (c *Client) TestRequestStringUint32(ctx context.Context, request OptUint32) (*Error, error) {
+func (c *Client) TestRequestStringUint32(ctx context.Context, request OptStringUint32) (*Error, error) {
 	res, err := c.sendTestRequestStringUint32(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestRequestStringUint32(ctx context.Context, request OptUint32) (res *Error, err error) {
+func (c *Client) sendTestRequestStringUint32(ctx context.Context, request OptStringUint32) (res *Error, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_request_string_uint32"),
 		semconv.HTTPMethodKey.String("POST"),
@@ -58876,29 +51060,6 @@ func (c *Client) sendTestRequestStringUint32ArrayArray(ctx context.Context, requ
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_string_uint32_array_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -58961,12 +51122,12 @@ func (c *Client) sendTestRequestStringUint32ArrayArray(ctx context.Context, requ
 // TestRequestStringUint32Nullable invokes test_request_string_uint32_nullable operation.
 //
 // POST /test_request_string_uint32_nullable
-func (c *Client) TestRequestStringUint32Nullable(ctx context.Context, request OptNilUint32) (*Error, error) {
+func (c *Client) TestRequestStringUint32Nullable(ctx context.Context, request OptNilStringUint32) (*Error, error) {
 	res, err := c.sendTestRequestStringUint32Nullable(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestRequestStringUint32Nullable(ctx context.Context, request OptNilUint32) (res *Error, err error) {
+func (c *Client) sendTestRequestStringUint32Nullable(ctx context.Context, request OptNilStringUint32) (res *Error, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_request_string_uint32_nullable"),
 		semconv.HTTPMethodKey.String("POST"),
@@ -59034,12 +51195,12 @@ func (c *Client) sendTestRequestStringUint32Nullable(ctx context.Context, reques
 // TestRequestStringUint32NullableArray invokes test_request_string_uint32_nullable_array operation.
 //
 // POST /test_request_string_uint32_nullable_array
-func (c *Client) TestRequestStringUint32NullableArray(ctx context.Context, request []NilUint32) (*Error, error) {
+func (c *Client) TestRequestStringUint32NullableArray(ctx context.Context, request []NilStringUint32) (*Error, error) {
 	res, err := c.sendTestRequestStringUint32NullableArray(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestRequestStringUint32NullableArray(ctx context.Context, request []NilUint32) (res *Error, err error) {
+func (c *Client) sendTestRequestStringUint32NullableArray(ctx context.Context, request []NilStringUint32) (res *Error, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_request_string_uint32_nullable_array"),
 		semconv.HTTPMethodKey.String("POST"),
@@ -59107,39 +51268,16 @@ func (c *Client) sendTestRequestStringUint32NullableArray(ctx context.Context, r
 // TestRequestStringUint32NullableArrayArray invokes test_request_string_uint32_nullable_array_array operation.
 //
 // POST /test_request_string_uint32_nullable_array_array
-func (c *Client) TestRequestStringUint32NullableArrayArray(ctx context.Context, request [][]NilUint32) (*Error, error) {
+func (c *Client) TestRequestStringUint32NullableArrayArray(ctx context.Context, request [][]NilStringUint32) (*Error, error) {
 	res, err := c.sendTestRequestStringUint32NullableArrayArray(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestRequestStringUint32NullableArrayArray(ctx context.Context, request [][]NilUint32) (res *Error, err error) {
+func (c *Client) sendTestRequestStringUint32NullableArrayArray(ctx context.Context, request [][]NilStringUint32) (res *Error, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_request_string_uint32_nullable_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_string_uint32_nullable_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -59203,12 +51341,12 @@ func (c *Client) sendTestRequestStringUint32NullableArrayArray(ctx context.Conte
 // TestRequestStringUint64 invokes test_request_string_uint64 operation.
 //
 // POST /test_request_string_uint64
-func (c *Client) TestRequestStringUint64(ctx context.Context, request OptUint64) (*Error, error) {
+func (c *Client) TestRequestStringUint64(ctx context.Context, request OptStringUint64) (*Error, error) {
 	res, err := c.sendTestRequestStringUint64(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestRequestStringUint64(ctx context.Context, request OptUint64) (res *Error, err error) {
+func (c *Client) sendTestRequestStringUint64(ctx context.Context, request OptStringUint64) (res *Error, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_request_string_uint64"),
 		semconv.HTTPMethodKey.String("POST"),
@@ -59360,29 +51498,6 @@ func (c *Client) sendTestRequestStringUint64ArrayArray(ctx context.Context, requ
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_string_uint64_array_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -59445,12 +51560,12 @@ func (c *Client) sendTestRequestStringUint64ArrayArray(ctx context.Context, requ
 // TestRequestStringUint64Nullable invokes test_request_string_uint64_nullable operation.
 //
 // POST /test_request_string_uint64_nullable
-func (c *Client) TestRequestStringUint64Nullable(ctx context.Context, request OptNilUint64) (*Error, error) {
+func (c *Client) TestRequestStringUint64Nullable(ctx context.Context, request OptNilStringUint64) (*Error, error) {
 	res, err := c.sendTestRequestStringUint64Nullable(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestRequestStringUint64Nullable(ctx context.Context, request OptNilUint64) (res *Error, err error) {
+func (c *Client) sendTestRequestStringUint64Nullable(ctx context.Context, request OptNilStringUint64) (res *Error, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_request_string_uint64_nullable"),
 		semconv.HTTPMethodKey.String("POST"),
@@ -59518,12 +51633,12 @@ func (c *Client) sendTestRequestStringUint64Nullable(ctx context.Context, reques
 // TestRequestStringUint64NullableArray invokes test_request_string_uint64_nullable_array operation.
 //
 // POST /test_request_string_uint64_nullable_array
-func (c *Client) TestRequestStringUint64NullableArray(ctx context.Context, request []NilUint64) (*Error, error) {
+func (c *Client) TestRequestStringUint64NullableArray(ctx context.Context, request []NilStringUint64) (*Error, error) {
 	res, err := c.sendTestRequestStringUint64NullableArray(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestRequestStringUint64NullableArray(ctx context.Context, request []NilUint64) (res *Error, err error) {
+func (c *Client) sendTestRequestStringUint64NullableArray(ctx context.Context, request []NilStringUint64) (res *Error, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_request_string_uint64_nullable_array"),
 		semconv.HTTPMethodKey.String("POST"),
@@ -59591,39 +51706,16 @@ func (c *Client) sendTestRequestStringUint64NullableArray(ctx context.Context, r
 // TestRequestStringUint64NullableArrayArray invokes test_request_string_uint64_nullable_array_array operation.
 //
 // POST /test_request_string_uint64_nullable_array_array
-func (c *Client) TestRequestStringUint64NullableArrayArray(ctx context.Context, request [][]NilUint64) (*Error, error) {
+func (c *Client) TestRequestStringUint64NullableArrayArray(ctx context.Context, request [][]NilStringUint64) (*Error, error) {
 	res, err := c.sendTestRequestStringUint64NullableArrayArray(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestRequestStringUint64NullableArrayArray(ctx context.Context, request [][]NilUint64) (res *Error, err error) {
+func (c *Client) sendTestRequestStringUint64NullableArrayArray(ctx context.Context, request [][]NilStringUint64) (res *Error, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_request_string_uint64_nullable_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_string_uint64_nullable_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -59687,12 +51779,12 @@ func (c *Client) sendTestRequestStringUint64NullableArrayArray(ctx context.Conte
 // TestRequestStringUint8 invokes test_request_string_uint8 operation.
 //
 // POST /test_request_string_uint8
-func (c *Client) TestRequestStringUint8(ctx context.Context, request OptUint8) (*Error, error) {
+func (c *Client) TestRequestStringUint8(ctx context.Context, request OptStringUint8) (*Error, error) {
 	res, err := c.sendTestRequestStringUint8(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestRequestStringUint8(ctx context.Context, request OptUint8) (res *Error, err error) {
+func (c *Client) sendTestRequestStringUint8(ctx context.Context, request OptStringUint8) (res *Error, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_request_string_uint8"),
 		semconv.HTTPMethodKey.String("POST"),
@@ -59844,29 +51936,6 @@ func (c *Client) sendTestRequestStringUint8ArrayArray(ctx context.Context, reque
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_string_uint8_array_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -59929,12 +51998,12 @@ func (c *Client) sendTestRequestStringUint8ArrayArray(ctx context.Context, reque
 // TestRequestStringUint8Nullable invokes test_request_string_uint8_nullable operation.
 //
 // POST /test_request_string_uint8_nullable
-func (c *Client) TestRequestStringUint8Nullable(ctx context.Context, request OptNilUint8) (*Error, error) {
+func (c *Client) TestRequestStringUint8Nullable(ctx context.Context, request OptNilStringUint8) (*Error, error) {
 	res, err := c.sendTestRequestStringUint8Nullable(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestRequestStringUint8Nullable(ctx context.Context, request OptNilUint8) (res *Error, err error) {
+func (c *Client) sendTestRequestStringUint8Nullable(ctx context.Context, request OptNilStringUint8) (res *Error, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_request_string_uint8_nullable"),
 		semconv.HTTPMethodKey.String("POST"),
@@ -60002,12 +52071,12 @@ func (c *Client) sendTestRequestStringUint8Nullable(ctx context.Context, request
 // TestRequestStringUint8NullableArray invokes test_request_string_uint8_nullable_array operation.
 //
 // POST /test_request_string_uint8_nullable_array
-func (c *Client) TestRequestStringUint8NullableArray(ctx context.Context, request []NilUint8) (*Error, error) {
+func (c *Client) TestRequestStringUint8NullableArray(ctx context.Context, request []NilStringUint8) (*Error, error) {
 	res, err := c.sendTestRequestStringUint8NullableArray(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestRequestStringUint8NullableArray(ctx context.Context, request []NilUint8) (res *Error, err error) {
+func (c *Client) sendTestRequestStringUint8NullableArray(ctx context.Context, request []NilStringUint8) (res *Error, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_request_string_uint8_nullable_array"),
 		semconv.HTTPMethodKey.String("POST"),
@@ -60075,39 +52144,16 @@ func (c *Client) sendTestRequestStringUint8NullableArray(ctx context.Context, re
 // TestRequestStringUint8NullableArrayArray invokes test_request_string_uint8_nullable_array_array operation.
 //
 // POST /test_request_string_uint8_nullable_array_array
-func (c *Client) TestRequestStringUint8NullableArrayArray(ctx context.Context, request [][]NilUint8) (*Error, error) {
+func (c *Client) TestRequestStringUint8NullableArrayArray(ctx context.Context, request [][]NilStringUint8) (*Error, error) {
 	res, err := c.sendTestRequestStringUint8NullableArrayArray(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestRequestStringUint8NullableArrayArray(ctx context.Context, request [][]NilUint8) (res *Error, err error) {
+func (c *Client) sendTestRequestStringUint8NullableArrayArray(ctx context.Context, request [][]NilStringUint8) (res *Error, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_request_string_uint8_nullable_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_string_uint8_nullable_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -60255,29 +52301,6 @@ func (c *Client) sendTestRequestStringUintArrayArray(ctx context.Context, reques
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_string_uint_array_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -60340,12 +52363,12 @@ func (c *Client) sendTestRequestStringUintArrayArray(ctx context.Context, reques
 // TestRequestStringUintNullable invokes test_request_string_uint_nullable operation.
 //
 // POST /test_request_string_uint_nullable
-func (c *Client) TestRequestStringUintNullable(ctx context.Context, request OptNilUint) (*Error, error) {
+func (c *Client) TestRequestStringUintNullable(ctx context.Context, request OptNilStringUint) (*Error, error) {
 	res, err := c.sendTestRequestStringUintNullable(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestRequestStringUintNullable(ctx context.Context, request OptNilUint) (res *Error, err error) {
+func (c *Client) sendTestRequestStringUintNullable(ctx context.Context, request OptNilStringUint) (res *Error, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_request_string_uint_nullable"),
 		semconv.HTTPMethodKey.String("POST"),
@@ -60413,12 +52436,12 @@ func (c *Client) sendTestRequestStringUintNullable(ctx context.Context, request 
 // TestRequestStringUintNullableArray invokes test_request_string_uint_nullable_array operation.
 //
 // POST /test_request_string_uint_nullable_array
-func (c *Client) TestRequestStringUintNullableArray(ctx context.Context, request []NilUint) (*Error, error) {
+func (c *Client) TestRequestStringUintNullableArray(ctx context.Context, request []NilStringUint) (*Error, error) {
 	res, err := c.sendTestRequestStringUintNullableArray(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestRequestStringUintNullableArray(ctx context.Context, request []NilUint) (res *Error, err error) {
+func (c *Client) sendTestRequestStringUintNullableArray(ctx context.Context, request []NilStringUint) (res *Error, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_request_string_uint_nullable_array"),
 		semconv.HTTPMethodKey.String("POST"),
@@ -60486,39 +52509,16 @@ func (c *Client) sendTestRequestStringUintNullableArray(ctx context.Context, req
 // TestRequestStringUintNullableArrayArray invokes test_request_string_uint_nullable_array_array operation.
 //
 // POST /test_request_string_uint_nullable_array_array
-func (c *Client) TestRequestStringUintNullableArrayArray(ctx context.Context, request [][]NilUint) (*Error, error) {
+func (c *Client) TestRequestStringUintNullableArrayArray(ctx context.Context, request [][]NilStringUint) (*Error, error) {
 	res, err := c.sendTestRequestStringUintNullableArrayArray(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestRequestStringUintNullableArrayArray(ctx context.Context, request [][]NilUint) (res *Error, err error) {
+func (c *Client) sendTestRequestStringUintNullableArrayArray(ctx context.Context, request [][]NilStringUint) (res *Error, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_request_string_uint_nullable_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_string_uint_nullable_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -60739,29 +52739,6 @@ func (c *Client) sendTestRequestStringUnixArrayArray(ctx context.Context, reques
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_string_unix_array_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -60980,29 +52957,6 @@ func (c *Client) sendTestRequestStringUnixMicroArrayArray(ctx context.Context, r
 		otelogen.OperationID("test_request_string_unix-micro_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_string_unix-micro_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -61223,29 +53177,6 @@ func (c *Client) sendTestRequestStringUnixMicroNullableArrayArray(ctx context.Co
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_string_unix-micro_nullable_array_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -61464,29 +53395,6 @@ func (c *Client) sendTestRequestStringUnixMilliArrayArray(ctx context.Context, r
 		otelogen.OperationID("test_request_string_unix-milli_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_string_unix-milli_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -61707,29 +53615,6 @@ func (c *Client) sendTestRequestStringUnixMilliNullableArrayArray(ctx context.Co
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_string_unix-milli_nullable_array_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -61948,29 +53833,6 @@ func (c *Client) sendTestRequestStringUnixNanoArrayArray(ctx context.Context, re
 		otelogen.OperationID("test_request_string_unix-nano_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_string_unix-nano_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -62191,29 +54053,6 @@ func (c *Client) sendTestRequestStringUnixNanoNullableArrayArray(ctx context.Con
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_string_unix-nano_nullable_array_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -62432,29 +54271,6 @@ func (c *Client) sendTestRequestStringUnixNullableArrayArray(ctx context.Context
 		otelogen.OperationID("test_request_string_unix_nullable_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_string_unix_nullable_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -62675,29 +54491,6 @@ func (c *Client) sendTestRequestStringUnixSecondsArrayArray(ctx context.Context,
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_string_unix-seconds_array_array"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -62916,29 +54709,6 @@ func (c *Client) sendTestRequestStringUnixSecondsNullableArrayArray(ctx context.
 		otelogen.OperationID("test_request_string_unix-seconds_nullable_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/test_request_string_unix-seconds_nullable_array_array"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if elem == nil {
-					return errors.New("nil is invalid value")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -76361,12 +68131,12 @@ func (c *Client) sendTestResponseStringFloat32ArrayArray(ctx context.Context, re
 // TestResponseStringFloat32Nullable invokes test_response_string_float32_nullable operation.
 //
 // POST /test_response_string_float32_nullable
-func (c *Client) TestResponseStringFloat32Nullable(ctx context.Context, request string) (NilFloat32, error) {
+func (c *Client) TestResponseStringFloat32Nullable(ctx context.Context, request string) (NilStringFloat32, error) {
 	res, err := c.sendTestResponseStringFloat32Nullable(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestResponseStringFloat32Nullable(ctx context.Context, request string) (res NilFloat32, err error) {
+func (c *Client) sendTestResponseStringFloat32Nullable(ctx context.Context, request string) (res NilStringFloat32, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_response_string_float32_nullable"),
 		semconv.HTTPMethodKey.String("POST"),
@@ -76434,12 +68204,12 @@ func (c *Client) sendTestResponseStringFloat32Nullable(ctx context.Context, requ
 // TestResponseStringFloat32NullableArray invokes test_response_string_float32_nullable_array operation.
 //
 // POST /test_response_string_float32_nullable_array
-func (c *Client) TestResponseStringFloat32NullableArray(ctx context.Context, request string) ([]NilFloat32, error) {
+func (c *Client) TestResponseStringFloat32NullableArray(ctx context.Context, request string) ([]NilStringFloat32, error) {
 	res, err := c.sendTestResponseStringFloat32NullableArray(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestResponseStringFloat32NullableArray(ctx context.Context, request string) (res []NilFloat32, err error) {
+func (c *Client) sendTestResponseStringFloat32NullableArray(ctx context.Context, request string) (res []NilStringFloat32, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_response_string_float32_nullable_array"),
 		semconv.HTTPMethodKey.String("POST"),
@@ -76507,12 +68277,12 @@ func (c *Client) sendTestResponseStringFloat32NullableArray(ctx context.Context,
 // TestResponseStringFloat32NullableArrayArray invokes test_response_string_float32_nullable_array_array operation.
 //
 // POST /test_response_string_float32_nullable_array_array
-func (c *Client) TestResponseStringFloat32NullableArrayArray(ctx context.Context, request string) ([][]NilFloat32, error) {
+func (c *Client) TestResponseStringFloat32NullableArrayArray(ctx context.Context, request string) ([][]NilStringFloat32, error) {
 	res, err := c.sendTestResponseStringFloat32NullableArrayArray(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestResponseStringFloat32NullableArrayArray(ctx context.Context, request string) (res [][]NilFloat32, err error) {
+func (c *Client) sendTestResponseStringFloat32NullableArrayArray(ctx context.Context, request string) (res [][]NilStringFloat32, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_response_string_float32_nullable_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
@@ -76799,12 +68569,12 @@ func (c *Client) sendTestResponseStringFloat64ArrayArray(ctx context.Context, re
 // TestResponseStringFloat64Nullable invokes test_response_string_float64_nullable operation.
 //
 // POST /test_response_string_float64_nullable
-func (c *Client) TestResponseStringFloat64Nullable(ctx context.Context, request string) (NilFloat64, error) {
+func (c *Client) TestResponseStringFloat64Nullable(ctx context.Context, request string) (NilStringFloat64, error) {
 	res, err := c.sendTestResponseStringFloat64Nullable(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestResponseStringFloat64Nullable(ctx context.Context, request string) (res NilFloat64, err error) {
+func (c *Client) sendTestResponseStringFloat64Nullable(ctx context.Context, request string) (res NilStringFloat64, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_response_string_float64_nullable"),
 		semconv.HTTPMethodKey.String("POST"),
@@ -76872,12 +68642,12 @@ func (c *Client) sendTestResponseStringFloat64Nullable(ctx context.Context, requ
 // TestResponseStringFloat64NullableArray invokes test_response_string_float64_nullable_array operation.
 //
 // POST /test_response_string_float64_nullable_array
-func (c *Client) TestResponseStringFloat64NullableArray(ctx context.Context, request string) ([]NilFloat64, error) {
+func (c *Client) TestResponseStringFloat64NullableArray(ctx context.Context, request string) ([]NilStringFloat64, error) {
 	res, err := c.sendTestResponseStringFloat64NullableArray(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestResponseStringFloat64NullableArray(ctx context.Context, request string) (res []NilFloat64, err error) {
+func (c *Client) sendTestResponseStringFloat64NullableArray(ctx context.Context, request string) (res []NilStringFloat64, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_response_string_float64_nullable_array"),
 		semconv.HTTPMethodKey.String("POST"),
@@ -76945,12 +68715,12 @@ func (c *Client) sendTestResponseStringFloat64NullableArray(ctx context.Context,
 // TestResponseStringFloat64NullableArrayArray invokes test_response_string_float64_nullable_array_array operation.
 //
 // POST /test_response_string_float64_nullable_array_array
-func (c *Client) TestResponseStringFloat64NullableArrayArray(ctx context.Context, request string) ([][]NilFloat64, error) {
+func (c *Client) TestResponseStringFloat64NullableArrayArray(ctx context.Context, request string) ([][]NilStringFloat64, error) {
 	res, err := c.sendTestResponseStringFloat64NullableArrayArray(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestResponseStringFloat64NullableArrayArray(ctx context.Context, request string) (res [][]NilFloat64, err error) {
+func (c *Client) sendTestResponseStringFloat64NullableArrayArray(ctx context.Context, request string) (res [][]NilStringFloat64, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_response_string_float64_nullable_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
@@ -78186,12 +69956,12 @@ func (c *Client) sendTestResponseStringInt16ArrayArray(ctx context.Context, requ
 // TestResponseStringInt16Nullable invokes test_response_string_int16_nullable operation.
 //
 // POST /test_response_string_int16_nullable
-func (c *Client) TestResponseStringInt16Nullable(ctx context.Context, request string) (NilInt16, error) {
+func (c *Client) TestResponseStringInt16Nullable(ctx context.Context, request string) (NilStringInt16, error) {
 	res, err := c.sendTestResponseStringInt16Nullable(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestResponseStringInt16Nullable(ctx context.Context, request string) (res NilInt16, err error) {
+func (c *Client) sendTestResponseStringInt16Nullable(ctx context.Context, request string) (res NilStringInt16, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_response_string_int16_nullable"),
 		semconv.HTTPMethodKey.String("POST"),
@@ -78259,12 +70029,12 @@ func (c *Client) sendTestResponseStringInt16Nullable(ctx context.Context, reques
 // TestResponseStringInt16NullableArray invokes test_response_string_int16_nullable_array operation.
 //
 // POST /test_response_string_int16_nullable_array
-func (c *Client) TestResponseStringInt16NullableArray(ctx context.Context, request string) ([]NilInt16, error) {
+func (c *Client) TestResponseStringInt16NullableArray(ctx context.Context, request string) ([]NilStringInt16, error) {
 	res, err := c.sendTestResponseStringInt16NullableArray(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestResponseStringInt16NullableArray(ctx context.Context, request string) (res []NilInt16, err error) {
+func (c *Client) sendTestResponseStringInt16NullableArray(ctx context.Context, request string) (res []NilStringInt16, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_response_string_int16_nullable_array"),
 		semconv.HTTPMethodKey.String("POST"),
@@ -78332,12 +70102,12 @@ func (c *Client) sendTestResponseStringInt16NullableArray(ctx context.Context, r
 // TestResponseStringInt16NullableArrayArray invokes test_response_string_int16_nullable_array_array operation.
 //
 // POST /test_response_string_int16_nullable_array_array
-func (c *Client) TestResponseStringInt16NullableArrayArray(ctx context.Context, request string) ([][]NilInt16, error) {
+func (c *Client) TestResponseStringInt16NullableArrayArray(ctx context.Context, request string) ([][]NilStringInt16, error) {
 	res, err := c.sendTestResponseStringInt16NullableArrayArray(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestResponseStringInt16NullableArrayArray(ctx context.Context, request string) (res [][]NilInt16, err error) {
+func (c *Client) sendTestResponseStringInt16NullableArrayArray(ctx context.Context, request string) (res [][]NilStringInt16, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_response_string_int16_nullable_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
@@ -79500,12 +71270,12 @@ func (c *Client) sendTestResponseStringInt8ArrayArray(ctx context.Context, reque
 // TestResponseStringInt8Nullable invokes test_response_string_int8_nullable operation.
 //
 // POST /test_response_string_int8_nullable
-func (c *Client) TestResponseStringInt8Nullable(ctx context.Context, request string) (NilInt8, error) {
+func (c *Client) TestResponseStringInt8Nullable(ctx context.Context, request string) (NilStringInt8, error) {
 	res, err := c.sendTestResponseStringInt8Nullable(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestResponseStringInt8Nullable(ctx context.Context, request string) (res NilInt8, err error) {
+func (c *Client) sendTestResponseStringInt8Nullable(ctx context.Context, request string) (res NilStringInt8, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_response_string_int8_nullable"),
 		semconv.HTTPMethodKey.String("POST"),
@@ -79573,12 +71343,12 @@ func (c *Client) sendTestResponseStringInt8Nullable(ctx context.Context, request
 // TestResponseStringInt8NullableArray invokes test_response_string_int8_nullable_array operation.
 //
 // POST /test_response_string_int8_nullable_array
-func (c *Client) TestResponseStringInt8NullableArray(ctx context.Context, request string) ([]NilInt8, error) {
+func (c *Client) TestResponseStringInt8NullableArray(ctx context.Context, request string) ([]NilStringInt8, error) {
 	res, err := c.sendTestResponseStringInt8NullableArray(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestResponseStringInt8NullableArray(ctx context.Context, request string) (res []NilInt8, err error) {
+func (c *Client) sendTestResponseStringInt8NullableArray(ctx context.Context, request string) (res []NilStringInt8, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_response_string_int8_nullable_array"),
 		semconv.HTTPMethodKey.String("POST"),
@@ -79646,12 +71416,12 @@ func (c *Client) sendTestResponseStringInt8NullableArray(ctx context.Context, re
 // TestResponseStringInt8NullableArrayArray invokes test_response_string_int8_nullable_array_array operation.
 //
 // POST /test_response_string_int8_nullable_array_array
-func (c *Client) TestResponseStringInt8NullableArrayArray(ctx context.Context, request string) ([][]NilInt8, error) {
+func (c *Client) TestResponseStringInt8NullableArrayArray(ctx context.Context, request string) ([][]NilStringInt8, error) {
 	res, err := c.sendTestResponseStringInt8NullableArrayArray(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestResponseStringInt8NullableArrayArray(ctx context.Context, request string) (res [][]NilInt8, err error) {
+func (c *Client) sendTestResponseStringInt8NullableArrayArray(ctx context.Context, request string) (res [][]NilStringInt8, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_response_string_int8_nullable_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
@@ -79865,12 +71635,12 @@ func (c *Client) sendTestResponseStringIntArrayArray(ctx context.Context, reques
 // TestResponseStringIntNullable invokes test_response_string_int_nullable operation.
 //
 // POST /test_response_string_int_nullable
-func (c *Client) TestResponseStringIntNullable(ctx context.Context, request string) (NilInt, error) {
+func (c *Client) TestResponseStringIntNullable(ctx context.Context, request string) (NilStringInt, error) {
 	res, err := c.sendTestResponseStringIntNullable(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestResponseStringIntNullable(ctx context.Context, request string) (res NilInt, err error) {
+func (c *Client) sendTestResponseStringIntNullable(ctx context.Context, request string) (res NilStringInt, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_response_string_int_nullable"),
 		semconv.HTTPMethodKey.String("POST"),
@@ -79938,12 +71708,12 @@ func (c *Client) sendTestResponseStringIntNullable(ctx context.Context, request 
 // TestResponseStringIntNullableArray invokes test_response_string_int_nullable_array operation.
 //
 // POST /test_response_string_int_nullable_array
-func (c *Client) TestResponseStringIntNullableArray(ctx context.Context, request string) ([]NilInt, error) {
+func (c *Client) TestResponseStringIntNullableArray(ctx context.Context, request string) ([]NilStringInt, error) {
 	res, err := c.sendTestResponseStringIntNullableArray(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestResponseStringIntNullableArray(ctx context.Context, request string) (res []NilInt, err error) {
+func (c *Client) sendTestResponseStringIntNullableArray(ctx context.Context, request string) (res []NilStringInt, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_response_string_int_nullable_array"),
 		semconv.HTTPMethodKey.String("POST"),
@@ -80011,12 +71781,12 @@ func (c *Client) sendTestResponseStringIntNullableArray(ctx context.Context, req
 // TestResponseStringIntNullableArrayArray invokes test_response_string_int_nullable_array_array operation.
 //
 // POST /test_response_string_int_nullable_array_array
-func (c *Client) TestResponseStringIntNullableArrayArray(ctx context.Context, request string) ([][]NilInt, error) {
+func (c *Client) TestResponseStringIntNullableArrayArray(ctx context.Context, request string) ([][]NilStringInt, error) {
 	res, err := c.sendTestResponseStringIntNullableArrayArray(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestResponseStringIntNullableArrayArray(ctx context.Context, request string) (res [][]NilInt, err error) {
+func (c *Client) sendTestResponseStringIntNullableArrayArray(ctx context.Context, request string) (res [][]NilStringInt, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_response_string_int_nullable_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
@@ -83223,12 +74993,12 @@ func (c *Client) sendTestResponseStringUint16ArrayArray(ctx context.Context, req
 // TestResponseStringUint16Nullable invokes test_response_string_uint16_nullable operation.
 //
 // POST /test_response_string_uint16_nullable
-func (c *Client) TestResponseStringUint16Nullable(ctx context.Context, request string) (NilUint16, error) {
+func (c *Client) TestResponseStringUint16Nullable(ctx context.Context, request string) (NilStringUint16, error) {
 	res, err := c.sendTestResponseStringUint16Nullable(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestResponseStringUint16Nullable(ctx context.Context, request string) (res NilUint16, err error) {
+func (c *Client) sendTestResponseStringUint16Nullable(ctx context.Context, request string) (res NilStringUint16, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_response_string_uint16_nullable"),
 		semconv.HTTPMethodKey.String("POST"),
@@ -83296,12 +75066,12 @@ func (c *Client) sendTestResponseStringUint16Nullable(ctx context.Context, reque
 // TestResponseStringUint16NullableArray invokes test_response_string_uint16_nullable_array operation.
 //
 // POST /test_response_string_uint16_nullable_array
-func (c *Client) TestResponseStringUint16NullableArray(ctx context.Context, request string) ([]NilUint16, error) {
+func (c *Client) TestResponseStringUint16NullableArray(ctx context.Context, request string) ([]NilStringUint16, error) {
 	res, err := c.sendTestResponseStringUint16NullableArray(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestResponseStringUint16NullableArray(ctx context.Context, request string) (res []NilUint16, err error) {
+func (c *Client) sendTestResponseStringUint16NullableArray(ctx context.Context, request string) (res []NilStringUint16, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_response_string_uint16_nullable_array"),
 		semconv.HTTPMethodKey.String("POST"),
@@ -83369,12 +75139,12 @@ func (c *Client) sendTestResponseStringUint16NullableArray(ctx context.Context, 
 // TestResponseStringUint16NullableArrayArray invokes test_response_string_uint16_nullable_array_array operation.
 //
 // POST /test_response_string_uint16_nullable_array_array
-func (c *Client) TestResponseStringUint16NullableArrayArray(ctx context.Context, request string) ([][]NilUint16, error) {
+func (c *Client) TestResponseStringUint16NullableArrayArray(ctx context.Context, request string) ([][]NilStringUint16, error) {
 	res, err := c.sendTestResponseStringUint16NullableArrayArray(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestResponseStringUint16NullableArrayArray(ctx context.Context, request string) (res [][]NilUint16, err error) {
+func (c *Client) sendTestResponseStringUint16NullableArrayArray(ctx context.Context, request string) (res [][]NilStringUint16, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_response_string_uint16_nullable_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
@@ -83661,12 +75431,12 @@ func (c *Client) sendTestResponseStringUint32ArrayArray(ctx context.Context, req
 // TestResponseStringUint32Nullable invokes test_response_string_uint32_nullable operation.
 //
 // POST /test_response_string_uint32_nullable
-func (c *Client) TestResponseStringUint32Nullable(ctx context.Context, request string) (NilUint32, error) {
+func (c *Client) TestResponseStringUint32Nullable(ctx context.Context, request string) (NilStringUint32, error) {
 	res, err := c.sendTestResponseStringUint32Nullable(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestResponseStringUint32Nullable(ctx context.Context, request string) (res NilUint32, err error) {
+func (c *Client) sendTestResponseStringUint32Nullable(ctx context.Context, request string) (res NilStringUint32, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_response_string_uint32_nullable"),
 		semconv.HTTPMethodKey.String("POST"),
@@ -83734,12 +75504,12 @@ func (c *Client) sendTestResponseStringUint32Nullable(ctx context.Context, reque
 // TestResponseStringUint32NullableArray invokes test_response_string_uint32_nullable_array operation.
 //
 // POST /test_response_string_uint32_nullable_array
-func (c *Client) TestResponseStringUint32NullableArray(ctx context.Context, request string) ([]NilUint32, error) {
+func (c *Client) TestResponseStringUint32NullableArray(ctx context.Context, request string) ([]NilStringUint32, error) {
 	res, err := c.sendTestResponseStringUint32NullableArray(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestResponseStringUint32NullableArray(ctx context.Context, request string) (res []NilUint32, err error) {
+func (c *Client) sendTestResponseStringUint32NullableArray(ctx context.Context, request string) (res []NilStringUint32, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_response_string_uint32_nullable_array"),
 		semconv.HTTPMethodKey.String("POST"),
@@ -83807,12 +75577,12 @@ func (c *Client) sendTestResponseStringUint32NullableArray(ctx context.Context, 
 // TestResponseStringUint32NullableArrayArray invokes test_response_string_uint32_nullable_array_array operation.
 //
 // POST /test_response_string_uint32_nullable_array_array
-func (c *Client) TestResponseStringUint32NullableArrayArray(ctx context.Context, request string) ([][]NilUint32, error) {
+func (c *Client) TestResponseStringUint32NullableArrayArray(ctx context.Context, request string) ([][]NilStringUint32, error) {
 	res, err := c.sendTestResponseStringUint32NullableArrayArray(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestResponseStringUint32NullableArrayArray(ctx context.Context, request string) (res [][]NilUint32, err error) {
+func (c *Client) sendTestResponseStringUint32NullableArrayArray(ctx context.Context, request string) (res [][]NilStringUint32, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_response_string_uint32_nullable_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
@@ -84099,12 +75869,12 @@ func (c *Client) sendTestResponseStringUint64ArrayArray(ctx context.Context, req
 // TestResponseStringUint64Nullable invokes test_response_string_uint64_nullable operation.
 //
 // POST /test_response_string_uint64_nullable
-func (c *Client) TestResponseStringUint64Nullable(ctx context.Context, request string) (NilUint64, error) {
+func (c *Client) TestResponseStringUint64Nullable(ctx context.Context, request string) (NilStringUint64, error) {
 	res, err := c.sendTestResponseStringUint64Nullable(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestResponseStringUint64Nullable(ctx context.Context, request string) (res NilUint64, err error) {
+func (c *Client) sendTestResponseStringUint64Nullable(ctx context.Context, request string) (res NilStringUint64, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_response_string_uint64_nullable"),
 		semconv.HTTPMethodKey.String("POST"),
@@ -84172,12 +75942,12 @@ func (c *Client) sendTestResponseStringUint64Nullable(ctx context.Context, reque
 // TestResponseStringUint64NullableArray invokes test_response_string_uint64_nullable_array operation.
 //
 // POST /test_response_string_uint64_nullable_array
-func (c *Client) TestResponseStringUint64NullableArray(ctx context.Context, request string) ([]NilUint64, error) {
+func (c *Client) TestResponseStringUint64NullableArray(ctx context.Context, request string) ([]NilStringUint64, error) {
 	res, err := c.sendTestResponseStringUint64NullableArray(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestResponseStringUint64NullableArray(ctx context.Context, request string) (res []NilUint64, err error) {
+func (c *Client) sendTestResponseStringUint64NullableArray(ctx context.Context, request string) (res []NilStringUint64, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_response_string_uint64_nullable_array"),
 		semconv.HTTPMethodKey.String("POST"),
@@ -84245,12 +76015,12 @@ func (c *Client) sendTestResponseStringUint64NullableArray(ctx context.Context, 
 // TestResponseStringUint64NullableArrayArray invokes test_response_string_uint64_nullable_array_array operation.
 //
 // POST /test_response_string_uint64_nullable_array_array
-func (c *Client) TestResponseStringUint64NullableArrayArray(ctx context.Context, request string) ([][]NilUint64, error) {
+func (c *Client) TestResponseStringUint64NullableArrayArray(ctx context.Context, request string) ([][]NilStringUint64, error) {
 	res, err := c.sendTestResponseStringUint64NullableArrayArray(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestResponseStringUint64NullableArrayArray(ctx context.Context, request string) (res [][]NilUint64, err error) {
+func (c *Client) sendTestResponseStringUint64NullableArrayArray(ctx context.Context, request string) (res [][]NilStringUint64, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_response_string_uint64_nullable_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
@@ -84537,12 +76307,12 @@ func (c *Client) sendTestResponseStringUint8ArrayArray(ctx context.Context, requ
 // TestResponseStringUint8Nullable invokes test_response_string_uint8_nullable operation.
 //
 // POST /test_response_string_uint8_nullable
-func (c *Client) TestResponseStringUint8Nullable(ctx context.Context, request string) (NilUint8, error) {
+func (c *Client) TestResponseStringUint8Nullable(ctx context.Context, request string) (NilStringUint8, error) {
 	res, err := c.sendTestResponseStringUint8Nullable(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestResponseStringUint8Nullable(ctx context.Context, request string) (res NilUint8, err error) {
+func (c *Client) sendTestResponseStringUint8Nullable(ctx context.Context, request string) (res NilStringUint8, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_response_string_uint8_nullable"),
 		semconv.HTTPMethodKey.String("POST"),
@@ -84610,12 +76380,12 @@ func (c *Client) sendTestResponseStringUint8Nullable(ctx context.Context, reques
 // TestResponseStringUint8NullableArray invokes test_response_string_uint8_nullable_array operation.
 //
 // POST /test_response_string_uint8_nullable_array
-func (c *Client) TestResponseStringUint8NullableArray(ctx context.Context, request string) ([]NilUint8, error) {
+func (c *Client) TestResponseStringUint8NullableArray(ctx context.Context, request string) ([]NilStringUint8, error) {
 	res, err := c.sendTestResponseStringUint8NullableArray(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestResponseStringUint8NullableArray(ctx context.Context, request string) (res []NilUint8, err error) {
+func (c *Client) sendTestResponseStringUint8NullableArray(ctx context.Context, request string) (res []NilStringUint8, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_response_string_uint8_nullable_array"),
 		semconv.HTTPMethodKey.String("POST"),
@@ -84683,12 +76453,12 @@ func (c *Client) sendTestResponseStringUint8NullableArray(ctx context.Context, r
 // TestResponseStringUint8NullableArrayArray invokes test_response_string_uint8_nullable_array_array operation.
 //
 // POST /test_response_string_uint8_nullable_array_array
-func (c *Client) TestResponseStringUint8NullableArrayArray(ctx context.Context, request string) ([][]NilUint8, error) {
+func (c *Client) TestResponseStringUint8NullableArrayArray(ctx context.Context, request string) ([][]NilStringUint8, error) {
 	res, err := c.sendTestResponseStringUint8NullableArrayArray(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestResponseStringUint8NullableArrayArray(ctx context.Context, request string) (res [][]NilUint8, err error) {
+func (c *Client) sendTestResponseStringUint8NullableArrayArray(ctx context.Context, request string) (res [][]NilStringUint8, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_response_string_uint8_nullable_array_array"),
 		semconv.HTTPMethodKey.String("POST"),
@@ -84902,12 +76672,12 @@ func (c *Client) sendTestResponseStringUintArrayArray(ctx context.Context, reque
 // TestResponseStringUintNullable invokes test_response_string_uint_nullable operation.
 //
 // POST /test_response_string_uint_nullable
-func (c *Client) TestResponseStringUintNullable(ctx context.Context, request string) (NilUint, error) {
+func (c *Client) TestResponseStringUintNullable(ctx context.Context, request string) (NilStringUint, error) {
 	res, err := c.sendTestResponseStringUintNullable(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestResponseStringUintNullable(ctx context.Context, request string) (res NilUint, err error) {
+func (c *Client) sendTestResponseStringUintNullable(ctx context.Context, request string) (res NilStringUint, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_response_string_uint_nullable"),
 		semconv.HTTPMethodKey.String("POST"),
@@ -84975,12 +76745,12 @@ func (c *Client) sendTestResponseStringUintNullable(ctx context.Context, request
 // TestResponseStringUintNullableArray invokes test_response_string_uint_nullable_array operation.
 //
 // POST /test_response_string_uint_nullable_array
-func (c *Client) TestResponseStringUintNullableArray(ctx context.Context, request string) ([]NilUint, error) {
+func (c *Client) TestResponseStringUintNullableArray(ctx context.Context, request string) ([]NilStringUint, error) {
 	res, err := c.sendTestResponseStringUintNullableArray(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestResponseStringUintNullableArray(ctx context.Context, request string) (res []NilUint, err error) {
+func (c *Client) sendTestResponseStringUintNullableArray(ctx context.Context, request string) (res []NilStringUint, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_response_string_uint_nullable_array"),
 		semconv.HTTPMethodKey.String("POST"),
@@ -85048,12 +76818,12 @@ func (c *Client) sendTestResponseStringUintNullableArray(ctx context.Context, re
 // TestResponseStringUintNullableArrayArray invokes test_response_string_uint_nullable_array_array operation.
 //
 // POST /test_response_string_uint_nullable_array_array
-func (c *Client) TestResponseStringUintNullableArrayArray(ctx context.Context, request string) ([][]NilUint, error) {
+func (c *Client) TestResponseStringUintNullableArrayArray(ctx context.Context, request string) ([][]NilStringUint, error) {
 	res, err := c.sendTestResponseStringUintNullableArrayArray(ctx, request)
 	return res, err
 }
 
-func (c *Client) sendTestResponseStringUintNullableArrayArray(ctx context.Context, request string) (res [][]NilUint, err error) {
+func (c *Client) sendTestResponseStringUintNullableArrayArray(ctx context.Context, request string) (res [][]NilStringUint, err error) {
 	otelAttrs := []attribute.KeyValue{
 		otelogen.OperationID("test_response_string_uint_nullable_array_array"),
 		semconv.HTTPMethodKey.String("POST"),

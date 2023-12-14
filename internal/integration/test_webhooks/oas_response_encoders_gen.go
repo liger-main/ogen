@@ -14,7 +14,7 @@ import (
 )
 
 func encodePublishEventResponse(response *Event, w http.ResponseWriter, span trace.Span) error {
-	w.Header().Set("Content-Type", "application/json")
+	w.Header().Set("Content-Type", "application/json; charset=utf-8")
 	w.WriteHeader(200)
 	span.SetStatus(codes.Ok, http.StatusText(200))
 
@@ -28,15 +28,14 @@ func encodePublishEventResponse(response *Event, w http.ResponseWriter, span tra
 }
 
 func encodeErrorResponse(response *ErrorStatusCode, w http.ResponseWriter, span trace.Span) error {
-	w.Header().Set("Content-Type", "application/json")
+	w.Header().Set("Content-Type", "application/json; charset=utf-8")
 	code := response.StatusCode
 	if code == 0 {
 		// Set default status code.
 		code = http.StatusOK
 	}
 	w.WriteHeader(code)
-	st := http.StatusText(code)
-	if code >= http.StatusBadRequest {
+	if st := http.StatusText(code); code >= http.StatusBadRequest {
 		span.SetStatus(codes.Error, st)
 	} else {
 		span.SetStatus(codes.Ok, st)
@@ -55,7 +54,7 @@ func encodeErrorResponse(response *ErrorStatusCode, w http.ResponseWriter, span 
 
 }
 func encodeStatusWebhookResponse(response *StatusWebhookOK, w http.ResponseWriter, span trace.Span) error {
-	w.Header().Set("Content-Type", "application/json")
+	w.Header().Set("Content-Type", "application/json; charset=utf-8")
 	w.WriteHeader(200)
 	span.SetStatus(codes.Ok, http.StatusText(200))
 
@@ -77,15 +76,14 @@ func encodeUpdateDeleteResponse(response UpdateDeleteRes, w http.ResponseWriter,
 		return nil
 
 	case *ErrorStatusCode:
-		w.Header().Set("Content-Type", "application/json")
+		w.Header().Set("Content-Type", "application/json; charset=utf-8")
 		code := response.StatusCode
 		if code == 0 {
 			// Set default status code.
 			code = http.StatusOK
 		}
 		w.WriteHeader(code)
-		st := http.StatusText(code)
-		if code >= http.StatusBadRequest {
+		if st := http.StatusText(code); code >= http.StatusBadRequest {
 			span.SetStatus(codes.Error, st)
 		} else {
 			span.SetStatus(codes.Ok, st)
@@ -110,7 +108,7 @@ func encodeUpdateDeleteResponse(response UpdateDeleteRes, w http.ResponseWriter,
 func encodeUpdateWebhookResponse(response UpdateWebhookRes, w http.ResponseWriter, span trace.Span) error {
 	switch response := response.(type) {
 	case *WebhookResponse:
-		w.Header().Set("Content-Type", "application/json")
+		w.Header().Set("Content-Type", "application/json; charset=utf-8")
 		w.WriteHeader(200)
 		span.SetStatus(codes.Ok, http.StatusText(200))
 
@@ -123,15 +121,14 @@ func encodeUpdateWebhookResponse(response UpdateWebhookRes, w http.ResponseWrite
 		return nil
 
 	case *ErrorStatusCode:
-		w.Header().Set("Content-Type", "application/json")
+		w.Header().Set("Content-Type", "application/json; charset=utf-8")
 		code := response.StatusCode
 		if code == 0 {
 			// Set default status code.
 			code = http.StatusOK
 		}
 		w.WriteHeader(code)
-		st := http.StatusText(code)
-		if code >= http.StatusBadRequest {
+		if st := http.StatusText(code); code >= http.StatusBadRequest {
 			span.SetStatus(codes.Error, st)
 		} else {
 			span.SetStatus(codes.Ok, st)

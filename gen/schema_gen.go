@@ -8,9 +8,9 @@ import (
 	"go.uber.org/zap"
 
 	"github.com/ogen-go/ogen/gen/ir"
-	"github.com/ogen-go/ogen/internal/location"
 	"github.com/ogen-go/ogen/internal/naming"
 	"github.com/ogen-go/ogen/jsonschema"
+	"github.com/ogen-go/ogen/location"
 )
 
 type refNamer func(ref jsonschema.Ref) (string, error)
@@ -25,9 +25,8 @@ type schemaGen struct {
 	fieldMut  func(*ir.Field) error
 	fail      func(err error) error
 
-	customFormats map[jsonschema.SchemaType]map[string]ir.CustomFormat
-	depthLimit    int
-	depthCount    int
+	depthLimit int
+	depthCount int
 
 	log *zap.Logger
 }
@@ -46,9 +45,8 @@ func newSchemaGen(lookupRef func(ref jsonschema.Ref) (*ir.Type, bool)) *schemaGe
 		fail: func(err error) error {
 			return err
 		},
-		depthLimit:    defaultSchemaDepthLimit,
-		customFormats: map[jsonschema.SchemaType]map[string]ir.CustomFormat{},
-		log:           zap.NewNop(),
+		depthLimit: defaultSchemaDepthLimit,
+		log:        zap.NewNop(),
 	}
 }
 
@@ -583,10 +581,6 @@ func (g *schemaGen) generate2(name string, schema *jsonschema.Schema) (ret *ir.T
 
 		return g.regtype(name, t), nil
 	case jsonschema.Empty:
-		if format, ok := g.customFormats[schema.Type][schema.Format]; ok {
-			return g.customFormat(format, schema), nil
-		}
-
 		g.log.Info("Type is not defined, using any",
 			zapPosition(schema),
 			zap.String("name", name),

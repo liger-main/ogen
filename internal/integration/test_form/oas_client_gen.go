@@ -488,15 +488,6 @@ func (c *Client) sendTestMultipartUpload(ctx context.Context, request *TestMulti
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/testMultipartUpload"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -715,15 +706,6 @@ func (c *Client) sendTestShareFormSchema(ctx context.Context, request TestShareF
 		otelogen.OperationID("testShareFormSchema"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/testShareFormSchema"),
-	}
-	// Validate request before sending.
-	switch request := request.(type) {
-	case *SharedRequest:
-		// Validation is not required for this type.
-	case *SharedRequestMultipart:
-		// Validation is not required for this type.
-	default:
-		return res, errors.Errorf("unexpected request type: %T", request)
 	}
 
 	// Run stopwatch.

@@ -8551,15 +8551,6 @@ func (c *Client) sendActionsCreateOrUpdateEnvironmentSecret(ctx context.Context,
 		semconv.HTTPMethodKey.String("PUT"),
 		semconv.HTTPRouteKey.String("/repositories/{repository_id}/environments/{environment_name}/secrets/{secret_name}"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -8744,15 +8735,6 @@ func (c *Client) sendActionsCreateOrUpdateOrgSecret(ctx context.Context, request
 		semconv.HTTPMethodKey.String("PUT"),
 		semconv.HTTPRouteKey.String("/orgs/{org}/actions/secrets/{secret_name}"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -8917,15 +8899,6 @@ func (c *Client) sendActionsCreateOrUpdateRepoSecret(ctx context.Context, reques
 		otelogen.OperationID("actions/create-or-update-repo-secret"),
 		semconv.HTTPMethodKey.String("PUT"),
 		semconv.HTTPRouteKey.String("/repos/{owner}/{repo}/actions/secrets/{secret_name}"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -9495,15 +9468,6 @@ func (c *Client) sendActionsCreateSelfHostedRunnerGroupForOrg(ctx context.Contex
 		otelogen.OperationID("actions/create-self-hosted-runner-group-for-org"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/orgs/{org}/actions/runner-groups"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -16689,15 +16653,6 @@ func (c *Client) sendActionsReviewPendingDeploymentsForRun(ctx context.Context, 
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/repos/{owner}/{repo}/actions/runs/{run_id}/pending_deployments"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -17061,15 +17016,6 @@ func (c *Client) sendActionsSetGithubActionsPermissionsOrganization(ctx context.
 		semconv.HTTPMethodKey.String("PUT"),
 		semconv.HTTPRouteKey.String("/orgs/{org}/actions/permissions"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -17169,15 +17115,6 @@ func (c *Client) sendActionsSetGithubActionsPermissionsRepository(ctx context.Co
 		otelogen.OperationID("actions/set-github-actions-permissions-repository"),
 		semconv.HTTPMethodKey.String("PUT"),
 		semconv.HTTPRouteKey.String("/repos/{owner}/{repo}/actions/permissions"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -17297,15 +17234,6 @@ func (c *Client) sendActionsSetRepoAccessToSelfHostedRunnerGroupInOrg(ctx contex
 		semconv.HTTPMethodKey.String("PUT"),
 		semconv.HTTPRouteKey.String("/orgs/{org}/actions/runner-groups/{runner_group_id}/repositories"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -17422,15 +17350,6 @@ func (c *Client) sendActionsSetSelectedReposForOrgSecret(ctx context.Context, re
 		otelogen.OperationID("actions/set-selected-repos-for-org-secret"),
 		semconv.HTTPMethodKey.String("PUT"),
 		semconv.HTTPRouteKey.String("/orgs/{org}/actions/secrets/{secret_name}/repositories"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -17550,15 +17469,6 @@ func (c *Client) sendActionsSetSelectedRepositoriesEnabledGithubActionsOrganizat
 		semconv.HTTPMethodKey.String("PUT"),
 		semconv.HTTPRouteKey.String("/orgs/{org}/actions/permissions/repositories"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -17656,15 +17566,6 @@ func (c *Client) sendActionsSetSelfHostedRunnersInGroupForOrg(ctx context.Contex
 		otelogen.OperationID("actions/set-self-hosted-runners-in-group-for-org"),
 		semconv.HTTPMethodKey.String("PUT"),
 		semconv.HTTPRouteKey.String("/orgs/{org}/actions/runner-groups/{runner_group_id}/runners"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -17782,15 +17683,6 @@ func (c *Client) sendActionsUpdateSelfHostedRunnerGroupForOrg(ctx context.Contex
 		otelogen.OperationID("actions/update-self-hosted-runner-group-for-org"),
 		semconv.HTTPMethodKey.String("PATCH"),
 		semconv.HTTPRouteKey.String("/orgs/{org}/actions/runner-groups/{runner_group_id}"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -21678,15 +21570,6 @@ func (c *Client) sendAppsCreateContentAttachment(ctx context.Context, request *A
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/repos/{owner}/{repo}/content_references/{content_reference_id}/attachments"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -21924,22 +21807,6 @@ func (c *Client) sendAppsCreateInstallationAccessToken(ctx context.Context, requ
 		otelogen.OperationID("apps/create-installation-access-token"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/app/installations/{installation_id}/access_tokens"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if value, ok := request.Get(); ok {
-			if err := func() error {
-				if err := value.Validate(); err != nil {
-					return err
-				}
-				return nil
-			}(); err != nil {
-				return err
-			}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -24419,15 +24286,6 @@ func (c *Client) sendAppsScopeToken(ctx context.Context, request *AppsScopeToken
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/applications/{client_id}/token/scoped"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -24715,22 +24573,6 @@ func (c *Client) sendAppsUpdateWebhookConfigForApp(ctx context.Context, request 
 		otelogen.OperationID("apps/update-webhook-config-for-app"),
 		semconv.HTTPMethodKey.String("PATCH"),
 		semconv.HTTPRouteKey.String("/app/hook/config"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if value, ok := request.Get(); ok {
-			if err := func() error {
-				if err := value.Validate(); err != nil {
-					return err
-				}
-				return nil
-			}(); err != nil {
-				return err
-			}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -28441,15 +28283,6 @@ func (c *Client) sendCodeScanningUpdateAlert(ctx context.Context, request *CodeS
 		semconv.HTTPMethodKey.String("PATCH"),
 		semconv.HTTPRouteKey.String("/repos/{owner}/{repo}/code-scanning/alerts/{alert_number}"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -28609,15 +28442,6 @@ func (c *Client) sendCodeScanningUploadSarif(ctx context.Context, request *CodeS
 		otelogen.OperationID("code-scanning/upload-sarif"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/repos/{owner}/{repo}/code-scanning/sarifs"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -29426,15 +29250,6 @@ func (c *Client) sendEnterpriseAdminCreateSelfHostedRunnerGroupForEnterprise(ctx
 		otelogen.OperationID("enterprise-admin/create-self-hosted-runner-group-for-enterprise"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/enterprises/{enterprise}/actions/runner-groups"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -32183,15 +31998,6 @@ func (c *Client) sendEnterpriseAdminProvisionAndInviteEnterpriseGroup(ctx contex
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/scim/v2/enterprises/{enterprise}/Groups"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -32291,15 +32097,6 @@ func (c *Client) sendEnterpriseAdminProvisionAndInviteEnterpriseUser(ctx context
 		otelogen.OperationID("enterprise-admin/provision-and-invite-enterprise-user"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/scim/v2/enterprises/{enterprise}/Users"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -32756,15 +32553,6 @@ func (c *Client) sendEnterpriseAdminSetGithubActionsPermissionsEnterprise(ctx co
 		semconv.HTTPMethodKey.String("PUT"),
 		semconv.HTTPRouteKey.String("/enterprises/{enterprise}/actions/permissions"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -32864,15 +32652,6 @@ func (c *Client) sendEnterpriseAdminSetInformationForProvisionedEnterpriseGroup(
 		otelogen.OperationID("enterprise-admin/set-information-for-provisioned-enterprise-group"),
 		semconv.HTTPMethodKey.String("PUT"),
 		semconv.HTTPRouteKey.String("/scim/v2/enterprises/{enterprise}/Groups/{scim_group_id}"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -32995,15 +32774,6 @@ func (c *Client) sendEnterpriseAdminSetInformationForProvisionedEnterpriseUser(c
 		semconv.HTTPMethodKey.String("PUT"),
 		semconv.HTTPRouteKey.String("/scim/v2/enterprises/{enterprise}/Users/{scim_user_id}"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -33117,15 +32887,6 @@ func (c *Client) sendEnterpriseAdminSetOrgAccessToSelfHostedRunnerGroupInEnterpr
 		otelogen.OperationID("enterprise-admin/set-org-access-to-self-hosted-runner-group-in-enterprise"),
 		semconv.HTTPMethodKey.String("PUT"),
 		semconv.HTTPRouteKey.String("/enterprises/{enterprise}/actions/runner-groups/{runner_group_id}/organizations"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -33244,15 +33005,6 @@ func (c *Client) sendEnterpriseAdminSetSelectedOrganizationsEnabledGithubActions
 		semconv.HTTPMethodKey.String("PUT"),
 		semconv.HTTPRouteKey.String("/enterprises/{enterprise}/actions/permissions/organizations"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -33347,15 +33099,6 @@ func (c *Client) sendEnterpriseAdminSetSelfHostedRunnersInGroupForEnterprise(ctx
 		otelogen.OperationID("enterprise-admin/set-self-hosted-runners-in-group-for-enterprise"),
 		semconv.HTTPMethodKey.String("PUT"),
 		semconv.HTTPRouteKey.String("/enterprises/{enterprise}/actions/runner-groups/{runner_group_id}/runners"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -33474,15 +33217,6 @@ func (c *Client) sendEnterpriseAdminUpdateAttributeForEnterpriseGroup(ctx contex
 		otelogen.OperationID("enterprise-admin/update-attribute-for-enterprise-group"),
 		semconv.HTTPMethodKey.String("PATCH"),
 		semconv.HTTPRouteKey.String("/scim/v2/enterprises/{enterprise}/Groups/{scim_group_id}"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -33618,15 +33352,6 @@ func (c *Client) sendEnterpriseAdminUpdateAttributeForEnterpriseUser(ctx context
 		semconv.HTTPMethodKey.String("PATCH"),
 		semconv.HTTPRouteKey.String("/scim/v2/enterprises/{enterprise}/Users/{scim_user_id}"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -33739,22 +33464,6 @@ func (c *Client) sendEnterpriseAdminUpdateSelfHostedRunnerGroupForEnterprise(ctx
 		otelogen.OperationID("enterprise-admin/update-self-hosted-runner-group-for-enterprise"),
 		semconv.HTTPMethodKey.String("PATCH"),
 		semconv.HTTPRouteKey.String("/enterprises/{enterprise}/actions/runner-groups/{runner_group_id}"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if value, ok := request.Get(); ok {
-			if err := func() error {
-				if err := value.Validate(); err != nil {
-					return err
-				}
-				return nil
-			}(); err != nil {
-				return err
-			}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -33961,15 +33670,6 @@ func (c *Client) sendGistsCreate(ctx context.Context, request *GistsCreateReq) (
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/gists"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -34044,15 +33744,6 @@ func (c *Client) sendGistsCreateComment(ctx context.Context, request *GistsCreat
 		otelogen.OperationID("gists/create-comment"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/gists/{gist_id}/comments"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -35848,15 +35539,6 @@ func (c *Client) sendGistsUpdateComment(ctx context.Context, request *GistsUpdat
 		semconv.HTTPMethodKey.String("PATCH"),
 		semconv.HTTPRouteKey.String("/gists/{gist_id}/comments/{comment_id}"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -36379,15 +36061,6 @@ func (c *Client) sendGitCreateTag(ctx context.Context, request *GitCreateTagReq,
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/repos/{owner}/{repo}/git/tags"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -36506,15 +36179,6 @@ func (c *Client) sendGitCreateTree(ctx context.Context, request *GitCreateTreeRe
 		otelogen.OperationID("git/create-tree"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/repos/{owner}/{repo}/git/trees"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -38248,15 +37912,6 @@ func (c *Client) sendInteractionsSetRestrictionsForAuthenticatedUser(ctx context
 		semconv.HTTPMethodKey.String("PUT"),
 		semconv.HTTPRouteKey.String("/user/interaction-limits"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -38334,15 +37989,6 @@ func (c *Client) sendInteractionsSetRestrictionsForOrg(ctx context.Context, requ
 		otelogen.OperationID("interactions/set-restrictions-for-org"),
 		semconv.HTTPMethodKey.String("PUT"),
 		semconv.HTTPRouteKey.String("/orgs/{org}/interaction-limits"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -38440,15 +38086,6 @@ func (c *Client) sendInteractionsSetRestrictionsForRepo(ctx context.Context, req
 		otelogen.OperationID("interactions/set-restrictions-for-repo"),
 		semconv.HTTPMethodKey.String("PUT"),
 		semconv.HTTPRouteKey.String("/repos/{owner}/{repo}/interaction-limits"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -39198,15 +38835,6 @@ func (c *Client) sendIssuesCreateMilestone(ctx context.Context, request *IssuesC
 		otelogen.OperationID("issues/create-milestone"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/repos/{owner}/{repo}/milestones"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -42787,22 +42415,6 @@ func (c *Client) sendIssuesLock(ctx context.Context, request OptNilIssuesLockReq
 		semconv.HTTPMethodKey.String("PUT"),
 		semconv.HTTPRouteKey.String("/repos/{owner}/{repo}/issues/{issue_number}/lock"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if value, ok := request.Get(); ok {
-			if err := func() error {
-				if err := value.Validate(); err != nil {
-					return err
-				}
-				return nil
-			}(); err != nil {
-				return err
-			}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -43473,22 +43085,6 @@ func (c *Client) sendIssuesUpdate(ctx context.Context, request OptIssuesUpdateRe
 		semconv.HTTPMethodKey.String("PATCH"),
 		semconv.HTTPRouteKey.String("/repos/{owner}/{repo}/issues/{issue_number}"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if value, ok := request.Get(); ok {
-			if err := func() error {
-				if err := value.Validate(); err != nil {
-					return err
-				}
-				return nil
-			}(); err != nil {
-				return err
-			}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -43881,22 +43477,6 @@ func (c *Client) sendIssuesUpdateMilestone(ctx context.Context, request OptIssue
 		otelogen.OperationID("issues/update-milestone"),
 		semconv.HTTPMethodKey.String("PATCH"),
 		semconv.HTTPRouteKey.String("/repos/{owner}/{repo}/milestones/{milestone_number}"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if value, ok := request.Get(); ok {
-			if err := func() error {
-				if err := value.Validate(); err != nil {
-					return err
-				}
-				return nil
-			}(); err != nil {
-				return err
-			}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -44360,15 +43940,6 @@ func (c *Client) sendMarkdownRender(ctx context.Context, request *MarkdownRender
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/markdown"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -44446,17 +44017,6 @@ func (c *Client) sendMarkdownRenderRaw(ctx context.Context, request MarkdownRend
 		otelogen.OperationID("markdown/render-raw"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/markdown/raw"),
-	}
-	// Validate request before sending.
-	switch request := request.(type) {
-	case *MarkdownRenderRawReqEmptyBody:
-		// Validation is not needed for the empty body type.
-	case *MarkdownRenderRawReqTextPlain:
-		// Validation is not required for this type.
-	case *MarkdownRenderRawReqTextXMarkdown:
-		// Validation is not required for this type.
-	default:
-		return res, errors.Errorf("unexpected request type: %T", request)
 	}
 
 	// Run stopwatch.
@@ -46732,15 +46292,6 @@ func (c *Client) sendMigrationsSetLfsPreference(ctx context.Context, request *Mi
 		semconv.HTTPMethodKey.String("PATCH"),
 		semconv.HTTPRouteKey.String("/repos/{owner}/{repo}/import/lfs"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -46854,15 +46405,6 @@ func (c *Client) sendMigrationsStartForAuthenticatedUser(ctx context.Context, re
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/user/migrations"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -46937,15 +46479,6 @@ func (c *Client) sendMigrationsStartForOrg(ctx context.Context, request *Migrati
 		otelogen.OperationID("migrations/start-for-org"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/orgs/{org}/migrations"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -47040,15 +46573,6 @@ func (c *Client) sendMigrationsStartImport(ctx context.Context, request *Migrati
 		otelogen.OperationID("migrations/start-import"),
 		semconv.HTTPMethodKey.String("PUT"),
 		semconv.HTTPRouteKey.String("/repos/{owner}/{repo}/import"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -47552,22 +47076,6 @@ func (c *Client) sendOAuthAuthorizationsCreateAuthorization(ctx context.Context,
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/authorizations"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if value, ok := request.Get(); ok {
-			if err := func() error {
-				if err := value.Validate(); err != nil {
-					return err
-				}
-				return nil
-			}(); err != nil {
-				return err
-			}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -48070,15 +47578,6 @@ func (c *Client) sendOAuthAuthorizationsGetOrCreateAuthorizationForApp(ctx conte
 		semconv.HTTPMethodKey.String("PUT"),
 		semconv.HTTPRouteKey.String("/authorizations/clients/{client_id}"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -48194,15 +47693,6 @@ func (c *Client) sendOAuthAuthorizationsGetOrCreateAuthorizationForAppAndFingerp
 		otelogen.OperationID("oauth-authorizations/get-or-create-authorization-for-app-and-fingerprint"),
 		semconv.HTTPMethodKey.String("PUT"),
 		semconv.HTTPRouteKey.String("/authorizations/clients/{client_id}/{fingerprint}"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -48611,22 +48101,6 @@ func (c *Client) sendOAuthAuthorizationsUpdateAuthorization(ctx context.Context,
 		otelogen.OperationID("oauth-authorizations/update-authorization"),
 		semconv.HTTPMethodKey.String("PATCH"),
 		semconv.HTTPRouteKey.String("/authorizations/{authorization_id}"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if value, ok := request.Get(); ok {
-			if err := func() error {
-				if err := value.Validate(); err != nil {
-					return err
-				}
-				return nil
-			}(); err != nil {
-				return err
-			}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -49390,22 +48864,6 @@ func (c *Client) sendOrgsCreateInvitation(ctx context.Context, request OptOrgsCr
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/orgs/{org}/invitations"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if value, ok := request.Get(); ok {
-			if err := func() error {
-				if err := value.Validate(); err != nil {
-					return err
-				}
-				return nil
-			}(); err != nil {
-				return err
-			}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -49499,15 +48957,6 @@ func (c *Client) sendOrgsCreateWebhook(ctx context.Context, request *OrgsCreateW
 		otelogen.OperationID("orgs/create-webhook"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/orgs/{org}/hooks"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -53197,22 +52646,6 @@ func (c *Client) sendOrgsSetMembershipForUser(ctx context.Context, request OptOr
 		semconv.HTTPMethodKey.String("PUT"),
 		semconv.HTTPRouteKey.String("/orgs/{org}/memberships/{username}"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if value, ok := request.Get(); ok {
-			if err := func() error {
-				if err := value.Validate(); err != nil {
-					return err
-				}
-				return nil
-			}(); err != nil {
-				return err
-			}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -53547,15 +52980,6 @@ func (c *Client) sendOrgsUpdateMembershipForAuthenticatedUser(ctx context.Contex
 		semconv.HTTPMethodKey.String("PATCH"),
 		semconv.HTTPRouteKey.String("/user/memberships/orgs/{org}"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -53652,22 +53076,6 @@ func (c *Client) sendOrgsUpdateWebhook(ctx context.Context, request OptOrgsUpdat
 		otelogen.OperationID("orgs/update-webhook"),
 		semconv.HTTPMethodKey.String("PATCH"),
 		semconv.HTTPRouteKey.String("/orgs/{org}/hooks/{hook_id}"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if value, ok := request.Get(); ok {
-			if err := func() error {
-				if err := value.Validate(); err != nil {
-					return err
-				}
-				return nil
-			}(); err != nil {
-				return err
-			}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -53784,22 +53192,6 @@ func (c *Client) sendOrgsUpdateWebhookConfigForOrg(ctx context.Context, request 
 		otelogen.OperationID("orgs/update-webhook-config-for-org"),
 		semconv.HTTPMethodKey.String("PATCH"),
 		semconv.HTTPRouteKey.String("/orgs/{org}/hooks/{hook_id}/config"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if value, ok := request.Get(); ok {
-			if err := func() error {
-				if err := value.Validate(); err != nil {
-					return err
-				}
-				return nil
-			}(); err != nil {
-				return err
-			}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -57307,22 +56699,6 @@ func (c *Client) sendProjectsAddCollaborator(ctx context.Context, request OptNil
 		semconv.HTTPMethodKey.String("PUT"),
 		semconv.HTTPRouteKey.String("/projects/{project_id}/collaborators/{username}"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if value, ok := request.Get(); ok {
-			if err := func() error {
-				if err := value.Validate(); err != nil {
-					return err
-				}
-				return nil
-			}(); err != nil {
-				return err
-			}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -59355,15 +58731,6 @@ func (c *Client) sendProjectsMoveCard(ctx context.Context, request *ProjectsMove
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/projects/columns/cards/{card_id}/moves"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -59457,15 +58824,6 @@ func (c *Client) sendProjectsMoveColumn(ctx context.Context, request *ProjectsMo
 		otelogen.OperationID("projects/move-column"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/projects/columns/{column_id}/moves"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -59672,22 +59030,6 @@ func (c *Client) sendProjectsUpdate(ctx context.Context, request OptProjectsUpda
 		otelogen.OperationID("projects/update"),
 		semconv.HTTPMethodKey.String("PATCH"),
 		semconv.HTTPRouteKey.String("/projects/{project_id}"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if value, ok := request.Get(); ok {
-			if err := func() error {
-				if err := value.Validate(); err != nil {
-					return err
-				}
-				return nil
-			}(); err != nil {
-				return err
-			}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -60403,22 +59745,6 @@ func (c *Client) sendPullsCreateReview(ctx context.Context, request OptPullsCrea
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/repos/{owner}/{repo}/pulls/{pull_number}/reviews"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if value, ok := request.Get(); ok {
-			if err := func() error {
-				if err := value.Validate(); err != nil {
-					return err
-				}
-				return nil
-			}(); err != nil {
-				return err
-			}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -60569,15 +59895,6 @@ func (c *Client) sendPullsCreateReviewComment(ctx context.Context, request *Pull
 		otelogen.OperationID("pulls/create-review-comment"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/repos/{owner}/{repo}/pulls/{pull_number}/comments"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -63094,22 +62411,6 @@ func (c *Client) sendPullsMerge(ctx context.Context, request OptNilPullsMergeReq
 		semconv.HTTPMethodKey.String("PUT"),
 		semconv.HTTPRouteKey.String("/repos/{owner}/{repo}/pulls/{pull_number}/merge"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if value, ok := request.Get(); ok {
-			if err := func() error {
-				if err := value.Validate(); err != nil {
-					return err
-				}
-				return nil
-			}(); err != nil {
-				return err
-			}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -63242,15 +62543,6 @@ func (c *Client) sendPullsRemoveRequestedReviewers(ctx context.Context, request 
 		semconv.HTTPMethodKey.String("DELETE"),
 		semconv.HTTPRouteKey.String("/repos/{owner}/{repo}/pulls/{pull_number}/requested_reviewers"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -63382,15 +62674,6 @@ func (c *Client) sendPullsSubmitReview(ctx context.Context, request *PullsSubmit
 		otelogen.OperationID("pulls/submit-review"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/repos/{owner}/{repo}/pulls/{pull_number}/reviews/{review_id}/events"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -63549,22 +62832,6 @@ func (c *Client) sendPullsUpdate(ctx context.Context, request OptPullsUpdateReq,
 		otelogen.OperationID("pulls/update"),
 		semconv.HTTPMethodKey.String("PATCH"),
 		semconv.HTTPRouteKey.String("/repos/{owner}/{repo}/pulls/{pull_number}"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if value, ok := request.Get(); ok {
-			if err := func() error {
-				if err := value.Validate(); err != nil {
-					return err
-				}
-				return nil
-			}(); err != nil {
-				return err
-			}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -64188,15 +63455,6 @@ func (c *Client) sendReactionsCreateForCommitComment(ctx context.Context, reques
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/repos/{owner}/{repo}/comments/{comment_id}/reactions"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -64329,15 +63587,6 @@ func (c *Client) sendReactionsCreateForIssue(ctx context.Context, request *React
 		otelogen.OperationID("reactions/create-for-issue"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/repos/{owner}/{repo}/issues/{issue_number}/reactions"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -64473,15 +63722,6 @@ func (c *Client) sendReactionsCreateForIssueComment(ctx context.Context, request
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/repos/{owner}/{repo}/issues/comments/{comment_id}/reactions"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -64616,15 +63856,6 @@ func (c *Client) sendReactionsCreateForPullRequestReviewComment(ctx context.Cont
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/repos/{owner}/{repo}/pulls/comments/{comment_id}/reactions"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -64757,15 +63988,6 @@ func (c *Client) sendReactionsCreateForRelease(ctx context.Context, request *Rea
 		otelogen.OperationID("reactions/create-for-release"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/repos/{owner}/{repo}/releases/{release_id}/reactions"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -64904,15 +64126,6 @@ func (c *Client) sendReactionsCreateForTeamDiscussionCommentInOrg(ctx context.Co
 		otelogen.OperationID("reactions/create-for-team-discussion-comment-in-org"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments/{comment_number}/reactions"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -65075,15 +64288,6 @@ func (c *Client) sendReactionsCreateForTeamDiscussionCommentLegacy(ctx context.C
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/teams/{team_id}/discussions/{discussion_number}/comments/{comment_number}/reactions"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -65222,15 +64426,6 @@ func (c *Client) sendReactionsCreateForTeamDiscussionInOrg(ctx context.Context, 
 		otelogen.OperationID("reactions/create-for-team-discussion-in-org"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/reactions"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -65374,15 +64569,6 @@ func (c *Client) sendReactionsCreateForTeamDiscussionLegacy(ctx context.Context,
 		otelogen.OperationID("reactions/create-for-team-discussion-legacy"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/teams/{team_id}/discussions/{discussion_number}/reactions"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -68119,22 +67305,6 @@ func (c *Client) sendReposAddAppAccessRestrictions(ctx context.Context, request 
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/repos/{owner}/{repo}/branches/{branch}/protection/restrictions/apps"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if value, ok := request.Get(); ok {
-			if err := func() error {
-				if err := value.Validate(); err != nil {
-					return err
-				}
-				return nil
-			}(); err != nil {
-				return err
-			}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -68286,22 +67456,6 @@ func (c *Client) sendReposAddCollaborator(ctx context.Context, request OptReposA
 		semconv.HTTPMethodKey.String("PUT"),
 		semconv.HTTPRouteKey.String("/repos/{owner}/{repo}/collaborators/{username}"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if value, ok := request.Get(); ok {
-			if err := func() error {
-				if err := value.Validate(); err != nil {
-					return err
-				}
-				return nil
-			}(); err != nil {
-				return err
-			}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -68436,22 +67590,6 @@ func (c *Client) sendReposAddStatusCheckContexts(ctx context.Context, request Op
 		otelogen.OperationID("repos/add-status-check-contexts"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/repos/{owner}/{repo}/branches/{branch}/protection/required_status_checks/contexts"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if value, ok := request.Get(); ok {
-			if err := func() error {
-				if err := value.Validate(); err != nil {
-					return err
-				}
-				return nil
-			}(); err != nil {
-				return err
-			}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -68599,22 +67737,6 @@ func (c *Client) sendReposAddTeamAccessRestrictions(ctx context.Context, request
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/repos/{owner}/{repo}/branches/{branch}/protection/restrictions/teams"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if value, ok := request.Get(); ok {
-			if err := func() error {
-				if err := value.Validate(); err != nil {
-					return err
-				}
-				return nil
-			}(); err != nil {
-				return err
-			}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -68759,22 +67881,6 @@ func (c *Client) sendReposAddUserAccessRestrictions(ctx context.Context, request
 		otelogen.OperationID("repos/add-user-access-restrictions"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/repos/{owner}/{repo}/branches/{branch}/protection/restrictions/users"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if value, ok := request.Get(); ok {
-			if err := func() error {
-				if err := value.Validate(); err != nil {
-					return err
-				}
-				return nil
-			}(); err != nil {
-				return err
-			}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -69762,15 +68868,6 @@ func (c *Client) sendReposCreateCommitStatus(ctx context.Context, request *Repos
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/repos/{owner}/{repo}/statuses/{sha}"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -70185,15 +69282,6 @@ func (c *Client) sendReposCreateDeploymentStatus(ctx context.Context, request *R
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/repos/{owner}/{repo}/deployments/{deployment_id}/statuses"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -70344,15 +69432,6 @@ func (c *Client) sendReposCreateDispatchEvent(ctx context.Context, request *Repo
 		otelogen.OperationID("repos/create-dispatch-event"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/repos/{owner}/{repo}/dispatches"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -70671,15 +69750,6 @@ func (c *Client) sendReposCreateInOrg(ctx context.Context, request *ReposCreateI
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/orgs/{org}/repos"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -70905,22 +69975,6 @@ func (c *Client) sendReposCreatePagesSite(ctx context.Context, request NilReposC
 		otelogen.OperationID("repos/create-pages-site"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/repos/{owner}/{repo}/pages"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if value, ok := request.Get(); ok {
-			if err := func() error {
-				if err := value.Validate(); err != nil {
-					return err
-				}
-				return nil
-			}(); err != nil {
-				return err
-			}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -71280,22 +70334,6 @@ func (c *Client) sendReposCreateWebhook(ctx context.Context, request OptNilRepos
 		otelogen.OperationID("repos/create-webhook"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/repos/{owner}/{repo}/hooks"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if value, ok := request.Get(); ok {
-			if err := func() error {
-				if err := value.Validate(); err != nil {
-					return err
-				}
-				return nil
-			}(); err != nil {
-				return err
-			}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -85413,22 +84451,6 @@ func (c *Client) sendReposRemoveAppAccessRestrictions(ctx context.Context, reque
 		semconv.HTTPMethodKey.String("DELETE"),
 		semconv.HTTPRouteKey.String("/repos/{owner}/{repo}/branches/{branch}/protection/restrictions/apps"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if value, ok := request.Get(); ok {
-			if err := func() error {
-				if err := value.Validate(); err != nil {
-					return err
-				}
-				return nil
-			}(); err != nil {
-				return err
-			}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -85692,22 +84714,6 @@ func (c *Client) sendReposRemoveStatusCheckContexts(ctx context.Context, request
 		otelogen.OperationID("repos/remove-status-check-contexts"),
 		semconv.HTTPMethodKey.String("DELETE"),
 		semconv.HTTPRouteKey.String("/repos/{owner}/{repo}/branches/{branch}/protection/required_status_checks/contexts"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if value, ok := request.Get(); ok {
-			if err := func() error {
-				if err := value.Validate(); err != nil {
-					return err
-				}
-				return nil
-			}(); err != nil {
-				return err
-			}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -85988,22 +84994,6 @@ func (c *Client) sendReposRemoveTeamAccessRestrictions(ctx context.Context, requ
 		semconv.HTTPMethodKey.String("DELETE"),
 		semconv.HTTPRouteKey.String("/repos/{owner}/{repo}/branches/{branch}/protection/restrictions/teams"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if value, ok := request.Get(); ok {
-			if err := func() error {
-				if err := value.Validate(); err != nil {
-					return err
-				}
-				return nil
-			}(); err != nil {
-				return err
-			}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -86148,22 +85138,6 @@ func (c *Client) sendReposRemoveUserAccessRestrictions(ctx context.Context, requ
 		otelogen.OperationID("repos/remove-user-access-restrictions"),
 		semconv.HTTPMethodKey.String("DELETE"),
 		semconv.HTTPRouteKey.String("/repos/{owner}/{repo}/branches/{branch}/protection/restrictions/users"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if value, ok := request.Get(); ok {
-			if err := func() error {
-				if err := value.Validate(); err != nil {
-					return err
-				}
-				return nil
-			}(); err != nil {
-				return err
-			}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -86440,15 +85414,6 @@ func (c *Client) sendReposReplaceAllTopics(ctx context.Context, request *ReposRe
 		otelogen.OperationID("repos/replace-all-topics"),
 		semconv.HTTPMethodKey.String("PUT"),
 		semconv.HTTPRouteKey.String("/repos/{owner}/{repo}/topics"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -86829,22 +85794,6 @@ func (c *Client) sendReposSetAppAccessRestrictions(ctx context.Context, request 
 		semconv.HTTPMethodKey.String("PUT"),
 		semconv.HTTPRouteKey.String("/repos/{owner}/{repo}/branches/{branch}/protection/restrictions/apps"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if value, ok := request.Get(); ok {
-			if err := func() error {
-				if err := value.Validate(); err != nil {
-					return err
-				}
-				return nil
-			}(); err != nil {
-				return err
-			}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -86980,22 +85929,6 @@ func (c *Client) sendReposSetStatusCheckContexts(ctx context.Context, request Op
 		otelogen.OperationID("repos/set-status-check-contexts"),
 		semconv.HTTPMethodKey.String("PUT"),
 		semconv.HTTPRouteKey.String("/repos/{owner}/{repo}/branches/{branch}/protection/required_status_checks/contexts"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if value, ok := request.Get(); ok {
-			if err := func() error {
-				if err := value.Validate(); err != nil {
-					return err
-				}
-				return nil
-			}(); err != nil {
-				return err
-			}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -87144,22 +86077,6 @@ func (c *Client) sendReposSetTeamAccessRestrictions(ctx context.Context, request
 		semconv.HTTPMethodKey.String("PUT"),
 		semconv.HTTPRouteKey.String("/repos/{owner}/{repo}/branches/{branch}/protection/restrictions/teams"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if value, ok := request.Get(); ok {
-			if err := func() error {
-				if err := value.Validate(); err != nil {
-					return err
-				}
-				return nil
-			}(); err != nil {
-				return err
-			}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -87305,22 +86222,6 @@ func (c *Client) sendReposSetUserAccessRestrictions(ctx context.Context, request
 		otelogen.OperationID("repos/set-user-access-restrictions"),
 		semconv.HTTPMethodKey.String("PUT"),
 		semconv.HTTPRouteKey.String("/repos/{owner}/{repo}/branches/{branch}/protection/restrictions/users"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if value, ok := request.Get(); ok {
-			if err := func() error {
-				if err := value.Validate(); err != nil {
-					return err
-				}
-				return nil
-			}(); err != nil {
-				return err
-			}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -87704,22 +86605,6 @@ func (c *Client) sendReposUpdate(ctx context.Context, request OptReposUpdateReq,
 		semconv.HTTPMethodKey.String("PATCH"),
 		semconv.HTTPRouteKey.String("/repos/{owner}/{repo}"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if value, ok := request.Get(); ok {
-			if err := func() error {
-				if err := value.Validate(); err != nil {
-					return err
-				}
-				return nil
-			}(); err != nil {
-				return err
-			}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -87838,15 +86723,6 @@ func (c *Client) sendReposUpdateBranchProtection(ctx context.Context, request *R
 		otelogen.OperationID("repos/update-branch-protection"),
 		semconv.HTTPMethodKey.String("PUT"),
 		semconv.HTTPRouteKey.String("/repos/{owner}/{repo}/branches/{branch}/protection"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -88110,22 +86986,6 @@ func (c *Client) sendReposUpdateInvitation(ctx context.Context, request OptRepos
 		otelogen.OperationID("repos/update-invitation"),
 		semconv.HTTPMethodKey.String("PATCH"),
 		semconv.HTTPRouteKey.String("/repos/{owner}/{repo}/invitations/{invitation_id}"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if value, ok := request.Get(); ok {
-			if err := func() error {
-				if err := value.Validate(); err != nil {
-					return err
-				}
-				return nil
-			}(); err != nil {
-				return err
-			}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -88800,22 +87660,6 @@ func (c *Client) sendReposUpdateWebhook(ctx context.Context, request OptReposUpd
 		semconv.HTTPMethodKey.String("PATCH"),
 		semconv.HTTPRouteKey.String("/repos/{owner}/{repo}/hooks/{hook_id}"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if value, ok := request.Get(); ok {
-			if err := func() error {
-				if err := value.Validate(); err != nil {
-					return err
-				}
-				return nil
-			}(); err != nil {
-				return err
-			}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -88950,22 +87794,6 @@ func (c *Client) sendReposUpdateWebhookConfigForRepo(ctx context.Context, reques
 		otelogen.OperationID("repos/update-webhook-config-for-repo"),
 		semconv.HTTPMethodKey.String("PATCH"),
 		semconv.HTTPRouteKey.String("/repos/{owner}/{repo}/hooks/{hook_id}/config"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if value, ok := request.Get(); ok {
-			if err := func() error {
-				if err := value.Validate(); err != nil {
-					return err
-				}
-				return nil
-			}(); err != nil {
-				return err
-			}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -91074,15 +89902,6 @@ func (c *Client) sendSecretScanningUpdateAlert(ctx context.Context, request *Sec
 		semconv.HTTPMethodKey.String("PATCH"),
 		semconv.HTTPRouteKey.String("/repos/{owner}/{repo}/secret-scanning/alerts/{alert_number}"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -91368,22 +90187,6 @@ func (c *Client) sendTeamsAddOrUpdateMembershipForUserInOrg(ctx context.Context,
 		semconv.HTTPMethodKey.String("PUT"),
 		semconv.HTTPRouteKey.String("/orgs/{org}/teams/{team_slug}/memberships/{username}"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if value, ok := request.Get(); ok {
-			if err := func() error {
-				if err := value.Validate(); err != nil {
-					return err
-				}
-				return nil
-			}(); err != nil {
-				return err
-			}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -91541,22 +90344,6 @@ func (c *Client) sendTeamsAddOrUpdateMembershipForUserLegacy(ctx context.Context
 		semconv.HTTPMethodKey.String("PUT"),
 		semconv.HTTPRouteKey.String("/teams/{team_id}/memberships/{username}"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if value, ok := request.Get(); ok {
-			if err := func() error {
-				if err := value.Validate(); err != nil {
-					return err
-				}
-				return nil
-			}(); err != nil {
-				return err
-			}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -91672,22 +90459,6 @@ func (c *Client) sendTeamsAddOrUpdateProjectPermissionsInOrg(ctx context.Context
 		otelogen.OperationID("teams/add-or-update-project-permissions-in-org"),
 		semconv.HTTPMethodKey.String("PUT"),
 		semconv.HTTPRouteKey.String("/orgs/{org}/teams/{team_slug}/projects/{project_id}"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if value, ok := request.Get(); ok {
-			if err := func() error {
-				if err := value.Validate(); err != nil {
-					return err
-				}
-				return nil
-			}(); err != nil {
-				return err
-			}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -91828,22 +90599,6 @@ func (c *Client) sendTeamsAddOrUpdateProjectPermissionsLegacy(ctx context.Contex
 		semconv.HTTPMethodKey.String("PUT"),
 		semconv.HTTPRouteKey.String("/teams/{team_id}/projects/{project_id}"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if value, ok := request.Get(); ok {
-			if err := func() error {
-				if err := value.Validate(); err != nil {
-					return err
-				}
-				return nil
-			}(); err != nil {
-				return err
-			}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -91966,22 +90721,6 @@ func (c *Client) sendTeamsAddOrUpdateRepoPermissionsInOrg(ctx context.Context, r
 		otelogen.OperationID("teams/add-or-update-repo-permissions-in-org"),
 		semconv.HTTPMethodKey.String("PUT"),
 		semconv.HTTPRouteKey.String("/orgs/{org}/teams/{team_slug}/repos/{owner}/{repo}"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if value, ok := request.Get(); ok {
-			if err := func() error {
-				if err := value.Validate(); err != nil {
-					return err
-				}
-				return nil
-			}(); err != nil {
-				return err
-			}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -92145,22 +90884,6 @@ func (c *Client) sendTeamsAddOrUpdateRepoPermissionsLegacy(ctx context.Context, 
 		otelogen.OperationID("teams/add-or-update-repo-permissions-legacy"),
 		semconv.HTTPMethodKey.String("PUT"),
 		semconv.HTTPRouteKey.String("/teams/{team_id}/repos/{owner}/{repo}"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if value, ok := request.Get(); ok {
-			if err := func() error {
-				if err := value.Validate(); err != nil {
-					return err
-				}
-				return nil
-			}(); err != nil {
-				return err
-			}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -92838,15 +91561,6 @@ func (c *Client) sendTeamsCreate(ctx context.Context, request *TeamsCreateReq, p
 		otelogen.OperationID("teams/create"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/orgs/{org}/teams"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -93570,15 +92284,6 @@ func (c *Client) sendTeamsCreateOrUpdateIdpGroupConnectionsLegacy(ctx context.Co
 		otelogen.OperationID("teams/create-or-update-idp-group-connections-legacy"),
 		semconv.HTTPMethodKey.String("PATCH"),
 		semconv.HTTPRouteKey.String("/teams/{team_id}/team-sync/group-mappings"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -99742,22 +98447,6 @@ func (c *Client) sendTeamsUpdateInOrg(ctx context.Context, request OptTeamsUpdat
 		semconv.HTTPMethodKey.String("PATCH"),
 		semconv.HTTPRouteKey.String("/orgs/{org}/teams/{team_slug}"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if value, ok := request.Get(); ok {
-			if err := func() error {
-				if err := value.Validate(); err != nil {
-					return err
-				}
-				return nil
-			}(); err != nil {
-				return err
-			}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -99876,15 +98565,6 @@ func (c *Client) sendTeamsUpdateLegacy(ctx context.Context, request *TeamsUpdate
 		semconv.HTTPMethodKey.String("PATCH"),
 		semconv.HTTPRouteKey.String("/teams/{team_id}"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -99977,22 +98657,6 @@ func (c *Client) sendUsersAddEmailForAuthenticated(ctx context.Context, request 
 		otelogen.OperationID("users/add-email-for-authenticated"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/user/emails"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if value, ok := request.Get(); ok {
-			if err := func() error {
-				if err := value.Validate(); err != nil {
-					return err
-				}
-				return nil
-			}(); err != nil {
-				return err
-			}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -100527,15 +99191,6 @@ func (c *Client) sendUsersCreatePublicSSHKeyForAuthenticated(ctx context.Context
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/user/keys"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -100610,22 +99265,6 @@ func (c *Client) sendUsersDeleteEmailForAuthenticated(ctx context.Context, reque
 		otelogen.OperationID("users/delete-email-for-authenticated"),
 		semconv.HTTPMethodKey.String("DELETE"),
 		semconv.HTTPRouteKey.String("/user/emails"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if value, ok := request.Get(); ok {
-			if err := func() error {
-				if err := value.Validate(); err != nil {
-					return err
-				}
-				return nil
-			}(); err != nil {
-				return err
-			}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -102850,15 +101489,6 @@ func (c *Client) sendUsersSetPrimaryEmailVisibilityForAuthenticated(ctx context.
 		otelogen.OperationID("users/set-primary-email-visibility-for-authenticated"),
 		semconv.HTTPMethodKey.String("PATCH"),
 		semconv.HTTPRouteKey.String("/user/email/visibility"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.

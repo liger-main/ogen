@@ -4,7 +4,6 @@ package api
 
 import (
 	"context"
-	"fmt"
 	"net/url"
 	"strings"
 	"time"
@@ -19,7 +18,6 @@ import (
 	ht "github.com/ogen-go/ogen/http"
 	"github.com/ogen-go/ogen/otelogen"
 	"github.com/ogen-go/ogen/uri"
-	"github.com/ogen-go/ogen/validate"
 )
 
 // Invoker invokes operations described by OpenAPI v3 specification.
@@ -113,21 +111,6 @@ func (c *Client) sendAllRequestBodies(ctx context.Context, request AllRequestBod
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/allRequestBodies"),
 	}
-	// Validate request before sending.
-	switch request := request.(type) {
-	case *AllRequestBodiesApplicationJSON:
-		// Validation is not required for this type.
-	case *AllRequestBodiesReqApplicationOctetStream:
-		// Validation is not required for this type.
-	case *AllRequestBodiesApplicationXWwwFormUrlencoded:
-		// Validation is not required for this type.
-	case *SimpleObjectMultipart:
-		// Validation is not required for this type.
-	case *AllRequestBodiesReqTextPlain:
-		// Validation is not required for this type.
-	default:
-		return res, errors.Errorf("unexpected request type: %T", request)
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -200,23 +183,6 @@ func (c *Client) sendAllRequestBodiesOptional(ctx context.Context, request AllRe
 		otelogen.OperationID("allRequestBodiesOptional"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/allRequestBodiesOptional"),
-	}
-	// Validate request before sending.
-	switch request := request.(type) {
-	case *AllRequestBodiesOptionalReqEmptyBody:
-		// Validation is not needed for the empty body type.
-	case *AllRequestBodiesOptionalApplicationJSON:
-		// Validation is not required for this type.
-	case *AllRequestBodiesOptionalReqApplicationOctetStream:
-		// Validation is not required for this type.
-	case *AllRequestBodiesOptionalApplicationXWwwFormUrlencoded:
-		// Validation is not required for this type.
-	case *SimpleObjectMultipart:
-		// Validation is not required for this type.
-	case *AllRequestBodiesOptionalReqTextPlain:
-		// Validation is not required for this type.
-	default:
-		return res, errors.Errorf("unexpected request type: %T", request)
 	}
 
 	// Run stopwatch.
@@ -509,32 +475,6 @@ func (c *Client) sendStreamJSON(ctx context.Context, request []float64) (res flo
 		otelogen.OperationID("streamJSON"),
 		semconv.HTTPMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/streamJSON"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if request == nil {
-			return errors.New("nil is invalid value")
-		}
-		var failures []validate.FieldError
-		for i, elem := range request {
-			if err := func() error {
-				if err := (validate.Float{}).Validate(float64(elem)); err != nil {
-					return errors.Wrap(err, "float")
-				}
-				return nil
-			}(); err != nil {
-				failures = append(failures, validate.FieldError{
-					Name:  fmt.Sprintf("[%d]", i),
-					Error: err,
-				})
-			}
-		}
-		if len(failures) > 0 {
-			return &validate.Error{Fields: failures}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.

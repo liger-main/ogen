@@ -263,15 +263,6 @@ func (c *Client) sendCreateSnapshot(ctx context.Context, request *SnapshotCreate
 		semconv.HTTPMethodKey.String("PUT"),
 		semconv.HTTPRouteKey.String("/snapshot/create"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -346,15 +337,6 @@ func (c *Client) sendCreateSyncAction(ctx context.Context, request *InstanceActi
 		otelogen.OperationID("createSyncAction"),
 		semconv.HTTPMethodKey.String("PUT"),
 		semconv.HTTPRouteKey.String("/actions"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -1315,15 +1297,6 @@ func (c *Client) sendPatchGuestDriveByID(ctx context.Context, request *PartialDr
 		semconv.HTTPMethodKey.String("PATCH"),
 		semconv.HTTPRouteKey.String("/drives/{drive_id}"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -1416,15 +1389,6 @@ func (c *Client) sendPatchGuestNetworkInterfaceByID(ctx context.Context, request
 		otelogen.OperationID("patchGuestNetworkInterfaceByID"),
 		semconv.HTTPMethodKey.String("PATCH"),
 		semconv.HTTPRouteKey.String("/network-interfaces/{iface_id}"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -1520,22 +1484,6 @@ func (c *Client) sendPatchMachineConfiguration(ctx context.Context, request OptM
 		semconv.HTTPMethodKey.String("PATCH"),
 		semconv.HTTPRouteKey.String("/machine-config"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if value, ok := request.Get(); ok {
-			if err := func() error {
-				if err := value.Validate(); err != nil {
-					return err
-				}
-				return nil
-			}(); err != nil {
-				return err
-			}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -1610,15 +1558,6 @@ func (c *Client) sendPatchVm(ctx context.Context, request *VM) (res PatchVmRes, 
 		otelogen.OperationID("patchVm"),
 		semconv.HTTPMethodKey.String("PATCH"),
 		semconv.HTTPRouteKey.String("/vm"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -1848,15 +1787,6 @@ func (c *Client) sendPutGuestDriveByID(ctx context.Context, request *Drive, para
 		semconv.HTTPMethodKey.String("PUT"),
 		semconv.HTTPRouteKey.String("/drives/{drive_id}"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -1949,15 +1879,6 @@ func (c *Client) sendPutGuestNetworkInterfaceByID(ctx context.Context, request *
 		otelogen.OperationID("putGuestNetworkInterfaceByID"),
 		semconv.HTTPMethodKey.String("PUT"),
 		semconv.HTTPRouteKey.String("/network-interfaces/{iface_id}"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -2053,15 +1974,6 @@ func (c *Client) sendPutGuestVsock(ctx context.Context, request *Vsock) (res Put
 		semconv.HTTPMethodKey.String("PUT"),
 		semconv.HTTPRouteKey.String("/vsock"),
 	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
-	}
 
 	// Run stopwatch.
 	startTime := time.Now()
@@ -2136,15 +2048,6 @@ func (c *Client) sendPutLogger(ctx context.Context, request *Logger) (res PutLog
 		otelogen.OperationID("putLogger"),
 		semconv.HTTPMethodKey.String("PUT"),
 		semconv.HTTPRouteKey.String("/logger"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if err := request.Validate(); err != nil {
-			return err
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.
@@ -2223,22 +2126,6 @@ func (c *Client) sendPutMachineConfiguration(ctx context.Context, request OptMac
 		otelogen.OperationID("putMachineConfiguration"),
 		semconv.HTTPMethodKey.String("PUT"),
 		semconv.HTTPRouteKey.String("/machine-config"),
-	}
-	// Validate request before sending.
-	if err := func() error {
-		if value, ok := request.Get(); ok {
-			if err := func() error {
-				if err := value.Validate(); err != nil {
-					return err
-				}
-				return nil
-			}(); err != nil {
-				return err
-			}
-		}
-		return nil
-	}(); err != nil {
-		return res, errors.Wrap(err, "validate")
 	}
 
 	// Run stopwatch.

@@ -7,9 +7,10 @@ import (
 	"strings"
 
 	"github.com/go-faster/errors"
+
 	"github.com/ogen-go/ogen"
-	"github.com/ogen-go/ogen/internal/location"
 	"github.com/ogen-go/ogen/jsonschema"
+	"github.com/ogen-go/ogen/location"
 	"github.com/ogen-go/ogen/openapi"
 )
 
@@ -159,6 +160,7 @@ func (e *expander) Server(s openapi.Server) (expanded ogen.Server, err error) {
 			Description: param.Description,
 		}
 	}
+	expanded.URL = template.String()
 	if len(vars) > 0 {
 		expanded.Variables = vars
 	}
