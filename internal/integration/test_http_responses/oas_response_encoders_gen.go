@@ -36,7 +36,7 @@ func encodeAnyContentTypeBinaryStringSchemaResponse(response *AnyContentTypeBina
 	w.WriteHeader(200)
 	span.SetStatus(codes.Ok, http.StatusText(200))
 
-	defer response.Close()
+	defer response.Response.Close()
 	writer := w
 	if _, err := io.Copy(writer, response.Response); err != nil {
 		return errors.Wrap(err, "write")

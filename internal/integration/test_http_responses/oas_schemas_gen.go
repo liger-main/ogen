@@ -23,6 +23,13 @@ func (s AnyContentTypeBinaryStringSchemaDefaultDef) Read(p []byte) (n int, err e
 	return s.Data.Read(p)
 }
 
+func (s AnyContentTypeBinaryStringSchemaDefaultDef) Close() error {
+	if closer, ok := s.Data.(io.Closer); ok {
+		return closer.Close()
+	}
+	return nil
+}
+
 // AnyContentTypeBinaryStringSchemaDefaultDefStatusCodeWithHeaders wraps AnyContentTypeBinaryStringSchemaDefaultDef with status code and response headers.
 type AnyContentTypeBinaryStringSchemaDefaultDefStatusCodeWithHeaders struct {
 	StatusCode  int
@@ -72,6 +79,13 @@ func (s AnyContentTypeBinaryStringSchemaOK) Read(p []byte) (n int, err error) {
 		return 0, io.EOF
 	}
 	return s.Data.Read(p)
+}
+
+func (s AnyContentTypeBinaryStringSchemaOK) Close() error {
+	if closer, ok := s.Data.(io.Closer); ok {
+		return closer.Close()
+	}
+	return nil
 }
 
 // AnyContentTypeBinaryStringSchemaOKHeaders wraps AnyContentTypeBinaryStringSchemaOK with response headers.
@@ -626,6 +640,13 @@ func (s OctetStreamBinaryStringSchemaOK) Read(p []byte) (n int, err error) {
 	return s.Data.Read(p)
 }
 
+func (s OctetStreamBinaryStringSchemaOK) Close() error {
+	if closer, ok := s.Data.(io.Closer); ok {
+		return closer.Close()
+	}
+	return nil
+}
+
 type OctetStreamEmptySchemaOK struct {
 	Data io.Reader
 }
@@ -638,6 +659,13 @@ func (s OctetStreamEmptySchemaOK) Read(p []byte) (n int, err error) {
 		return 0, io.EOF
 	}
 	return s.Data.Read(p)
+}
+
+func (s OctetStreamEmptySchemaOK) Close() error {
+	if closer, ok := s.Data.(io.Closer); ok {
+		return closer.Close()
+	}
+	return nil
 }
 
 // NewOptString returns new OptString with value set to v.
@@ -728,6 +756,13 @@ func (s TextPlainBinaryStringSchemaOK) Read(p []byte) (n int, err error) {
 		return 0, io.EOF
 	}
 	return s.Data.Read(p)
+}
+
+func (s TextPlainBinaryStringSchemaOK) Close() error {
+	if closer, ok := s.Data.(io.Closer); ok {
+		return closer.Close()
+	}
+	return nil
 }
 
 // Ref: #/components/schemas/User
