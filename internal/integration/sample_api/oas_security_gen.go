@@ -12,6 +12,12 @@ import (
 	"github.com/ogen-go/ogen/ogenerrors"
 )
 
+var securityScopes = map[string][]string{
+	"SecurityTest": []string{
+		"claim",
+	},
+}
+
 // SecurityHandler is handler for security parameters.
 type SecurityHandler interface {
 	// HandleAPIKey handles api_key security.
@@ -53,11 +59,11 @@ func (s *Server) securityAPIKey(ctx context.Context, operationName string, req *
 // SecuritySource is provider of security values (tokens, passwords, etc.).
 type SecuritySource interface {
 	// APIKey provides api_key security value.
-	APIKey(ctx context.Context, operationName string) (APIKey, error)
+	APIKey(ctx context.Context, operationName string, scopes []string) (APIKey, error)
 }
 
 func (s *Client) securityAPIKey(ctx context.Context, operationName string, req *http.Request) error {
-	t, err := s.sec.APIKey(ctx, operationName)
+	t, err := s.sec.APIKey(ctx, operationName, securityScopes[operationName])
 	if err != nil {
 		return errors.Wrap(err, "security source \"APIKey\"")
 	}

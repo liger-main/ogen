@@ -114,6 +114,7 @@ func (s *Server) handleCustomSecurityRequest(args [0]string, argsEscaped bool, w
 			OperationID:      "customSecurity",
 			Body:             nil,
 			Params:           middleware.Parameters{},
+			SecurityScopes:   securityScopes["CustomSecurity"],
 			Raw:              r,
 		}
 
@@ -299,6 +300,7 @@ func (s *Server) handleDisjointSecurityRequest(args [0]string, argsEscaped bool,
 			OperationID:      "disjointSecurity",
 			Body:             nil,
 			Params:           middleware.Parameters{},
+			SecurityScopes:   securityScopes["DisjointSecurity"],
 			Raw:              r,
 		}
 
@@ -467,6 +469,7 @@ func (s *Server) handleIntersectSecurityRequest(args [0]string, argsEscaped bool
 			OperationID:      "intersectSecurity",
 			Body:             nil,
 			Params:           middleware.Parameters{},
+			SecurityScopes:   securityScopes["IntersectSecurity"],
 			Raw:              r,
 		}
 
@@ -601,6 +604,7 @@ func (s *Server) handleOptionalSecurityRequest(args [0]string, argsEscaped bool,
 			OperationID:      "optionalSecurity",
 			Body:             nil,
 			Params:           middleware.Parameters{},
+			SecurityScopes:   securityScopes["OptionalSecurity"],
 			Raw:              r,
 		}
 

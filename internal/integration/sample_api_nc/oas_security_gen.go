@@ -12,6 +12,12 @@ import (
 	"github.com/ogen-go/ogen/ogenerrors"
 )
 
+var securityScopes = map[string][]string{
+	"SecurityTest": []string{
+		"claim",
+	},
+}
+
 // SecurityHandler is handler for security parameters.
 type SecurityHandler interface {
 	// HandleAPIKey handles api_key security.

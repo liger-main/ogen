@@ -89,6 +89,7 @@ cookie := uri.NewCookieEncoder(r)
 {{ define "encode_parameter" }}{{/*gotype: github.com/ogen-go/ogen/gen/ir.Parameter*/}}
 {{- $param := $ }}
 {{- $el := elem $param.Type (printf "params.%s" $param.Name) }}
+ctx = context.WithValue(ctx, {{ quote $param.Name }}, {{ $el.Var }})
 {{- if $param.Spec.Content }}
 	var enc jx.Encoder
 	func(e *jx.Encoder) {

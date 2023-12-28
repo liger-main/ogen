@@ -377,6 +377,7 @@ func (c *WebhookClient) sendUpdateWebhook(ctx context.Context, targetURL string,
 		}
 
 		if err := q.EncodeParam(cfg, func(e uri.Encoder) error {
+			ctx = context.WithValue(ctx, "EventType", params.EventType)
 			return e.EncodeValue(conv.StringToString(params.EventType))
 		}); err != nil {
 			return res, errors.Wrap(err, "encode query")
@@ -401,6 +402,7 @@ func (c *WebhookClient) sendUpdateWebhook(ctx context.Context, targetURL string,
 			Explode: false,
 		}
 		if err := h.EncodeParam(cfg, func(e uri.Encoder) error {
+			ctx = context.WithValue(ctx, "XWebhookToken", params.XWebhookToken)
 			if val, ok := params.XWebhookToken.Get(); ok {
 				return e.EncodeValue(conv.StringToString(val))
 			}

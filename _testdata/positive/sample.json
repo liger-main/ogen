@@ -677,7 +677,7 @@
         "operationId": "securityTest",
         "security": [
           {
-            "api_key": []
+            "api_key": ["claim"]
           }
         ],
         "responses": {

@@ -65,6 +65,7 @@ func (s *Server) handleIntegerNumberRequest(args [0]string, argsEscaped bool, w 
 			OperationID:      "integerNumber",
 			Body:             nil,
 			Params:           middleware.Parameters{},
+			SecurityScopes:   nil,
 			Raw:              r,
 		}
 
@@ -150,6 +151,7 @@ func (s *Server) handleJaegerAnyOfRequest(args [0]string, argsEscaped bool, w ht
 			OperationID:      "jaegerAnyOf",
 			Body:             nil,
 			Params:           middleware.Parameters{},
+			SecurityScopes:   nil,
 			Raw:              r,
 		}
 
@@ -235,6 +237,7 @@ func (s *Server) handleOneUUIDRequest(args [0]string, argsEscaped bool, w http.R
 			OperationID:      "oneUUID",
 			Body:             nil,
 			Params:           middleware.Parameters{},
+			SecurityScopes:   nil,
 			Raw:              r,
 		}
 

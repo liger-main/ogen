@@ -66,6 +66,7 @@ func (s *Server) handleAnyContentTypeBinaryStringSchemaRequest(args [0]string, a
 			OperationID:      "anyContentTypeBinaryStringSchema",
 			Body:             nil,
 			Params:           middleware.Parameters{},
+			SecurityScopes:   nil,
 			Raw:              r,
 		}
 
@@ -151,6 +152,7 @@ func (s *Server) handleAnyContentTypeBinaryStringSchemaDefaultRequest(args [0]st
 			OperationID:      "anyContentTypeBinaryStringSchemaDefault",
 			Body:             nil,
 			Params:           middleware.Parameters{},
+			SecurityScopes:   nil,
 			Raw:              r,
 		}
 
@@ -255,7 +257,8 @@ func (s *Server) handleCombinedRequest(args [0]string, argsEscaped bool, w http.
 					In:   "query",
 				}: params.Type,
 			},
-			Raw: r,
+			SecurityScopes: nil,
+			Raw:            r,
 		}
 
 		type (
@@ -340,6 +343,7 @@ func (s *Server) handleHeaders200Request(args [0]string, argsEscaped bool, w htt
 			OperationID:      "headers200",
 			Body:             nil,
 			Params:           middleware.Parameters{},
+			SecurityScopes:   nil,
 			Raw:              r,
 		}
 
@@ -444,7 +448,8 @@ func (s *Server) handleHeadersCombinedRequest(args [0]string, argsEscaped bool, 
 					In:   "query",
 				}: params.Type,
 			},
-			Raw: r,
+			SecurityScopes: nil,
+			Raw:            r,
 		}
 
 		type (
@@ -529,6 +534,7 @@ func (s *Server) handleHeadersDefaultRequest(args [0]string, argsEscaped bool, w
 			OperationID:      "headersDefault",
 			Body:             nil,
 			Params:           middleware.Parameters{},
+			SecurityScopes:   nil,
 			Raw:              r,
 		}
 
@@ -614,6 +620,7 @@ func (s *Server) handleHeadersJSONRequest(args [0]string, argsEscaped bool, w ht
 			OperationID:      "headersJSON",
 			Body:             nil,
 			Params:           middleware.Parameters{},
+			SecurityScopes:   nil,
 			Raw:              r,
 		}
 
@@ -699,6 +706,7 @@ func (s *Server) handleHeadersPatternRequest(args [0]string, argsEscaped bool, w
 			OperationID:      "headersPattern",
 			Body:             nil,
 			Params:           middleware.Parameters{},
+			SecurityScopes:   nil,
 			Raw:              r,
 		}
 
@@ -806,7 +814,8 @@ func (s *Server) handleIntersectPatternCodeRequest(args [0]string, argsEscaped b
 					In:   "query",
 				}: params.Code,
 			},
-			Raw: r,
+			SecurityScopes: nil,
+			Raw:            r,
 		}
 
 		type (
@@ -891,6 +900,7 @@ func (s *Server) handleMultipleGenericResponsesRequest(args [0]string, argsEscap
 			OperationID:      "multipleGenericResponses",
 			Body:             nil,
 			Params:           middleware.Parameters{},
+			SecurityScopes:   nil,
 			Raw:              r,
 		}
 
@@ -976,6 +986,7 @@ func (s *Server) handleOctetStreamBinaryStringSchemaRequest(args [0]string, args
 			OperationID:      "octetStreamBinaryStringSchema",
 			Body:             nil,
 			Params:           middleware.Parameters{},
+			SecurityScopes:   nil,
 			Raw:              r,
 		}
 
@@ -1061,6 +1072,7 @@ func (s *Server) handleOctetStreamEmptySchemaRequest(args [0]string, argsEscaped
 			OperationID:      "octetStreamEmptySchema",
 			Body:             nil,
 			Params:           middleware.Parameters{},
+			SecurityScopes:   nil,
 			Raw:              r,
 		}
 
@@ -1148,6 +1160,7 @@ func (s *Server) handleOptionalHeadersRequest(args [0]string, argsEscaped bool, 
 			OperationID:      "optionalHeaders",
 			Body:             nil,
 			Params:           middleware.Parameters{},
+			SecurityScopes:   nil,
 			Raw:              r,
 		}
 
@@ -1252,7 +1265,8 @@ func (s *Server) handleStreamJSONRequest(args [0]string, argsEscaped bool, w htt
 					In:   "query",
 				}: params.Count,
 			},
-			Raw: r,
+			SecurityScopes: nil,
+			Raw:            r,
 		}
 
 		type (
@@ -1337,6 +1351,7 @@ func (s *Server) handleTextPlainBinaryStringSchemaRequest(args [0]string, argsEs
 			OperationID:      "textPlainBinaryStringSchema",
 			Body:             nil,
 			Params:           middleware.Parameters{},
+			SecurityScopes:   nil,
 			Raw:              r,
 		}
 

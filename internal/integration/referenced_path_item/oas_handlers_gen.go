@@ -63,6 +63,7 @@ func (s *Server) handleFooGetRequest(args [0]string, argsEscaped bool, w http.Re
 			OperationID:      "",
 			Body:             nil,
 			Params:           middleware.Parameters{},
+			SecurityScopes:   nil,
 			Raw:              r,
 		}
 

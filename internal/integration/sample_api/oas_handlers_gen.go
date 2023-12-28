@@ -103,7 +103,8 @@ func (s *Server) handleDataGetFormatRequest(args [5]string, argsEscaped bool, w 
 					In:   "path",
 				}: params.Kek,
 			},
-			Raw: r,
+			SecurityScopes: nil,
+			Raw:            r,
 		}
 
 		type (
@@ -222,7 +223,8 @@ func (s *Server) handleDefaultTestRequest(args [0]string, argsEscaped bool, w ht
 					In:   "query",
 				}: params.Default,
 			},
-			Raw: r,
+			SecurityScopes: nil,
+			Raw:            r,
 		}
 
 		type (
@@ -309,6 +311,7 @@ func (s *Server) handleErrorGetRequest(args [0]string, argsEscaped bool, w http.
 			OperationID:      "errorGet",
 			Body:             nil,
 			Params:           middleware.Parameters{},
+			SecurityScopes:   nil,
 			Raw:              r,
 		}
 
@@ -419,7 +422,8 @@ func (s *Server) handleFoobarGetRequest(args [0]string, argsEscaped bool, w http
 					In:   "query",
 				}: params.Skip,
 			},
-			Raw: r,
+			SecurityScopes: nil,
+			Raw:            r,
 		}
 
 		type (
@@ -525,6 +529,7 @@ func (s *Server) handleFoobarPostRequest(args [0]string, argsEscaped bool, w htt
 			OperationID:      "foobarPost",
 			Body:             request,
 			Params:           middleware.Parameters{},
+			SecurityScopes:   nil,
 			Raw:              r,
 		}
 
@@ -609,6 +614,7 @@ func (s *Server) handleFoobarPutRequest(args [0]string, argsEscaped bool, w http
 			OperationID:      "",
 			Body:             nil,
 			Params:           middleware.Parameters{},
+			SecurityScopes:   nil,
 			Raw:              r,
 		}
 
@@ -694,6 +700,7 @@ func (s *Server) handleNoAdditionalPropertiesTestRequest(args [0]string, argsEsc
 			OperationID:      "noAdditionalPropertiesTest",
 			Body:             nil,
 			Params:           middleware.Parameters{},
+			SecurityScopes:   nil,
 			Raw:              r,
 		}
 
@@ -779,6 +786,7 @@ func (s *Server) handleNullableDefaultResponseRequest(args [0]string, argsEscape
 			OperationID:      "nullableDefaultResponse",
 			Body:             nil,
 			Params:           middleware.Parameters{},
+			SecurityScopes:   nil,
 			Raw:              r,
 		}
 
@@ -883,6 +891,7 @@ func (s *Server) handleOneofBugRequest(args [0]string, argsEscaped bool, w http.
 			OperationID:      "oneofBug",
 			Body:             request,
 			Params:           middleware.Parameters{},
+			SecurityScopes:   nil,
 			Raw:              r,
 		}
 
@@ -967,6 +976,7 @@ func (s *Server) handlePatternRecursiveMapGetRequest(args [0]string, argsEscaped
 			OperationID:      "",
 			Body:             nil,
 			Params:           middleware.Parameters{},
+			SecurityScopes:   nil,
 			Raw:              r,
 		}
 
@@ -1073,6 +1083,7 @@ func (s *Server) handlePetCreateRequest(args [0]string, argsEscaped bool, w http
 			OperationID:      "petCreate",
 			Body:             request,
 			Params:           middleware.Parameters{},
+			SecurityScopes:   nil,
 			Raw:              r,
 		}
 
@@ -1179,7 +1190,8 @@ func (s *Server) handlePetFriendsNamesByIDRequest(args [1]string, argsEscaped bo
 					In:   "path",
 				}: params.ID,
 			},
-			Raw: r,
+			SecurityScopes: nil,
+			Raw:            r,
 		}
 
 		type (
@@ -1297,7 +1309,8 @@ func (s *Server) handlePetGetRequest(args [0]string, argsEscaped bool, w http.Re
 					In:   "query",
 				}: params.Token,
 			},
-			Raw: r,
+			SecurityScopes: nil,
+			Raw:            r,
 		}
 
 		type (
@@ -1403,7 +1416,8 @@ func (s *Server) handlePetGetAvatarByIDRequest(args [0]string, argsEscaped bool,
 					In:   "query",
 				}: params.PetID,
 			},
-			Raw: r,
+			SecurityScopes: nil,
+			Raw:            r,
 		}
 
 		type (
@@ -1509,7 +1523,8 @@ func (s *Server) handlePetGetAvatarByNameRequest(args [1]string, argsEscaped boo
 					In:   "path",
 				}: params.Name,
 			},
-			Raw: r,
+			SecurityScopes: nil,
+			Raw:            r,
 		}
 
 		type (
@@ -1615,7 +1630,8 @@ func (s *Server) handlePetGetByNameRequest(args [1]string, argsEscaped bool, w h
 					In:   "path",
 				}: params.Name,
 			},
-			Raw: r,
+			SecurityScopes: nil,
+			Raw:            r,
 		}
 
 		type (
@@ -1721,7 +1737,8 @@ func (s *Server) handlePetNameByIDRequest(args [1]string, argsEscaped bool, w ht
 					In:   "path",
 				}: params.ID,
 			},
-			Raw: r,
+			SecurityScopes: nil,
+			Raw:            r,
 		}
 
 		type (
@@ -1824,6 +1841,7 @@ func (s *Server) handlePetUpdateNameAliasPostRequest(args [0]string, argsEscaped
 			OperationID:      "",
 			Body:             request,
 			Params:           middleware.Parameters{},
+			SecurityScopes:   nil,
 			Raw:              r,
 		}
 
@@ -1927,6 +1945,7 @@ func (s *Server) handlePetUpdateNamePostRequest(args [0]string, argsEscaped bool
 			OperationID:      "",
 			Body:             request,
 			Params:           middleware.Parameters{},
+			SecurityScopes:   nil,
 			Raw:              r,
 		}
 
@@ -2048,7 +2067,8 @@ func (s *Server) handlePetUploadAvatarByIDRequest(args [0]string, argsEscaped bo
 					In:   "query",
 				}: params.PetID,
 			},
-			Raw: r,
+			SecurityScopes: nil,
+			Raw:            r,
 		}
 
 		type (
@@ -2132,6 +2152,7 @@ func (s *Server) handleRecursiveArrayGetRequest(args [0]string, argsEscaped bool
 			OperationID:      "",
 			Body:             nil,
 			Params:           middleware.Parameters{},
+			SecurityScopes:   nil,
 			Raw:              r,
 		}
 
@@ -2216,6 +2237,7 @@ func (s *Server) handleRecursiveMapGetRequest(args [0]string, argsEscaped bool, 
 			OperationID:      "",
 			Body:             nil,
 			Params:           middleware.Parameters{},
+			SecurityScopes:   nil,
 			Raw:              r,
 		}
 
@@ -2349,6 +2371,7 @@ func (s *Server) handleSecurityTestRequest(args [0]string, argsEscaped bool, w h
 			OperationID:      "securityTest",
 			Body:             nil,
 			Params:           middleware.Parameters{},
+			SecurityScopes:   securityScopes["SecurityTest"],
 			Raw:              r,
 		}
 
@@ -2433,6 +2456,7 @@ func (s *Server) handleStringIntMapGetRequest(args [0]string, argsEscaped bool, 
 			OperationID:      "",
 			Body:             nil,
 			Params:           middleware.Parameters{},
+			SecurityScopes:   nil,
 			Raw:              r,
 		}
 
@@ -2537,6 +2561,7 @@ func (s *Server) handleTestFloatValidationRequest(args [0]string, argsEscaped bo
 			OperationID:      "testFloatValidation",
 			Body:             request,
 			Params:           middleware.Parameters{},
+			SecurityScopes:   nil,
 			Raw:              r,
 		}
 
@@ -2622,6 +2647,7 @@ func (s *Server) handleTestInlineOneofRequest(args [0]string, argsEscaped bool, 
 			OperationID:      "testInlineOneof",
 			Body:             nil,
 			Params:           middleware.Parameters{},
+			SecurityScopes:   nil,
 			Raw:              r,
 		}
 
@@ -2707,6 +2733,7 @@ func (s *Server) handleTestNullableOneofsRequest(args [0]string, argsEscaped boo
 			OperationID:      "testNullableOneofs",
 			Body:             nil,
 			Params:           middleware.Parameters{},
+			SecurityScopes:   nil,
 			Raw:              r,
 		}
 
@@ -2792,6 +2819,7 @@ func (s *Server) handleTestTupleRequest(args [0]string, argsEscaped bool, w http
 			OperationID:      "testTuple",
 			Body:             nil,
 			Params:           middleware.Parameters{},
+			SecurityScopes:   nil,
 			Raw:              r,
 		}
 
@@ -2877,6 +2905,7 @@ func (s *Server) handleTestTupleNamedRequest(args [0]string, argsEscaped bool, w
 			OperationID:      "testTupleNamed",
 			Body:             nil,
 			Params:           middleware.Parameters{},
+			SecurityScopes:   nil,
 			Raw:              r,
 		}
 
@@ -2962,6 +2991,7 @@ func (s *Server) handleTestUniqueItemsRequest(args [0]string, argsEscaped bool, 
 			OperationID:      "testUniqueItems",
 			Body:             nil,
 			Params:           middleware.Parameters{},
+			SecurityScopes:   nil,
 			Raw:              r,
 		}
 

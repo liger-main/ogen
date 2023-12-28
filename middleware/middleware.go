@@ -58,6 +58,8 @@ type Request struct {
 	Body any
 	// Params is the operation parameters.
 	Params Parameters
+	//
+	SecurityScopes []string
 	// Raw is the raw http request.
 	Raw *http.Request
 }

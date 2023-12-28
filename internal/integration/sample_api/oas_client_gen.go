@@ -278,6 +278,7 @@ func (c *Client) sendDataGetFormat(ctx context.Context, params DataGetFormatPara
 			Explode: false,
 		})
 		if err := func() error {
+			ctx = context.WithValue(ctx, "ID", params.ID)
 			return e.EncodeValue(conv.IntToString(params.ID))
 		}(); err != nil {
 			return res, errors.Wrap(err, "encode path")
@@ -297,6 +298,7 @@ func (c *Client) sendDataGetFormat(ctx context.Context, params DataGetFormatPara
 			Explode: false,
 		})
 		if err := func() error {
+			ctx = context.WithValue(ctx, "Foo", params.Foo)
 			return e.EncodeValue(conv.StringToString(params.Foo))
 		}(); err != nil {
 			return res, errors.Wrap(err, "encode path")
@@ -316,6 +318,7 @@ func (c *Client) sendDataGetFormat(ctx context.Context, params DataGetFormatPara
 			Explode: false,
 		})
 		if err := func() error {
+			ctx = context.WithValue(ctx, "Bar", params.Bar)
 			return e.EncodeValue(conv.StringToString(params.Bar))
 		}(); err != nil {
 			return res, errors.Wrap(err, "encode path")
@@ -335,6 +338,7 @@ func (c *Client) sendDataGetFormat(ctx context.Context, params DataGetFormatPara
 			Explode: false,
 		})
 		if err := func() error {
+			ctx = context.WithValue(ctx, "Baz", params.Baz)
 			return e.EncodeValue(conv.StringToString(params.Baz))
 		}(); err != nil {
 			return res, errors.Wrap(err, "encode path")
@@ -354,6 +358,7 @@ func (c *Client) sendDataGetFormat(ctx context.Context, params DataGetFormatPara
 			Explode: false,
 		})
 		if err := func() error {
+			ctx = context.WithValue(ctx, "Kek", params.Kek)
 			return e.EncodeValue(conv.StringToString(params.Kek))
 		}(); err != nil {
 			return res, errors.Wrap(err, "encode path")
@@ -460,6 +465,7 @@ func (c *Client) sendDefaultTest(ctx context.Context, request *DefaultTest, para
 		}
 
 		if err := q.EncodeParam(cfg, func(e uri.Encoder) error {
+			ctx = context.WithValue(ctx, "Default", params.Default)
 			if val, ok := params.Default.Get(); ok {
 				return e.EncodeValue(conv.Int32ToString(val))
 			}
@@ -636,6 +642,7 @@ func (c *Client) sendFoobarGet(ctx context.Context, params FoobarGetParams) (res
 		}
 
 		if err := q.EncodeParam(cfg, func(e uri.Encoder) error {
+			ctx = context.WithValue(ctx, "InlinedParam", params.InlinedParam)
 			return e.EncodeValue(conv.Int64ToString(params.InlinedParam))
 		}); err != nil {
 			return res, errors.Wrap(err, "encode query")
@@ -650,6 +657,7 @@ func (c *Client) sendFoobarGet(ctx context.Context, params FoobarGetParams) (res
 		}
 
 		if err := q.EncodeParam(cfg, func(e uri.Encoder) error {
+			ctx = context.WithValue(ctx, "Skip", params.Skip)
 			return e.EncodeValue(conv.Int32ToString(params.Skip))
 		}); err != nil {
 			return res, errors.Wrap(err, "encode query")
@@ -1309,6 +1317,7 @@ func (c *Client) sendPetFriendsNamesByID(ctx context.Context, params PetFriendsN
 			Explode: false,
 		})
 		if err := func() error {
+			ctx = context.WithValue(ctx, "ID", params.ID)
 			return e.EncodeValue(conv.IntToString(params.ID))
 		}(); err != nil {
 			return res, errors.Wrap(err, "encode path")
@@ -1408,6 +1417,7 @@ func (c *Client) sendPetGet(ctx context.Context, params PetGetParams) (res PetGe
 		}
 
 		if err := q.EncodeParam(cfg, func(e uri.Encoder) error {
+			ctx = context.WithValue(ctx, "PetID", params.PetID)
 			return e.EncodeValue(conv.Int64ToString(params.PetID))
 		}); err != nil {
 			return res, errors.Wrap(err, "encode query")
@@ -1422,6 +1432,7 @@ func (c *Client) sendPetGet(ctx context.Context, params PetGetParams) (res PetGe
 		}
 
 		if err := q.EncodeParam(cfg, func(e uri.Encoder) error {
+			ctx = context.WithValue(ctx, "Token", params.Token)
 			return e.EncodeValue(conv.StringToString(params.Token))
 		}); err != nil {
 			return res, errors.Wrap(err, "encode query")
@@ -1443,6 +1454,7 @@ func (c *Client) sendPetGet(ctx context.Context, params PetGetParams) (res PetGe
 			Explode: false,
 		}
 		if err := h.EncodeParam(cfg, func(e uri.Encoder) error {
+			ctx = context.WithValue(ctx, "XTags", params.XTags)
 			return e.EncodeArray(func(e uri.Encoder) error {
 				for i, item := range params.XTags {
 					if err := func() error {
@@ -1463,6 +1475,7 @@ func (c *Client) sendPetGet(ctx context.Context, params PetGetParams) (res PetGe
 			Explode: false,
 		}
 		if err := h.EncodeParam(cfg, func(e uri.Encoder) error {
+			ctx = context.WithValue(ctx, "XScope", params.XScope)
 			return e.EncodeArray(func(e uri.Encoder) error {
 				for i, item := range params.XScope {
 					if err := func() error {
@@ -1559,6 +1572,7 @@ func (c *Client) sendPetGetAvatarByID(ctx context.Context, params PetGetAvatarBy
 		}
 
 		if err := q.EncodeParam(cfg, func(e uri.Encoder) error {
+			ctx = context.WithValue(ctx, "PetID", params.PetID)
 			return e.EncodeValue(conv.Int64ToString(params.PetID))
 		}); err != nil {
 			return res, errors.Wrap(err, "encode query")
@@ -1648,6 +1662,7 @@ func (c *Client) sendPetGetAvatarByName(ctx context.Context, params PetGetAvatar
 			Explode: false,
 		})
 		if err := func() error {
+			ctx = context.WithValue(ctx, "Name", params.Name)
 			return e.EncodeValue(conv.StringToString(params.Name))
 		}(); err != nil {
 			return res, errors.Wrap(err, "encode path")
@@ -1743,6 +1758,7 @@ func (c *Client) sendPetGetByName(ctx context.Context, params PetGetByNameParams
 			Explode: false,
 		})
 		if err := func() error {
+			ctx = context.WithValue(ctx, "Name", params.Name)
 			return e.EncodeValue(conv.StringToString(params.Name))
 		}(); err != nil {
 			return res, errors.Wrap(err, "encode path")
@@ -1837,6 +1853,7 @@ func (c *Client) sendPetNameByID(ctx context.Context, params PetNameByIDParams) 
 			Explode: false,
 		})
 		if err := func() error {
+			ctx = context.WithValue(ctx, "ID", params.ID)
 			return e.EncodeValue(conv.IntToString(params.ID))
 		}(); err != nil {
 			return res, errors.Wrap(err, "encode path")
@@ -2128,6 +2145,7 @@ func (c *Client) sendPetUploadAvatarByID(ctx context.Context, request PetUploadA
 		}
 
 		if err := q.EncodeParam(cfg, func(e uri.Encoder) error {
+			ctx = context.WithValue(ctx, "PetID", params.PetID)
 			return e.EncodeValue(conv.Int64ToString(params.PetID))
 		}); err != nil {
 			return res, errors.Wrap(err, "encode query")

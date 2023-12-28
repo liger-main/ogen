@@ -85,6 +85,7 @@ func (s *Server) handlePublishEventRequest(args [0]string, argsEscaped bool, w h
 			OperationID:      "publishEvent",
 			Body:             request,
 			Params:           middleware.Parameters{},
+			SecurityScopes:   nil,
 			Raw:              r,
 		}
 
@@ -178,6 +179,7 @@ func (s *WebhookServer) handleStatusWebhookRequest(args [0]string, argsEscaped b
 			OperationID:      "statusWebhook",
 			Body:             nil,
 			Params:           middleware.Parameters{},
+			SecurityScopes:   nil,
 			Raw:              r,
 		}
 
@@ -259,6 +261,7 @@ func (s *WebhookServer) handleUpdateDeleteRequest(args [0]string, argsEscaped bo
 			OperationID:      "",
 			Body:             nil,
 			Params:           middleware.Parameters{},
+			SecurityScopes:   nil,
 			Raw:              r,
 		}
 
@@ -379,7 +382,8 @@ func (s *WebhookServer) handleUpdateWebhookRequest(args [0]string, argsEscaped b
 					In:   "header",
 				}: params.XWebhookToken,
 			},
-			Raw: r,
+			SecurityScopes: nil,
+			Raw:            r,
 		}
 
 		type (

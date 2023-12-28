@@ -87,6 +87,7 @@ func (s *Server) handleDataCreateRequest(args [0]string, argsEscaped bool, w htt
 			OperationID:      "dataCreate",
 			Body:             request,
 			Params:           middleware.Parameters{},
+			SecurityScopes:   nil,
 			Raw:              r,
 		}
 
@@ -185,6 +186,7 @@ func (s *Server) handleDataGetRequest(args [0]string, argsEscaped bool, w http.R
 			OperationID:      "dataGet",
 			Body:             nil,
 			Params:           middleware.Parameters{},
+			SecurityScopes:   nil,
 			Raw:              r,
 		}
 

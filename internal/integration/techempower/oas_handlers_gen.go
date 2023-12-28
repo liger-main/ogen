@@ -92,7 +92,8 @@ func (s *Server) handleCachingRequest(args [0]string, argsEscaped bool, w http.R
 					In:   "query",
 				}: params.Count,
 			},
-			Raw: r,
+			SecurityScopes: nil,
+			Raw:            r,
 		}
 
 		type (
@@ -180,6 +181,7 @@ func (s *Server) handleDBRequest(args [0]string, argsEscaped bool, w http.Respon
 			OperationID:      "DB",
 			Body:             nil,
 			Params:           middleware.Parameters{},
+			SecurityScopes:   nil,
 			Raw:              r,
 		}
 
@@ -269,6 +271,7 @@ func (s *Server) handleJSONRequest(args [0]string, argsEscaped bool, w http.Resp
 			OperationID:      "json",
 			Body:             nil,
 			Params:           middleware.Parameters{},
+			SecurityScopes:   nil,
 			Raw:              r,
 		}
 
@@ -378,7 +381,8 @@ func (s *Server) handleQueriesRequest(args [0]string, argsEscaped bool, w http.R
 					In:   "query",
 				}: params.Queries,
 			},
-			Raw: r,
+			SecurityScopes: nil,
+			Raw:            r,
 		}
 
 		type (
@@ -486,7 +490,8 @@ func (s *Server) handleUpdatesRequest(args [0]string, argsEscaped bool, w http.R
 					In:   "query",
 				}: params.Queries,
 			},
-			Raw: r,
+			SecurityScopes: nil,
+			Raw:            r,
 		}
 
 		type (

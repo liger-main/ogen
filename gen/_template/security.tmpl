@@ -3,6 +3,20 @@
 {{ template "header" $ }}
 {{- if $.Securities }}
 
+var securityScopes = map[string][]string {
+{{- range $s := $.Securities }}
+    {{- range $operationName, $scopes := $s.Scopes }}
+        {{- if $scopes }}
+            {{ quote $operationName }}: []string{
+            {{- range $scope := $scopes }}
+                {{ quote $scope }},
+            {{- end}}
+            },
+        {{- end }}
+    {{- end }}
+{{- end }}
+}
+
 {{- if $.PathsServerEnabled }}
 // SecurityHandler is handler for security parameters.
 type SecurityHandler interface {
@@ -33,18 +47,6 @@ func findAuthorization(h http.Header, prefix string) (string, bool) {
 }
 
 {{ range $s := $.Securities }}
-{{- if $s.Format.IsOAuth2Security }}
-var oauth2Scopes = map[string][]string {
-{{- range $operationName, $scopes := $s.Scopes }}
-	{{ quote $operationName }}: []string{
-		{{- range $scope := $scopes }}
-			{{ quote $scope }},
-		{{- end}}
-	},
-{{- end }}
-}
-
-{{- end }}
 func (s *Server) security{{ $s.Type.Name }}(ctx context.Context, operationName string, req *http.Request) (context.Context, bool, error) {
 	{{- if $s.Format.IsAPIKeySecurity }}
 		var t {{ $s.Type.Name }}
@@ -99,7 +101,7 @@ func (s *Server) security{{ $s.Type.Name }}(ctx context.Context, operationName s
 			return ctx, false, nil
 		}
 		t.Token = token
-		t.Scopes = oauth2Scopes[operationName]
+		t.Scopes = securityScopes[operationName]
 	{{- else if $s.Format.IsCustomSecurity }}
 		t := req
 	{{- else }}
@@ -123,9 +125,9 @@ type SecuritySource interface {
 	// {{ $s.Type.Name }} provides {{ $name }} security value.
 	{{- template "godoc" $s.GoDoc }}
 	{{- if $s.Format.IsCustomSecurity }}
-    {{ $s.Type.Name }}(ctx context.Context, operationName string, req *http.Request) error
+    {{ $s.Type.Name }}(ctx context.Context, operationName string, scopes []string, req *http.Request) error
 	{{- else }}
-    {{ $s.Type.Name }}(ctx context.Context, operationName string) ({{ $s.Type.Name }}, error)
+    {{ $s.Type.Name }}(ctx context.Context, operationName string, scopes []string) ({{ $s.Type.Name }}, error)
 	{{- end }}
 {{- end }}
 }
@@ -133,11 +135,11 @@ type SecuritySource interface {
 {{- range $s := $.Securities }}
 func (s *Client) security{{ $s.Type.Name }}(ctx context.Context, operationName string, req *http.Request) error {
 	{{- if $s.Format.IsCustomSecurity }}
-		if err := s.sec.{{ $s.Type.Name }}(ctx, operationName, req); err != nil {
+		if err := s.sec.{{ $s.Type.Name }}(ctx, operationName, securityScopes[operationName], req); err != nil {
 			return errors.Wrap(err, {{ printf "security source %q" $s.Type.Name | quote }})
 		}
 	{{- else }}
-		t, err := s.sec.{{ $s.Type.Name }}(ctx, operationName)
+		t, err := s.sec.{{ $s.Type.Name }}(ctx, operationName, securityScopes[operationName])
 		if err != nil {
 			return errors.Wrap(err, {{ printf "security source %q" $s.Type.Name | quote }})
 		}

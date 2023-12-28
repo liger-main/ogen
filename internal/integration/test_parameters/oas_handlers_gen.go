@@ -100,7 +100,8 @@ func (s *Server) handleComplicatedParameterNameGetRequest(args [0]string, argsEs
 					In:   "query",
 				}: params.Percent,
 			},
-			Raw: r,
+			SecurityScopes: nil,
+			Raw:            r,
 		}
 
 		type (
@@ -216,7 +217,8 @@ func (s *Server) handleContentParametersRequest(args [1]string, argsEscaped bool
 					In:   "cookie",
 				}: params.Cookie,
 			},
-			Raw: r,
+			SecurityScopes: nil,
+			Raw:            r,
 		}
 
 		type (
@@ -322,7 +324,8 @@ func (s *Server) handleCookieParameterRequest(args [0]string, argsEscaped bool, 
 					In:   "cookie",
 				}: params.Value,
 			},
-			Raw: r,
+			SecurityScopes: nil,
+			Raw:            r,
 		}
 
 		type (
@@ -428,7 +431,8 @@ func (s *Server) handleHeaderParameterRequest(args [0]string, argsEscaped bool, 
 					In:   "header",
 				}: params.XValue,
 			},
-			Raw: r,
+			SecurityScopes: nil,
+			Raw:            r,
 		}
 
 		type (
@@ -532,7 +536,8 @@ func (s *Server) handleObjectCookieParameterRequest(args [0]string, argsEscaped 
 					In:   "cookie",
 				}: params.Value,
 			},
-			Raw: r,
+			SecurityScopes: nil,
+			Raw:            r,
 		}
 
 		type (
@@ -640,7 +645,8 @@ func (s *Server) handleObjectQueryParameterRequest(args [0]string, argsEscaped b
 					In:   "query",
 				}: params.DeepObject,
 			},
-			Raw: r,
+			SecurityScopes: nil,
+			Raw:            r,
 		}
 
 		type (
@@ -746,7 +752,8 @@ func (s *Server) handlePathParameterRequest(args [1]string, argsEscaped bool, w 
 					In:   "path",
 				}: params.Value,
 			},
-			Raw: r,
+			SecurityScopes: nil,
+			Raw:            r,
 		}
 
 		type (
@@ -856,7 +863,8 @@ func (s *Server) handleSameNameRequest(args [1]string, argsEscaped bool, w http.
 					In:   "query",
 				}: params.QueryParam,
 			},
-			Raw: r,
+			SecurityScopes: nil,
+			Raw:            r,
 		}
 
 		type (
@@ -966,7 +974,8 @@ func (s *Server) handleSimilarNamesRequest(args [0]string, argsEscaped bool, w h
 					In:   "header",
 				}: params.HeaderXParam,
 			},
-			Raw: r,
+			SecurityScopes: nil,
+			Raw:            r,
 		}
 
 		type (

@@ -67,6 +67,7 @@ func (s *Server) handleProbeLivenessRequest(args [0]string, argsEscaped bool, w 
 			OperationID:      "probeLiveness",
 			Body:             nil,
 			Params:           middleware.Parameters{},
+			SecurityScopes:   nil,
 			Raw:              r,
 		}
 

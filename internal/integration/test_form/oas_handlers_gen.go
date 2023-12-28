@@ -85,6 +85,7 @@ func (s *Server) handleOnlyFormRequest(args [0]string, argsEscaped bool, w http.
 			OperationID:      "onlyForm",
 			Body:             request,
 			Params:           middleware.Parameters{},
+			SecurityScopes:   nil,
 			Raw:              r,
 		}
 
@@ -189,6 +190,7 @@ func (s *Server) handleOnlyMultipartFileRequest(args [0]string, argsEscaped bool
 			OperationID:      "onlyMultipartFile",
 			Body:             request,
 			Params:           middleware.Parameters{},
+			SecurityScopes:   nil,
 			Raw:              r,
 		}
 
@@ -293,6 +295,7 @@ func (s *Server) handleOnlyMultipartFormRequest(args [0]string, argsEscaped bool
 			OperationID:      "onlyMultipartForm",
 			Body:             request,
 			Params:           middleware.Parameters{},
+			SecurityScopes:   nil,
 			Raw:              r,
 		}
 
@@ -397,6 +400,7 @@ func (s *Server) handleTestFormURLEncodedRequest(args [0]string, argsEscaped boo
 			OperationID:      "testFormURLEncoded",
 			Body:             request,
 			Params:           middleware.Parameters{},
+			SecurityScopes:   nil,
 			Raw:              r,
 		}
 
@@ -501,6 +505,7 @@ func (s *Server) handleTestMultipartRequest(args [0]string, argsEscaped bool, w 
 			OperationID:      "testMultipart",
 			Body:             request,
 			Params:           middleware.Parameters{},
+			SecurityScopes:   nil,
 			Raw:              r,
 		}
 
@@ -605,6 +610,7 @@ func (s *Server) handleTestMultipartUploadRequest(args [0]string, argsEscaped bo
 			OperationID:      "testMultipartUpload",
 			Body:             request,
 			Params:           middleware.Parameters{},
+			SecurityScopes:   nil,
 			Raw:              r,
 		}
 
@@ -709,6 +715,7 @@ func (s *Server) handleTestReuseFormOptionalSchemaRequest(args [0]string, argsEs
 			OperationID:      "testReuseFormOptionalSchema",
 			Body:             request,
 			Params:           middleware.Parameters{},
+			SecurityScopes:   nil,
 			Raw:              r,
 		}
 
@@ -813,6 +820,7 @@ func (s *Server) handleTestReuseFormSchemaRequest(args [0]string, argsEscaped bo
 			OperationID:      "testReuseFormSchema",
 			Body:             request,
 			Params:           middleware.Parameters{},
+			SecurityScopes:   nil,
 			Raw:              r,
 		}
 
@@ -917,6 +925,7 @@ func (s *Server) handleTestShareFormSchemaRequest(args [0]string, argsEscaped bo
 			OperationID:      "testShareFormSchema",
 			Body:             request,
 			Params:           middleware.Parameters{},
+			SecurityScopes:   nil,
 			Raw:              r,
 		}
 

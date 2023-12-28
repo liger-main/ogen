@@ -12,6 +12,8 @@ import (
 	"github.com/ogen-go/ogen/ogenerrors"
 )
 
+var securityScopes = map[string][]string{}
+
 // SecurityHandler is handler for security parameters.
 type SecurityHandler interface {
 	// HandleBasicAuth handles basicAuth security.
@@ -145,21 +147,21 @@ func (s *Server) securityQueryKey(ctx context.Context, operationName string, req
 // SecuritySource is provider of security values (tokens, passwords, etc.).
 type SecuritySource interface {
 	// BasicAuth provides basicAuth security value.
-	BasicAuth(ctx context.Context, operationName string) (BasicAuth, error)
+	BasicAuth(ctx context.Context, operationName string, scopes []string) (BasicAuth, error)
 	// BearerToken provides bearerToken security value.
-	BearerToken(ctx context.Context, operationName string) (BearerToken, error)
+	BearerToken(ctx context.Context, operationName string, scopes []string) (BearerToken, error)
 	// CookieKey provides cookieKey security value.
-	CookieKey(ctx context.Context, operationName string) (CookieKey, error)
+	CookieKey(ctx context.Context, operationName string, scopes []string) (CookieKey, error)
 	// Custom provides custom security value.
-	Custom(ctx context.Context, operationName string, req *http.Request) error
+	Custom(ctx context.Context, operationName string, scopes []string, req *http.Request) error
 	// HeaderKey provides headerKey security value.
-	HeaderKey(ctx context.Context, operationName string) (HeaderKey, error)
+	HeaderKey(ctx context.Context, operationName string, scopes []string) (HeaderKey, error)
 	// QueryKey provides queryKey security value.
-	QueryKey(ctx context.Context, operationName string) (QueryKey, error)
+	QueryKey(ctx context.Context, operationName string, scopes []string) (QueryKey, error)
 }
 
 func (s *Client) securityBasicAuth(ctx context.Context, operationName string, req *http.Request) error {
-	t, err := s.sec.BasicAuth(ctx, operationName)
+	t, err := s.sec.BasicAuth(ctx, operationName, securityScopes[operationName])
 	if err != nil {
 		return errors.Wrap(err, "security source \"BasicAuth\"")
 	}
@@ -167,7 +169,7 @@ func (s *Client) securityBasicAuth(ctx context.Context, operationName string, re
 	return nil
 }
 func (s *Client) securityBearerToken(ctx context.Context, operationName string, req *http.Request) error {
-	t, err := s.sec.BearerToken(ctx, operationName)
+	t, err := s.sec.BearerToken(ctx, operationName, securityScopes[operationName])
 	if err != nil {
 		return errors.Wrap(err, "security source \"BearerToken\"")
 	}
@@ -175,7 +177,7 @@ func (s *Client) securityBearerToken(ctx context.Context, operationName string, 
 	return nil
 }
 func (s *Client) securityCookieKey(ctx context.Context, operationName string, req *http.Request) error {
-	t, err := s.sec.CookieKey(ctx, operationName)
+	t, err := s.sec.CookieKey(ctx, operationName, securityScopes[operationName])
 	if err != nil {
 		return errors.Wrap(err, "security source \"CookieKey\"")
 	}
@@ -186,13 +188,13 @@ func (s *Client) securityCookieKey(ctx context.Context, operationName string, re
 	return nil
 }
 func (s *Client) securityCustom(ctx context.Context, operationName string, req *http.Request) error {
-	if err := s.sec.Custom(ctx, operationName, req); err != nil {
+	if err := s.sec.Custom(ctx, operationName, securityScopes[operationName], req); err != nil {
 		return errors.Wrap(err, "security source \"Custom\"")
 	}
 	return nil
 }
 func (s *Client) securityHeaderKey(ctx context.Context, operationName string, req *http.Request) error {
-	t, err := s.sec.HeaderKey(ctx, operationName)
+	t, err := s.sec.HeaderKey(ctx, operationName, securityScopes[operationName])
 	if err != nil {
 		return errors.Wrap(err, "security source \"HeaderKey\"")
 	}
@@ -200,7 +202,7 @@ func (s *Client) securityHeaderKey(ctx context.Context, operationName string, re
 	return nil
 }
 func (s *Client) securityQueryKey(ctx context.Context, operationName string, req *http.Request) error {
-	t, err := s.sec.QueryKey(ctx, operationName)
+	t, err := s.sec.QueryKey(ctx, operationName, securityScopes[operationName])
 	if err != nil {
 		return errors.Wrap(err, "security source \"QueryKey\"")
 	}

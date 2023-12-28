@@ -346,6 +346,7 @@ func (c *Client) sendCombined(ctx context.Context, params CombinedParams) (res C
 		}
 
 		if err := q.EncodeParam(cfg, func(e uri.Encoder) error {
+			ctx = context.WithValue(ctx, "Type", params.Type)
 			return e.EncodeValue(conv.StringToString(string(params.Type)))
 		}); err != nil {
 			return res, errors.Wrap(err, "encode query")
@@ -512,6 +513,7 @@ func (c *Client) sendHeadersCombined(ctx context.Context, params HeadersCombined
 		}
 
 		if err := q.EncodeParam(cfg, func(e uri.Encoder) error {
+			ctx = context.WithValue(ctx, "Type", params.Type)
 			return e.EncodeValue(conv.StringToString(string(params.Type)))
 		}); err != nil {
 			return res, errors.Wrap(err, "encode query")
@@ -829,6 +831,7 @@ func (c *Client) sendIntersectPatternCode(ctx context.Context, params IntersectP
 		}
 
 		if err := q.EncodeParam(cfg, func(e uri.Encoder) error {
+			ctx = context.WithValue(ctx, "Code", params.Code)
 			return e.EncodeValue(conv.IntToString(params.Code))
 		}); err != nil {
 			return res, errors.Wrap(err, "encode query")
@@ -1219,6 +1222,7 @@ func (c *Client) sendStreamJSON(ctx context.Context, params StreamJSONParams) (r
 		}
 
 		if err := q.EncodeParam(cfg, func(e uri.Encoder) error {
+			ctx = context.WithValue(ctx, "Count", params.Count)
 			return e.EncodeValue(conv.IntToString(params.Count))
 		}); err != nil {
 			return res, errors.Wrap(err, "encode query")

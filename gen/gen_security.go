@@ -37,16 +37,9 @@ func (g *Generator) generateSecurityAPIKey(s *ir.Security, spec openapi.Security
 	return s, nil
 }
 
-func (g *Generator) generateSecurityOauth2(
-	s *ir.Security,
-	operationName string,
-	spec openapi.SecurityScheme,
-) *ir.Security {
+func (g *Generator) generateSecurityOauth2(s *ir.Security) *ir.Security {
 	s.Format = ir.Oauth2SecurityFormat
 	s.Kind = ir.HeaderSecurity
-	s.Scopes = map[string][]string{
-		operationName: spec.Scopes,
-	}
 
 	s.Type.Fields = append(s.Type.Fields,
 		&ir.Field{
@@ -134,7 +127,7 @@ func (g *Generator) generateSecurity(ctx *genctx, operationName string, spec ope
 	case "http":
 		return g.generateSecurityHTTP(s, spec)
 	case "oauth2":
-		return g.generateSecurityOauth2(s, operationName, spec), nil
+		return g.generateSecurityOauth2(s), nil
 	case "openIdConnect", "mutualTLS":
 		return nil, &ErrNotImplemented{Name: fmt.Sprintf("%s security", typ)}
 	default:
@@ -154,6 +147,9 @@ func (g *Generator) generateSecurities(
 		if err := func() error {
 			for _, scheme := range requirement.Schemes {
 				s, err := g.generateSecurity(ctx, operationName, scheme)
+				s.Scopes = map[string][]string{
+					operationName: scheme.Scopes,
+				}
 				if err != nil {
 					return errors.Wrapf(err, "security scheme %q", scheme.Name)
 				}

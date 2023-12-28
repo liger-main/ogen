@@ -179,6 +179,7 @@ func (c *Client) sendComplicatedParameterNameGet(ctx context.Context, params Com
 		}
 
 		if err := q.EncodeParam(cfg, func(e uri.Encoder) error {
+			ctx = context.WithValue(ctx, "Eq", params.Eq)
 			return e.EncodeValue(conv.StringToString(params.Eq))
 		}); err != nil {
 			return res, errors.Wrap(err, "encode query")
@@ -193,6 +194,7 @@ func (c *Client) sendComplicatedParameterNameGet(ctx context.Context, params Com
 		}
 
 		if err := q.EncodeParam(cfg, func(e uri.Encoder) error {
+			ctx = context.WithValue(ctx, "Plus", params.Plus)
 			return e.EncodeValue(conv.StringToString(params.Plus))
 		}); err != nil {
 			return res, errors.Wrap(err, "encode query")
@@ -207,6 +209,7 @@ func (c *Client) sendComplicatedParameterNameGet(ctx context.Context, params Com
 		}
 
 		if err := q.EncodeParam(cfg, func(e uri.Encoder) error {
+			ctx = context.WithValue(ctx, "Question", params.Question)
 			return e.EncodeValue(conv.StringToString(params.Question))
 		}); err != nil {
 			return res, errors.Wrap(err, "encode query")
@@ -221,6 +224,7 @@ func (c *Client) sendComplicatedParameterNameGet(ctx context.Context, params Com
 		}
 
 		if err := q.EncodeParam(cfg, func(e uri.Encoder) error {
+			ctx = context.WithValue(ctx, "And", params.And)
 			return e.EncodeValue(conv.StringToString(params.And))
 		}); err != nil {
 			return res, errors.Wrap(err, "encode query")
@@ -235,6 +239,7 @@ func (c *Client) sendComplicatedParameterNameGet(ctx context.Context, params Com
 		}
 
 		if err := q.EncodeParam(cfg, func(e uri.Encoder) error {
+			ctx = context.WithValue(ctx, "Percent", params.Percent)
 			return e.EncodeValue(conv.StringToString(params.Percent))
 		}); err != nil {
 			return res, errors.Wrap(err, "encode query")
@@ -322,6 +327,7 @@ func (c *Client) sendContentParameters(ctx context.Context, params ContentParame
 			Explode: false,
 		})
 		if err := func() error {
+			ctx = context.WithValue(ctx, "Path", params.Path)
 			var enc jx.Encoder
 			func(e *jx.Encoder) {
 				params.Path.Encode(e)
@@ -349,6 +355,7 @@ func (c *Client) sendContentParameters(ctx context.Context, params ContentParame
 		}
 
 		if err := q.EncodeParam(cfg, func(e uri.Encoder) error {
+			ctx = context.WithValue(ctx, "Query", params.Query)
 			var enc jx.Encoder
 			func(e *jx.Encoder) {
 				params.Query.Encode(e)
@@ -374,6 +381,7 @@ func (c *Client) sendContentParameters(ctx context.Context, params ContentParame
 			Explode: false,
 		}
 		if err := h.EncodeParam(cfg, func(e uri.Encoder) error {
+			ctx = context.WithValue(ctx, "XHeader", params.XHeader)
 			var enc jx.Encoder
 			func(e *jx.Encoder) {
 				params.XHeader.Encode(e)
@@ -394,6 +402,7 @@ func (c *Client) sendContentParameters(ctx context.Context, params ContentParame
 		}
 
 		if err := cookie.EncodeParam(cfg, func(e uri.Encoder) error {
+			ctx = context.WithValue(ctx, "Cookie", params.Cookie)
 			var enc jx.Encoder
 			func(e *jx.Encoder) {
 				params.Cookie.Encode(e)
@@ -490,6 +499,7 @@ func (c *Client) sendCookieParameter(ctx context.Context, params CookieParameter
 		}
 
 		if err := cookie.EncodeParam(cfg, func(e uri.Encoder) error {
+			ctx = context.WithValue(ctx, "Value", params.Value)
 			return e.EncodeValue(conv.StringToString(params.Value))
 		}); err != nil {
 			return res, errors.Wrap(err, "encode cookie")
@@ -580,6 +590,7 @@ func (c *Client) sendHeaderParameter(ctx context.Context, params HeaderParameter
 			Explode: false,
 		}
 		if err := h.EncodeParam(cfg, func(e uri.Encoder) error {
+			ctx = context.WithValue(ctx, "XValue", params.XValue)
 			return e.EncodeValue(conv.StringToString(params.XValue))
 		}); err != nil {
 			return res, errors.Wrap(err, "encode header")
@@ -670,6 +681,7 @@ func (c *Client) sendObjectCookieParameter(ctx context.Context, params ObjectCoo
 		}
 
 		if err := cookie.EncodeParam(cfg, func(e uri.Encoder) error {
+			ctx = context.WithValue(ctx, "Value", params.Value)
 			return params.Value.EncodeURI(e)
 		}); err != nil {
 			return res, errors.Wrap(err, "encode cookie")
@@ -755,6 +767,7 @@ func (c *Client) sendObjectQueryParameter(ctx context.Context, params ObjectQuer
 		}
 
 		if err := q.EncodeParam(cfg, func(e uri.Encoder) error {
+			ctx = context.WithValue(ctx, "FormObject", params.FormObject)
 			if val, ok := params.FormObject.Get(); ok {
 				return val.EncodeURI(e)
 			}
@@ -772,6 +785,7 @@ func (c *Client) sendObjectQueryParameter(ctx context.Context, params ObjectQuer
 		}
 
 		if err := q.EncodeParam(cfg, func(e uri.Encoder) error {
+			ctx = context.WithValue(ctx, "DeepObject", params.DeepObject)
 			if val, ok := params.DeepObject.Get(); ok {
 				return val.EncodeURI(e)
 			}
@@ -864,6 +878,7 @@ func (c *Client) sendPathParameter(ctx context.Context, params PathParameterPara
 			Explode: false,
 		})
 		if err := func() error {
+			ctx = context.WithValue(ctx, "Value", params.Value)
 			return e.EncodeValue(conv.StringToString(params.Value))
 		}(); err != nil {
 			return res, errors.Wrap(err, "encode path")
@@ -958,6 +973,7 @@ func (c *Client) sendSameName(ctx context.Context, params SameNameParams) (res *
 			Explode: false,
 		})
 		if err := func() error {
+			ctx = context.WithValue(ctx, "PathParam", params.PathParam)
 			return e.EncodeValue(conv.StringToString(params.PathParam))
 		}(); err != nil {
 			return res, errors.Wrap(err, "encode path")
@@ -981,6 +997,7 @@ func (c *Client) sendSameName(ctx context.Context, params SameNameParams) (res *
 		}
 
 		if err := q.EncodeParam(cfg, func(e uri.Encoder) error {
+			ctx = context.WithValue(ctx, "QueryParam", params.QueryParam)
 			return e.EncodeValue(conv.StringToString(params.QueryParam))
 		}); err != nil {
 			return res, errors.Wrap(err, "encode query")
@@ -1075,6 +1092,7 @@ func (c *Client) sendSimilarNames(ctx context.Context, params SimilarNamesParams
 		}
 
 		if err := q.EncodeParam(cfg, func(e uri.Encoder) error {
+			ctx = context.WithValue(ctx, "QueryXParam", params.QueryXParam)
 			return e.EncodeValue(conv.StringToString(params.QueryXParam))
 		}); err != nil {
 			return res, errors.Wrap(err, "encode query")
@@ -1096,6 +1114,7 @@ func (c *Client) sendSimilarNames(ctx context.Context, params SimilarNamesParams
 			Explode: false,
 		}
 		if err := h.EncodeParam(cfg, func(e uri.Encoder) error {
+			ctx = context.WithValue(ctx, "HeaderXParam", params.HeaderXParam)
 			return e.EncodeValue(conv.StringToString(params.HeaderXParam))
 		}); err != nil {
 			return res, errors.Wrap(err, "encode header")

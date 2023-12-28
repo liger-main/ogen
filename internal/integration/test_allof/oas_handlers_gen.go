@@ -87,6 +87,7 @@ func (s *Server) handleNullableStringsRequest(args [0]string, argsEscaped bool, 
 			OperationID:      "nullableStrings",
 			Body:             request,
 			Params:           middleware.Parameters{},
+			SecurityScopes:   nil,
 			Raw:              r,
 		}
 
@@ -193,6 +194,7 @@ func (s *Server) handleObjectsWithConflictingArrayPropertyRequest(args [0]string
 			OperationID:      "objectsWithConflictingArrayProperty",
 			Body:             request,
 			Params:           middleware.Parameters{},
+			SecurityScopes:   nil,
 			Raw:              r,
 		}
 
@@ -299,6 +301,7 @@ func (s *Server) handleObjectsWithConflictingPropertiesRequest(args [0]string, a
 			OperationID:      "objectsWithConflictingProperties",
 			Body:             request,
 			Params:           middleware.Parameters{},
+			SecurityScopes:   nil,
 			Raw:              r,
 		}
 
@@ -405,6 +408,7 @@ func (s *Server) handleReferencedAllofRequest(args [0]string, argsEscaped bool, 
 			OperationID:      "referencedAllof",
 			Body:             request,
 			Params:           middleware.Parameters{},
+			SecurityScopes:   nil,
 			Raw:              r,
 		}
 
@@ -511,6 +515,7 @@ func (s *Server) handleReferencedAllofOptionalRequest(args [0]string, argsEscape
 			OperationID:      "referencedAllofOptional",
 			Body:             request,
 			Params:           middleware.Parameters{},
+			SecurityScopes:   nil,
 			Raw:              r,
 		}
 
@@ -617,6 +622,7 @@ func (s *Server) handleSimpleIntegerRequest(args [0]string, argsEscaped bool, w 
 			OperationID:      "simpleInteger",
 			Body:             request,
 			Params:           middleware.Parameters{},
+			SecurityScopes:   nil,
 			Raw:              r,
 		}
 
@@ -723,6 +729,7 @@ func (s *Server) handleSimpleObjectsRequest(args [0]string, argsEscaped bool, w 
 			OperationID:      "simpleObjects",
 			Body:             request,
 			Params:           middleware.Parameters{},
+			SecurityScopes:   nil,
 			Raw:              r,
 		}
 
@@ -827,6 +834,7 @@ func (s *Server) handleStringsNotypeRequest(args [0]string, argsEscaped bool, w 
 			OperationID:      "stringsNotype",
 			Body:             request,
 			Params:           middleware.Parameters{},
+			SecurityScopes:   nil,
 			Raw:              r,
 		}
 

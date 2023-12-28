@@ -85,6 +85,7 @@ func (s *Server) handleAllRequestBodiesRequest(args [0]string, argsEscaped bool,
 			OperationID:      "allRequestBodies",
 			Body:             request,
 			Params:           middleware.Parameters{},
+			SecurityScopes:   nil,
 			Raw:              r,
 		}
 
@@ -189,6 +190,7 @@ func (s *Server) handleAllRequestBodiesOptionalRequest(args [0]string, argsEscap
 			OperationID:      "allRequestBodiesOptional",
 			Body:             request,
 			Params:           middleware.Parameters{},
+			SecurityScopes:   nil,
 			Raw:              r,
 		}
 
@@ -293,6 +295,7 @@ func (s *Server) handleBase64RequestRequest(args [0]string, argsEscaped bool, w 
 			OperationID:      "base64Request",
 			Body:             request,
 			Params:           middleware.Parameters{},
+			SecurityScopes:   nil,
 			Raw:              r,
 		}
 
@@ -397,6 +400,7 @@ func (s *Server) handleMaskContentTypeRequest(args [0]string, argsEscaped bool, 
 			OperationID:      "maskContentType",
 			Body:             request,
 			Params:           middleware.Parameters{},
+			SecurityScopes:   nil,
 			Raw:              r,
 		}
 
@@ -501,6 +505,7 @@ func (s *Server) handleMaskContentTypeOptionalRequest(args [0]string, argsEscape
 			OperationID:      "maskContentTypeOptional",
 			Body:             request,
 			Params:           middleware.Parameters{},
+			SecurityScopes:   nil,
 			Raw:              r,
 		}
 
@@ -605,6 +610,7 @@ func (s *Server) handleStreamJSONRequest(args [0]string, argsEscaped bool, w htt
 			OperationID:      "streamJSON",
 			Body:             request,
 			Params:           middleware.Parameters{},
+			SecurityScopes:   nil,
 			Raw:              r,
 		}
 

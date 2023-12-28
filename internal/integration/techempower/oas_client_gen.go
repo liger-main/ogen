@@ -183,6 +183,7 @@ func (c *Client) sendCaching(ctx context.Context, params CachingParams) (res Wor
 		}
 
 		if err := q.EncodeParam(cfg, func(e uri.Encoder) error {
+			ctx = context.WithValue(ctx, "Count", params.Count)
 			return e.EncodeValue(conv.Int64ToString(params.Count))
 		}); err != nil {
 			return res, errors.Wrap(err, "encode query")
@@ -435,6 +436,7 @@ func (c *Client) sendQueries(ctx context.Context, params QueriesParams) (res Wor
 		}
 
 		if err := q.EncodeParam(cfg, func(e uri.Encoder) error {
+			ctx = context.WithValue(ctx, "Queries", params.Queries)
 			return e.EncodeValue(conv.Int64ToString(params.Queries))
 		}); err != nil {
 			return res, errors.Wrap(err, "encode query")
@@ -531,6 +533,7 @@ func (c *Client) sendUpdates(ctx context.Context, params UpdatesParams) (res Wor
 		}
 
 		if err := q.EncodeParam(cfg, func(e uri.Encoder) error {
+			ctx = context.WithValue(ctx, "Queries", params.Queries)
 			return e.EncodeValue(conv.Int64ToString(params.Queries))
 		}); err != nil {
 			return res, errors.Wrap(err, "encode query")

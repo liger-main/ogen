@@ -63,6 +63,7 @@ func (s *Server) handleHealthzGetRequest(args [0]string, argsEscaped bool, w htt
 			OperationID:      "",
 			Body:             nil,
 			Params:           middleware.Parameters{},
+			SecurityScopes:   nil,
 			Raw:              r,
 		}
 
