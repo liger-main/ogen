@@ -13,6 +13,9 @@ var securityScopes = map[string][]string{
 	"SecurityTest": []string{
 		"claim",
 	},
+	"TestNullableOneofs": []string{
+		"claim",
+	},
 }
 
 // SecuritySource is provider of security values (tokens, passwords, etc.).

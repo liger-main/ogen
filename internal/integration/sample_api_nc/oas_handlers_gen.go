@@ -2721,8 +2721,56 @@ func (s *Server) handleTestNullableOneofsRequest(args [0]string, argsEscaped boo
 			span.SetStatus(codes.Error, stage)
 			s.errors.Add(ctx, 1, metric.WithAttributes(otelAttrs...))
 		}
-		err error
+		err          error
+		opErrContext = ogenerrors.OperationContext{
+			Name: "TestNullableOneofs",
+			ID:   "testNullableOneofs",
+		}
 	)
+	{
+		type bitset = [1]uint8
+		var satisfied bitset
+		{
+			sctx, ok, err := s.securityAPIKey(ctx, "TestNullableOneofs", r)
+			if err != nil {
+				err = &ogenerrors.SecurityError{
+					OperationContext: opErrContext,
+					Security:         "APIKey",
+					Err:              err,
+				}
+				recordError("Security:APIKey", err)
+				s.cfg.ErrorHandler(ctx, w, r, err)
+				return
+			}
+			if ok {
+				satisfied[0] |= 1 << 0
+				ctx = sctx
+			}
+		}
+
+		if ok := func() bool {
+		nextRequirement:
+			for _, requirement := range []bitset{
+				{0b00000001},
+			} {
+				for i, mask := range requirement {
+					if satisfied[i]&mask != mask {
+						continue nextRequirement
+					}
+				}
+				return true
+			}
+			return false
+		}(); !ok {
+			err = &ogenerrors.SecurityError{
+				OperationContext: opErrContext,
+				Err:              ogenerrors.ErrSecurityRequirementIsNotSatisfied,
+			}
+			recordError("Security", err)
+			s.cfg.ErrorHandler(ctx, w, r, err)
+			return
+		}
+	}
 
 	var response TestNullableOneofsRes
 	if m := s.cfg.Middleware; m != nil {
@@ -2733,7 +2781,7 @@ func (s *Server) handleTestNullableOneofsRequest(args [0]string, argsEscaped boo
 			OperationID:      "testNullableOneofs",
 			Body:             nil,
 			Params:           middleware.Parameters{},
-			SecurityScopes:   nil,
+			SecurityScopes:   securityScopes["TestNullableOneofs"],
 			Raw:              r,
 		}
 

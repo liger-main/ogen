@@ -85,12 +85,6 @@ func (g *Generator) generateSecurityHTTP(s *ir.Security, spec openapi.SecuritySc
 }
 
 func (g *Generator) generateSecurity(ctx *genctx, operationName string, spec openapi.SecurityScheme) (r *ir.Security, rErr error) {
-	if sec, ok := g.securities[spec.Name]; ok {
-		if spec.Security.Type == "oauth2" {
-			sec.Scopes[operationName] = spec.Scopes
-		}
-		return sec, nil
-	}
 	security := spec.Security
 
 	typeName, err := pascalNonEmpty(spec.Name)
@@ -114,7 +108,8 @@ func (g *Generator) generateSecurity(ctx *genctx, operationName string, spec ope
 	}
 
 	defer func() {
-		if rErr == nil {
+		_, typeAlreadyGenerated := ctx.global.types[typeName]
+		if rErr == nil && !typeAlreadyGenerated {
 			if err := ctx.saveType(t); err != nil {
 				rErr = err
 			}
@@ -150,16 +145,22 @@ func (g *Generator) generateSecurities(
 				s.Scopes = map[string][]string{
 					operationName: scheme.Scopes,
 				}
+				key := scheme.Name
 				if err != nil {
-					return errors.Wrapf(err, "security scheme %q", scheme.Name)
+					return errors.Wrapf(err, "security scheme %q", key)
 				}
-				g.securities[scheme.Name] = s
+				if curr, ok := g.securities[key]; ok {
+					for k, v := range curr.Scopes {
+						s.Scopes[k] = v
+					}
+				}
+				g.securities[key] = s
 
-				idx, ok := indexes[scheme.Name]
+				idx, ok := indexes[key]
 				if !ok {
 					r.Securities = append(r.Securities, s)
 					idx = len(r.Securities) - 1
-					indexes[scheme.Name] = idx
+					indexes[key] = idx
 				}
 				set.Set(idx, true)
 			}

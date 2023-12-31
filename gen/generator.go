@@ -20,17 +20,18 @@ import (
 
 // Generator is OpenAPI-to-Go generator.
 type Generator struct {
-	opt           GenerateOptions
-	parseOpts     ParseOptions
-	api           *openapi.API
-	servers       []ir.Server
-	operations    []*ir.Operation
-	webhooks      []*ir.Operation
-	securities    map[string]*ir.Security
-	tstorage      *tstorage
-	errType       *ir.Response
-	webhookRouter WebhookRouter
-	router        Router
+	opt            GenerateOptions
+	parseOpts      ParseOptions
+	api            *openapi.API
+	servers        []ir.Server
+	operations     []*ir.Operation
+	webhooks       []*ir.Operation
+	securities     map[string]*ir.Security
+	tstorage       *tstorage
+	errType        *ir.Response
+	webhookRouter  WebhookRouter
+	router         Router
+	generatedTypes map[string]*ir.Type
 
 	log *zap.Logger
 }

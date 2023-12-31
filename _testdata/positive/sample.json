@@ -697,6 +697,11 @@
     "/testNullableOneofs": {
       "get": {
         "operationId": "testNullableOneofs",
+        "security": [
+          {
+            "api_key": ["claim"]
+          }
+        ],
         "responses": {
           "200": {
             "description": "OneOfWithNullable",

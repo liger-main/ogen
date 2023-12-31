@@ -16,6 +16,9 @@ var securityScopes = map[string][]string{
 	"SecurityTest": []string{
 		"claim",
 	},
+	"TestNullableOneofs": []string{
+		"claim",
+	},
 }
 
 // SecurityHandler is handler for security parameters.
