@@ -135,6 +135,9 @@ func (c *Client) sendDataCreate(ctx context.Context, request OptData) (res *Data
 		span.End()
 	}()
 
+	paramsByName := map[string]interface{}{}
+	_ = paramsByName
+
 	stage = "BuildURL"
 	u := uri.Clone(c.requestURL(ctx))
 	var pathParts [1]string
@@ -213,6 +216,9 @@ func (c *Client) sendDataGet(ctx context.Context) (res *Data, err error) {
 		}
 		span.End()
 	}()
+
+	paramsByName := map[string]interface{}{}
+	_ = paramsByName
 
 	stage = "BuildURL"
 	u := uri.Clone(c.requestURL(ctx))

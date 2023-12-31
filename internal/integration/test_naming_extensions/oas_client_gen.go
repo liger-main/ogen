@@ -117,6 +117,9 @@ func (c *Client) sendHealthzGet(ctx context.Context) (res *Person, err error) {
 		span.End()
 	}()
 
+	paramsByName := map[string]interface{}{}
+	_ = paramsByName
+
 	stage = "BuildURL"
 	u := uri.Clone(c.requestURL(ctx))
 	var pathParts [1]string

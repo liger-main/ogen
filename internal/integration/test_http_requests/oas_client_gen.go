@@ -139,6 +139,9 @@ func (c *Client) sendAllRequestBodies(ctx context.Context, request AllRequestBod
 		span.End()
 	}()
 
+	paramsByName := map[string]interface{}{}
+	_ = paramsByName
+
 	stage = "BuildURL"
 	u := uri.Clone(c.requestURL(ctx))
 	var pathParts [1]string
@@ -215,6 +218,9 @@ func (c *Client) sendAllRequestBodiesOptional(ctx context.Context, request AllRe
 		}
 		span.End()
 	}()
+
+	paramsByName := map[string]interface{}{}
+	_ = paramsByName
 
 	stage = "BuildURL"
 	u := uri.Clone(c.requestURL(ctx))
@@ -293,6 +299,9 @@ func (c *Client) sendBase64Request(ctx context.Context, request Base64RequestReq
 		span.End()
 	}()
 
+	paramsByName := map[string]interface{}{}
+	_ = paramsByName
+
 	stage = "BuildURL"
 	u := uri.Clone(c.requestURL(ctx))
 	var pathParts [1]string
@@ -369,6 +378,9 @@ func (c *Client) sendMaskContentType(ctx context.Context, request *MaskContentTy
 		}
 		span.End()
 	}()
+
+	paramsByName := map[string]interface{}{}
+	_ = paramsByName
 
 	stage = "BuildURL"
 	u := uri.Clone(c.requestURL(ctx))
@@ -447,6 +459,9 @@ func (c *Client) sendMaskContentTypeOptional(ctx context.Context, request *MaskC
 		span.End()
 	}()
 
+	paramsByName := map[string]interface{}{}
+	_ = paramsByName
+
 	stage = "BuildURL"
 	u := uri.Clone(c.requestURL(ctx))
 	var pathParts [1]string
@@ -523,6 +538,9 @@ func (c *Client) sendStreamJSON(ctx context.Context, request []float64) (res flo
 		}
 		span.End()
 	}()
+
+	paramsByName := map[string]interface{}{}
+	_ = paramsByName
 
 	stage = "BuildURL"
 	u := uri.Clone(c.requestURL(ctx))

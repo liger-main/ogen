@@ -127,6 +127,9 @@ func (c *Client) sendIntegerNumber(ctx context.Context) (res *IntegerNumber, err
 		span.End()
 	}()
 
+	paramsByName := map[string]interface{}{}
+	_ = paramsByName
+
 	stage = "BuildURL"
 	u := uri.Clone(c.requestURL(ctx))
 	var pathParts [1]string
@@ -201,6 +204,9 @@ func (c *Client) sendJaegerAnyOf(ctx context.Context) (res *JaegerAnyOf, err err
 		span.End()
 	}()
 
+	paramsByName := map[string]interface{}{}
+	_ = paramsByName
+
 	stage = "BuildURL"
 	u := uri.Clone(c.requestURL(ctx))
 	var pathParts [1]string
@@ -274,6 +280,9 @@ func (c *Client) sendOneUUID(ctx context.Context) (res *OneUUID, err error) {
 		}
 		span.End()
 	}()
+
+	paramsByName := map[string]interface{}{}
+	_ = paramsByName
 
 	stage = "BuildURL"
 	u := uri.Clone(c.requestURL(ctx))

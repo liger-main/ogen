@@ -123,6 +123,9 @@ func (c *Client) sendProbeLiveness(ctx context.Context) (res *ProbeLivenessOK, e
 		span.End()
 	}()
 
+	paramsByName := map[string]interface{}{}
+	_ = paramsByName
+
 	stage = "BuildURL"
 	u := uri.Clone(c.requestURL(ctx))
 	var pathParts [1]string

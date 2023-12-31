@@ -181,6 +181,9 @@ func (c *Client) sendAnyContentTypeBinaryStringSchema(ctx context.Context) (res 
 		span.End()
 	}()
 
+	paramsByName := map[string]interface{}{}
+	_ = paramsByName
+
 	stage = "BuildURL"
 	u := uri.Clone(c.requestURL(ctx))
 	var pathParts [1]string
@@ -254,6 +257,9 @@ func (c *Client) sendAnyContentTypeBinaryStringSchemaDefault(ctx context.Context
 		}
 		span.End()
 	}()
+
+	paramsByName := map[string]interface{}{}
+	_ = paramsByName
 
 	stage = "BuildURL"
 	u := uri.Clone(c.requestURL(ctx))
@@ -329,6 +335,9 @@ func (c *Client) sendCombined(ctx context.Context, params CombinedParams) (res C
 		span.End()
 	}()
 
+	paramsByName := map[string]interface{}{}
+	_ = paramsByName
+
 	stage = "BuildURL"
 	u := uri.Clone(c.requestURL(ctx))
 	var pathParts [1]string
@@ -346,7 +355,7 @@ func (c *Client) sendCombined(ctx context.Context, params CombinedParams) (res C
 		}
 
 		if err := q.EncodeParam(cfg, func(e uri.Encoder) error {
-			ctx = context.WithValue(ctx, "Type", params.Type)
+			paramsByName["Type"] = params.Type
 			return e.EncodeValue(conv.StringToString(string(params.Type)))
 		}); err != nil {
 			return res, errors.Wrap(err, "encode query")
@@ -422,6 +431,9 @@ func (c *Client) sendHeaders200(ctx context.Context) (res *Headers200OK, err err
 		span.End()
 	}()
 
+	paramsByName := map[string]interface{}{}
+	_ = paramsByName
+
 	stage = "BuildURL"
 	u := uri.Clone(c.requestURL(ctx))
 	var pathParts [1]string
@@ -496,6 +508,9 @@ func (c *Client) sendHeadersCombined(ctx context.Context, params HeadersCombined
 		span.End()
 	}()
 
+	paramsByName := map[string]interface{}{}
+	_ = paramsByName
+
 	stage = "BuildURL"
 	u := uri.Clone(c.requestURL(ctx))
 	var pathParts [1]string
@@ -513,7 +528,7 @@ func (c *Client) sendHeadersCombined(ctx context.Context, params HeadersCombined
 		}
 
 		if err := q.EncodeParam(cfg, func(e uri.Encoder) error {
-			ctx = context.WithValue(ctx, "Type", params.Type)
+			paramsByName["Type"] = params.Type
 			return e.EncodeValue(conv.StringToString(string(params.Type)))
 		}); err != nil {
 			return res, errors.Wrap(err, "encode query")
@@ -589,6 +604,9 @@ func (c *Client) sendHeadersDefault(ctx context.Context) (res *HeadersDefaultDef
 		span.End()
 	}()
 
+	paramsByName := map[string]interface{}{}
+	_ = paramsByName
+
 	stage = "BuildURL"
 	u := uri.Clone(c.requestURL(ctx))
 	var pathParts [1]string
@@ -663,6 +681,9 @@ func (c *Client) sendHeadersJSON(ctx context.Context) (res *HeadersJSONOK, err e
 		span.End()
 	}()
 
+	paramsByName := map[string]interface{}{}
+	_ = paramsByName
+
 	stage = "BuildURL"
 	u := uri.Clone(c.requestURL(ctx))
 	var pathParts [1]string
@@ -736,6 +757,9 @@ func (c *Client) sendHeadersPattern(ctx context.Context) (res *HeadersPattern4XX
 		}
 		span.End()
 	}()
+
+	paramsByName := map[string]interface{}{}
+	_ = paramsByName
 
 	stage = "BuildURL"
 	u := uri.Clone(c.requestURL(ctx))
@@ -814,6 +838,9 @@ func (c *Client) sendIntersectPatternCode(ctx context.Context, params IntersectP
 		span.End()
 	}()
 
+	paramsByName := map[string]interface{}{}
+	_ = paramsByName
+
 	stage = "BuildURL"
 	u := uri.Clone(c.requestURL(ctx))
 	var pathParts [1]string
@@ -831,7 +858,7 @@ func (c *Client) sendIntersectPatternCode(ctx context.Context, params IntersectP
 		}
 
 		if err := q.EncodeParam(cfg, func(e uri.Encoder) error {
-			ctx = context.WithValue(ctx, "Code", params.Code)
+			paramsByName["Code"] = params.Code
 			return e.EncodeValue(conv.IntToString(params.Code))
 		}); err != nil {
 			return res, errors.Wrap(err, "encode query")
@@ -907,6 +934,9 @@ func (c *Client) sendMultipleGenericResponses(ctx context.Context) (res Multiple
 		span.End()
 	}()
 
+	paramsByName := map[string]interface{}{}
+	_ = paramsByName
+
 	stage = "BuildURL"
 	u := uri.Clone(c.requestURL(ctx))
 	var pathParts [1]string
@@ -981,6 +1011,9 @@ func (c *Client) sendOctetStreamBinaryStringSchema(ctx context.Context) (res Oct
 		span.End()
 	}()
 
+	paramsByName := map[string]interface{}{}
+	_ = paramsByName
+
 	stage = "BuildURL"
 	u := uri.Clone(c.requestURL(ctx))
 	var pathParts [1]string
@@ -1054,6 +1087,9 @@ func (c *Client) sendOctetStreamEmptySchema(ctx context.Context) (res OctetStrea
 		}
 		span.End()
 	}()
+
+	paramsByName := map[string]interface{}{}
+	_ = paramsByName
 
 	stage = "BuildURL"
 	u := uri.Clone(c.requestURL(ctx))
@@ -1131,6 +1167,9 @@ func (c *Client) sendOptionalHeaders(ctx context.Context) (res *OptionalHeadersO
 		span.End()
 	}()
 
+	paramsByName := map[string]interface{}{}
+	_ = paramsByName
+
 	stage = "BuildURL"
 	u := uri.Clone(c.requestURL(ctx))
 	var pathParts [1]string
@@ -1205,6 +1244,9 @@ func (c *Client) sendStreamJSON(ctx context.Context, params StreamJSONParams) (r
 		span.End()
 	}()
 
+	paramsByName := map[string]interface{}{}
+	_ = paramsByName
+
 	stage = "BuildURL"
 	u := uri.Clone(c.requestURL(ctx))
 	var pathParts [1]string
@@ -1222,7 +1264,7 @@ func (c *Client) sendStreamJSON(ctx context.Context, params StreamJSONParams) (r
 		}
 
 		if err := q.EncodeParam(cfg, func(e uri.Encoder) error {
-			ctx = context.WithValue(ctx, "Count", params.Count)
+			paramsByName["Count"] = params.Count
 			return e.EncodeValue(conv.IntToString(params.Count))
 		}); err != nil {
 			return res, errors.Wrap(err, "encode query")
@@ -1297,6 +1339,9 @@ func (c *Client) sendTextPlainBinaryStringSchema(ctx context.Context) (res TextP
 		}
 		span.End()
 	}()
+
+	paramsByName := map[string]interface{}{}
+	_ = paramsByName
 
 	stage = "BuildURL"
 	u := uri.Clone(c.requestURL(ctx))

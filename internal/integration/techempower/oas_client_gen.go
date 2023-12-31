@@ -166,6 +166,9 @@ func (c *Client) sendCaching(ctx context.Context, params CachingParams) (res Wor
 		span.End()
 	}()
 
+	paramsByName := map[string]interface{}{}
+	_ = paramsByName
+
 	stage = "BuildURL"
 	u := uri.Clone(c.requestURL(ctx))
 	var pathParts [1]string
@@ -183,7 +186,7 @@ func (c *Client) sendCaching(ctx context.Context, params CachingParams) (res Wor
 		}
 
 		if err := q.EncodeParam(cfg, func(e uri.Encoder) error {
-			ctx = context.WithValue(ctx, "Count", params.Count)
+			paramsByName["Count"] = params.Count
 			return e.EncodeValue(conv.Int64ToString(params.Count))
 		}); err != nil {
 			return res, errors.Wrap(err, "encode query")
@@ -262,6 +265,9 @@ func (c *Client) sendDB(ctx context.Context) (res *WorldObject, err error) {
 		span.End()
 	}()
 
+	paramsByName := map[string]interface{}{}
+	_ = paramsByName
+
 	stage = "BuildURL"
 	u := uri.Clone(c.requestURL(ctx))
 	var pathParts [1]string
@@ -339,6 +345,9 @@ func (c *Client) sendJSON(ctx context.Context) (res *HelloWorld, err error) {
 		}
 		span.End()
 	}()
+
+	paramsByName := map[string]interface{}{}
+	_ = paramsByName
 
 	stage = "BuildURL"
 	u := uri.Clone(c.requestURL(ctx))
@@ -419,6 +428,9 @@ func (c *Client) sendQueries(ctx context.Context, params QueriesParams) (res Wor
 		span.End()
 	}()
 
+	paramsByName := map[string]interface{}{}
+	_ = paramsByName
+
 	stage = "BuildURL"
 	u := uri.Clone(c.requestURL(ctx))
 	var pathParts [1]string
@@ -436,7 +448,7 @@ func (c *Client) sendQueries(ctx context.Context, params QueriesParams) (res Wor
 		}
 
 		if err := q.EncodeParam(cfg, func(e uri.Encoder) error {
-			ctx = context.WithValue(ctx, "Queries", params.Queries)
+			paramsByName["Queries"] = params.Queries
 			return e.EncodeValue(conv.Int64ToString(params.Queries))
 		}); err != nil {
 			return res, errors.Wrap(err, "encode query")
@@ -516,6 +528,9 @@ func (c *Client) sendUpdates(ctx context.Context, params UpdatesParams) (res Wor
 		span.End()
 	}()
 
+	paramsByName := map[string]interface{}{}
+	_ = paramsByName
+
 	stage = "BuildURL"
 	u := uri.Clone(c.requestURL(ctx))
 	var pathParts [1]string
@@ -533,7 +548,7 @@ func (c *Client) sendUpdates(ctx context.Context, params UpdatesParams) (res Wor
 		}
 
 		if err := q.EncodeParam(cfg, func(e uri.Encoder) error {
-			ctx = context.WithValue(ctx, "Queries", params.Queries)
+			paramsByName["Queries"] = params.Queries
 			return e.EncodeValue(conv.Int64ToString(params.Queries))
 		}); err != nil {
 			return res, errors.Wrap(err, "encode query")

@@ -126,6 +126,9 @@ func (c *Client) sendPublishEvent(ctx context.Context, request OptEvent) (res *E
 		span.End()
 	}()
 
+	paramsByName := map[string]interface{}{}
+	_ = paramsByName
+
 	stage = "BuildURL"
 	u := uri.Clone(c.requestURL(ctx))
 	var pathParts [1]string
@@ -216,6 +219,9 @@ func (c *WebhookClient) sendStatusWebhook(ctx context.Context, targetURL string)
 		span.End()
 	}()
 
+	paramsByName := map[string]interface{}{}
+	_ = paramsByName
+
 	stage = "BuildURL"
 	u, err := url.Parse(targetURL)
 	if err != nil {
@@ -286,6 +292,9 @@ func (c *WebhookClient) sendUpdateDelete(ctx context.Context, targetURL string) 
 		}
 		span.End()
 	}()
+
+	paramsByName := map[string]interface{}{}
+	_ = paramsByName
 
 	stage = "BuildURL"
 	u, err := url.Parse(targetURL)
@@ -359,6 +368,9 @@ func (c *WebhookClient) sendUpdateWebhook(ctx context.Context, targetURL string,
 		span.End()
 	}()
 
+	paramsByName := map[string]interface{}{}
+	_ = paramsByName
+
 	stage = "BuildURL"
 	u, err := url.Parse(targetURL)
 	if err != nil {
@@ -377,7 +389,7 @@ func (c *WebhookClient) sendUpdateWebhook(ctx context.Context, targetURL string,
 		}
 
 		if err := q.EncodeParam(cfg, func(e uri.Encoder) error {
-			ctx = context.WithValue(ctx, "EventType", params.EventType)
+			paramsByName["EventType"] = params.EventType
 			return e.EncodeValue(conv.StringToString(params.EventType))
 		}); err != nil {
 			return res, errors.Wrap(err, "encode query")
@@ -402,7 +414,7 @@ func (c *WebhookClient) sendUpdateWebhook(ctx context.Context, targetURL string,
 			Explode: false,
 		}
 		if err := h.EncodeParam(cfg, func(e uri.Encoder) error {
-			ctx = context.WithValue(ctx, "XWebhookToken", params.XWebhookToken)
+			paramsByName["XWebhookToken"] = params.XWebhookToken
 			if val, ok := params.XWebhookToken.Get(); ok {
 				return e.EncodeValue(conv.StringToString(val))
 			}

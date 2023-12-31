@@ -262,6 +262,9 @@ func (c *Client) sendDataGetFormat(ctx context.Context, params DataGetFormatPara
 		span.End()
 	}()
 
+	paramsByName := map[string]interface{}{}
+	_ = paramsByName
+
 	stage = "BuildURL"
 	u := uri.Clone(c.requestURL(ctx))
 	var pathParts [10]string
@@ -274,7 +277,7 @@ func (c *Client) sendDataGetFormat(ctx context.Context, params DataGetFormatPara
 			Explode: false,
 		})
 		if err := func() error {
-			ctx = context.WithValue(ctx, "ID", params.ID)
+			paramsByName["ID"] = params.ID
 			return e.EncodeValue(conv.IntToString(params.ID))
 		}(); err != nil {
 			return res, errors.Wrap(err, "encode path")
@@ -294,7 +297,7 @@ func (c *Client) sendDataGetFormat(ctx context.Context, params DataGetFormatPara
 			Explode: false,
 		})
 		if err := func() error {
-			ctx = context.WithValue(ctx, "Foo", params.Foo)
+			paramsByName["Foo"] = params.Foo
 			return e.EncodeValue(conv.StringToString(params.Foo))
 		}(); err != nil {
 			return res, errors.Wrap(err, "encode path")
@@ -314,7 +317,7 @@ func (c *Client) sendDataGetFormat(ctx context.Context, params DataGetFormatPara
 			Explode: false,
 		})
 		if err := func() error {
-			ctx = context.WithValue(ctx, "Bar", params.Bar)
+			paramsByName["Bar"] = params.Bar
 			return e.EncodeValue(conv.StringToString(params.Bar))
 		}(); err != nil {
 			return res, errors.Wrap(err, "encode path")
@@ -334,7 +337,7 @@ func (c *Client) sendDataGetFormat(ctx context.Context, params DataGetFormatPara
 			Explode: false,
 		})
 		if err := func() error {
-			ctx = context.WithValue(ctx, "Baz", params.Baz)
+			paramsByName["Baz"] = params.Baz
 			return e.EncodeValue(conv.StringToString(params.Baz))
 		}(); err != nil {
 			return res, errors.Wrap(err, "encode path")
@@ -354,7 +357,7 @@ func (c *Client) sendDataGetFormat(ctx context.Context, params DataGetFormatPara
 			Explode: false,
 		})
 		if err := func() error {
-			ctx = context.WithValue(ctx, "Kek", params.Kek)
+			paramsByName["Kek"] = params.Kek
 			return e.EncodeValue(conv.StringToString(params.Kek))
 		}(); err != nil {
 			return res, errors.Wrap(err, "encode path")
@@ -435,6 +438,9 @@ func (c *Client) sendDefaultTest(ctx context.Context, request *DefaultTest, para
 		span.End()
 	}()
 
+	paramsByName := map[string]interface{}{}
+	_ = paramsByName
+
 	stage = "BuildURL"
 	u := uri.Clone(c.requestURL(ctx))
 	var pathParts [1]string
@@ -452,7 +458,7 @@ func (c *Client) sendDefaultTest(ctx context.Context, request *DefaultTest, para
 		}
 
 		if err := q.EncodeParam(cfg, func(e uri.Encoder) error {
-			ctx = context.WithValue(ctx, "Default", params.Default)
+			paramsByName["Default"] = params.Default
 			if val, ok := params.Default.Get(); ok {
 				return e.EncodeValue(conv.Int32ToString(val))
 			}
@@ -536,6 +542,9 @@ func (c *Client) sendErrorGet(ctx context.Context) (res *ErrorStatusCode, err er
 		span.End()
 	}()
 
+	paramsByName := map[string]interface{}{}
+	_ = paramsByName
+
 	stage = "BuildURL"
 	u := uri.Clone(c.requestURL(ctx))
 	var pathParts [1]string
@@ -612,6 +621,9 @@ func (c *Client) sendFoobarGet(ctx context.Context, params FoobarGetParams) (res
 		span.End()
 	}()
 
+	paramsByName := map[string]interface{}{}
+	_ = paramsByName
+
 	stage = "BuildURL"
 	u := uri.Clone(c.requestURL(ctx))
 	var pathParts [1]string
@@ -629,7 +641,7 @@ func (c *Client) sendFoobarGet(ctx context.Context, params FoobarGetParams) (res
 		}
 
 		if err := q.EncodeParam(cfg, func(e uri.Encoder) error {
-			ctx = context.WithValue(ctx, "InlinedParam", params.InlinedParam)
+			paramsByName["InlinedParam"] = params.InlinedParam
 			return e.EncodeValue(conv.Int64ToString(params.InlinedParam))
 		}); err != nil {
 			return res, errors.Wrap(err, "encode query")
@@ -644,7 +656,7 @@ func (c *Client) sendFoobarGet(ctx context.Context, params FoobarGetParams) (res
 		}
 
 		if err := q.EncodeParam(cfg, func(e uri.Encoder) error {
-			ctx = context.WithValue(ctx, "Skip", params.Skip)
+			paramsByName["Skip"] = params.Skip
 			return e.EncodeValue(conv.Int32ToString(params.Skip))
 		}); err != nil {
 			return res, errors.Wrap(err, "encode query")
@@ -722,6 +734,9 @@ func (c *Client) sendFoobarPost(ctx context.Context, request OptPet) (res Foobar
 		span.End()
 	}()
 
+	paramsByName := map[string]interface{}{}
+	_ = paramsByName
+
 	stage = "BuildURL"
 	u := uri.Clone(c.requestURL(ctx))
 	var pathParts [1]string
@@ -798,6 +813,9 @@ func (c *Client) sendFoobarPut(ctx context.Context) (res *FoobarPutDef, err erro
 		span.End()
 	}()
 
+	paramsByName := map[string]interface{}{}
+	_ = paramsByName
+
 	stage = "BuildURL"
 	u := uri.Clone(c.requestURL(ctx))
 	var pathParts [1]string
@@ -871,6 +889,9 @@ func (c *Client) sendNoAdditionalPropertiesTest(ctx context.Context) (res *NoAdd
 		}
 		span.End()
 	}()
+
+	paramsByName := map[string]interface{}{}
+	_ = paramsByName
 
 	stage = "BuildURL"
 	u := uri.Clone(c.requestURL(ctx))
@@ -946,6 +967,9 @@ func (c *Client) sendNullableDefaultResponse(ctx context.Context) (res *NilIntSt
 		span.End()
 	}()
 
+	paramsByName := map[string]interface{}{}
+	_ = paramsByName
+
 	stage = "BuildURL"
 	u := uri.Clone(c.requestURL(ctx))
 	var pathParts [1]string
@@ -1019,6 +1043,9 @@ func (c *Client) sendOneofBug(ctx context.Context, request *OneOfBugs) (res *One
 		}
 		span.End()
 	}()
+
+	paramsByName := map[string]interface{}{}
+	_ = paramsByName
 
 	stage = "BuildURL"
 	u := uri.Clone(c.requestURL(ctx))
@@ -1096,6 +1123,9 @@ func (c *Client) sendPatternRecursiveMapGet(ctx context.Context) (res PatternRec
 		span.End()
 	}()
 
+	paramsByName := map[string]interface{}{}
+	_ = paramsByName
+
 	stage = "BuildURL"
 	u := uri.Clone(c.requestURL(ctx))
 	var pathParts [1]string
@@ -1171,6 +1201,9 @@ func (c *Client) sendPetCreate(ctx context.Context, request OptPet) (res *Pet, e
 		}
 		span.End()
 	}()
+
+	paramsByName := map[string]interface{}{}
+	_ = paramsByName
 
 	stage = "BuildURL"
 	u := uri.Clone(c.requestURL(ctx))
@@ -1251,6 +1284,9 @@ func (c *Client) sendPetFriendsNamesByID(ctx context.Context, params PetFriendsN
 		span.End()
 	}()
 
+	paramsByName := map[string]interface{}{}
+	_ = paramsByName
+
 	stage = "BuildURL"
 	u := uri.Clone(c.requestURL(ctx))
 	var pathParts [2]string
@@ -1263,7 +1299,7 @@ func (c *Client) sendPetFriendsNamesByID(ctx context.Context, params PetFriendsN
 			Explode: false,
 		})
 		if err := func() error {
-			ctx = context.WithValue(ctx, "ID", params.ID)
+			paramsByName["ID"] = params.ID
 			return e.EncodeValue(conv.IntToString(params.ID))
 		}(); err != nil {
 			return res, errors.Wrap(err, "encode path")
@@ -1346,6 +1382,9 @@ func (c *Client) sendPetGet(ctx context.Context, params PetGetParams) (res PetGe
 		span.End()
 	}()
 
+	paramsByName := map[string]interface{}{}
+	_ = paramsByName
+
 	stage = "BuildURL"
 	u := uri.Clone(c.requestURL(ctx))
 	var pathParts [1]string
@@ -1363,7 +1402,7 @@ func (c *Client) sendPetGet(ctx context.Context, params PetGetParams) (res PetGe
 		}
 
 		if err := q.EncodeParam(cfg, func(e uri.Encoder) error {
-			ctx = context.WithValue(ctx, "PetID", params.PetID)
+			paramsByName["PetID"] = params.PetID
 			return e.EncodeValue(conv.Int64ToString(params.PetID))
 		}); err != nil {
 			return res, errors.Wrap(err, "encode query")
@@ -1378,7 +1417,7 @@ func (c *Client) sendPetGet(ctx context.Context, params PetGetParams) (res PetGe
 		}
 
 		if err := q.EncodeParam(cfg, func(e uri.Encoder) error {
-			ctx = context.WithValue(ctx, "Token", params.Token)
+			paramsByName["Token"] = params.Token
 			return e.EncodeValue(conv.StringToString(params.Token))
 		}); err != nil {
 			return res, errors.Wrap(err, "encode query")
@@ -1400,7 +1439,7 @@ func (c *Client) sendPetGet(ctx context.Context, params PetGetParams) (res PetGe
 			Explode: false,
 		}
 		if err := h.EncodeParam(cfg, func(e uri.Encoder) error {
-			ctx = context.WithValue(ctx, "XTags", params.XTags)
+			paramsByName["XTags"] = params.XTags
 			return e.EncodeArray(func(e uri.Encoder) error {
 				for i, item := range params.XTags {
 					if err := func() error {
@@ -1421,7 +1460,7 @@ func (c *Client) sendPetGet(ctx context.Context, params PetGetParams) (res PetGe
 			Explode: false,
 		}
 		if err := h.EncodeParam(cfg, func(e uri.Encoder) error {
-			ctx = context.WithValue(ctx, "XScope", params.XScope)
+			paramsByName["XScope"] = params.XScope
 			return e.EncodeArray(func(e uri.Encoder) error {
 				for i, item := range params.XScope {
 					if err := func() error {
@@ -1501,6 +1540,9 @@ func (c *Client) sendPetGetAvatarByID(ctx context.Context, params PetGetAvatarBy
 		span.End()
 	}()
 
+	paramsByName := map[string]interface{}{}
+	_ = paramsByName
+
 	stage = "BuildURL"
 	u := uri.Clone(c.requestURL(ctx))
 	var pathParts [1]string
@@ -1518,7 +1560,7 @@ func (c *Client) sendPetGetAvatarByID(ctx context.Context, params PetGetAvatarBy
 		}
 
 		if err := q.EncodeParam(cfg, func(e uri.Encoder) error {
-			ctx = context.WithValue(ctx, "PetID", params.PetID)
+			paramsByName["PetID"] = params.PetID
 			return e.EncodeValue(conv.Int64ToString(params.PetID))
 		}); err != nil {
 			return res, errors.Wrap(err, "encode query")
@@ -1596,6 +1638,9 @@ func (c *Client) sendPetGetAvatarByName(ctx context.Context, params PetGetAvatar
 		span.End()
 	}()
 
+	paramsByName := map[string]interface{}{}
+	_ = paramsByName
+
 	stage = "BuildURL"
 	u := uri.Clone(c.requestURL(ctx))
 	var pathParts [3]string
@@ -1608,7 +1653,7 @@ func (c *Client) sendPetGetAvatarByName(ctx context.Context, params PetGetAvatar
 			Explode: false,
 		})
 		if err := func() error {
-			ctx = context.WithValue(ctx, "Name", params.Name)
+			paramsByName["Name"] = params.Name
 			return e.EncodeValue(conv.StringToString(params.Name))
 		}(); err != nil {
 			return res, errors.Wrap(err, "encode path")
@@ -1692,6 +1737,9 @@ func (c *Client) sendPetGetByName(ctx context.Context, params PetGetByNameParams
 		span.End()
 	}()
 
+	paramsByName := map[string]interface{}{}
+	_ = paramsByName
+
 	stage = "BuildURL"
 	u := uri.Clone(c.requestURL(ctx))
 	var pathParts [2]string
@@ -1704,7 +1752,7 @@ func (c *Client) sendPetGetByName(ctx context.Context, params PetGetByNameParams
 			Explode: false,
 		})
 		if err := func() error {
-			ctx = context.WithValue(ctx, "Name", params.Name)
+			paramsByName["Name"] = params.Name
 			return e.EncodeValue(conv.StringToString(params.Name))
 		}(); err != nil {
 			return res, errors.Wrap(err, "encode path")
@@ -1787,6 +1835,9 @@ func (c *Client) sendPetNameByID(ctx context.Context, params PetNameByIDParams) 
 		span.End()
 	}()
 
+	paramsByName := map[string]interface{}{}
+	_ = paramsByName
+
 	stage = "BuildURL"
 	u := uri.Clone(c.requestURL(ctx))
 	var pathParts [2]string
@@ -1799,7 +1850,7 @@ func (c *Client) sendPetNameByID(ctx context.Context, params PetNameByIDParams) 
 			Explode: false,
 		})
 		if err := func() error {
-			ctx = context.WithValue(ctx, "ID", params.ID)
+			paramsByName["ID"] = params.ID
 			return e.EncodeValue(conv.IntToString(params.ID))
 		}(); err != nil {
 			return res, errors.Wrap(err, "encode path")
@@ -1879,6 +1930,9 @@ func (c *Client) sendPetUpdateNameAliasPost(ctx context.Context, request OptPetN
 		span.End()
 	}()
 
+	paramsByName := map[string]interface{}{}
+	_ = paramsByName
+
 	stage = "BuildURL"
 	u := uri.Clone(c.requestURL(ctx))
 	var pathParts [1]string
@@ -1954,6 +2008,9 @@ func (c *Client) sendPetUpdateNamePost(ctx context.Context, request OptString) (
 		}
 		span.End()
 	}()
+
+	paramsByName := map[string]interface{}{}
+	_ = paramsByName
 
 	stage = "BuildURL"
 	u := uri.Clone(c.requestURL(ctx))
@@ -2034,6 +2091,9 @@ func (c *Client) sendPetUploadAvatarByID(ctx context.Context, request PetUploadA
 		span.End()
 	}()
 
+	paramsByName := map[string]interface{}{}
+	_ = paramsByName
+
 	stage = "BuildURL"
 	u := uri.Clone(c.requestURL(ctx))
 	var pathParts [1]string
@@ -2051,7 +2111,7 @@ func (c *Client) sendPetUploadAvatarByID(ctx context.Context, request PetUploadA
 		}
 
 		if err := q.EncodeParam(cfg, func(e uri.Encoder) error {
-			ctx = context.WithValue(ctx, "PetID", params.PetID)
+			paramsByName["PetID"] = params.PetID
 			return e.EncodeValue(conv.Int64ToString(params.PetID))
 		}); err != nil {
 			return res, errors.Wrap(err, "encode query")
@@ -2129,6 +2189,9 @@ func (c *Client) sendRecursiveArrayGet(ctx context.Context) (res RecursiveArray,
 		span.End()
 	}()
 
+	paramsByName := map[string]interface{}{}
+	_ = paramsByName
+
 	stage = "BuildURL"
 	u := uri.Clone(c.requestURL(ctx))
 	var pathParts [1]string
@@ -2201,6 +2264,9 @@ func (c *Client) sendRecursiveMapGet(ctx context.Context) (res *RecursiveMap, er
 		}
 		span.End()
 	}()
+
+	paramsByName := map[string]interface{}{}
+	_ = paramsByName
 
 	stage = "BuildURL"
 	u := uri.Clone(c.requestURL(ctx))
@@ -2276,6 +2342,9 @@ func (c *Client) sendSecurityTest(ctx context.Context) (res string, err error) {
 		span.End()
 	}()
 
+	paramsByName := map[string]interface{}{}
+	_ = paramsByName
+
 	stage = "BuildURL"
 	u := uri.Clone(c.requestURL(ctx))
 	var pathParts [1]string
@@ -2293,7 +2362,7 @@ func (c *Client) sendSecurityTest(ctx context.Context) (res string, err error) {
 		var satisfied bitset
 		{
 			stage = "Security:APIKey"
-			switch err := c.securityAPIKey(ctx, "SecurityTest", r); {
+			switch err := c.securityAPIKey(ctx, "SecurityTest", paramsByName, r); {
 			case err == nil: // if NO error
 				satisfied[0] |= 1 << 0
 			case errors.Is(err, ogenerrors.ErrSkipClientSecurity):
@@ -2382,6 +2451,9 @@ func (c *Client) sendStringIntMapGet(ctx context.Context) (res *StringIntMap, er
 		span.End()
 	}()
 
+	paramsByName := map[string]interface{}{}
+	_ = paramsByName
+
 	stage = "BuildURL"
 	u := uri.Clone(c.requestURL(ctx))
 	var pathParts [1]string
@@ -2455,6 +2527,9 @@ func (c *Client) sendTestFloatValidation(ctx context.Context, request *TestFloat
 		}
 		span.End()
 	}()
+
+	paramsByName := map[string]interface{}{}
+	_ = paramsByName
 
 	stage = "BuildURL"
 	u := uri.Clone(c.requestURL(ctx))
@@ -2533,6 +2608,9 @@ func (c *Client) sendTestInlineOneof(ctx context.Context) (res *TestInlineOneOf,
 		span.End()
 	}()
 
+	paramsByName := map[string]interface{}{}
+	_ = paramsByName
+
 	stage = "BuildURL"
 	u := uri.Clone(c.requestURL(ctx))
 	var pathParts [1]string
@@ -2607,6 +2685,9 @@ func (c *Client) sendTestNullableOneofs(ctx context.Context) (res TestNullableOn
 		span.End()
 	}()
 
+	paramsByName := map[string]interface{}{}
+	_ = paramsByName
+
 	stage = "BuildURL"
 	u := uri.Clone(c.requestURL(ctx))
 	var pathParts [1]string
@@ -2624,7 +2705,7 @@ func (c *Client) sendTestNullableOneofs(ctx context.Context) (res TestNullableOn
 		var satisfied bitset
 		{
 			stage = "Security:APIKey"
-			switch err := c.securityAPIKey(ctx, "TestNullableOneofs", r); {
+			switch err := c.securityAPIKey(ctx, "TestNullableOneofs", paramsByName, r); {
 			case err == nil: // if NO error
 				satisfied[0] |= 1 << 0
 			case errors.Is(err, ogenerrors.ErrSkipClientSecurity):
@@ -2714,6 +2795,9 @@ func (c *Client) sendTestTuple(ctx context.Context) (res *TupleTest, err error) 
 		span.End()
 	}()
 
+	paramsByName := map[string]interface{}{}
+	_ = paramsByName
+
 	stage = "BuildURL"
 	u := uri.Clone(c.requestURL(ctx))
 	var pathParts [1]string
@@ -2788,6 +2872,9 @@ func (c *Client) sendTestTupleNamed(ctx context.Context) (res *TupleNamedTest, e
 		span.End()
 	}()
 
+	paramsByName := map[string]interface{}{}
+	_ = paramsByName
+
 	stage = "BuildURL"
 	u := uri.Clone(c.requestURL(ctx))
 	var pathParts [1]string
@@ -2861,6 +2948,9 @@ func (c *Client) sendTestUniqueItems(ctx context.Context) (res *UniqueItemsTest,
 		}
 		span.End()
 	}()
+
+	paramsByName := map[string]interface{}{}
+	_ = paramsByName
 
 	stage = "BuildURL"
 	u := uri.Clone(c.requestURL(ctx))

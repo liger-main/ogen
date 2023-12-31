@@ -188,6 +188,9 @@ func (c *Client) sendNullableStrings(ctx context.Context, request NilString) (re
 		span.End()
 	}()
 
+	paramsByName := map[string]interface{}{}
+	_ = paramsByName
+
 	stage = "BuildURL"
 	u := uri.Clone(c.requestURL(ctx))
 	var pathParts [1]string
@@ -276,6 +279,9 @@ func (c *Client) sendObjectsWithConflictingArrayProperty(ctx context.Context, re
 		span.End()
 	}()
 
+	paramsByName := map[string]interface{}{}
+	_ = paramsByName
+
 	stage = "BuildURL"
 	u := uri.Clone(c.requestURL(ctx))
 	var pathParts [1]string
@@ -363,6 +369,9 @@ func (c *Client) sendObjectsWithConflictingProperties(ctx context.Context, reque
 		}
 		span.End()
 	}()
+
+	paramsByName := map[string]interface{}{}
+	_ = paramsByName
 
 	stage = "BuildURL"
 	u := uri.Clone(c.requestURL(ctx))
@@ -465,6 +474,9 @@ func (c *Client) sendReferencedAllof(ctx context.Context, request ReferencedAllo
 		}
 		span.End()
 	}()
+
+	paramsByName := map[string]interface{}{}
+	_ = paramsByName
 
 	stage = "BuildURL"
 	u := uri.Clone(c.requestURL(ctx))
@@ -570,6 +582,9 @@ func (c *Client) sendReferencedAllofOptional(ctx context.Context, request Refere
 		span.End()
 	}()
 
+	paramsByName := map[string]interface{}{}
+	_ = paramsByName
+
 	stage = "BuildURL"
 	u := uri.Clone(c.requestURL(ctx))
 	var pathParts [1]string
@@ -667,6 +682,9 @@ func (c *Client) sendSimpleInteger(ctx context.Context, request int) (res *Simpl
 		span.End()
 	}()
 
+	paramsByName := map[string]interface{}{}
+	_ = paramsByName
+
 	stage = "BuildURL"
 	u := uri.Clone(c.requestURL(ctx))
 	var pathParts [1]string
@@ -745,6 +763,9 @@ func (c *Client) sendSimpleObjects(ctx context.Context, request *SimpleObjectsRe
 		}
 		span.End()
 	}()
+
+	paramsByName := map[string]interface{}{}
+	_ = paramsByName
 
 	stage = "BuildURL"
 	u := uri.Clone(c.requestURL(ctx))
@@ -846,6 +867,9 @@ func (c *Client) sendStringsNotype(ctx context.Context, request NilString) (res 
 		}
 		span.End()
 	}()
+
+	paramsByName := map[string]interface{}{}
+	_ = paramsByName
 
 	stage = "BuildURL"
 	u := uri.Clone(c.requestURL(ctx))

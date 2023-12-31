@@ -62,11 +62,11 @@ func (s *Server) securityAPIKey(ctx context.Context, operationName string, req *
 // SecuritySource is provider of security values (tokens, passwords, etc.).
 type SecuritySource interface {
 	// APIKey provides api_key security value.
-	APIKey(ctx context.Context, operationName string, scopes []string) (APIKey, error)
+	APIKey(ctx context.Context, operationName string, scopes []string, paramsByName map[string]interface{}) (APIKey, error)
 }
 
-func (s *Client) securityAPIKey(ctx context.Context, operationName string, req *http.Request) error {
-	t, err := s.sec.APIKey(ctx, operationName, securityScopes[operationName])
+func (s *Client) securityAPIKey(ctx context.Context, operationName string, paramsByName map[string]interface{}, req *http.Request) error {
+	t, err := s.sec.APIKey(ctx, operationName, securityScopes[operationName], paramsByName)
 	if err != nil {
 		return errors.Wrap(err, "security source \"APIKey\"")
 	}

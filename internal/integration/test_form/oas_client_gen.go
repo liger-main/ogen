@@ -151,6 +151,9 @@ func (c *Client) sendOnlyForm(ctx context.Context, request *OnlyFormReq) (res *O
 		span.End()
 	}()
 
+	paramsByName := map[string]interface{}{}
+	_ = paramsByName
+
 	stage = "BuildURL"
 	u := uri.Clone(c.requestURL(ctx))
 	var pathParts [1]string
@@ -227,6 +230,9 @@ func (c *Client) sendOnlyMultipartFile(ctx context.Context, request *OnlyMultipa
 		}
 		span.End()
 	}()
+
+	paramsByName := map[string]interface{}{}
+	_ = paramsByName
 
 	stage = "BuildURL"
 	u := uri.Clone(c.requestURL(ctx))
@@ -305,6 +311,9 @@ func (c *Client) sendOnlyMultipartForm(ctx context.Context, request *OnlyMultipa
 		span.End()
 	}()
 
+	paramsByName := map[string]interface{}{}
+	_ = paramsByName
+
 	stage = "BuildURL"
 	u := uri.Clone(c.requestURL(ctx))
 	var pathParts [1]string
@@ -381,6 +390,9 @@ func (c *Client) sendTestFormURLEncoded(ctx context.Context, request *TestForm) 
 		}
 		span.End()
 	}()
+
+	paramsByName := map[string]interface{}{}
+	_ = paramsByName
 
 	stage = "BuildURL"
 	u := uri.Clone(c.requestURL(ctx))
@@ -459,6 +471,9 @@ func (c *Client) sendTestMultipart(ctx context.Context, request *TestFormMultipa
 		span.End()
 	}()
 
+	paramsByName := map[string]interface{}{}
+	_ = paramsByName
+
 	stage = "BuildURL"
 	u := uri.Clone(c.requestURL(ctx))
 	var pathParts [1]string
@@ -535,6 +550,9 @@ func (c *Client) sendTestMultipartUpload(ctx context.Context, request *TestMulti
 		}
 		span.End()
 	}()
+
+	paramsByName := map[string]interface{}{}
+	_ = paramsByName
 
 	stage = "BuildURL"
 	u := uri.Clone(c.requestURL(ctx))
@@ -613,6 +631,9 @@ func (c *Client) sendTestReuseFormOptionalSchema(ctx context.Context, request Op
 		span.End()
 	}()
 
+	paramsByName := map[string]interface{}{}
+	_ = paramsByName
+
 	stage = "BuildURL"
 	u := uri.Clone(c.requestURL(ctx))
 	var pathParts [1]string
@@ -690,6 +711,9 @@ func (c *Client) sendTestReuseFormSchema(ctx context.Context, request *SharedReq
 		span.End()
 	}()
 
+	paramsByName := map[string]interface{}{}
+	_ = paramsByName
+
 	stage = "BuildURL"
 	u := uri.Clone(c.requestURL(ctx))
 	var pathParts [1]string
@@ -766,6 +790,9 @@ func (c *Client) sendTestShareFormSchema(ctx context.Context, request TestShareF
 		}
 		span.End()
 	}()
+
+	paramsByName := map[string]interface{}{}
+	_ = paramsByName
 
 	stage = "BuildURL"
 	u := uri.Clone(c.requestURL(ctx))
