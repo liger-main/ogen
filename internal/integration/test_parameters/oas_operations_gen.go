@@ -7,7 +7,7 @@ import (
 )
 
 // Operations defines a contract for the operations described by OpenAPI v3 specification.
-type Operations interface {
+type defaultOperations interface {
 	// ComplicatedParameterNameGet implements GET /complicatedParameterName operation.
 	//
 	// GET /complicatedParameterName
@@ -54,4 +54,8 @@ type Operations interface {
 	//
 	// GET /similarNames
 	SimilarNames(ctx context.Context, params SimilarNamesParams) error
+}
+
+type Operations interface {
+	defaultOperations
 }

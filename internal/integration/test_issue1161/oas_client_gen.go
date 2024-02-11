@@ -42,6 +42,7 @@ type Client struct {
 	baseClient
 }
 
+var _ Operations = &Client{}
 var _ Handler = struct {
 	*Client
 }{}
@@ -125,6 +126,9 @@ func (c *Client) sendFooBarBazGet(ctx context.Context) (res string, err error) {
 		span.End()
 	}()
 
+	paramsByName := map[string]interface{}{}
+	_ = paramsByName
+
 	stage = "BuildURL"
 	u := uri.Clone(c.requestURL(ctx))
 	var pathParts [1]string
@@ -142,7 +146,11 @@ func (c *Client) sendFooBarBazGet(ctx context.Context) (res string, err error) {
 	if err != nil {
 		return res, errors.Wrap(err, "do request")
 	}
-	defer resp.Body.Close()
+	defer func() {
+		if err != nil {
+			resp.Body.Close()
+		}
+	}()
 
 	stage = "DecodeResponse"
 	result, err := decodeFooBarBazGetResponse(resp)
@@ -194,6 +202,9 @@ func (c *Client) sendFooBarQuxGet(ctx context.Context) (res string, err error) {
 		span.End()
 	}()
 
+	paramsByName := map[string]interface{}{}
+	_ = paramsByName
+
 	stage = "BuildURL"
 	u := uri.Clone(c.requestURL(ctx))
 	var pathParts [1]string
@@ -211,7 +222,11 @@ func (c *Client) sendFooBarQuxGet(ctx context.Context) (res string, err error) {
 	if err != nil {
 		return res, errors.Wrap(err, "do request")
 	}
-	defer resp.Body.Close()
+	defer func() {
+		if err != nil {
+			resp.Body.Close()
+		}
+	}()
 
 	stage = "DecodeResponse"
 	result, err := decodeFooBarQuxGetResponse(resp)
@@ -263,6 +278,9 @@ func (c *Client) sendFooParamXyzGet(ctx context.Context, params FooParamXyzGetPa
 		span.End()
 	}()
 
+	paramsByName := map[string]interface{}{}
+	_ = paramsByName
+
 	stage = "BuildURL"
 	u := uri.Clone(c.requestURL(ctx))
 	var pathParts [3]string
@@ -275,6 +293,7 @@ func (c *Client) sendFooParamXyzGet(ctx context.Context, params FooParamXyzGetPa
 			Explode: false,
 		})
 		if err := func() error {
+			paramsByName["Param"] = params.Param
 			return e.EncodeValue(conv.StringToString(params.Param))
 		}(); err != nil {
 			return res, errors.Wrap(err, "encode path")
@@ -299,7 +318,11 @@ func (c *Client) sendFooParamXyzGet(ctx context.Context, params FooParamXyzGetPa
 	if err != nil {
 		return res, errors.Wrap(err, "do request")
 	}
-	defer resp.Body.Close()
+	defer func() {
+		if err != nil {
+			resp.Body.Close()
+		}
+	}()
 
 	stage = "DecodeResponse"
 	result, err := decodeFooParamXyzGetResponse(resp)

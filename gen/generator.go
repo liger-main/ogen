@@ -1,6 +1,7 @@
 package gen
 
 import (
+	"fmt"
 	"os"
 	"path/filepath"
 	"strings"
@@ -285,4 +286,31 @@ func (g *Generator) Webhooks() []*ir.Operation {
 // API returns api schema.
 func (g *Generator) API() *openapi.API {
 	return g.api
+}
+
+func (g *Generator) tagToOperations() map[string][]*ir.Operation {
+	res := make(map[string][]*ir.Operation)
+	for _, op := range g.operations {
+		if len(op.Tags) == 0 {
+			tag := formatTagName("")
+			res[tag] = append(res[tag], op)
+		} else {
+			for _, tag := range op.Tags {
+				tagName := formatTagName(tag)
+				res[tagName] = append(res[tagName], op)
+			}
+		}
+	}
+	return res
+}
+
+func formatTagName(tag string) string {
+	if tag == "" {
+		return "default"
+	}
+	name, err := pascalNonEmpty(tag)
+	if err != nil {
+		panic(fmt.Errorf("tag %s: %w", tag, err))
+	}
+	return name
 }

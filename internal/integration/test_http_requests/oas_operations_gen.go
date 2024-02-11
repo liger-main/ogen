@@ -7,7 +7,7 @@ import (
 )
 
 // Operations defines a contract for the operations described by OpenAPI v3 specification.
-type Operations interface {
+type defaultOperations interface {
 	// AllRequestBodies implements allRequestBodies operation.
 	//
 	// POST /allRequestBodies
@@ -32,4 +32,8 @@ type Operations interface {
 	//
 	// POST /streamJSON
 	StreamJSON(ctx context.Context, req []float64) (float64, error)
+}
+
+type Operations interface {
+	defaultOperations
 }

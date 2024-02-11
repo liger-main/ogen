@@ -12,7 +12,7 @@ import (
 )
 
 func encodeFooBarBazGetResponse(response string, w http.ResponseWriter, span trace.Span) error {
-	w.Header().Set("Content-Type", "application/json; charset=utf-8")
+	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(200)
 	span.SetStatus(codes.Ok, http.StatusText(200))
 
@@ -26,7 +26,7 @@ func encodeFooBarBazGetResponse(response string, w http.ResponseWriter, span tra
 }
 
 func encodeFooBarQuxGetResponse(response string, w http.ResponseWriter, span trace.Span) error {
-	w.Header().Set("Content-Type", "application/json; charset=utf-8")
+	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(200)
 	span.SetStatus(codes.Ok, http.StatusText(200))
 
@@ -40,7 +40,7 @@ func encodeFooBarQuxGetResponse(response string, w http.ResponseWriter, span tra
 }
 
 func encodeFooParamXyzGetResponse(response string, w http.ResponseWriter, span trace.Span) error {
-	w.Header().Set("Content-Type", "application/json; charset=utf-8")
+	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(200)
 	span.SetStatus(codes.Ok, http.StatusText(200))
 

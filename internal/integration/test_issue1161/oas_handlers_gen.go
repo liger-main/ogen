@@ -64,6 +64,7 @@ func (s *Server) handleFooBarBazGetRequest(args [0]string, argsEscaped bool, w h
 			OperationID:      "",
 			Body:             nil,
 			Params:           middleware.Parameters{},
+			SecurityScopes:   nil,
 			Raw:              r,
 		}
 
@@ -148,6 +149,7 @@ func (s *Server) handleFooBarQuxGetRequest(args [0]string, argsEscaped bool, w h
 			OperationID:      "",
 			Body:             nil,
 			Params:           middleware.Parameters{},
+			SecurityScopes:   nil,
 			Raw:              r,
 		}
 
@@ -251,7 +253,8 @@ func (s *Server) handleFooParamXyzGetRequest(args [1]string, argsEscaped bool, w
 					In:   "path",
 				}: params.Param,
 			},
-			Raw: r,
+			SecurityScopes: nil,
+			Raw:            r,
 		}
 
 		type (

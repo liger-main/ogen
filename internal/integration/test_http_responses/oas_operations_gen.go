@@ -7,7 +7,7 @@ import (
 )
 
 // Operations defines a contract for the operations described by OpenAPI v3 specification.
-type Operations interface {
+type defaultOperations interface {
 	// AnyContentTypeBinaryStringSchema implements anyContentTypeBinaryStringSchema operation.
 	//
 	// GET /anyContentTypeBinaryStringSchema
@@ -73,4 +73,8 @@ type Operations interface {
 	//
 	// GET /textPlainBinaryStringSchema
 	TextPlainBinaryStringSchema(ctx context.Context) (TextPlainBinaryStringSchemaOK, error)
+}
+
+type Operations interface {
+	defaultOperations
 }

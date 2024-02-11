@@ -7,7 +7,7 @@ import (
 )
 
 // Operations defines a contract for the operations described by OpenAPI v3 specification.
-type Operations interface {
+type defaultOperations interface {
 	// DataCreate implements dataCreate operation.
 	//
 	// Creates data.
@@ -20,4 +20,8 @@ type Operations interface {
 	//
 	// GET /data
 	DataGet(ctx context.Context) (*Data, error)
+}
+
+type Operations interface {
+	defaultOperations
 }

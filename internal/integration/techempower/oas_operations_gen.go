@@ -7,7 +7,7 @@ import (
 )
 
 // Operations defines a contract for the operations described by OpenAPI v3 specification.
-type Operations interface {
+type defaultOperations interface {
 	// Caching implements Caching operation.
 	//
 	// Test #7. The Caching test exercises the preferred in-memory or separate-process caching technology
@@ -51,4 +51,8 @@ type Operations interface {
 	//
 	// GET /updates
 	Updates(ctx context.Context, params UpdatesParams) (WorldObjects, error)
+}
+
+type Operations interface {
+	defaultOperations
 }

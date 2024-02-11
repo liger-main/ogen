@@ -7,9 +7,13 @@ import (
 )
 
 // Operations defines a contract for the operations described by OpenAPI v3 specification.
-type Operations interface {
+type defaultOperations interface {
 	// HealthzGet implements GET /healthz operation.
 	//
 	// GET /healthz
 	HealthzGet(ctx context.Context) (*Person, error)
+}
+
+type Operations interface {
+	defaultOperations
 }

@@ -7,9 +7,13 @@ import (
 )
 
 // Operations defines a contract for the operations described by OpenAPI v3 specification.
-type Operations interface {
+type defaultOperations interface {
 	// FooGet implements GET /foo operation.
 	//
 	// GET /foo
 	FooGet(ctx context.Context) (string, error)
+}
+
+type Operations interface {
+	defaultOperations
 }

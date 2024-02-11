@@ -7,7 +7,7 @@ import (
 )
 
 // Operations defines a contract for the operations described by OpenAPI v3 specification.
-type Operations interface {
+type defaultOperations interface {
 	// NullableStrings implements nullableStrings operation.
 	//
 	// Nullable strings.
@@ -54,4 +54,8 @@ type Operations interface {
 	//
 	// POST /stringsNotype
 	StringsNotype(ctx context.Context, req NilString) error
+}
+
+type Operations interface {
+	defaultOperations
 }

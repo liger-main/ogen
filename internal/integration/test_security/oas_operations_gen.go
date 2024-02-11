@@ -7,7 +7,7 @@ import (
 )
 
 // Operations defines a contract for the operations described by OpenAPI v3 specification.
-type Operations interface {
+type defaultOperations interface {
 	// CustomSecurity implements customSecurity operation.
 	//
 	// GET /customSecurity
@@ -24,4 +24,8 @@ type Operations interface {
 	//
 	// GET /optionalSecurity
 	OptionalSecurity(ctx context.Context) error
+}
+
+type Operations interface {
+	defaultOperations
 }

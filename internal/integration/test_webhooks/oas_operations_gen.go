@@ -7,9 +7,13 @@ import (
 )
 
 // Operations defines a contract for the operations described by OpenAPI v3 specification.
-type Operations interface {
+type defaultOperations interface {
 	// PublishEvent implements publishEvent operation.
 	//
 	// POST /event
 	PublishEvent(ctx context.Context, req OptEvent) (*Event, error)
+}
+
+type Operations interface {
+	defaultOperations
 }

@@ -103,6 +103,7 @@ func (p *parser) parseOp(
 		Description: spec.Description,
 		Deprecated:  spec.Deprecated,
 		HTTPMethod:  httpMethod,
+		Tags:        spec.Tags,
 		Pointer:     locator.Pointer(p.file(ctx)),
 	}
 

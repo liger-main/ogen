@@ -5,13 +5,22 @@
 
 {{- with $ops := $.Operations }}
 // Operations defines a contract for the operations described by OpenAPI v3 specification.
-type Operations interface {
+
+{{- range $tag, $ops := $.TagToOperationNames }}
+type {{ $tag }}Operations interface {
 {{- range $op := $ops }}
-	// {{ $op.Name }} implements {{ $op.PrettyOperationID }} operation.
-	//
-	{{- template "godoc_def" $op.GoDoc }}
-	// {{ upper $op.Spec.HTTPMethod }} {{ $op.Spec.Path }}
-	{{ $op.Name }}(ctx context.Context {{ if $op.Request }}, req {{ $op.Request.GoType }}{{ end }}{{ if $op.Params }}, params {{ $op.Name }}Params {{ end }}) {{ $op.Responses.ResultTuple "" "" }}
+    // {{ $op.Name }} implements {{ $op.PrettyOperationID }} operation.
+    //
+    {{- template "godoc_def" $op.GoDoc }}
+    // {{ upper $op.Spec.HTTPMethod }} {{ $op.Spec.Path }}
+    {{ $op.Name }}(ctx context.Context {{ if $op.Request }}, req {{ $op.Request.GoType }}{{ end }}{{ if $op.Params }}, params {{ $op.Name }}Params {{ end }}) {{ $op.Responses.ResultTuple "" "" }}
+{{- end }}
+}
+{{- end }}
+
+type Operations interface {
+{{  range $tag, $ops := $.TagToOperationNames }}
+    {{ $tag }}Operations
 {{- end }}
 }
 {{- end }}

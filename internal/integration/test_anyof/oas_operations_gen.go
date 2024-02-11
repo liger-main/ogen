@@ -7,7 +7,7 @@ import (
 )
 
 // Operations defines a contract for the operations described by OpenAPI v3 specification.
-type Operations interface {
+type defaultOperations interface {
 	// IntegerNumber implements integerNumber operation.
 	//
 	// GET /integerNumber
@@ -20,4 +20,8 @@ type Operations interface {
 	//
 	// GET /oneUUID
 	OneUUID(ctx context.Context) (*OneUUID, error)
+}
+
+type Operations interface {
+	defaultOperations
 }

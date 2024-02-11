@@ -20,6 +20,8 @@ type Operation struct {
 	Parameters  []*Parameter
 	RequestBody *RequestBody // optional
 
+	Tags []string // optional
+
 	// Security requirements.
 	Security SecurityRequirements
 

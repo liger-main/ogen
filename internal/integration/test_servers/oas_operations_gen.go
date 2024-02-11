@@ -7,11 +7,15 @@ import (
 )
 
 // Operations defines a contract for the operations described by OpenAPI v3 specification.
-type Operations interface {
+type defaultOperations interface {
 	// ProbeLiveness implements probeLiveness operation.
 	//
 	// Liveness probe for kubernetes.
 	//
 	// GET /healthz
 	ProbeLiveness(ctx context.Context) (string, error)
+}
+
+type Operations interface {
+	defaultOperations
 }

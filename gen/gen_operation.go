@@ -31,6 +31,7 @@ func (g *Generator) generateOperation(ctx *genctx, webhookName string, spec *ope
 		Description: spec.Description,
 		Deprecated:  spec.Deprecated,
 		Spec:        spec,
+		Tags:        spec.Tags,
 	}
 
 	vetPathParametersUsed(g.log, op.Spec.Path, spec.Parameters)

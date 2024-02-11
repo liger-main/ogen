@@ -7,7 +7,7 @@ import (
 )
 
 // Operations defines a contract for the operations described by OpenAPI v3 specification.
-type Operations interface {
+type defaultOperations interface {
 	// OnlyForm implements onlyForm operation.
 	//
 	// POST /onlyForm
@@ -44,4 +44,8 @@ type Operations interface {
 	//
 	// POST /testShareFormSchema
 	TestShareFormSchema(ctx context.Context, req TestShareFormSchemaReq) error
+}
+
+type Operations interface {
+	defaultOperations
 }
