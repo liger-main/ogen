@@ -188,7 +188,7 @@ func encode{{ $op.Name }}Response(response {{ $op.Responses.GoType }}, w http.Re
 		{{- else }}
 		writer := w
 		{{- end }}
-		if _, err := io.Copy(writer, {{ $var }}); err != nil {
+		if _, err := io.CopyBuffer(writer, {{ $var }}, getBuffer()); err != nil {
 			return errors.Wrap(err, "write")
 		}
 		{{ template "respond/return" $}}

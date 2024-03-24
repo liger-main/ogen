@@ -21,7 +21,7 @@ func encodeAllRequestBodiesResponse(response AllRequestBodiesOK, w http.Response
 
 	defer response.Close()
 	writer := w
-	if _, err := io.Copy(writer, response); err != nil {
+	if _, err := io.CopyBuffer(writer, response, getBuffer()); err != nil {
 		return errors.Wrap(err, "write")
 	}
 
@@ -36,7 +36,7 @@ func encodeAllRequestBodiesOptionalResponse(response AllRequestBodiesOptionalOK,
 
 	defer response.Close()
 	writer := w
-	if _, err := io.Copy(writer, response); err != nil {
+	if _, err := io.CopyBuffer(writer, response, getBuffer()); err != nil {
 		return errors.Wrap(err, "write")
 	}
 
@@ -52,7 +52,7 @@ func encodeBase64RequestResponse(response Base64RequestOK, w http.ResponseWriter
 	defer response.Close()
 	writer := base64.NewEncoder(base64.StdEncoding, w)
 	defer writer.Close()
-	if _, err := io.Copy(writer, response); err != nil {
+	if _, err := io.CopyBuffer(writer, response, getBuffer()); err != nil {
 		return errors.Wrap(err, "write")
 	}
 

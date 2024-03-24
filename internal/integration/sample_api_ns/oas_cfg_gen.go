@@ -6,6 +6,8 @@ import (
 	"fmt"
 	"math/big"
 	"net/http"
+	"os"
+	"sync"
 
 	"go.opentelemetry.io/otel"
 	"go.opentelemetry.io/otel/metric"
@@ -42,6 +44,16 @@ var (
 	// Allocate option closure once.
 	clientSpanKind = trace.WithSpanKind(trace.SpanKindClient)
 )
+
+var buffs = sync.Pool{
+	New: func() any {
+		return make([]byte, os.Getpagesize())
+	},
+}
+
+func getBuffer() []byte {
+	return buffs.Get().([]byte)
+}
 
 type (
 	optionFunc[C any] func(*C)

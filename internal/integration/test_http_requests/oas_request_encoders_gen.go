@@ -251,7 +251,7 @@ func encodeBase64RequestRequest(
 			}
 		}()
 
-		_, err := io.Copy(writer, req)
+		_, err := io.CopyBuffer(writer, req, getBuffer())
 		req.Close()
 		return err
 	})

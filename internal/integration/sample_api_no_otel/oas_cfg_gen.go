@@ -6,6 +6,8 @@ import (
 	"fmt"
 	"math/big"
 	"net/http"
+	"os"
+	"sync"
 
 	ht "github.com/ogen-go/ogen/http"
 	"github.com/ogen-go/ogen/middleware"
@@ -34,6 +36,16 @@ var ratMap = map[string]*big.Rat{
 		}
 		return r
 	}(),
+}
+
+var buffs = sync.Pool{
+	New: func() any {
+		return make([]byte, os.Getpagesize())
+	},
+}
+
+func getBuffer() []byte {
+	return buffs.Get().([]byte)
 }
 
 type (

@@ -312,7 +312,7 @@ func encodePetGetAvatarByIDResponse(response PetGetAvatarByIDRes, w http.Respons
 
 		defer response.Close()
 		writer := w
-		if _, err := io.Copy(writer, response); err != nil {
+		if _, err := io.CopyBuffer(writer, response, getBuffer()); err != nil {
 			return errors.Wrap(err, "write")
 		}
 
@@ -364,7 +364,7 @@ func encodePetGetAvatarByNameResponse(response PetGetAvatarByNameRes, w http.Res
 
 		defer response.Close()
 		writer := w
-		if _, err := io.Copy(writer, response); err != nil {
+		if _, err := io.CopyBuffer(writer, response, getBuffer()); err != nil {
 			return errors.Wrap(err, "write")
 		}
 
