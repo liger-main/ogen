@@ -48,6 +48,7 @@ type Client struct {
 	baseClient
 }
 
+var _ Operations = &Client{}
 var _ Handler = struct {
 	*Client
 }{}
@@ -133,6 +134,9 @@ func (c *Client) sendCustomSecurity(ctx context.Context) (res *CustomSecurityOK,
 		span.End()
 	}()
 
+	paramsByName := map[string]interface{}{}
+	_ = paramsByName
+
 	stage = "BuildURL"
 	u := uri.Clone(c.requestURL(ctx))
 	var pathParts [1]string
@@ -150,7 +154,7 @@ func (c *Client) sendCustomSecurity(ctx context.Context) (res *CustomSecurityOK,
 		var satisfied bitset
 		{
 			stage = "Security:Custom"
-			switch err := c.securityCustom(ctx, "CustomSecurity", r); {
+			switch err := c.securityCustom(ctx, "CustomSecurity", paramsByName, r); {
 			case err == nil: // if NO error
 				satisfied[0] |= 1 << 0
 			case errors.Is(err, ogenerrors.ErrSkipClientSecurity):
@@ -183,7 +187,11 @@ func (c *Client) sendCustomSecurity(ctx context.Context) (res *CustomSecurityOK,
 	if err != nil {
 		return res, errors.Wrap(err, "do request")
 	}
-	defer resp.Body.Close()
+	defer func() {
+		if err != nil {
+			resp.Body.Close()
+		}
+	}()
 
 	stage = "DecodeResponse"
 	result, err := decodeCustomSecurityResponse(resp)
@@ -236,6 +244,9 @@ func (c *Client) sendDisjointSecurity(ctx context.Context) (res *DisjointSecurit
 		span.End()
 	}()
 
+	paramsByName := map[string]interface{}{}
+	_ = paramsByName
+
 	stage = "BuildURL"
 	u := uri.Clone(c.requestURL(ctx))
 	var pathParts [1]string
@@ -253,7 +264,7 @@ func (c *Client) sendDisjointSecurity(ctx context.Context) (res *DisjointSecurit
 		var satisfied bitset
 		{
 			stage = "Security:BasicAuth"
-			switch err := c.securityBasicAuth(ctx, "DisjointSecurity", r); {
+			switch err := c.securityBasicAuth(ctx, "DisjointSecurity", paramsByName, r); {
 			case err == nil: // if NO error
 				satisfied[0] |= 1 << 0
 			case errors.Is(err, ogenerrors.ErrSkipClientSecurity):
@@ -264,7 +275,7 @@ func (c *Client) sendDisjointSecurity(ctx context.Context) (res *DisjointSecurit
 		}
 		{
 			stage = "Security:QueryKey"
-			switch err := c.securityQueryKey(ctx, "DisjointSecurity", r); {
+			switch err := c.securityQueryKey(ctx, "DisjointSecurity", paramsByName, r); {
 			case err == nil: // if NO error
 				satisfied[0] |= 1 << 1
 			case errors.Is(err, ogenerrors.ErrSkipClientSecurity):
@@ -275,7 +286,7 @@ func (c *Client) sendDisjointSecurity(ctx context.Context) (res *DisjointSecurit
 		}
 		{
 			stage = "Security:CookieKey"
-			switch err := c.securityCookieKey(ctx, "DisjointSecurity", r); {
+			switch err := c.securityCookieKey(ctx, "DisjointSecurity", paramsByName, r); {
 			case err == nil: // if NO error
 				satisfied[0] |= 1 << 2
 			case errors.Is(err, ogenerrors.ErrSkipClientSecurity):
@@ -286,7 +297,7 @@ func (c *Client) sendDisjointSecurity(ctx context.Context) (res *DisjointSecurit
 		}
 		{
 			stage = "Security:HeaderKey"
-			switch err := c.securityHeaderKey(ctx, "DisjointSecurity", r); {
+			switch err := c.securityHeaderKey(ctx, "DisjointSecurity", paramsByName, r); {
 			case err == nil: // if NO error
 				satisfied[0] |= 1 << 3
 			case errors.Is(err, ogenerrors.ErrSkipClientSecurity):
@@ -320,7 +331,11 @@ func (c *Client) sendDisjointSecurity(ctx context.Context) (res *DisjointSecurit
 	if err != nil {
 		return res, errors.Wrap(err, "do request")
 	}
-	defer resp.Body.Close()
+	defer func() {
+		if err != nil {
+			resp.Body.Close()
+		}
+	}()
 
 	stage = "DecodeResponse"
 	result, err := decodeDisjointSecurityResponse(resp)
@@ -373,6 +388,9 @@ func (c *Client) sendIntersectSecurity(ctx context.Context) (res *IntersectSecur
 		span.End()
 	}()
 
+	paramsByName := map[string]interface{}{}
+	_ = paramsByName
+
 	stage = "BuildURL"
 	u := uri.Clone(c.requestURL(ctx))
 	var pathParts [1]string
@@ -390,7 +408,7 @@ func (c *Client) sendIntersectSecurity(ctx context.Context) (res *IntersectSecur
 		var satisfied bitset
 		{
 			stage = "Security:BasicAuth"
-			switch err := c.securityBasicAuth(ctx, "IntersectSecurity", r); {
+			switch err := c.securityBasicAuth(ctx, "IntersectSecurity", paramsByName, r); {
 			case err == nil: // if NO error
 				satisfied[0] |= 1 << 0
 			case errors.Is(err, ogenerrors.ErrSkipClientSecurity):
@@ -401,7 +419,7 @@ func (c *Client) sendIntersectSecurity(ctx context.Context) (res *IntersectSecur
 		}
 		{
 			stage = "Security:HeaderKey"
-			switch err := c.securityHeaderKey(ctx, "IntersectSecurity", r); {
+			switch err := c.securityHeaderKey(ctx, "IntersectSecurity", paramsByName, r); {
 			case err == nil: // if NO error
 				satisfied[0] |= 1 << 1
 			case errors.Is(err, ogenerrors.ErrSkipClientSecurity):
@@ -412,7 +430,7 @@ func (c *Client) sendIntersectSecurity(ctx context.Context) (res *IntersectSecur
 		}
 		{
 			stage = "Security:BearerToken"
-			switch err := c.securityBearerToken(ctx, "IntersectSecurity", r); {
+			switch err := c.securityBearerToken(ctx, "IntersectSecurity", paramsByName, r); {
 			case err == nil: // if NO error
 				satisfied[0] |= 1 << 2
 			case errors.Is(err, ogenerrors.ErrSkipClientSecurity):
@@ -446,7 +464,11 @@ func (c *Client) sendIntersectSecurity(ctx context.Context) (res *IntersectSecur
 	if err != nil {
 		return res, errors.Wrap(err, "do request")
 	}
-	defer resp.Body.Close()
+	defer func() {
+		if err != nil {
+			resp.Body.Close()
+		}
+	}()
 
 	stage = "DecodeResponse"
 	result, err := decodeIntersectSecurityResponse(resp)
@@ -499,6 +521,9 @@ func (c *Client) sendOptionalSecurity(ctx context.Context) (res *OptionalSecurit
 		span.End()
 	}()
 
+	paramsByName := map[string]interface{}{}
+	_ = paramsByName
+
 	stage = "BuildURL"
 	u := uri.Clone(c.requestURL(ctx))
 	var pathParts [1]string
@@ -516,7 +541,7 @@ func (c *Client) sendOptionalSecurity(ctx context.Context) (res *OptionalSecurit
 		var satisfied bitset
 		{
 			stage = "Security:QueryKey"
-			switch err := c.securityQueryKey(ctx, "OptionalSecurity", r); {
+			switch err := c.securityQueryKey(ctx, "OptionalSecurity", paramsByName, r); {
 			case err == nil: // if NO error
 				satisfied[0] |= 1 << 0
 			case errors.Is(err, ogenerrors.ErrSkipClientSecurity):
@@ -550,7 +575,11 @@ func (c *Client) sendOptionalSecurity(ctx context.Context) (res *OptionalSecurit
 	if err != nil {
 		return res, errors.Wrap(err, "do request")
 	}
-	defer resp.Body.Close()
+	defer func() {
+		if err != nil {
+			resp.Body.Close()
+		}
+	}()
 
 	stage = "DecodeResponse"
 	result, err := decodeOptionalSecurityResponse(resp)
